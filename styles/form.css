@@ -1,0 +1,170 @@
+
+/* Option 2: Import via CSS */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+
+
+.form{
+    text-align: center;
+    width: 80%;
+    height: auto;
+    background-color: rgba(30, 0, 0, 0.8);
+    max-width: 500px;
+    overflow: hidden;
+    padding: 10px 40px;
+    padding-top: 50px;
+    border-radius: 20px;
+    padding-bottom: 50px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+
+
+.form h2{
+    margin-bottom: 50px;
+    font-size: 50px;
+    
+}
+
+.form .contenedor-input{
+    position: relative;
+    margin-bottom: 40px;
+    transition: ease 0.3s;
+}
+
+
+.form .contenedor-input input{
+    padding: 10px 10px;
+    width: 70%;
+    background-color: #ffffffce;
+    outline: 0;
+    border-radius: 5px;
+    border: none;
+    
+}
+
+
+.form .contenedor-input input:focus + label,
+.form .contenedor-input input:valid + label
+{
+    color: rgb(255, 0, 0);
+    transform: translateY(-35px);
+    font-size: 13px;
+    
+}
+
+.form .contenedor-input input:focus{
+    
+    border: red solid ;
+    background-color: #ffffff;
+    
+
+}
+
+
+
+
+
+
+
+.form .contenedor-input label{
+    position: absolute;
+    bottom: 7px;
+    left: 70px;
+    pointer-events: none;
+    font-weight: 600;
+    color: #000000;
+    transition: ease 0.3s;
+}
+
+
+
+.btn-submit {
+    background-color: #ffffff;
+    color: #f00000;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: 0.5s ;
+  }
+  
+  .btn-submit:hover {
+    transform: scale(1.1);
+    background-color: #f00000;
+  }
+  
+  .txt-send {
+    position: relative;
+    z-index: 1;
+    opacity: 1; /* establecer la opacidad en cero */
+  }
+  
+  .icon-send {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+  }
+  
+  .btn-submit:hover .icon-send {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  
+  
+  .btn-submit:hover .txt-send {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  
+  
+  .btn-submit:hover{
+    color: white;
+  }
+
+
+
+
+
+  
+
+
+
+
+
+  @media screen and (max-width: 480px) {
+    
+
+  .form {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(30, 0, 0, 0.8);
+    border-radius: 0;
+  }
+
+  .form .contenedor-input input{
+    padding: 10px 10px;
+    width: 100%;
+    background-color: #ffffffce;
+    outline: 0;
+    border-radius: 5px;
+    border: none;
+    
+  }
+
+  .form .contenedor-input label{
+    left: 10px;
+  }
+
+  .form h2{
+    font-size: 40px;
+  }
+
+
+
+  }
