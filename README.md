@@ -1,7 +1,5 @@
 # DeltaTrain
  
-----
-
 ## Bitácora de push's:
 
  - 26/Marzo/2023:
