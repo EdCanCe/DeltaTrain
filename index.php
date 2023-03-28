@@ -36,15 +36,7 @@ session_start();
 
     ?>
 
-
-
-
-
-
     <div class="wrapper" id="wrapper">
-
-
-
 
         <form action="login.php" method="post" class="form" id="form">
             <h2>Iniciar Sesión</h2>
@@ -67,18 +59,22 @@ session_start();
                 <i class="input-line"></i>
             </div>
 
-            
-
+            <button type="submit" class="btn-submit" id="btn-submit">
+                <span class="txt-send">Iniciar sesión</span>
+                <span class="icon-send"><i class="bi bi-person-fill-up"></i></span>
+                <span class="icon-send2"><i class="bi bi-person-check-fill"></i></span>
+            </button>
 
             <div class="contenedor-redirec">
-                <a href="crear_cuenta.html"><span>No tienes cuenta? Crear Cuenta</span></a>
+                <p><br>¿No tienes cuenta? Créala ahora<br><br></p>
             </div>
 
-            <button type="submit" class="btn-submit" id="btn-submit">
-                <span class="txt-send">Registrarse</span>
+            <button class="btn-submit">
+                <a href="createaccount.php"><span class="txt-send">Crear cuenta</span></a>
                 <span class="icon-send"><i class="bi bi-person-plus-fill"></i></span>
                 <span class="icon-send2"><i class="bi bi-person-check-fill"></i></span>
             </button>
+
         </form>
     </div>
 
