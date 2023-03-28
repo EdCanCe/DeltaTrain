@@ -6,6 +6,9 @@
 
 
 
+
+
+
 :root{
     
     --slbar-color1: #050505;
@@ -17,10 +20,17 @@
 }
 
 
+
+
+
+
 body{
     position: relative;
     font-family: 'Poppins', sans-serif;
 }
+
+
+
 
 
 
@@ -29,34 +39,17 @@ body{
     left: 85px;
     width: calc(100% - 85px);
     background-color: black;
-    
-    
     align-items: center;
     display: flex;
-    justify-content: center;
-
-
-
-
-
-
-
-
-    
+    justify-content: center; 
     background-size: cover;
     background-position: center center;
     background-repeat: repeat;
     background: url(../imgs/fondo-rojo.svg);
     align-items: center;
-    
     justify-content: center;
-
     min-height: 100vh;
-
-
 }
-
-
 
 
 
@@ -64,12 +57,16 @@ body{
 
 
 .sidebar{
-    
     width: 85px;
     background-color: var(--slbar-color2);
     height: 100vh;
     position: fixed;
 }
+
+
+
+
+
 
 .sidebar.active{
     
@@ -81,11 +78,14 @@ body{
 
 
 
+
 .btn-togle-content{
     height: 67px;
     background-color: var(--slbar-color1);
     
 }
+
+
 
 
 
@@ -105,11 +105,15 @@ body{
 
 }
 
+
+
+
+
+
 .btn-togle-content .btn-toggle:hover{
     color: var(--slbar-color5);
     transform: scale(1.1);
 }
-
 
 
 
@@ -121,36 +125,46 @@ body{
     margin-bottom: 30px;
 }
 
-.sidebar.active .logo img{
-   
-    
+
+
+
+
+
+.sidebar.active .logo img{ 
     height: 100px;
     transition: ease 0.3s;
-    
-    
 }
 
+
+
+
+
+
 .sidebar.active .logo img:hover{
-   
    transform: scale(1.3);
    cursor: pointer; 
-    
 }
+
+
 
 
 
 
 .sidebar ul{
-
     padding: 20px;
-    
 }
+
+
+
 
 
 
 .sidebar ul li{
     list-style: none;
 }
+
+
+
 
 
 
@@ -176,10 +190,17 @@ body{
 }
 
 
+
+
+
+
 .sidebar ul li a i{
     padding-right: 25px;
     font-size: 24px;
 }
+
+
+
 
 
 
@@ -188,22 +209,26 @@ body{
 }
 
 
+
+
+
+
 .sidebar.active ul li a span{
     display: block;
 }
 
 
 
+
+
+
 .nav-2{
-    
     width: 100%;
     position: absolute;
     bottom: 0;
     background-color: var(--slbar-color3);
-    
-    
-    
 }
+
 
 
 
@@ -221,28 +246,3 @@ body{
 .wrapper.valid{
     filter: hue-rotate(90deg); /* Cambia el tono de la imagen en 90 grados, lo que la convierte en verde */
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

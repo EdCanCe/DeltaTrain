@@ -37,76 +37,113 @@ session_start();
 
     ?>
 
-    <div class="wrapper">
-    <form action="iniciar_sesion.php" method="post" class="form">
-        <h2>Crear Cuenta</h2>
+    <div class="wrapper" id="wrapper">
+        
 
-        <div class="contenedor-input">
-            <input type="text" name="usuario" id="usuario" required>
-            <label for="usuario">
-                <span class="text-input"><i class="bi bi-person-fill"></i> Usuario</span>
-            </label>
-            <i class="input-line"></i>
-        </div>
+        
+        <form action="accountcreator.php" method="post" class="form" id="form">
 
-        <div class="contenedor-input">
-            <input type="password" name="contrasena" id="contrasena" required>
-            <label for="contrasena">
-                <span class="text-input"><i class="bi bi-lock-fill"></i> Contraseña</span>
-            </label>
-            <i class="input-line"></i>
-        </div>
 
-        <div class="contenedor-input">
-            <input type="text" name="nombres" id="nombres" required>
-            <label for="nombres">
-                <span class="text-input">Nombre(s)</span>
-            </label>
-            <i class="input-line"></i>
-        </div>
 
-        <div class="contenedor-input">
-            <input type="text" name="apellidos" id="apellidos" required>
-            <label for="apellidos">
-                <span class="text-input">Apellidos(s)</span>
-            </label>
-            <i class="input-line"></i>
-        </div>
+            <h2>Crear Cuenta</h2>
 
-        <div class="contenedor-input">
-            <input type="date" name="fech-naciento" id="fech-naciento" max="`new Date().toISOString().split('T')[0]`" min="`new Date(new Date().setFullYear(new Date().getFullYear()-15)).toISOString().split('T')[0]`" required>
-            <label for="apellidos">
-                <span class="text-input"><i class="bi bi-calendar-event-fill"></i> Fecha de nacimiento</span>
-            </label>
-            <i class="input-line"></i>
-        </div>
 
-        <div class="contenedor-input contenedor-input-radio">
-            <span class="text-input-genero">Genero</span>
-            <div>
-                <div><span>Masculino</span><input type="radio" name="genero" id=""></div>
-                <div><span>Femenino</span><input type="radio" name="genero" id=""></div>
+
+            <div class="contenedor-input">
+                <input type="text" name="username" id="usuario" required>
+                <label class="label-input" for="username">
+                    <span class="text-input"><i class="bi bi-person-fill"></i> Usuario</span>
+                </label>
+                <i class="input-line"></i>
             </div>
-        </div>
 
-        <div class="contenedor-input">
-            <input type="email" name="correo" id="correo" required>
-            <label for="correo">
-                <span class="text-input"><i class="bi bi-envelope-fill"></i> Correo</span>
-            </label>
-            <i class="input-line"></i>
-        </div>
 
-        <div class="contenedor-redirec">
-            <a href=""><span>Ya tienes cuenta? Inicia Sesión</span></a>
-        </div>
 
-        <button type="submit" class="btn-submit">
-            <span class="txt-send">Registrarse</span>
-            <span class="icon-send"><i class="bi bi-person-plus-fill"></i></span>
-        </button>
-    
-    </form>
+            <div class="contenedor-input">
+                <input type="password" name="password" id="contrasena" required>
+                <label class="label-input" for="password">
+                    <span class="text-input"><i class="bi bi-lock-fill"></i> Contraseña</span>
+                </label>
+                <i class="input-line"></i>
+            </div>
+
+
+
+            <div class="contenedor-input">
+                <input type="text" name="name" id="nombres" required>
+                <label class="label-input" for="name">
+                    <span class="text-input">Nombre(s)</span>
+                </label>
+                <i class="input-line"></i>
+            </div>
+
+
+
+            <div class="contenedor-input">
+                <input type="text" name="lastnames" id="apellidos" required>
+                <label class="label-input" for="lastnames">
+                    <span class="text-input">Apellidos(s)</span>
+                </label>
+                <i class="input-line"></i>
+            </div>
+
+
+
+            <div class="contenedor-input">
+                <input type="date" name="birth" id="fech-naciento" max="`new Date().toISOString().split('T')[0]`" min="`new Date(new Date().setFullYear(new Date().getFullYear()-15)).toISOString().split('T')[0]`" required>
+                <label class="label-input" for="birth">
+                    <span class="text-input"><i class="bi bi-calendar-event-fill"></i> Fecha de nacimiento</span>
+                </label>
+                <i class="input-line"></i>
+            </div>
+
+
+
+            <div class="contenedor-input contenedor-input-radio">
+                <span class="text-input-genero">Sexo</span>
+                <p class="letras-chiquitas">Este dato se pide para poder realizar una calculadora de calorías</p>
+                <div>
+                    <div><span>Hombre</span><input type="radio" name="sexo" id="masculino" value="0"></div>
+                    <div><span>Mujer</span><input type="radio" name="sexo" id="femenino" value="1"></div>
+                </div>
+                
+            </div>
+
+
+
+            <div class="contenedor-input">
+                <input type="email" name="email" id="correo" required>
+                <label  class="label-input" for="email">
+                    <span class="text-input"><i class="bi bi-envelope-fill"></i> Correo</span>
+                </label>
+                <i class="input-line"></i>
+            </div>
+
+
+
+            <button type="submit" class="btn-submit" id="btn-submit">
+                <span class="txt-send">Registrarse</span>
+                <span class="icon-send"><i class="bi bi-person-plus-fill"></i></span>
+                <span class="icon-send2"><i class="bi bi-person-check-fill"></i></span>
+            </button>
+
+
+
+            <div class="contenedor-redirec">
+                <p><br>¿Ya tienes cuenta? Inicia sesión<br></p>
+            </div>
+
+
+
+            <button class="btn-submit">
+                <a href="index.php"><span class="txt-send">Iniciar sesión</span></a>
+                <span class="icon-send"><i class="bi bi-person-fill-up"></i></span>
+                <span class="icon-send2"><i class="bi bi-person-check-fill"></i></span>
+            </button>
+
+
+
+        </form>
     </div>
 
 <script src="scripts/sidebar.js"></script>

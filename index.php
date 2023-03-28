@@ -4,6 +4,8 @@ include("conexion.php");
 session_start();
 ?>
 
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -19,6 +21,8 @@ session_start();
 </head>
 <body>
 
+
+
     <?php
         if(isset($_SESSION["CurrentUserIDSession"])){ #Checa si ya inició sesión
             $CurrentUserID = $_SESSION["CurrentUserIDSession"]; #Recoge el id del usuario
@@ -33,23 +37,31 @@ session_start();
         else{ #Si se usa este es porque aún no se ha iniciado sesión
             echo $navSinCuenta; #En este caso como es el login no, pero para todo lo demás te debe saltar que ocupas crear la sesión primero
         }
-
     ?>
+
+
 
     <div class="wrapper" id="wrapper">
 
+
+
         <form action="login.php" method="post" class="form" id="form">
+
+
+
             <h2>Iniciar Sesión</h2>
 
+
+
             <div class="contenedor-input">
-                
                 <input type="text" name="username" id="usuario" required>
                 <label class="label-input" for="usuario">
                     <span class="text-input"><i class="bi bi-person-fill"></i> Usuario</span>
                 </label>
                 <i class="input-line"></i>
-                
             </div>
+
+
 
             <div class="contenedor-input">
                 <input type="password" name="password" id="contrasena" required>
@@ -59,15 +71,21 @@ session_start();
                 <i class="input-line"></i>
             </div>
 
+
+
             <button type="submit" class="btn-submit" id="btn-submit">
                 <span class="txt-send">Iniciar sesión</span>
                 <span class="icon-send"><i class="bi bi-person-fill-up"></i></span>
                 <span class="icon-send2"><i class="bi bi-person-check-fill"></i></span>
             </button>
 
+
+
             <div class="contenedor-redirec">
-                <p><br>¿No tienes cuenta? Créala ahora<br><br></p>
+                <p><br>¿No tienes cuenta? Créala ahora<br></p>
             </div>
+
+
 
             <button class="btn-submit">
                 <a href="createaccount.php"><span class="txt-send">Crear cuenta</span></a>
@@ -75,9 +93,13 @@ session_start();
                 <span class="icon-send2"><i class="bi bi-person-check-fill"></i></span>
             </button>
 
+
+
         </form>
     </div>
 
+
+    
 <script src="scripts/sidebar.js"></script>
 <script src="scripts/script-form.js"></script>
 

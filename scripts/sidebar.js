@@ -4,6 +4,7 @@ const logo=document.querySelector('.logo');
 const wrapper=document.querySelector('.wrapper');
 
 
+
 btn_toggle.addEventListener("click", () =>{
     sidebar.classList.toggle("active");
     if(sidebar.classList.contains("active")){
@@ -14,6 +15,3 @@ btn_toggle.addEventListener("click", () =>{
     }
     
 })
-
-
-
