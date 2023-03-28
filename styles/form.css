@@ -1,80 +1,235 @@
 
+/* Option 2: Import via CSS */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+
+
+
+
+
+
+:root{
+  --form-colo1: #1e0000cc;
+  --form-colo2: #ffffff;
+  --form-colo3: #f00000;
+  --form-colo4: ;
+  --form-colo5: ;
+}
+
+
+
+
+
 
 .form{
+    margin-top: 50px;
+    margin-bottom: 50px;
     text-align: center;
-    width: 80%;
+    width: 100%;
     height: auto;
-    background-color: rgba(30, 0, 0, 0.8);
+    background-color: var(--form-colo1);
     max-width: 500px;
     overflow: hidden;
     padding: 10px 40px;
     padding-top: 50px;
     border-radius: 20px;
     padding-bottom: 50px;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--form-colo2);
 }
+
+
+
+.form.valid{
+  background-color: #001e00cc;
+}
+
+
 
 .form h2{
     margin-bottom: 50px;
     font-size: 50px;
+    
 }
 
 .form .contenedor-input{
     position: relative;
     margin-bottom: 40px;
     transition: ease 0.3s;
+    margin-left: 20%;
+    margin-right: 20%;
+    
+    
+  }
+
+
+.form .contenedor-input-radio{
+  margin-top: 10px;
+  align-items: center;
 }
+
+.form .contenedor-input-radio span{
+  color: var(--form-colo3);
+  padding: 10px;
+}
+
+.form .contenedor-input-radio div {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  
+}
+
+
+
+
+
+
+.text-input-genero{
+  color: var(--form-colo2) !important;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px !important;
+}
+
+
 
 .form .contenedor-input input{
     padding: 10px 10px;
-    width: 70%;
-    background-color: #ffffffce;
+    width: 100%;
+    background:transparent;
     outline: 0;
     border-radius: 5px;
     border: none;
+    color: transparent;
+    transition: 0.5s ease;
+    z-index: 10;
+    position: relative;
+    
+    
     
 }
+
 
 .form .contenedor-input input:focus + label,
 .form .contenedor-input input:valid + label
 {
-    color: rgb(255, 0, 0);
-    transform: translateY(-40px);
+    color: var(--form-colo3);
+    transform: translateY(-35px);
     font-size: 13px;
+    
     
 }
 
 .form .contenedor-input input:focus{
-    border: red solid ;
-    background-color: #ffffff;
+    
+    
+    color: var(--form-colo2);
+    
+
 }
+
+.form .contenedor-input input:valid{
+  color: var(--form-colo2);
+}
+
+
+
+
+
+
 
 .form .contenedor-input label{
     position: absolute;
     bottom: 7px;
-    left: 70px;
+    left: 10px;
     pointer-events: none;
     font-weight: 600;
-    color: #000000;
-    transition: ease 0.3s;
+    color: var(--form-colo2);
+    transition: ease 0.5s;
 }
 
+
+.form .contenedor-input .label-input.valid{
+  color: rgb(50, 216, 0);
+}
+
+
+
+.form .input-line{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--form-colo3);
+  border-radius: 4px;
+  transition: 0.5s;
+  pointer-events: none;
+  z-index: 9;
+  
+  
+
+
+}
+
+
+.form .contenedor-input input:focus ~ .input-line,
+.form .contenedor-input input:valid ~ .input-line{
+  height: 35px;
+}
+
+
+
+
+.form .contenedor-redirec{
+  margin-bottom: 20px;
+}
+
+.form .contenedor-redirec a{
+  color: var(--form-colo3);
+}
+
+
+
+
+
+
 .btn-submit {
-    background-color: #ffffff;
-    color: #f00000;
-    padding: 12px 24px;
+    background-color: var(--form-colo2);
+    color: var(--form-colo3);
+    padding: 20px 34px;
     border: none;
     border-radius: 50px;
     cursor: pointer;
     position: relative;
     overflow: hidden;
     transition: 0.5s ;
+    font-weight: bold;
+    font-size: 15px;
   }
   
   .btn-submit:hover {
     transform: scale(1.1);
-    background-color: #f00000;
+    background-color: var(--form-colo3);
   }
+
+  /*.btn-submit.form.valid{
+    background-color: rgb(50, 216, 0);
+    color: #ffffff;
+  }*/
+
+  .icon-send2{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+  }
+
+  
+
+  
   
   .txt-send {
     position: relative;
@@ -105,12 +260,43 @@
   
   
   .btn-submit:hover{
-    color: white;
+    color: var(--form-colo2);
   }
 
-  @media screen and (max-width: 480px) {
+
+  .btn-submit.valid .icon-send{
+    opacity: 0;
+  }
+
+
+
+
+  .btn-submit.valid .txt-send{
+    opacity: 0;
+  }
+
+  /*.input-line.valid{
+    background-color: rgb(50, 216, 0);
+  }*/
+
+  .btn-submit.valid .icon-send2{
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+
+
+
+  
+
+
+
+
+
+  @media screen and (max-width: 540px) {
     
+
   .form {
+    margin: 0;
     height: 100%;
     width: 100%;
     background-color: rgba(30, 0, 0, 0.8);
@@ -120,7 +306,7 @@
   .form .contenedor-input input{
     padding: 10px 10px;
     width: 100%;
-    background-color: #ffffffce;
+    
     outline: 0;
     border-radius: 5px;
     border: none;
@@ -135,4 +321,17 @@
     font-size: 40px;
   }
 
-}
+
+  .form .contenedor-input{
+    
+    margin-bottom: 40px;
+    
+    margin-left: 0%;
+    margin-right: 0%;
+    
+    
+  }
+
+
+
+  }
