@@ -36,29 +36,54 @@ session_start();
 
     ?>
 
-    <div class="wrapper">
-        <form action="login.php" method="post" class="form">
+
+
+
+
+
+    <div class="wrapper" id="wrapper">
+
+
+
+
+        <form action="login.php" method="post" class="form" id="form">
             <h2>Iniciar Sesión</h2>
+
             <div class="contenedor-input">
+                
                 <input type="text" name="username" id="usuario" required>
-                <label for="username">
+                <label class="label-input" for="usuario">
                     <span class="text-input"><i class="bi bi-person-fill"></i> Usuario</span>
                 </label>
+                <i class="input-line"></i>
+                
             </div>
+
             <div class="contenedor-input">
                 <input type="password" name="password" id="contrasena" required>
-                <label for="password">
-                    <span class="text-input"><i class="bi bi-lock-fill"></i>Contraseña</span>
+                <label class="label-input" for="contrasena">
+                    <span class="text-input"><i class="bi bi-lock-fill"></i> Contraseña</span>
                 </label>
+                <i class="input-line"></i>
             </div>
-            <button type="submit" class="btn-submit">
-                <span class="txt-send">Enviar</span>
-                <span class="icon-send"><i class="bi bi-send-fill"></i></span>
+
+            
+
+
+            <div class="contenedor-redirec">
+                <a href="crear_cuenta.html"><span>No tienes cuenta? Crear Cuenta</span></a>
+            </div>
+
+            <button type="submit" class="btn-submit" id="btn-submit">
+                <span class="txt-send">Registrarse</span>
+                <span class="icon-send"><i class="bi bi-person-plus-fill"></i></span>
+                <span class="icon-send2"><i class="bi bi-person-check-fill"></i></span>
             </button>
         </form>
     </div>
 
 <script src="scripts/sidebar.js"></script>
+<script src="scripts/script-form.js"></script>
 
 </body>
 </html>
