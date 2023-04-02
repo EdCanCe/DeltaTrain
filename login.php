@@ -1,9 +1,11 @@
 <?php
+include("encriptor.php");
 session_start();
 session_destroy();
 session_start();
 $username=$_POST['username'];
 $password=$_POST['password'];
+$password=encrypt($password);
 include("conexion.php");
 
 
@@ -16,6 +18,10 @@ $result = mysqli_query($conexion, $query);
 if(mysqli_num_rows($result) == 0){ #Checa si hay almenos alguna cuenta que coincidan ambos
 
 
+
+    echo "<script> window.location='/DeltaTrain/aaaa.php'</script>"; #aquí va lo de error
+
+
     
 }
 else{
@@ -26,7 +32,7 @@ else{
         $_SESSION["CurrentUserIDSession"] = $row["ID_User"];
         $_SESSION["CurrentUserAdministratorSession"] = $row["Password_User"];
     }
-    echo "<script> window. location='/DeltaTrain/index.php'</script>";
+    echo "<script>window.location='/DeltaTrain/index.php'</script>";
 
 
 

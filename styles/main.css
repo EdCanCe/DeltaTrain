@@ -26,3 +26,16 @@ h1, h2, h3{
 .letras-chiquitas{
     font-size: 0.7em;
 }
+
+
+
+
+
+
+.a-button{
+    width: fit-content;
+    display: block;
+    text-decoration-line: none;
+    margin-left: auto;
+    margin-right: auto;
+}

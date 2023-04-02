@@ -3,7 +3,7 @@ use DeltaTrain;
 
 create table User(
     ID_User bigint NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    Password_User varchar(25) NOT NULL,
+    Password_User varchar(220) NOT NULL,
     Name_User varchar(25) NOT NULL,
     LastName_User varchar(60),
     Gender_User tinyint NOT NULL,

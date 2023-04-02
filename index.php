@@ -87,11 +87,11 @@ session_start();
 
 
 
-            <button class="btn-submit">
-                <a href="createaccount.php"><span class="txt-send">Crear cuenta</span></a>
+            <a class="btn-submit a-button" href="createaccount.php">
+                <span class="txt-send">Crear cuenta</span>
                 <span class="icon-send"><i class="bi bi-person-plus-fill"></i></span>
                 <span class="icon-send2"><i class="bi bi-person-check-fill"></i></span>
-            </button>
+            </a>
 
 
 
