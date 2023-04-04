@@ -5,159 +5,217 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="styles/sidebar.css">
-    <link rel="stylesheet" href="styles/form.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <!-- Enlazando archivo de estilos normalize-->
+    <link rel="stylesheet" href="../styles/normalize.css">
+    <!-- Enlazando archivo de estilos para la barra lateral -->
+    <link rel="stylesheet" href="../styles/sidebar.css">
+    <!-- Enlazando archivo de estilos para el formulario -->
+    <link rel="stylesheet" href="../styles/form.css">
+    <!-- Enlazando la fuente Material Symbols Outlined de Google -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- Enlazando la fuente Material Symbols Rounded de Google -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- Enlazando la fuente Poppins de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital@0;1&display=swap" rel="stylesheet">
 </head>
+
+
+
 <body>
 
+
+
+    <!-- Barra lateral -->
     <div class="sidebar">
 
-        <div class="btn-togle-content">
-            <div class="btn-toggle">
-                <i class="bi bi-list"></i>
-            </div>
+
+
+        <div class="top">
+
+
+
+          <!-- Logo y nombre de la empresa -->
+          <div class="logo">
+            <img src="../imgs/logo.svg" alt="">
+            <span>DeltaTrain</span>
+          </div>
+          <!-- Botón para abrir/cerrar la barra lateral -->
+          <span class="material-symbols-outlined icon" id="btn-sidebar">keyboard_double_arrow_right</span>
+        
+        
+        
         </div>
 
-        <ul class="nav">
 
-            <li>
-                <div class="logo">
-                    <img src="imgs/logo.svg" alt="">
-                </div>
-            </li>
-            
-            <li>
-                <a href="">
-                    <i class="bi bi-house-fill"></i>
-                    <span>Home</span>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <i class="bi bi-person-circle"></i>
-                    <span>Perfil</span>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <i class="bi bi-card-checklist"></i>
-                    <span>Actividades</span>
-                </a>
-            </li>
+
+        <!-- Información del usuario -->
+        <div class="user">
+          <div>
+            <a href="">
+              <img src="../imgs/defaultpfp.jpg" alt="">
+            </a>
+          </div>
+          <div class="user-data">
+            <p class="username">Drakuzz</p>
+            <p class="user-range">Entrenador</p>
+          </div>
+        </div>
+
+
+
+        <!-- Lista de enlaces de navegación -->
+        <ul>
+
+
+
+          <li>
+            <a href="">
+              <span class="material-symbols-outlined icon">home</span>
+              <span class="nav-item">Home</span>
+            </a>
+            <label for="" class="tooltip">Home</label>
+          </li>
+
+
+
+          <li>
+            <div>
+            <a href="">
+              <span class="material-symbols-outlined icon">fact_check</span>
+              <span class="nav-item">Actividades</span>
+            </a>
+            <label for="" class="tooltip">Actividades</label>
+          </li>
+
+
+
+          <li>
+            <a href="">
+              <span class="material-symbols-rounded icon">contact_support</span>
+              <span class="nav-item">Contacto</span>
+            </a>
+            <label for="" class="tooltip">Contacto</label>
+          </li>
+
+
+
+          <li>
+            <a href="">
+              <span class="material-symbols-rounded icon">settings</span>
+              <span class="nav-item">Ajustes</span>
+            </a>
+            <label for="" class="tooltip">Ajustes</label>
+          </li>
+
+
+
+          <li>
+            <a href="">
+              <span class="material-symbols-rounded icon">tab_close</span>
+              <span class="nav-item">Cerrar Sesión</span>
+            </a>
+            <label for="" class="tooltip">Cerrar Sesión</label>
+          </li>
+
+
+
         </ul>
-
-
-
-        <ul class="nav-2">
-            <li>
-                <a href="">
-                    <i class="bi bi-info-circle-fill"></i>
-                    <span>Contacto</span>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <i class="bi bi-gear-fill"></i>
-                    <span>Opciones</span>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <i class="bi bi-box-arrow-left"></i>
-                    <span>Cerrar Sesión</span>
-                </a>
-            </li>
-        </ul>
-    
-
+        
 
 
     </div>
 
-    
 
 
-    <div class="wrapper" id="wrapper">
-        
-
-        
-        <form action="login.php" method="post" class="form" id="form">
-
-            <h2>Crear Cuenta</h2>
-
-            <div class="contenedor-input">
-                
-                <input type="text" name="usuario" id="usuario" required>
-                <label class="label-input" for="usuario">
-                    <span class="text-input"><i class="bi bi-person-fill"></i> Usuario</span>
-                </label>
-                <i class="input-line"></i>
-                
-            </div>
-
-            <div class="contenedor-input">
-                <input type="password" name="contrasena" id="contrasena" required>
-                <label class="label-input" for="contrasena">
-                    <span class="text-input"><i class="bi bi-lock-fill"></i> Contraseña</span>
-                </label>
-                <i class="input-line"></i>
-            </div>
-
-            <div class="contenedor-input">
-                <input type="text" name="nombres" id="nombres" required>
-                <label class="label-input" for="nombres">
-                    <span class="text-input">Nombre(s)</span>
-                </label>
-                <i class="input-line"></i>
-            </div>
-
-            <div class="contenedor-input">
-                <input type="text" name="apellidos" id="apellidos" required>
-                <label class="label-input" for="apellidos">
-                    <span class="text-input">Apellidos(s)</span>
-                </label>
-                <i class="input-line"></i>
-            </div>
+    <div class="main-content">
 
 
-            <div class="contenedor-input">
-                <input type="date" name="fech-naciento" id="fech-naciento" max="`new Date().toISOString().split('T')[0]`" min="`new Date(new Date().setFullYear(new Date().getFullYear()-15)).toISOString().split('T')[0]`" required>
-                <label class="label-input" for="apellidos">
-                    <span class="text-input"><i class="bi bi-calendar-event-fill"></i> Fecha de nacimiento</span>
-                </label>
-                <i class="input-line"></i>
-            </div>
 
-            <div class="contenedor-input contenedor-input-radio">
-                <span class="text-input-genero">Genero</span>
-                <div>
-                    <div><span>Masculino</span><input type="radio" name="genero" id="masculino" value="masculino"></div>
-                    <div><span>Femenino</span><input type="radio" name="genero" id="femenino" value="femenino"></div>
-                </div>
-                
-            </div>
+      <div class="box">
 
 
-            <div class="contenedor-input">
-                <input type="email" name="correo" id="correo" required>
-                <label  class="label-input" for="correo">
-                    <span class="text-input"><i class="bi bi-envelope-fill"></i> Correo</span>
-                </label>
-                <i class="input-line"></i>
-            </div>
+
+        <form action="accountcreator.php" method="post" class="form">
 
 
-            <div class="contenedor-redirec">
-                <a href="index.php"><span>Ya tienes cuenta? Inicia Sesión</span></a>
-            </div>
 
-            <button type="submit" class="btn-submit" id="btn-submit">
-                <span class="txt-send">Registrarse</span>
-                <span class="icon-send"><i class="bi bi-person-plus-fill"></i></span>
-                <span class="icon-send2"><i class="bi bi-person-check-fill"></i></span>
-            </button>
-               
+          <!--Titulo del formulario-->
+          <h2>Crear Cuenta</h2>
+
+
+
+          <!--Campo para ingresar el nombre de usuario-->
+          <div class="input-container">
+            <input type="text" name="username" id="username" required>
+            <span class="placeholder-input"><span class="material-symbols-outlined icon">person</span> Usuario</span>
+            <i class="input-line"></i>
+            <span class="message"></span>
+          </div>
+
+
+
+          <!--Campo para ingresar la contraseña del usuario-->
+          <div class="input-container">
+            <input type="password" name="password" id="password" required>
+            <span class="placeholder-input"><span class="material-symbols-outlined icon">lock</span> Contraseña</span>
+            <i class="input-line"></i>
+            <span class="message"></span>
+          </div>
+
+
+
+          <!--Campo para ingresar los nombres del usuario-->
+          <div class="input-container">
+            <input type="text" name="name" id="name" required>
+            <span class="placeholder-input">Nombre(s)</span>
+            <i class="input-line"></i>
+            <span class="message"></span>
+          </div>
+
+
+
+          <!--Campo para ingresar los apellidos del usuario-->
+          <div class="input-container">
+            <input type="text" name="lastnames" id="lastnames" required>
+            <span class="placeholder-input">Apellido(s)</span>
+            <i class="input-line"></i>
+            <span class="message"></span>
+          </div>
+
+          
+
+          <!--Campo para ingresar la fecha de nacimiento del usuario-->
+          <div class="input-container">
+            <input type="date" name="birth" id="birth" required>
+            <span class="placeholder-input"><span class="material-symbols-outlined icon">event</span> Fecha de Nacimiento</span>
+            <i class="input-line"></i>
+            <span class="message"></span>
+          </div>
+
+
+
+          <!--Campo para ingresar el correo del usuario-->
+          <div class="input-container">
+            <input type="text" name="email" id="email" required>
+            <span class="placeholder-input"><span class="material-symbols-outlined">mail</span> Correo</span>
+            <i class="input-line"></i>
+            <span class="message"></span>
+          </div>
+
+
+          
+          <!--Link para redireccionar a el inicio de sesión-->
+          <div class="links-container">
+            <a href="">Ya tienes ciuenta? Inicia Sesión</a>
+          </div>
+
+
+
+          <!--Boton para enviar formulario-->
+          <button type="submit" class="btn-submit">Enviar</button>
 
 
 
@@ -165,18 +223,23 @@
 
 
 
+      </div>
+
 
 
     </div>
-
-
-    
-
-
-
-<script src="scripts/sidebar.js"></script>
-<script src="scripts/script-form.js"></script>
+      
 
     
 </body>
+
+
+
+<!--Enlazando archivo JavaScript de la sidebar-->
+<script src="../scripts/sidebar.js"></script>
+<!--Enlazando archivo JavaScript de el formulario-->
+<script src="../scripts/script-form.js"></script>
+
+
+
 </html>
