@@ -2,247 +2,272 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-}
-
-
-
-
-
-
-:root{
-    
-    --slbar-color1: #050505;
-    --slbar-color2: #000000;
-    --slbar-color3: #050505;
-    --slbar-color4: #fff;
-    --slbar-color5: #f00000;
-    --slbar-color6: #220000;
-}
-
-
-
-
-
-
-body{
-    position: relative;
     font-family: 'Poppins', sans-serif;
-}
-
-
-
-
-
-
-.wrapper{
-    position: relative;
-    left: 85px;
-    width: calc(100% - 85px);
-    background-color: black;
-    align-items: center;
-    display: flex;
-    justify-content: center; 
-    background-size: cover;
-    background-position: center center;
-    background-repeat: repeat;
-    background: url(../imgs/fondo-rojo.svg);
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-}
-
-
-
-
-
-
-.sidebar{
-    width: 85px;
-    background-color: var(--slbar-color2);
-    height: 100vh;
+  }
+  
+  
+  
+  :root{
+    --form-colo1: #1e0000cc;
+    --form-colo2: #c6b9d4;
+    --form-colo3: #c70000;
+    --form-colo4: #c70000;
+    --form-colo5: #140b0b;
+    --form-colo6: #dcd2c8;
+  }
+  
+  
+  
+  .sidebar{
+    position: absolute;
+    background-color: var(--form-colo5);
+    width: 90px;
+    height: 100%;
+    transition: all 0.5s ease;
     position: fixed;
-}
-
-
-
-
-
-
-.sidebar.active{
-    
-    width: 240px;
-    
-}
-
-
-
-
-
-
-.btn-togle-content{
-    height: 67px;
-    background-color: var(--slbar-color1);
-    
-}
-
-
-
-
-
-
-.btn-togle-content .btn-toggle{
-    position: absolute;
-    color: var(--slbar-color4);
-    right: 17px;
-    top: 7px;
-    font-size: 26px;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    z-index: 9;
+  }
+  
+  
+  
+  .sidebar.active{
+    width: 250px;
+  }
+  
+  
+  
+  .sidebar #btn-sidebar{
     cursor: pointer;
-
-}
-
-
-
-
-
-
-.btn-togle-content .btn-toggle:hover{
-    color: var(--slbar-color5);
-    transform: scale(1.1);
-}
-
-
-
-
-
-
-.sidebar.active .logo{
-    justify-content: center;
-    margin-bottom: 30px;
-}
-
-
-
-
-
-
-.sidebar.active .logo img{ 
-    height: 100px;
-    transition: ease 0.3s;
-}
-
-
-
-
-
-
-.sidebar.active .logo img:hover{
-   transform: scale(1.3);
-   cursor: pointer; 
-}
-
-
-
-
-
-
-.sidebar ul{
-    padding: 20px;
-}
-
-
-
-
-
-
-.sidebar ul li{
-    list-style: none;
-}
-
-
-
-
-
-
-.sidebar ul li a{
-    color: var(--slbar-color4);
-    text-decoration: none;
-    display: flex;
-    font-size: 14px;
-    align-items: center;
-    padding: 10px;
-
-}
-
-
-
-
-
-
-.sidebar ul a:hover{
-    background-color: var(--slbar-color6);
-    color: var(--slbar-color5);
-    border-radius: 5px;
-}
-
-
-
-
-
-
-.sidebar ul li a i{
-    padding-right: 25px;
-    font-size: 24px;
-}
-
-
-
-
-
-
-.sidebar ul li a span{
-    display: none;
-}
-
-
-
-
-
-
-.sidebar.active ul li a span{
-    display: block;
-}
-
-
-
-
-
-
-.nav-2{
-    width: 100%;
+    color: var(--form-colo2);
     position: absolute;
-    bottom: 0;
-    background-color: var(--slbar-color3);
-}
-
-
-
-
-
-
-.nav-2 span, .nav-2 i{
-    color: var(--slbar-color4);
-}
-
-
-
-
-
-
-.wrapper.valid{
-    filter: hue-rotate(90deg); /* Cambia el tono de la imagen en 90 grados, lo que la convierte en verde */
-}
+    top: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 40px;
+  }
+  
+  
+  
+  .sidebar #btn-sidebar:hover{
+    color: var(--form-colo4);
+    font-weight: 1000;
+  }
+  
+  
+  
+  .sidebar.active #btn-sidebar{
+    left: 90%;
+    color: #f00000;
+  }
+  
+  
+  
+  .sidebar.active .logo{
+    opacity: 1;
+  }
+  
+  
+  
+  .logo{
+    display: flex;
+    background-color: rgb(0, 0, 0);
+    align-items: center;
+    justify-content: center;
+    color: var(--form-colo2);
+    height: 100px;
+    padding-right: 50px;
+  }
+  
+  
+  
+  .logo span{
+    font-size: 20px;
+    opacity: 0;
+  }
+  
+  
+  
+  .logo img{
+    height: 50px;
+    opacity: 0;
+  }
+  
+  
+  
+  .sidebar.active .logo span{
+    opacity: 1;
+  }
+  
+  
+  
+  .sidebar.active .logo img{
+    opacity: 1;
+  }
+  
+  
+  
+  .user{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  
+  
+  
+  .sidebar.active .user{
+    display: flex;
+  }
+  
+  
+  
+  .user .user-data{
+    margin-left: 20px;
+  }
+  
+  
+  
+  .user p{
+    color: var(--form-colo2);
+    display: none;
+    font-size: 20px;
+  }
+  
+  
+  
+  .sidebar.active .user p{
+    display: flex;
+  }
+  
+  
+  
+  .user div img{
+    height: 50px;
+    border-radius: 100%;
+    border: solid var(--form-colo4) 1px;
+    transition: ease 0.3s;
+    cursor: pointer;
+  }
+  
+  
+  
+  .user img:hover{
+    transform: scale(1.1);
+  }
+  
+  
+  
+  .sidebar ul{
+    padding: 10px;
+    text-decoration: none;
+  }
+  
+  
+  
+  .sidebar ul li{
+    position: relative;
+    list-style-type: none;
+    height: 50px;
+    width: 90%;
+    margin: 1rem auto;
+    line-height: 50px;
+  }
+  
+  
+  
+  .sidebar ul li a{
+    margin: 0;
+    color: var(--form-colo2);
+    display: flex;
+    text-decoration: none;
+    border-radius: 0.8rem;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  
+  .sidebar.active ul li a{
+    width: 100%;
+    justify-content: start;
+    padding-left: 20px;
+  }
+  
+  
+  
+  .sidebar ul li a:hover{
+    background-color: var(--form-colo4);
+    color: black;
+    box-shadow: var(--form-colo4) 0px 0px 15px 3px;
+  }
+  
+  
+  
+  .sidebar ul li a .icon{
+    font-size: 35px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  
+  
+  .sidebar.active ul li a .icon{
+    margin-right: 10px;
+  }
+  
+  
+  
+  .sidebar .nav-item{
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
+  
+  .sidebar.active .nav-item{
+    display: flex;
+  }
+  
+  
+  
+  .sidebar ul li .tooltip{
+    position: absolute;
+    top: 50%;
+    left: 125px;
+    transform: translate(-50%, -50%);
+    background-color: var(--form-colo6);
+    padding: 3px 15px;
+    border-radius: 10px;
+    display: none;
+  }
+  
+  
+  
+  .sidebar ul li:hover .tooltip{
+    display: block;
+  }
+  
+  
+  
+  .sidebar.active ul li .tooltip{
+    display: none;
+  }
+  
+  
+  
+  .main-content{
+    position: absolute;
+    left: 90px;
+    width: calc(100% - 90px);
+  }
+  
+  
+  
+  .sidebar.active ~ .main-content{
+    left: 250px;
+    width: calc(100% - 250px);
+  }
+  
+  
+  
