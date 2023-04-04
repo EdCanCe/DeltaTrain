@@ -18,6 +18,7 @@
   
   
   
+  /*Estilos de la sidebar*/
   .sidebar{
     position: absolute;
     background-color: var(--form-colo5);
@@ -29,13 +30,15 @@
   }
   
   
-  
+
+  /*Estilos de la sidebar cuando se despliega*/
   .sidebar.active{
     width: 250px;
   }
   
   
   
+  /*Estilos del boton para desplegar la sidebar*/
   .sidebar #btn-sidebar{
     cursor: pointer;
     color: var(--form-colo2);
@@ -62,12 +65,7 @@
   
   
   
-  .sidebar.active .logo{
-    opacity: 1;
-  }
-  
-  
-  
+  /*Estilos del contenedor del logo en la sidebar*/
   .logo{
     display: flex;
     background-color: rgb(0, 0, 0);
@@ -76,6 +74,12 @@
     color: var(--form-colo2);
     height: 100px;
     padding-right: 50px;
+  }
+
+
+
+  .sidebar.active .logo{
+    opacity: 1;
   }
   
   
@@ -105,7 +109,7 @@
   }
   
   
-  
+  /*Estilos del contenedor del usuario*/
   .user{
     text-align: center;
     align-items: center;
@@ -127,7 +131,7 @@
   
   
   
-  .user p{
+  .user-data p{
     color: var(--form-colo2);
     display: none;
     font-size: 20px;
@@ -156,7 +160,7 @@
   }
   
   
-  
+  /*Estilos de la lista de secciones sidebar*/
   .sidebar ul{
     padding: 10px;
     text-decoration: none;
@@ -255,7 +259,7 @@
   }
   
   
-  
+  /*Estilos del contenido principal de la pagina*/
   .main-content{
     position: absolute;
     left: 90px;
