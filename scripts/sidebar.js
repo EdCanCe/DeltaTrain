@@ -1,17 +1,19 @@
-const btn_toggle=document.querySelector('.btn-toggle');
-const sidebar=document.querySelector('.sidebar');
-const logo=document.querySelector('.logo');
-const wrapper=document.querySelector('.wrapper');
+const btn=document.querySelector("#btn-sidebar");
+  const sidebar=document.querySelector(".sidebar");
 
+  let sidebarActive=false;
 
-
-btn_toggle.addEventListener("click", () =>{
-    sidebar.classList.toggle("active");
-    if(sidebar.classList.contains("active")){
-        logo.setAttribute("style", "display:flex;");
-        wrapper.setAttribute("style", "left:240px;width:calc(100% - 240px);"); //recordarle a pablo que es th no ht
-    } else{
-        wrapper.setAttribute("style", "left:85px;width:calc(100% - 85px)");
+  btn.addEventListener('click', ()=>{
+    if(sidebarActive){
+      sidebar.classList.remove("active");
+      btn.classList.add("bi-chevron-double-right");
+      btn.classList.remove("bi-chevron-double-left");
+      sidebarActive=false;
+    }else{
+      sidebar.classList.add("active");
+      btn.classList.add("bi-chevron-double-left");
+      btn.classList.remove("bi-chevron-double-right");
+      sidebarActive=true;
     }
     
-})
+  });
