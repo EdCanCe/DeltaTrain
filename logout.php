@@ -3,6 +3,4 @@
 session_start();
 session_destroy();
 
-?>
-
-<script> history.back(); </script>
+echo "<script>window.location='/DeltaTrain/index.php'</script>";

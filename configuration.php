@@ -12,7 +12,7 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DeltaTrain</title>
+    <title>DeltaTrain | Configuración de cuenta</title>
     <link rel="stylesheet" href="styles/main.css">
     <!-- Enlazando archivo de estilos normalize-->
     <link rel="stylesheet" href="styles/normalize.css">
@@ -35,18 +35,15 @@ session_start();
 </head>
 <body>
 
-    
+
 
     <?php
         echo $alertas;
-        echo "<script src='scripts/alert.js'></script>";
-
         if(isset($_SESSION["CurrentUserIDSession"])){ #Checa si ya inició sesión
             $CurrentUserID = $_SESSION["CurrentUserIDSession"]; #Recoge el id del usuario
             $CurrentUserAdministrator = $_SESSION["CurrentUserAdministratorSession"]; #Recoge sobre si el usuario es administrador o no
             if($CurrentUserAdministrator == '0'){ #Es 0 en caso de ser un usuario normal
-                echo $navConCuenta;
-                echo "<script> window. location='/DeltaTrain/feed.php'</script>"; #Como ya tienes sesión y no deberías de iniciarla te manda a tu feed directamente
+                echo $navConCuenta; #Este llama a variablesGlobales para generar el nav rápidamente
             }
             else{ #Si se usa este es porque el usuario es admin
                 echo $navConAdmin;
@@ -55,17 +52,7 @@ session_start();
         else{ #Si se usa este es porque aún no se ha iniciado sesión
             echo $navSinCuenta; #En este caso como es el login no, pero para todo lo demás te debe saltar que ocupas crear la sesión primero
         }
-
-
-
-        if(!isset($_SESSION["ErrorHeader"])) $_SESSION["ErrorHeader"] = "";
-        if(!isset($_SESSION["ErrorText"])) $_SESSION["ErrorText"] = "";
-        if($_SESSION["ErrorHeader"] != ""){
-            makeAlert($_SESSION["ErrorHeader"], $_SESSION["ErrorText"]);
-            $_SESSION["ErrorHeader"] = "";
-            $_SESSION["ErrorText"] = "";
-        }
-    ?>
+    ?> 
 
 
 
@@ -77,48 +64,11 @@ session_start();
 
 
 
-            <form action="login.php" method="post" class="form" id="form">
 
 
 
-                <!--Titulo del formulario-->
-                <h2>Iniciar Sesión</h2>
 
 
-
-                <!--Campo para ingresar el nombre de usuario-->
-                <div class="input-container">
-                    <input type="text" name="username" id="username" required>
-                    <span class="placeholder-input"><span class="material-symbols-outlined">person</span>&nbsp;Nombre de Usuario</span>
-                    <i class="input-line"></i>
-                    <span class="message"></span>
-                </div>
-
-
-
-                <!--Campo para ingresar la contraseña del usuario-->
-                <div class="input-container">
-                    <input type="password" name="password" id="password" required>
-                    <span class="placeholder-input"><span class="material-symbols-outlined icon">lock</span>&nbsp;Contraseña</span>
-                    <i class="input-line"></i>
-                    <span class="message"></span>
-                </div>
-
-
-
-                <!--Link para redireccionar a el inicio de sesión-->
-                <div class="links-container">
-                    <a href="createaccount.php">¿No tienes cuenta? Créala ahora</a>
-                </div>
-
-
-
-                <!--Boton para enviar formulario-->
-                <button type="submit" class="btn-submit">Iniciar sesión</button> 
-
-
-
-            </form>
         </div>
     </div>
     
@@ -127,6 +77,7 @@ session_start();
     
 <script src="scripts/sidebar.js"></script>
 <script src="scripts/script-form.js"></script>
+<script src="scripts/alert.js"></script>
 
 </body>
 </html>

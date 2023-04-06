@@ -19,7 +19,9 @@ if(mysqli_num_rows($result) == 0){ #Checa si hay almenos alguna cuenta que coinc
 
 
 
-    echo "<script> window.location='/DeltaTrain/aaaa.php'</script>"; #aquí va lo de error
+    $_SESSION["ErrorHeader"] = "NO SE PUDO INICIAR SESIÓN";
+    $_SESSION["ErrorText"] = "La cuenta que usted solició no existe o no coincide con su respectiva contraseña";
+    echo "<script>window.location='/DeltaTrain/index.php'</script>";
 
 
     
@@ -30,13 +32,10 @@ else{
 
     while($row=mysqli_fetch_assoc($result)) {
         $_SESSION["CurrentUserIDSession"] = $row["ID_User"];
-        $_SESSION["CurrentUserAdministratorSession"] = $row["Password_User"];
+        $_SESSION["CurrentUserAdministratorSession"] = $row["Administrator_User"];
     }
     echo "<script>window.location='/DeltaTrain/index.php'</script>";
 
 
 
 }
-
-mysqli_free_result($query);
-mysqli_close($conexion);
