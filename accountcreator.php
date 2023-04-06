@@ -45,7 +45,7 @@ else{
 
 
 
-    echo "<script> window.location='/DeltaTrain/index.php'</script>"; #aquí va lo de error
+    echo "<script> history.back(); </script>"; #aquí va lo de error
 
 
 
