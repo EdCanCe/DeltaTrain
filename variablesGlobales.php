@@ -305,7 +305,9 @@ $alertas='
     <div class="alert-body">
         <h1 id="AlertHeader">Título</h1>
         <p id="AlertBody">Este mensaje significa que no se pudo iniciar sesión</p>
-        <button onclick="dissapearAlert()">Cerrar</button>
+        <div>
+            <button onclick="dissapearAlert()">Cerrar</button>
+        </div>
     </div>
 </div>
 ';
