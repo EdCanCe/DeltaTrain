@@ -37,7 +37,7 @@ session_start();
 
 
 
-<?php
+    <?php
         echo $alertas;
         echo "<script src='scripts/alert.js'></script>";
 
@@ -89,7 +89,6 @@ session_start();
     
 <script src="scripts/sidebar.js"></script>
 <script src="scripts/script-form.js"></script>
-<script src="scripts/alert.js"></script>
 
 </body>
 </html>

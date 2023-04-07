@@ -1,5 +1,8 @@
 <?php
 include("conexion.php");
+session_start();
+session_destroy();
+session_start();
 include("encriptor.php");
 $username=$_POST['username'];
 $password=$_POST['password'];
@@ -28,7 +31,7 @@ if(mysqli_num_rows($result) == 0){ #Checa si hay almenos alguna cuenta que coinc
     $result = mysqli_query($conexion, $insert);
     if($result){
         session_start();
-        $query2="SELECT * FROM User where Username_User='$username' and Password_User='$password'";
+        $query2="SELECT * FROM User where Username_User='$username' or Mail_User='$email'";
         $result = mysqli_query($conexion, $query2);
         while($row=mysqli_fetch_assoc($result)) {
             $_SESSION["CurrentUserIDSession"] = $row["ID_User"];
@@ -45,7 +48,9 @@ else{
 
 
 
-    echo "<script> history.back(); </script>"; #aquí va lo de error
+    $_SESSION["ErrorHeader"] = "NO SE PUDO CREAR LA CUENTA";
+    $_SESSION["ErrorText"] = "Ya existe una cuenta con el mismo nombre de usuario o correo asociados";
+    echo "<script> window.location='/DeltaTrain/createaccount.php'</script>"; 
 
 
 

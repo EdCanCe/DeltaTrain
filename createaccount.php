@@ -33,7 +33,7 @@ session_start();
 </head>
 <body>
 
-<?php
+    <?php
         echo $alertas;
         echo "<script src='scripts/alert.js'></script>";
 
@@ -123,7 +123,7 @@ session_start();
                 <!--Campo para ingresar la fecha de nacimiento del usuario-->
                 <div class="input-container">
                     <input type="date" name="birth" id="birth" required>
-                    <span class="placeholder-input"><span class="material-symbols-outlined icon">event</span> Fecha de Nacimiento</span>
+                    <span class="placeholder-input"><span class="material-symbols-outlined icon">event</span>&nbsp;Fecha de Nacimiento</span>
                     <i class="input-line"></i>
                     <span class="message"></span>
                 </div>
@@ -145,7 +145,27 @@ session_start();
                 <!--Campo para ingresar el correo del usuario-->
                 <div class="input-container">
                     <input type="text" name="email" id="email" required>
-                    <span class="placeholder-input"><span class="material-symbols-outlined">mail</span> Correo</span>
+                    <span class="placeholder-input"><span class="material-symbols-outlined">mail</span>&nbsp;Correo</span>
+                    <i class="input-line"></i>
+                    <span class="message"></span>
+                </div>
+
+
+
+                <!--Campo para ingresar la foto de perfil del usuario-->
+                <div class="input-container">
+                    <input type="file" name="pfp" id="pfp">
+                    <span class="placeholder-input"><span class="material-symbols-outlined">photo_camera</span>&nbsp;Foto de perfil</span>
+                    <i class="input-line"></i>
+                    <span class="message"></span>
+                </div>
+
+
+
+                <!--Campo para ingresar el banner del usuario-->
+                <div class="input-container">
+                    <input type="file" name="banner" id="banner">
+                    <span class="placeholder-input"><span class="material-symbols-outlined">landscape</span>&nbsp;Banner de perfil</span>
                     <i class="input-line"></i>
                     <span class="message"></span>
                 </div>
@@ -169,7 +189,6 @@ session_start();
     </div>
 
 <script src="scripts/sidebar.js"></script>
-<script src="scripts/alert.js"></script>
 
 </body>
 </html>

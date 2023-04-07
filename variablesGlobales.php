@@ -325,3 +325,5 @@ $alertas='
 function makeAlert($header, $body){
     echo "<script>appearAlert('".$header."', '".$body."')</script>";
 }
+
+function validateChar()
