@@ -32,6 +32,7 @@
 
 .profile-banner-container img{
     max-width: 100%;
+    width: 100%;
 }
 
 
@@ -41,7 +42,7 @@
     background-color: transparent;
     width: 150px;
     transform: translate(40px, -80px);
-
+    
 }
 
 
@@ -50,6 +51,8 @@
 .profile-user-img-container img{
     border-radius: 100%;
     max-width: 100%;
+    border: 3px double black;
+    box-shadow: 0px 0px 30px black;
 }
 
 
