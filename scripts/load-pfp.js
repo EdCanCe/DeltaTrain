@@ -1,3 +1,3 @@
-function loadpfp(rawdata){
-    document.getElementById("RealUserIcon").style.backgroundImage=rawdata;
+function loadpfp(rawdata, backgroundId){
+    document.getElementById(backgroundId).style.backgroundImage=rawdata;
 }

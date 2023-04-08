@@ -12,7 +12,7 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DeltaTrain | Configuración de cuenta</title>
+    <title>DeltaTrain | Perfil</title>
     <link rel="stylesheet" href="styles/main.css">
     <!-- Enlazando archivo de estilos normalize-->
     <link rel="stylesheet" href="styles/normalize.css">
@@ -22,6 +22,8 @@ session_start();
     <link rel="stylesheet" href="styles/form.css">
     <!-- Enlazando archivo de estilos para las alertas -->
     <link rel="stylesheet" href="styles/alerts.css">
+    <!-- Enlazando archivo de estilos para el perfil -->
+    <link rel="stylesheet" href="styles/profile.css">
     <!-- Enlazando la fuente Material Symbols Outlined de Google -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- Enlazando la fuente Material Symbols Rounded de Google -->
@@ -79,31 +81,129 @@ session_start();
             $_SESSION["ErrorHeader"] = "";
             $_SESSION["ErrorText"] = "";
         }
-    ?>
+    ?>    
 
 
 
+    <!-- Contenido principal de la pagina -->
     <div class="main-content">
 
 
 
-        <div class="box">
+        <!-- Perfil de usuario contenedor principal -->
+        <div class="profile-body">
 
 
 
+            <!-- Banner del perfil -->
+            <div class="profile-banner-container">
+                <img src="imgs/banner.jpg" alt="">
+            </div>
+
+
+            <!-- Foto del perfil -->
+            <div class="profile-user-img-container">
+                <img src="imgs/defaultpfp2.jpg" alt="">
+            </div>
 
 
 
+            <!-- Datos del perfil del usuario -->
+            <div class="user-dates-container">
 
+                <div>
+                    <span class="username">Usuario</span>
+                    <span class="name">Nombres</span>
+                </div>
+                
+                <span class="user-description">Descripción del usuario</span>
+
+            </div>
+
+
+
+            <!-- Barra de navegación del perfil -->
+            <div class="profile-sections-container">
+
+                <div class="profile-section">
+                    <a href="">
+                    <span>Publicaciones</span>
+                    <i></i>
+                    </a>
+                </div>
+
+                <div class="profile-section">
+                    <a href="">
+                    <span>Publicaciones</span>
+                    <i></i>
+                    </a>
+                </div>
+
+                <div class="profile-section">
+                    <a href="">
+                    <span>Publicaciones</span>
+                    <i></i>
+                    </a>
+                </div>
+
+                <div class="profile-section">
+                    <a href="">
+                    <span>Publicaciones</span>
+                    <i></i>
+                    </a>
+                </div>
+
+            </div>
+
+
+
+            <!-- Sección de posts -->
+            <div class="post-body">
+
+
+                <!-- Contenedor del post -->
+                <div class="post-container">
+
+                    <div class="post-div-1">
+                        <div class="post-user-img-container">
+                            <img src="imgs/defaultpfp2.jpg" alt="">
+                        </div>
+                    </div>
+                    
+                    <div class="post-div-2">
+                        <div class="post-head-container">
+                            <div>
+                                <span class="username-post">Usuario</span>
+                                <span class="date-post">dd/mm/yy</span>
+                            </div>
+                            
+                            <span class="material-symbols-outlined more-post">more_horiz</span>
+                        </div>
+
+                        <span>Hola como estan asdas asdasd asdasdas asdasdas asds adas asdsad asdasdfwterh thfgjhyh adgaf dasd asd asd asd asd asdasdasd awsd sad as das d</span>
+                    
+                        <div class="interactions-post-container">
+                            <span class="material-symbols-outlined like">favorite</span>
+                            <span class="material-symbols-outlined comment">chat_bubble</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
+
     </div>
-    
-
-
-    
-<script src="scripts/sidebar.js"></script>
-<script src="scripts/script-form.js"></script>
-
 </body>
+
+
+
+<!--Enlazando archivo JavaScript de la sidebar-->
+<script src="scripts/sidebar.js"></script>
+
+
+
+
 </html>
