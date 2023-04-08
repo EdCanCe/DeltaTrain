@@ -4,6 +4,7 @@ session_start();
 session_destroy();
 session_start();
 include("encriptor.php");
+include("variablesGlobales.php");
 $username=$_POST['username'];
 $password=$_POST['password'];
 $name=$_POST['name'];
@@ -14,6 +15,24 @@ $email=$_POST['email'];
 $password=encrypt($password);
 
 
+
+#Checar que todos los datos cumplan con los criterios
+#Permitir a una función rellenar los datos
+$GLOBALS["errorForm"];
+$GLOBALS["setForm"];
+validateChar($username, "username");
+validateChar($name, "name");
+validateChar($birth, "birth");
+validateChar($lastnames, "lastnames");
+validateChar($email, "email");
+$_SESSION["setForm"]=$GLOBALS["setForm"];
+if($GLOBALS["errorForm"]!=""){
+    $_SESSION["ErrorHeader"] = "NO SE PUDO CREAR LA CUENTA";
+    $_SESSION["ErrorText"] = "Colocó caracteres no permitidos en algún campo.";
+    $GLOBALS["errorForm"] = "";
+    echo "<script> window.location='/DeltaTrain/createaccount.php'</script>";
+    return;
+}
 
 
 

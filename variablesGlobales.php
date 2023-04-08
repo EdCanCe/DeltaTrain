@@ -326,4 +326,19 @@ function makeAlert($header, $body){
     echo "<script>appearAlert('".$header."', '".$body."')</script>";
 }
 
-function validateChar()
+function validateChar($word, $index){
+    if (((preg_match('/^[a-zA-Z0-9ñÑ\-_\(\)\$\%\&]+$/', $word))) or ($index=="email" and (preg_match('/^[a-zA-ZáéíóúüñÁÉÍÓÚÜÑ0-9\-_\(\)\$\%\&@\.]+$/', $word))) or (($index!="username" and $index!="email") and (preg_match('/^[a-zA-Z0-9áéíóúüñÑÁÉÍÓÚÜ\s\-_\(\)\$\%\&]+$/', $word)))) {
+        $GLOBALS["setForm"] = $GLOBALS["setForm"].$index."|".$word."|";
+        #El string cumple con los criterios
+    } else {
+        $GLOBALS["errorForm"] = "a";
+    }
+    
+}
+
+function loadFormData($previousData){
+    $newData = explode('|', $previousData);
+    for($i=0;$i<count($newData)-1;$i+=2){
+        echo '<script> document.getElementById("'.$newData[$i].'").value="'.$newData[$i+1].'" </script>';
+    }
+}

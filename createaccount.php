@@ -62,6 +62,8 @@ session_start();
             $_SESSION["ErrorText"] = "";
         }
     ?>
+    
+
 
     <div class="main-content">
         
@@ -183,12 +185,17 @@ session_start();
                 <button type="submit" class="btn-submit">Enviar</button> 
 
 
-
+                <?php loadFormData($_SESSION["setForm"]);
+                $_SESSION["setForm"]="";
+                $GLOBALS["setForm"]="";
+                ?> <!-- Este hace que carguen los datos --> 
             </form>
         </div>
     </div>
 
 <script src="scripts/sidebar.js"></script>
+
+
 
 </body>
 </html>

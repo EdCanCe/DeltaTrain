@@ -58,6 +58,12 @@
 
 
 
+.alert-body p{
+    margin-top: 10px;
+}
+
+
+
 .alert-body button:hover{
     background-color: white;
     transform: scale(1.1);
