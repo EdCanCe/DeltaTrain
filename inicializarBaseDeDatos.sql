@@ -119,11 +119,11 @@ create table UserWeight(
 
 create table UserActivity(
     ID_UserActivity bigint NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    FKID_Routine_UserActivity bigint NOT NULL,
+    FKID_Routine_UserActivity bigint,
     CONSTRAINT FKID_Routine_UserActivity FOREIGN KEY (FKID_Routine_UserActivity) REFERENCES Routine(ID_Routine),
-    FKID_Recipe_UserActivity bigint NOT NULL,
+    FKID_Recipe_UserActivity bigint,
     CONSTRAINT FKID_Recipe_UserActivity FOREIGN KEY (FKID_Recipe_UserActivity) REFERENCES Recipe(ID_Recipe),
-    FKID_Achievement_UserActivity bigint NOT NULL,
+    FKID_Achievement_UserActivity bigint,
     CONSTRAINT FKID_Achievement_UserActivity FOREIGN KEY (FKID_Achievement_UserActivity) REFERENCES Achievement(ID_Achievement),
     Type_UserActivity tinyint NOT NULL,
     Visibility tinyint NOT NULL
@@ -153,3 +153,9 @@ create table Visuals(
     CONSTRAINT FKID_UserActivity_Visuals FOREIGN KEY (FKID_UserActivity_Visuals) REFERENCES UserActivity(ID_UserActivity),
     Info_Visuals longblob NOT NULL
 );
+
+ALTER TABLE User
+ADD Pfp_User longblob;
+
+ALTER TABLE User
+ADD Banner_User longblob;

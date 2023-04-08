@@ -27,7 +27,7 @@ $navConCuenta = '
         <div class="user">
             <div>
                 <a href="">
-                    <img id="RealUserIcon" src="imgs/defaultpfp.jpg" alt="">
+                    <img id="RealUserIcon" style="background-color: black; width: 50px;" alt="">
                 </a>
             </div>
             <div class="user-data">
@@ -150,7 +150,7 @@ $navConAdmin = '
         <div class="user">
             <div>
                 <a href="">
-                    <img id="RealUserIcon" src="imgs/defaultpfp.jpg" alt="">
+                    <img id="RealUserIcon" style="background-color: black; width: 50px;" alt="">
                 </a>
             </div>
             <div class="user-data">
@@ -341,4 +341,6 @@ function loadFormData($previousData){
     for($i=0;$i<count($newData)-1;$i+=2){
         echo '<script> document.getElementById("'.$newData[$i].'").value="'.$newData[$i+1].'" </script>';
     }
+    $GLOBALS["setForm"] = "";
 }
+

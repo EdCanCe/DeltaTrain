@@ -40,6 +40,7 @@ session_start();
 <?php
         echo $alertas;
         echo "<script src='scripts/alert.js'></script>";
+        echo "<script src='scripts/load-pfp.js'></script>";
 
         if(isset($_SESSION["CurrentUserIDSession"])){ #Checa si ya inició sesión
             $CurrentUserID = $_SESSION["CurrentUserIDSession"]; #Recoge el id del usuario
@@ -50,9 +51,22 @@ session_start();
             else{ #Si se usa este es porque el usuario es admin
                 echo $navConAdmin;
             }
+
+
+
+            mysqli_query($conexion, "SET GLOBAL max_allowed_packet=1073741824");
+            $query = "SELECT Pfp_User from User where ID_User = $CurrentUserID";
+            $result = mysqli_query($conexion, $query);
+            $pfpData = "";
+            while($row=mysqli_fetch_assoc($result)){
+                ?><script>loadpfp('url(data:image/jpeg;base64,<?php echo base64_encode($row["Pfp_User"]); ?>)');</script><?php
+            }
+
+
+
         }
         else{ #Si se usa este es porque aún no se ha iniciado sesión
-            echo $navSinCuenta; #En este caso como es el login no, pero para todo lo demás te debe saltar que ocupas crear la sesión primero
+            echo $navSinCuenta;
             echo "<script> window. location='/DeltaTrain/index.php'</script>"; #Como no iniciaste sesión te manda a hacerlo
         }
 

@@ -72,7 +72,7 @@ session_start();
         <div class="box">
 
         
-            <form action="accountcreator.php" method="post" class="form" id="form">
+            <form action="accountcreator.php" method="post" class="form" id="form" enctype="multipart/form-data">
 
 
 

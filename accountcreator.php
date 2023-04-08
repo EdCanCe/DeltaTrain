@@ -36,6 +36,27 @@ if($GLOBALS["errorForm"]!=""){
 
 
 
+#Checar si las imágenes que subió están en el formato correcto
+$pfpName = $_FILES["pfp"]["name"];
+$bannerName = $_FILES["banner"]["name"];
+$pfpType = $_FILES["pfp"]["type"];
+$bannerType = $_FILES["banner"]["type"];
+if((($pfpName != "" and substr($pfpType, 0, 5) != "image") or ($bannerName != "" and substr($bannerType, 0, 5) != "image"))){
+    $_SESSION["ErrorHeader"] = "NO SE PUDO CREAR LA CUENTA";
+    $_SESSION["ErrorText"] = "Las imágenes que subió son de un formato no aceptado.";
+    echo "<script> window.location='/DeltaTrain/createaccount.php'</script>";
+    return;
+}
+$pfpSize = $_FILES["pfp"]["size"];
+$bannerSize = $_FILES["banner"]["size"];
+if(($pfpName != "" and $pfpSize > 3*1024*1024) or ($bannerName != "" and $bannerSize > 3*1024*1024)){
+    $_SESSION["ErrorHeader"] = "NO SE PUDO CREAR LA CUENTA";
+    $_SESSION["ErrorText"] = "Las imágenes que subió son muy pesadas, el tamaño máximo es de 3mb.";
+    echo "<script> window.location='/DeltaTrain/createaccount.php'</script>";
+    return;
+}
+
+
 
 $query="SELECT * FROM User where Username_User='$username' or Mail_User='$email'";
 $result = mysqli_query($conexion, $query);
@@ -54,10 +75,21 @@ if(mysqli_num_rows($result) == 0){ #Checa si hay almenos alguna cuenta que coinc
         $result = mysqli_query($conexion, $query2);
         while($row=mysqli_fetch_assoc($result)) {
             $_SESSION["CurrentUserIDSession"] = $row["ID_User"];
-            $_SESSION["CurrentUserAdministratorSession"] = $row["Password_User"];
+            $_SESSION["CurrentUserAdministratorSession"] = $row["Administrator_User"];
         }
-        echo "<script> window.location='/DeltaTrain/index.php'</script>";
     }
+    $newUserId=0;
+    if($pfpName!=""){
+        $pfpData = addslashes(file_get_contents($_FILES["pfp"]["tmp_name"]));
+        $query = "UPDATE User SET Pfp_User = '$pfpData' where User_ID = $_SESSION["CurrentUserIDSession"]";
+        $result = mysqli_query($conexion, $query);
+    }
+    if($bannerName!=""){
+        $bannerData = addslashes(file_get_contents($_FILES["banner"]["tmp_name"]));
+        $query = "UPDATE User SET Banner_User = '$bannerData' where User_ID = $_SESSION["CurrentUserIDSession"]";
+        $result = mysqli_query($conexion, $query);
+    }
+    echo "<script> window.location='/DeltaTrain/index.php'</script>";
     
 
 
