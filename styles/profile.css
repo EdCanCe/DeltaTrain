@@ -1,0 +1,233 @@
+.main-content{
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    display: flex; /* Utiliza el modelo de caja flexible */
+    background: url(../imgs/fondo-rojo.svg); /* Establece una imagen de fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-size: cover; /* Ajusta la imagen de fondo para que cubra todo el contenedor */
+    background-position: center center; /* Alinea la imagen de fondo en el centro */
+    transition: ease 0.5s; /* Establece una transición suave de medio segundo */
+}
+
+/* Estilos del contenedor principal del perfil */
+.profile-body{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 80%;
+    background-color: rgba(201, 0, 0, 0.742);
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+/* Estilos del banner */
+.profile-banner-container{
+    background-color: black;
+}
+
+
+
+.profile-banner-container img{
+    max-width: 100%;
+}
+
+
+
+.profile-user-img-container{
+    display: flex;
+    background-color: transparent;
+    width: 150px;
+    transform: translate(40px, -80px);
+
+}
+
+
+
+/* Estilos de la foto de perfil */
+.profile-user-img-container img{
+    border-radius: 100%;
+    max-width: 100%;
+}
+
+
+
+.user-dates-container{
+    font-size: 30px;
+    padding-left: 40px;
+    transform: translate(0px, -50px);
+    color: aliceblue;
+}
+
+
+.user-dates-container .username{
+    font-weight: 1000;
+    font-size: 35px;
+}
+
+
+
+.user-dates-container .user-description{
+    font-size: 20px;
+}
+
+
+
+/* Estilos de la barra de navegación del perfil */
+.profile-sections-container{
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.577);
+    justify-content: center;
+    align-items: center;
+    border-bottom: solid;
+    border-top: solid;
+}
+
+
+/* Estilos de los redireccionadores del perfil */
+.profile-section{
+    padding: 20px 50px;
+    width: 25%;
+}
+
+
+
+.profile-section a{
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+}
+
+
+
+.profile-section i{
+    width: 100%;
+    content: '';
+    height: 2px;
+    background-color: white;
+    pointer-events: none;
+    transition: ease 0.3s;
+}
+
+
+
+.profile-section:hover{
+    background-color: black;
+}
+
+
+
+.profile-section:hover i{
+    background-color: red;
+    box-shadow: red 0px 0px 15px 3px;
+    height: 4px;
+}
+
+
+
+/* Estilos de la sección de posts*/
+.post-container{
+    display: flex;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-right: 30px;
+    border-bottom: solid white 2px;
+    color: aliceblue;
+}
+
+
+
+.post-container .post-div-1{
+    width: 80px;
+    margin: 0px 30px;
+}
+
+
+
+.post-user-img-container{
+    max-width: 100%;
+}
+
+
+
+.post-user-img-container img{
+    max-width: 100%;
+    border-radius: 100%;
+}
+
+
+
+.post-head-container{
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+.post-head-container .username-post{
+    font-weight: 1000;
+}
+
+
+.post-head-container .date-post{
+    margin-left: 10px;
+}
+
+
+
+.post-head-container .more-post{
+    border-radius: 100%;
+    padding: 5px;
+    transition: ease 0.2s;
+}
+
+
+
+.post-head-container .more-post:hover{
+    background-color: rgba(0, 0, 0, 0.577);
+    cursor: pointer;
+}
+
+
+
+.interactions-post-container{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+
+
+.interactions-post-container span{
+    border-radius: 100%;
+    padding: 5px;
+    margin-top: 5px;
+    margin-right: 40px;
+    transition: ease 0.2s;
+
+}
+
+
+
+.interactions-post-container span:hover{
+    background-color: rgba(0, 0, 0, 0.577);
+    cursor: pointer;
+}
+
+
+
+@media screen and (max-width: 800px) {
+    .profile-body{
+        width: 100%;
+        border-radius: 0px;
+        margin-top: 0px;
+    }
+  }
