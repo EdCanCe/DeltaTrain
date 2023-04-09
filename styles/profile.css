@@ -32,7 +32,7 @@
 
 .profile-banner-container img{
     max-width: 100%;
-    width: 100%;
+    min-width: 100%;
 }
 
 
@@ -42,7 +42,7 @@
     background-color: transparent;
     width: 150px;
     transform: translate(40px, -80px);
-    
+
 }
 
 
@@ -51,14 +51,13 @@
 .profile-user-img-container img{
     border-radius: 100%;
     max-width: 100%;
-    border: 3px double black;
-    box-shadow: 0px 0px 30px black;
+    border: solid 5px black;
 }
 
 
 
 .user-dates-container{
-    font-size: 30px;
+    font-size: 25px;
     padding-left: 40px;
     transform: translate(0px, -50px);
     color: aliceblue;
@@ -74,12 +73,14 @@
 
 .user-dates-container .user-description{
     font-size: 20px;
+    color: rgb(194, 193, 193);
 }
 
 
 
 /* Estilos de la barra de navegación del perfil */
 .profile-sections-container{
+    overflow: auto;
     display: flex;
     background-color: rgba(0, 0, 0, 0.577);
     justify-content: center;
@@ -146,14 +147,13 @@
 
 
 .post-container .post-div-1{
-    width: 80px;
     margin: 0px 30px;
 }
 
 
 
 .post-user-img-container{
-    max-width: 100%;
+    width: 50px;
 }
 
 
@@ -181,6 +181,7 @@
 
 .post-head-container .date-post{
     margin-left: 10px;
+    color:rgb(194, 193, 193);
 }
 
 
@@ -233,4 +234,42 @@
         border-radius: 0px;
         margin-top: 0px;
     }
+
+    
+    /* Estilos de la barra de navegación del perfil */
+    .profile-sections-container{
+        overflow: auto;
+        display: flex;
+        justify-content: left;
+    }
+
+
+    /* Estilos de los redireccionadores del perfil */
+    .profile-section{
+        padding: 20px 50px;
+        width: 200px;
+    }
+
+    /* Estilos del contenedor de la foto del ferfil */
+    .profile-user-img-container{
+        display: flex;
+        background-color: transparent;
+        width: 100px;
+        transform: translate(20px, -60px);
+    }
+
+    .user-dates-container{
+        padding-left: 20px;
+        transform: translate(0px, -50px);
+    }
+
+    .post-container .post-div-1{
+        margin: 0px 15px;
+    }
+
+    .post-user-img-container{
+        width: 40px;
+    }
+    
+
   }

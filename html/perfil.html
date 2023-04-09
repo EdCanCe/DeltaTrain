@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="../styles/normalize.css">
     <!-- Enlazando archivo de estilos para la barra lateral -->
     <link rel="stylesheet" href="../styles/sidebar.css">
+    <!-- Enlazando archivo de estilos para la pantalla de carga -->
+    <link rel="stylesheet" href="../styles/load.css">
     <!-- Enlazando archivo de estilos para el perfil -->
     <link rel="stylesheet" href="../styles/profile.css">
     <!-- Enlazando la fuente Material Symbols Outlined de Google -->
@@ -25,6 +27,11 @@
 
 
 <body>
+
+    <!-- Pantalla de carga -->
+    <div class="loader-1">
+      <div><img class="loader-svg" src="../imgs/logo-withe.svg"></svg></div>
+    </div>
 
 
 
@@ -129,6 +136,58 @@
     </div>
 
 
+
+    <!-- Barra inferior -->
+    <div class="sidebar-lower">
+
+      <ul>
+
+
+
+        <li>
+          <a href="">
+            <span class="material-symbols-outlined icon">home</span>
+          </a>
+        </li>
+
+
+
+        <li>
+          <a href="">
+            <span class="material-symbols-outlined icon">fact_check</span>
+          </a>
+        </li>
+
+
+
+        <li>
+          <a href="">
+            <span class="material-symbols-rounded icon">contact_support</span>
+          </a>
+        </li>
+
+
+
+        <li>
+          <a href="">
+            <span class="material-symbols-rounded icon">settings</span>
+          </a>
+        </li>
+
+
+
+        <li>
+          <a href="">
+            <span class="material-symbols-rounded icon">tab_close</span>
+          </a>
+        </li>
+
+
+
+      </ul>
+
+    </div>
+
     <!-- Contenido principal de la pagina -->
     <div class="main-content">
 
@@ -141,7 +200,7 @@
 
         <!-- Banner del perfil -->
         <div class="profile-banner-container">
-          <img src="../imgs/banner.jpg" alt="">
+          <img src="https://pbs.twimg.com/media/D-jnKUPU4AE3hVR.jpg" alt="">
         </div>
 
 
@@ -316,6 +375,8 @@
 
 <!--Enlazando archivo JavaScript de la sidebar-->
 <script src="../scripts/sidebar.js"></script>
+
+<script src="../scripts/load.js"></script>
 
 
 
