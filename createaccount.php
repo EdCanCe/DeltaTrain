@@ -205,6 +205,7 @@ session_start();
     </div>
 
 <script src="scripts/sidebar.js"></script>
+<script src="scripts/script-form.js"></script>
 
 
 

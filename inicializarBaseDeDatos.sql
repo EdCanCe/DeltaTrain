@@ -10,7 +10,7 @@ create table User(
     BirthDate_User date NOT NULL,
     Mail_User varchar(70) NOT NULL,
     Username_User varchar(20) NOT NULL,
-    Administrator_User bool NOT NULL,
+    Administrator_User tinyint NOT NULL,
     Description_User varchar(250),
 );
 

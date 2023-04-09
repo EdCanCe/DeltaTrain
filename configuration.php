@@ -91,11 +91,146 @@ session_start();
 
 
 
+            <?php #Va a permitir rellenar los datos para poder actualizarlos al cargarlos con los actuales.
+                $query = "SELECT * FROM User where ID_User=$CurrentUserID";
+                $result = mysqli_query($conexion, $query);
+                while($row=mysqli_fetch_assoc($result)){?>
+
+
+
+                    <form action="accountconfigurator.php" method="post" class="form" id="form" enctype="multipart/form-data">
+
+
+
+                    <!--Titulo del formulario-->
+                        <h2>Modificar Cuenta</h2>
+
+
+
+                        <!--Campo para ingresar el nombre de usuario-->
+                        <div class="input-container">
+                            <input type="text" name="username" id="username" value="<?php echo $row["Username_User"]?>" required>
+                            <span class="placeholder-input"><span class="material-symbols-outlined">person</span>&nbsp;Nombre de Usuario</span>
+                            <i class="input-line"></i>
+                            <span class="message"></span>
+                        </div>
+
+
+
+                        <!--Campo para ingresar la contraseña del usuario-->
+                        <div class="input-container">
+                            <input type="password" name="password" id="password" required>
+                            <span class="placeholder-input"><span class="material-symbols-outlined icon">lock</span>&nbsp;Contraseña</span>
+                            <i class="input-line"></i>
+                            <span class="message"></span>
+                        </div>
 
 
 
 
+                        <!--Campo para ingresar los nombres del usuario-->
+                        <div class="input-container">
+                            <input type="text" name="name" id="name" value="<?php echo $row["Name_User"]?>" required>
+                            <span class="placeholder-input">Nombre(s)</span>
+                            <i class="input-line"></i>
+                            <span class="message"></span>
+                        </div>
 
+
+
+                        <!--Campo para ingresar los apellidos del usuario-->
+                        <div class="input-container">
+                            <input type="text" name="lastnames" id="lastnames" value="<?php echo $row["LastName_User"]?>" required>
+                            <span class="placeholder-input">Apellido(s)</span>
+                            <i class="input-line"></i>
+                            <span class="message"></span>
+                        </div>
+
+
+
+                        <!--Campo para ingresar la fecha de nacimiento del usuario-->
+                        <div class="input-container">
+                            <input type="date" name="birth" id="birth" value="<?php echo $row["BirthDate_User"]?>" required>
+                            <span class="placeholder-input"><span class="material-symbols-outlined icon">event</span>&nbsp;Fecha de Nacimiento</span>
+                            <i class="input-line"></i>
+                            <span class="message"></span>
+                        </div>
+
+
+
+                        <div class="input-container input-container-radio">
+                            <span class="text-input-genero">Sexo</span>
+                            <p class="letras-chiquitas">Este dato se pide para poder realizar una calculadora de calorías</p>
+                            <div>
+                                <div><span>Hombre</span><input type="radio" name="sexo" id="masculino" value="0"></div>
+                                <div><span>Mujer</span><input type="radio" name="sexo" id="femenino" value="1"></div>
+                            </div>
+                            
+                        </div>
+
+
+
+                        <!--Campo para ingresar el correo del usuario-->
+                        <div class="input-container">
+                            <input type="text" name="email" id="email" value="<?php echo $row["Mail_User"]?>" required>
+                            <span class="placeholder-input"><span class="material-symbols-outlined">mail</span>&nbsp;Correo</span>
+                            <i class="input-line"></i>
+                            <span class="message"></span>
+                        </div>
+
+
+
+                        <!--Campo para ingresar el correo del usuario-->
+                        <div class="input-container">
+                            <input type="text" name="description" id="description" value="<?php echo $row["Description_User"]?>" required>
+                            <span class="placeholder-input"><span class="material-symbols-outlined">description</span>&nbsp;Descripción del perfil</span>
+                            <i class="input-line"></i>
+                            <span class="message"></span>
+                        </div>
+
+
+
+                        <!--Campo para ingresar la foto de perfil del usuario-->
+                        <div class="input-container">
+                            <input type="file" name="pfp" id="pfp">
+                            <span class="placeholder-input"><span class="material-symbols-outlined">photo_camera</span>&nbsp;Foto de perfil</span>
+                            <i class="input-line"></i>
+                            <span class="message"></span>
+                        </div>
+
+
+
+                        <!--Campo para ingresar el banner del usuario-->
+                        <div class="input-container">
+                            <input type="file" name="banner" id="banner">
+                            <span class="placeholder-input"><span class="material-symbols-outlined">landscape</span>&nbsp;Banner de perfil</span>
+                            <i class="input-line"></i>
+                            <span class="message"></span>
+                        </div>
+
+
+
+                        <!--Link para redireccionar a el inicio de sesión-->
+                        <div class="links-container">
+                            <a href="">¿Ya tienes cuenta? Inicia Sesión</a>
+                        </div>
+
+
+
+                        <!--Boton para enviar formulario-->
+                        <button type="submit" class="btn-submit">Enviar</button> 
+
+
+                        <?php if(!isset($_SESSION["setForm"])) $_SESSION["setForm"]="";?>
+                        <?php loadFormData($_SESSION["setForm"]);
+                        $_SESSION["setForm"]="";
+                        $GLOBALS["setForm"]="";
+                        ?> <!-- Este hace que carguen los datos --> 
+                    </form>
+
+
+
+                <?php } ?>
         </div>
     </div>
     
