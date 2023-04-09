@@ -10,7 +10,8 @@ create table User(
     BirthDate_User date NOT NULL,
     Mail_User varchar(70) NOT NULL,
     Username_User varchar(20) NOT NULL,
-    Administrator_User bool NOT NULL
+    Administrator_User bool NOT NULL,
+    Description_User varchar(250),
 );
 
 create table Progress(
@@ -135,6 +136,8 @@ create table Post(
     CONSTRAINT FKID_UserActivity_Post FOREIGN KEY (FKID_UserActivity_Post) REFERENCES UserActivity(ID_UserActivity),
     FKID_User_Post bigint NOT NULL,
     CONSTRAINT FKID_User_Post FOREIGN KEY (FKID_User_Post) REFERENCES User(ID_User),
+    FKID_Post_Post bigint,
+    CONSTRAINT FKID_Post_Post FOREIGN KEY (FKID_Post_Post) REFERENCES Post(ID_Post),
     Info_Post varchar(250) NOT NULL,
     Date_Post timestamp NOT NULL
 );

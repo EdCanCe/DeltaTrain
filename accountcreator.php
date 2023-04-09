@@ -12,14 +12,15 @@ $lastnames=$_POST['lastnames'];
 $birth=$_POST['birth'];
 $sexo=$_POST['sexo'];
 $email=$_POST['email'];
+$description=$_POST['description'];
 $password=encrypt($password);
 
 
 
 #Checar que todos los datos cumplan con los criterios
 #Permitir a una función rellenar los datos
-$GLOBALS["errorForm"];
-$GLOBALS["setForm"];
+if(!isset($GLOBALS["errorForm"])) $GLOBALS["errorForm"]="";
+if(!isset($GLOBALS["setForm"])) $GLOBALS["setForm"]="";
 validateChar($username, "username");
 validateChar($name, "name");
 validateChar($birth, "birth");
@@ -60,7 +61,7 @@ if(($pfpName != "" and $pfpSize > 3*1024*1024) or ($bannerName != "" and $banner
 
 $query="SELECT * FROM User where Username_User='$username' or Mail_User='$email'";
 $result = mysqli_query($conexion, $query);
-$insert = "INSERT INTO USER(Password_User, Name_User, LastName_User, Gender_User, BirthDate_User, Mail_User, Username_User, Administrator_User) VALUES ('$password', '$name', '$lastnames', $sexo, '$birth', '$email', '$username', 0)";
+$insert = "INSERT INTO USER(Password_User, Name_User, LastName_User, Gender_User, BirthDate_User, Mail_User, Username_User, Administrator_User, Description_User) VALUES ('$password', '$name', '$lastnames', $sexo, '$birth', '$email', '$username', 0, '$description')";
 
 
 
@@ -70,6 +71,7 @@ if(mysqli_num_rows($result) == 0){ #Checa si hay almenos alguna cuenta que coinc
 
     $result = mysqli_query($conexion, $insert);
     if($result){
+        session_destroy();
         session_start();
         $query2="SELECT * FROM User where Username_User='$username' or Mail_User='$email'";
         $result = mysqli_query($conexion, $query2);
@@ -81,12 +83,12 @@ if(mysqli_num_rows($result) == 0){ #Checa si hay almenos alguna cuenta que coinc
     $newUserId=0;
     if($pfpName!=""){
         $pfpData = addslashes(file_get_contents($_FILES["pfp"]["tmp_name"]));
-        $query = "UPDATE User SET Pfp_User = '$pfpData' where User_ID = $_SESSION["CurrentUserIDSession"]";
+        $query = 'UPDATE User SET Pfp_User = "'.$pfpData.'" WHERE ID_User = '.$_SESSION["CurrentUserIDSession"];
         $result = mysqli_query($conexion, $query);
     }
     if($bannerName!=""){
         $bannerData = addslashes(file_get_contents($_FILES["banner"]["tmp_name"]));
-        $query = "UPDATE User SET Banner_User = '$bannerData' where User_ID = $_SESSION["CurrentUserIDSession"]";
+        $query = 'UPDATE User SET Banner_User = "'.$bannerData.'" WHERE ID_User = '.$_SESSION["CurrentUserIDSession"];
         $result = mysqli_query($conexion, $query);
     }
     echo "<script> window.location='/DeltaTrain/index.php'</script>";

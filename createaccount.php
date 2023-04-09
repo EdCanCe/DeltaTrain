@@ -154,6 +154,16 @@ session_start();
 
 
 
+                <!--Campo para ingresar el correo del usuario-->
+                <div class="input-container">
+                    <input type="text" name="description" id="description" required>
+                    <span class="placeholder-input"><span class="material-symbols-outlined">description</span>&nbsp;Descripción del perfil</span>
+                    <i class="input-line"></i>
+                    <span class="message"></span>
+                </div>
+
+
+
                 <!--Campo para ingresar la foto de perfil del usuario-->
                 <div class="input-container">
                     <input type="file" name="pfp" id="pfp">
@@ -185,6 +195,7 @@ session_start();
                 <button type="submit" class="btn-submit">Enviar</button> 
 
 
+                <?php if(!isset($_SESSION["setForm"])) $_SESSION["setForm"]="";?>
                 <?php loadFormData($_SESSION["setForm"]);
                 $_SESSION["setForm"]="";
                 $GLOBALS["setForm"]="";
