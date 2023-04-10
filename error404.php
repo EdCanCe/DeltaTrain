@@ -12,3 +12,5 @@ if(isset($_SESSION["CurrentUserIDSession"])){ #Checa si ya inició sesión
 else{ #Si se usa este es porque aún no se ha iniciado sesión
     #echo "<script> window.location='/DeltaTrain/index.php'</script>";
 }
+
+?>
