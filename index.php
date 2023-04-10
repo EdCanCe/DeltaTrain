@@ -64,7 +64,7 @@ session_start();
                     ?><script>loadpfp('url(data:image/jpeg;base64,<?php echo base64_encode($row["Pfp_User"]); ?>)', "RealUserIcon");</script><?php
                 }
                 ?><script>document.getElementById("RealUserName").textContent="<?php echo $row["Username_User"]; ?>";</script><?php
-                ?><script>document.getElementById("RealUserProfile").href="/profile/<?php echo $row["Username_User"]; ?>";</script><?php
+                ?><script>document.getElementById("RealUserProfile").href="/DeltaTrain/<?php echo $row["Username_User"]; ?>";</script><?php
             }
 
 

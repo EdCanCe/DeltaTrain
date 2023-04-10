@@ -63,7 +63,7 @@ session_start();
                     ?><script>loadpfp('url(data:image/jpeg;base64,<?php echo base64_encode($row["Pfp_User"]); ?>)', "RealUserIcon");</script><?php
                 }
                 ?><script>document.getElementById("RealUserName").textContent="<?php echo $row["Username_User"]; ?>";</script><?php
-                ?><script>document.getElementById("RealUserProfile").href="/profile/<?php echo $row["Username_User"]; ?>";</script><?php
+                ?><script>document.getElementById("RealUserProfile").href="/DeltaTrain/<?php echo $row["Username_User"]; ?>";</script><?php
             }
 
 
@@ -158,18 +158,6 @@ session_start();
                             <span class="placeholder-input"><span class="material-symbols-outlined icon">event</span>&nbsp;Fecha de Nacimiento</span>
                             <i class="input-line"></i>
                             <span class="message"></span>
-                        </div>
-
-
-
-                        <div class="input-container input-container-radio">
-                            <span class="text-input-genero">Sexo</span>
-                            <p class="letras-chiquitas">Este dato se pide para poder realizar una calculadora de calorías</p>
-                            <div>
-                                <div><span>Hombre</span><input type="radio" name="sexo" id="masculino" value="0"></div>
-                                <div><span>Mujer</span><input type="radio" name="sexo" id="femenino" value="1"></div>
-                            </div>
-                            
                         </div>
 
 
