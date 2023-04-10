@@ -1,4 +1,12 @@
 RewriteEngine On
-RewriteRule ^([a-zA-Z0-9ñÑ\-_\(\)\$\%\&]+)$ profile.php?user=$1 [L]
+RewriteRule ^home$ feed.php [NC]
+RewriteRule ^settings$ configuration.php [NC]
+RewriteRule ^createaccount$ createaccount.php [NC]
+RewriteRule ^logout$ logout.php [NC]
+RewriteRule ^recipes$ recipes.php [NC]
+RewriteRule ^routines$ routines.php [NC]
+RewriteRule ^daily$ dailyactivities.php [NC]
+RewriteRule ^support$ support.php [NC]
 
+RewriteRule ^([a-zA-Z0-9ñÑ\-_\(\)\$\%\&]+)$ profile.php?user=$1 [L]
 ErrorDocument 404 /DeltaTrain/error404.php

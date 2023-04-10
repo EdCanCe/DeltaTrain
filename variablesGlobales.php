@@ -45,7 +45,7 @@ $navConCuenta = '
 
 
             <li>
-                <a href="">
+                <a href="/DeltaTrain/home">
                     <span class="material-symbols-outlined icon">home</span>
                     <span class="nav-item">Home</span>
                 </a>
@@ -56,7 +56,7 @@ $navConCuenta = '
 
             <li>
                 <div>
-                <a href="">
+                <a href="/DeltaTrain/daily">
                     <span class="material-symbols-outlined icon">fact_check</span>
                     <span class="nav-item">Actividades</span>
                 </a>
@@ -67,7 +67,7 @@ $navConCuenta = '
 
             <li>
                 <div>
-                <a href="">
+                <a href="/DeltaTrain/routines">
                     <span class="material-symbols-outlined icon">fact_check</span>
                     <span class="nav-item">Rutinas</span>
                 </a>
@@ -78,7 +78,7 @@ $navConCuenta = '
 
             <li>
                 <div>
-                <a href="">
+                <a href="/DeltaTrain/recipes">
                     <span class="material-symbols-outlined icon">cookie</span>
                     <span class="nav-item">Recetas</span>
                 </a>
@@ -88,7 +88,7 @@ $navConCuenta = '
 
 
             <li>
-                <a href="">
+                <a href="/DeltaTrain/support">
                     <span class="material-symbols-rounded icon">contact_support</span>
                     <span class="nav-item">Contacto</span>
                 </a>
@@ -98,7 +98,7 @@ $navConCuenta = '
 
 
             <li>
-                <a href="/DeltaTrain/configuration.php">
+                <a href="/DeltaTrain/settings">
                     <span class="material-symbols-rounded icon">settings</span>
                     <span class="nav-item">Ajustes</span>
                 </a>
@@ -108,7 +108,7 @@ $navConCuenta = '
 
 
             <li>
-                <a href="/DeltaTrain/logout.php">
+                <a href="/DeltaTrain/logout">
                     <span class="material-symbols-rounded icon">tab_close</span>
                     <span class="nav-item">Cerrar Sesión</span>
                 </a>
@@ -168,7 +168,7 @@ $navConAdmin = '
 
 
             <li>
-                <a href="">
+                <a href="/DeltaTrain/home">
                     <span class="material-symbols-outlined icon">home</span>
                     <span class="nav-item">Home</span>
                 </a>
@@ -179,7 +179,7 @@ $navConAdmin = '
 
             <li>
                 <div>
-                <a href="">
+                <a href="/DeltaTrain/daily">
                     <span class="material-symbols-outlined icon">fact_check</span>
                     <span class="nav-item">Actividades</span>
                 </a>
@@ -190,7 +190,7 @@ $navConAdmin = '
 
             <li>
                 <div>
-                <a href="">
+                <a href="/DeltaTrain/routines">
                     <span class="material-symbols-outlined icon">fact_check</span>
                     <span class="nav-item">Rutinas</span>
                 </a>
@@ -201,7 +201,7 @@ $navConAdmin = '
 
             <li>
                 <div>
-                <a href="">
+                <a href="/DeltaTrain/recipes">
                     <span class="material-symbols-outlined icon">cookie</span>
                     <span class="nav-item">Recetas</span>
                 </a>
@@ -211,7 +211,7 @@ $navConAdmin = '
 
 
             <li>
-                <a href="">
+                <a href="/DeltaTrain/suppport">
                     <span class="material-symbols-rounded icon">contact_support</span>
                     <span class="nav-item">Contacto</span>
                 </a>
@@ -221,7 +221,7 @@ $navConAdmin = '
 
 
             <li>
-                <a href="/DeltaTrain/configuration.php">
+                <a href="/DeltaTrain/settings">
                     <span class="material-symbols-rounded icon">settings</span>
                     <span class="nav-item">Ajustes</span>
                 </a>
@@ -231,7 +231,7 @@ $navConAdmin = '
 
 
             <li>
-                <a href="/DeltaTrain/logout.php">
+                <a href="/DeltaTrain/logout">
                     <span class="material-symbols-rounded icon">tab_close</span>
                     <span class="nav-item">Cerrar Sesión</span>
                 </a>
@@ -276,7 +276,7 @@ $navSinCuenta = '
 
 
             <li>
-                <a href="">
+                <a href="/DeltaTrain/support">
                     <span class="material-symbols-rounded icon">contact_support</span>
                     <span class="nav-item">Contacto</span>
                 </a>
@@ -286,7 +286,7 @@ $navSinCuenta = '
 
 
             <li>
-                <a href="/DeltaTrain/index.php">
+                <a href="/DeltaTrain/">
                     <span class="material-symbols-rounded icon">tab_move</span>
                     <span class="nav-item">Iniciar Sesión</span>
                 </a>
@@ -328,9 +328,11 @@ function makeAlert($header, $body){
 }
 
 function validateChar($word, $index){
-    if (((preg_match('/^[a-zA-Z0-9ñÑ\-_\(\)\$\%\&]+$/', $word))) or ($index=="email" and (preg_match('/^[a-zA-ZáéíóúüñÁÉÍÓÚÜÑ0-9\-_\(\)\$\%\&@\.]+$/', $word))) or (($index!="username" and $index!="email") and (preg_match('/^[a-zA-Z0-9áéíóúüñÑÁÉÍÓÚÜ\s\-_\(\)\$\%\&]+$/', $word)))) {
-        if($index!="username"){
-            
+    $noEmojisWord = mb_ereg_replace('[[:^print:]]', '', $word);
+    if ((strlen($noEmojisWord) == strlen($word)) and (((preg_match('/^[a-zA-Z0-9ñÑ\-_\(\)\$\%\&]+$/', $word))) or ($index=="email" and (preg_match('/^[a-zA-ZáéíóúüñÁÉÍÓÚÜÑ0-9\-_\(\)\$\%\&@\.]+$/', $word))) or (($index!="username" and $index!="email") and (preg_match('/^[a-zA-Z0-9áéíóúüñÑÁÉÍÓÚÜ\s\-_\(\)\$\%\&]+$/', $word))))) {
+        if($index=="username"){
+            $query = "SELECT * FROM NONUSABLE where Word_NONUSABLE = '$word'";
+
         }
         $GLOBALS["setForm"] = $GLOBALS["setForm"].$index."|".$word."|";
         #El string cumple con los criterios

@@ -29,7 +29,7 @@
     z-index: 9;
     flex-direction: column;
     display: flex;
-    overflow: auto;
+    overflow: visible;
   }
   
   
@@ -237,6 +237,13 @@
   }
   
   
+
+  .tooltip{
+    width: fit-content;
+    word-wrap: none;
+  }
+
+
   
   .sidebar ul li .tooltip{
     position: absolute;
@@ -267,7 +274,7 @@
     position: absolute;
     left: 90px;
     width: calc(100% - 90px);
-    min-height: calc(100% - 200px);
+    min-height: 100%;
   }
   
   

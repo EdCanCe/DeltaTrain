@@ -50,3 +50,13 @@ h1, h2, h3{
     background-position: center;
     background-image: url("../imgs/defaultpfp2.jpg");
 }
+
+
+
+
+
+
+.footer{
+    height: 200px;
+    background-color: green;
+}
