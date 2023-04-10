@@ -47,6 +47,23 @@ session_start();
             else{ #Si se usa este es porque el usuario es admin
                 echo $navConAdmin;
             }
+
+
+
+            mysqli_query($conexion, "SET GLOBAL max_allowed_packet=1073741824");
+            $query = "SELECT Pfp_User, Username_User from User where ID_User = $CurrentUserID";
+            $result = mysqli_query($conexion, $query);
+            $pfpData = "";
+            while($row=mysqli_fetch_assoc($result)){
+                if(!is_null($row["Pfp_User"])){
+                    ?><script>loadpfp('url(data:image/jpeg;base64,<?php echo base64_encode($row["Pfp_User"]); ?>)', "RealUserIcon");</script><?php
+                }
+                ?><script>document.getElementById("RealUserName").textContent="<?php echo $row["Username_User"]; ?>";</script><?php
+                ?><script>document.getElementById("RealUserProfile").href="profile.php?user=<?php echo $row["Username_User"]; ?>";</script><?php
+            }
+
+
+
         }
         else{ #Si se usa este es porque aún no se ha iniciado sesión
             echo $navSinCuenta; #En este caso como es el login no, pero para todo lo demás te debe saltar que ocupas crear la sesión primero
@@ -154,7 +171,7 @@ session_start();
 
 
 
-                <!--Campo para ingresar el correo del usuario-->
+                <!--Campo para ingresar la descripción del usuario-->
                 <div class="input-container">
                     <input type="text" name="description" id="description" required>
                     <span class="placeholder-input"><span class="material-symbols-outlined">description</span>&nbsp;Descripción del perfil</span>

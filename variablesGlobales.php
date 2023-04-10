@@ -26,7 +26,7 @@ $navConCuenta = '
         <!-- Información del usuario -->
         <div class="user">
             <div>
-                <a href="">
+                <a id="RealUserProfile" href="">
                     <img id="RealUserIcon" style="background-color: black; width: 50px;" alt="">
                 </a>
             </div>
@@ -149,7 +149,7 @@ $navConAdmin = '
         <!-- Información del usuario -->
         <div class="user">
             <div>
-                <a href="">
+                <a id="RealUserProfile" href="">
                     <img id="RealUserIcon" style="background-color: black; width: 50px;" alt="">
                 </a>
             </div>

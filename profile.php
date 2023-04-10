@@ -57,13 +57,16 @@ session_start();
 
 
             mysqli_query($conexion, "SET GLOBAL max_allowed_packet=1073741824");
-            $query = "SELECT Pfp_User from User where ID_User = $CurrentUserID";
+            $query = "SELECT Pfp_User, Username_User from User where ID_User = $CurrentUserID";
             $result = mysqli_query($conexion, $query);
             $pfpData = "";
             while($row=mysqli_fetch_assoc($result)){
-                ?><script>loadpfp('url(data:image/jpeg;base64,<?php echo base64_encode($row["Pfp_User"]); ?>)', "RealUserIcon");</script><?php
+                if(!is_null($row["Pfp_User"])){
+                    ?><script>loadpfp('url(data:image/jpeg;base64,<?php echo base64_encode($row["Pfp_User"]); ?>)', "RealUserIcon");</script><?php
+                }
+                ?><script>document.getElementById("RealUserName").textContent="<?php echo $row["Username_User"]; ?>";</script><?php
+                ?><script>document.getElementById("RealUserProfile").href="profile.php?user=<?php echo $row["Username_User"]; ?>";</script><?php
             }
-
 
 
         }
@@ -97,13 +100,13 @@ session_start();
 
             <!-- Banner del perfil -->
             <div class="profile-banner-container">
-                <img src="imgs/banner.jpg" alt="">
+                <img src="imgs/banner.png" id="profileBanner" alt="">
             </div>
 
 
             <!-- Foto del perfil -->
             <div class="profile-user-img-container">
-                <img src="imgs/defaultpfp2.jpg" alt="">
+                <img src="imgs/pfp.png"  id="profilePfp" alt="">
             </div>
 
 
@@ -112,13 +115,41 @@ session_start();
             <div class="user-dates-container">
 
                 <div>
-                    <span class="username">Usuario</span>
-                    <span class="name">Nombres</span>
+                    <span class="username" id="profileUsername">Usuario</span>
                 </div>
                 
-                <span class="user-description">Descripción del usuario</span>
+                <span class="user-description" id="profileDescription">Descripción del usuario</span>
 
             </div>
+
+
+
+            <!-- Esto permite cargar los datos de las fotos en el perfil del usuario -->
+            <?php
+                if(!isset($_GET["user"])){ #checa primero que se haya dado un usario
+                    $_SESSION["ErrorHeader"] = "NO SE PUDO ACCEDER AL USUARIO";
+                    $_SESSION["ErrorText"] = "Se necesita proporcionar un username.";
+                    echo "<script> window.location='/DeltaTrain/feed.php'</script>";
+                }
+                $query = "SELECT Username_User, Description_User, Pfp_User, Banner_User from User where Username_User = '".$_GET["user"]."'";
+                $result = mysqli_query($conexion, $query);
+                if(mysqli_num_rows($result) == 0){
+                    $_SESSION["ErrorHeader"] = "NO SE PUDO ACCEDER AL USUARIO";
+                    $_SESSION["ErrorText"] = "Se necesita proporcionar un username con una cuenta existente.";
+                    echo "<script> window.location='/DeltaTrain/feed.php'</script>";
+                }
+                while($row=mysqli_fetch_assoc($result)){
+                    ?><script>document.getElementById("profileUsername").textContent="<?php echo $row["Username_User"]; ?>";</script><?php
+                    ?><script>document.getElementById("profileDescription").textContent="<?php echo $row["Description_User"]; ?>";</script><?php
+                    if(!is_null($row["Pfp_User"])){
+                        ?><script>loadpfp('url(data:image/jpeg;base64,<?php echo base64_encode($row["Pfp_User"]); ?>)', "profilePfp");</script><?php
+                    }
+                    if(!is_null($row["Banner_User"])){
+                        ?><script>loadpfp('url(data:image/jpeg;base64,<?php echo base64_encode($row["Banner_User"]); ?>)', "profileBanner");</script><?php
+                    }
+
+                }
+            ?>
 
 
 
