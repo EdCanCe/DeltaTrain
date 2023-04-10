@@ -33,7 +33,7 @@ session_start();
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital@0;1&display=swap" rel="stylesheet">
     <!-- Añadiendo el icono a la página -->
-    <link rel="icon" href="imgs/logo.svg">
+    <link rel="icon" href="/DeltaTrain/imgs/logo.svg">
 </head>
 <body>
 
@@ -41,8 +41,8 @@ session_start();
 
     <?php
         echo $alertas;
-        echo "<script src='scripts/alert.js'></script>";
-        echo "<script src='scripts/load-pfp.js'></script>";
+        echo "<script src='/DeltaTrain/scripts/alert.js'></script>";
+        echo "<script src='/DeltaTrain/scripts/load-pfp.js'></script>";
 
         if(isset($_SESSION["CurrentUserIDSession"])){ #Checa si ya inició sesión
             $CurrentUserID = $_SESSION["CurrentUserIDSession"]; #Recoge el id del usuario
@@ -65,7 +65,8 @@ session_start();
                     ?><script>loadpfp('url(data:image/jpeg;base64,<?php echo base64_encode($row["Pfp_User"]); ?>)', "RealUserIcon");</script><?php
                 }
                 ?><script>document.getElementById("RealUserName").textContent="<?php echo $row["Username_User"]; ?>";</script><?php
-                ?><script>document.getElementById("RealUserProfile").href="profile.php?user=<?php echo $row["Username_User"]; ?>";</script><?php
+                ?><script>document.getElementById("RealUserProfile").href="/profile/<?php echo $row["Username_User"]; ?>";</script><?php
+                ?><script>document.title="DeltaTrain | <?php echo $row["Username_User"]; ?>";</script><?php
             }
 
 
@@ -100,13 +101,13 @@ session_start();
 
             <!-- Banner del perfil -->
             <div class="profile-banner-container">
-                <img src="imgs/banner.png" id="profileBanner" alt="">
+                <img src="/DeltaTrain/imgs/banner.png" id="profileBanner" alt="">
             </div>
 
 
             <!-- Foto del perfil -->
             <div class="profile-user-img-container">
-                <img src="imgs/pfp.png"  id="profilePfp" alt="">
+                <img src="/DeltaTrain/imgs/pfp.png"  id="profilePfp" alt="">
             </div>
 
 
@@ -117,7 +118,7 @@ session_start();
                 <div>
                     <span class="username" id="profileUsername">Usuario</span>
                 </div>
-                
+                <br>
                 <span class="user-description" id="profileDescription">Descripción del usuario</span>
 
             </div>
@@ -139,8 +140,8 @@ session_start();
                     echo "<script> window.location='/DeltaTrain/feed.php'</script>";
                 }
                 while($row=mysqli_fetch_assoc($result)){
-                    ?><script>document.getElementById("profileUsername").textContent="<?php echo $row["Username_User"]; ?>";</script><?php
-                    ?><script>document.getElementById("profileDescription").textContent="<?php echo $row["Description_User"]; ?>";</script><?php
+                    ?><script>document.getElementById("profileUsername").innerHTML="<?php echo $row["Username_User"]; ?>";</script><?php
+                    ?><script>document.getElementById("profileDescription").innerHTML="<?php echo preg_replace('/\s+/', ' ',  (nl2br($row["Description_User"]))); ?>";</script><?php
                     if(!is_null($row["Pfp_User"])){
                         ?><script>loadpfp('url(data:image/jpeg;base64,<?php echo base64_encode($row["Pfp_User"]); ?>)', "profilePfp");</script><?php
                     }
@@ -197,7 +198,7 @@ session_start();
 
                     <div class="post-div-1">
                         <div class="post-user-img-container">
-                            <img src="imgs/defaultpfp2.jpg" alt="">
+                            <img src="/DeltaTrain/imgs/defaultpfp2.jpg" alt="">
                         </div>
                     </div>
                     
@@ -232,7 +233,7 @@ session_start();
 
 
 <!--Enlazando archivo JavaScript de la sidebar-->
-<script src="scripts/sidebar.js"></script>
+<script src="/DeltaTrain/scripts/sidebar.js"></script>
 
 
 

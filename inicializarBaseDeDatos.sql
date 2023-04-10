@@ -162,3 +162,7 @@ ADD Pfp_User longblob;
 
 ALTER TABLE User
 ADD Banner_User longblob;
+
+create table NONUSABLE(
+    Word_NONUSABLE varchar(60)
+);

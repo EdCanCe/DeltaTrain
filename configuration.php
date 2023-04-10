@@ -63,7 +63,7 @@ session_start();
                     ?><script>loadpfp('url(data:image/jpeg;base64,<?php echo base64_encode($row["Pfp_User"]); ?>)', "RealUserIcon");</script><?php
                 }
                 ?><script>document.getElementById("RealUserName").textContent="<?php echo $row["Username_User"]; ?>";</script><?php
-                ?><script>document.getElementById("RealUserProfile").href="profile.php?user=<?php echo $row["Username_User"]; ?>";</script><?php
+                ?><script>document.getElementById("RealUserProfile").href="/profile/<?php echo $row["Username_User"]; ?>";</script><?php
             }
 
 
@@ -186,7 +186,7 @@ session_start();
 
                         <!--Campo para ingresar la descripción del usuario-->
                         <div class="input-container">
-                            <input type="text" name="description" id="description" value="<?php echo $row["Description_User"]?>" required>
+                            <textarea name="description" id="description" required><?php echo $row["Description_User"] ?></textarea>
                             <span class="placeholder-input"><span class="material-symbols-outlined">description</span>&nbsp;Descripción del perfil</span>
                             <i class="input-line"></i>
                             <span class="message"></span>

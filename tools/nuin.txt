@@ -1,0 +1,13 @@
+feed
+configuration
+routines
+exercises
+activities
+progress
+dailys
+recipes
+ingredients
+achievments
+follows
+weights
+weightcontrol

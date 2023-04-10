@@ -1,4 +1,5 @@
 <?php
+include("conexion.php");
 $navConCuenta = '
 <!-- Barra lateral -->
 <div class="sidebar">
@@ -11,7 +12,7 @@ $navConCuenta = '
 
             <!-- Logo y nombre de la empresa -->
             <div class="logo">
-                <img src="imgs/logo.svg" alt="">
+                <img src="/DeltaTrain/imgs/logo.svg" alt="">
                 <span>DeltaTrain</span>
             </div>
             <!-- Botón para abrir/cerrar la barra lateral -->
@@ -97,7 +98,7 @@ $navConCuenta = '
 
 
             <li>
-                <a href="configuration.php">
+                <a href="/DeltaTrain/configuration.php">
                     <span class="material-symbols-rounded icon">settings</span>
                     <span class="nav-item">Ajustes</span>
                 </a>
@@ -107,7 +108,7 @@ $navConCuenta = '
 
 
             <li>
-                <a href="logout.php">
+                <a href="/DeltaTrain/logout.php">
                     <span class="material-symbols-rounded icon">tab_close</span>
                     <span class="nav-item">Cerrar Sesión</span>
                 </a>
@@ -134,7 +135,7 @@ $navConAdmin = '
 
             <!-- Logo y nombre de la empresa -->
             <div class="logo">
-                <img src="imgs/logo.svg" alt="">
+                <img src="/DeltaTrain/imgs/logo.svg" alt="">
                 <span>DeltaTrain</span>
             </div>
             <!-- Botón para abrir/cerrar la barra lateral -->
@@ -220,7 +221,7 @@ $navConAdmin = '
 
 
             <li>
-                <a href="configuration.php">
+                <a href="/DeltaTrain/configuration.php">
                     <span class="material-symbols-rounded icon">settings</span>
                     <span class="nav-item">Ajustes</span>
                 </a>
@@ -230,7 +231,7 @@ $navConAdmin = '
 
 
             <li>
-                <a href="logout.php">
+                <a href="/DeltaTrain/logout.php">
                     <span class="material-symbols-rounded icon">tab_close</span>
                     <span class="nav-item">Cerrar Sesión</span>
                 </a>
@@ -257,7 +258,7 @@ $navSinCuenta = '
 
             <!-- Logo y nombre de la empresa -->
             <div class="logo">
-                <img src="imgs/logo.svg" alt="">
+                <img src="/DeltaTrain/imgs/logo.svg" alt="">
                 <span>DeltaTrain</span>
             </div>
             <!-- Botón para abrir/cerrar la barra lateral -->
@@ -285,7 +286,7 @@ $navSinCuenta = '
 
 
             <li>
-                <a href="index.php">
+                <a href="/DeltaTrain/index.php">
                     <span class="material-symbols-rounded icon">tab_move</span>
                     <span class="nav-item">Iniciar Sesión</span>
                 </a>
@@ -328,6 +329,9 @@ function makeAlert($header, $body){
 
 function validateChar($word, $index){
     if (((preg_match('/^[a-zA-Z0-9ñÑ\-_\(\)\$\%\&]+$/', $word))) or ($index=="email" and (preg_match('/^[a-zA-ZáéíóúüñÁÉÍÓÚÜÑ0-9\-_\(\)\$\%\&@\.]+$/', $word))) or (($index!="username" and $index!="email") and (preg_match('/^[a-zA-Z0-9áéíóúüñÑÁÉÍÓÚÜ\s\-_\(\)\$\%\&]+$/', $word)))) {
+        if($index!="username"){
+            
+        }
         $GLOBALS["setForm"] = $GLOBALS["setForm"].$index."|".$word."|";
         #El string cumple con los criterios
     } else {
@@ -343,4 +347,3 @@ function loadFormData($previousData){
     }
     $GLOBALS["setForm"] = "";
 }
-

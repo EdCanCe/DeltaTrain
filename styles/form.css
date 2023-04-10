@@ -3,7 +3,7 @@
   justify-content: center; /* Centra el contenido horizontalmente */
   align-items: center; /* Centra el contenido verticalmente */
   display: flex; /* Utiliza el modelo de caja flexible */
-  background: url(../imgs/fondo-rojo.svg); /* Establece una imagen de fondo */
+  background: url("/DeltaTrain/imgs/fondo-rojo.svg"); /* Establece una imagen de fondo */
   background-repeat: no-repeat; /* Evita que la imagen se repita */
   background-size: cover; /* Ajusta la imagen de fondo para que cubra todo el contenedor */
   background-position: center center; /* Alinea la imagen de fondo en el centro */
@@ -61,7 +61,7 @@
 
 
 /*Estilos para el los campos del formulario*/
-.input-container input{
+.input-container input, .input-container textarea{
   position: relative;
   background-color: transparent;
   border: none; 
@@ -94,7 +94,9 @@
 
 /*Estilos para el placeholder de los inputs cuando se esten rellenando o tengan contenido*/
 .input-container input:focus ~ .placeholder-input,
-.input-container input:valid ~ .placeholder-input{
+.input-container input:valid ~ .placeholder-input,
+.input-container textarea:focus ~ .placeholder-input,
+.input-container textarea:valid ~ .placeholder-input{
   transform: translateY(-55px);
   font-size: 17px;
   color: var(--form-colo3);
@@ -119,7 +121,9 @@
 
 /*Estilos para la linea inferior de los inputs cuando se este rellendo o tengan contenido dentro*/
 .input-container input:focus ~ i,
-.input-container input:valid ~ i{
+.input-container input:valid ~ i,
+.input-container textarea:focus ~ i,
+.input-container textarea:valid ~ i{
   height: 50px;
   border-radius: 10px;
   background-color: var(--form-colo3);
