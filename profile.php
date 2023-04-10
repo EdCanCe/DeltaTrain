@@ -13,17 +13,17 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DeltaTrain | Perfil</title>
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="/DeltaTrain/styles/main.css">
     <!-- Enlazando archivo de estilos normalize-->
-    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="/DeltaTrain/styles/normalize.css">
     <!-- Enlazando archivo de estilos para la barra lateral -->
-    <link rel="stylesheet" href="styles/sidebar.css">
+    <link rel="stylesheet" href="/DeltaTrain/styles/sidebar.css">
     <!-- Enlazando archivo de estilos para el formulario -->
-    <link rel="stylesheet" href="styles/form.css">
+    <link rel="stylesheet" href="/DeltaTrain/styles/form.css">
     <!-- Enlazando archivo de estilos para las alertas -->
-    <link rel="stylesheet" href="styles/alerts.css">
+    <link rel="stylesheet" href="/DeltaTrain/styles/alerts.css">
     <!-- Enlazando archivo de estilos para el perfil -->
-    <link rel="stylesheet" href="styles/profile.css">
+    <link rel="stylesheet" href="/DeltaTrain/styles/profile.css">
     <!-- Enlazando la fuente Material Symbols Outlined de Google -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- Enlazando la fuente Material Symbols Rounded de Google -->
