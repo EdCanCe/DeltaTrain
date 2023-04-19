@@ -1,201 +1,181 @@
-.main-content{
-    justify-content: center; /* Centra el contenido horizontalmente */
-    align-items: center; /* Centra el contenido verticalmente */
-    display: flex; /* Utiliza el modelo de caja flexible */
-    background: url(../imgs/fondo-rojo.svg); /* Establece una imagen de fondo */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    background-size: cover; /* Ajusta la imagen de fondo para que cubra todo el contenedor */
-    background-position: center center; /* Alinea la imagen de fondo en el centro */
-    transition: ease 0.5s; /* Establece una transición suave de medio segundo */
-}
-
-
-
 /* Estilos del contenedor principal de la rutina */
-.routine-main-container{
-    margin-top: 50px;
-    margin-bottom: 50px;
-    border-radius: 5px;
-    overflow: hidden;
-    width: 80%;
-    background-color: rgba(201, 0, 0, 0.742);
-    display: flex;
-    flex-direction: column;
+.routine-main-container {
+  border-radius: 5px;
+  overflow: hidden;
+  width: 80%;
+  background-color: var(--color-6);
+  display: flex;
+  flex-direction: column;
+  max-width: 2000px;
+  min-height: 100vh;
 }
-
-
 
 /* Estilos de la cabecera del contendeor de la rutina */
-.routine-head{
-    background: url(../imgs/banner.jpg);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 30px;
-    color: aliceblue;
+.routine-head {
+  background: url(../imgs/banner.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  color: var(--color-5);
 }
 
-
-
-.routine-head h1{
-    transform: translateY(100%);
-    font-size: 50px;
+.routine-head h1 {
+  transform: translateY(100%);
+  font-size: 50px;
 }
 
-
-
-.routine-head .routine-description{
-    transform: translateY(100%);
-    color: rgb(145, 153, 160);
+.routine-head .routine-description {
+  transform: translateY(100%);
+  color: rgb(145, 153, 160);
 }
 
-
-
-.routine-head .icon{
-    color: rgb(255, 0, 60);
-    font-size: 50px;
-    background-color: black;
-    border-radius: 100%;
-    padding: 20px;
-    border: solid white;
-    transform: translateY(50%);
+.routine-head .icon {
+  box-shadow: 0px 5px 40px 10px var(--color-3);
+  color: var(--color-1);
+  font-size: 50px;
+  background-color: var(--color-4);
+  border-radius: 100%;
+  padding: 20px;
+  border: solid var(--color-5);
+  transform: translateY(50%);
 }
-
-
 
 /* Estilos del del cuerpo de la rutina */
-.routine-body{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-top: 50px;
+.routine-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+  gap: 30px;
 }
-
-
 
 /* Estilos de los contenedores de los ejercicios de la rutina */
-.exercise-container{
-    width: 80%;
-    background-color: rgba(0, 0, 0, 0.547);
-    margin-bottom: 20px;
-    border-radius: 10px;
-    color: aliceblue;
-    transition: ease 0.2s;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px 0px;
-    text-decoration: none;
+.exercise-container {
+  width: 80%;
+  background-color: var(--color-7);
+  border-radius: 10px;
+  color: var(--color-2);
+  transition: ease 0.2s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0px;
+  text-decoration: none;
 }
 
-
-
-.exercise-container:hover{
-    background-color: rgb(0, 0, 0);
-    transform: scale(1.1);
-    border: solid white 2px;
+.exercise-container:hover {
+  background-color: var(--color-3);
+  transform: scale(1.1);
+  border: solid var(--color-1) 2px;
+  box-shadow: 0px 5px 20px 2px var(--color-1);
 }
 
-
-
-.exercise-container h3{
-    color: aliceblue;
+.exercise-container h3 {
+  color: var(--color-1);
 }
 
-
-
-.exercise-container span{
-    color: rgb(145, 153, 160);
-    text-align: center;
+.exercise-container span {
+  color: var(--color-5);
+  text-align: center;
 }
 
-
-
-.exercise-container table{
-    background-color: rgb(0, 0, 0);
-    text-align: center;
-    width: 40%;
-    margin-top: 20px;
-    
+.exercise-container table {
+  background-color: transparent;
+  text-align: center;
+  width: 40%;
+  margin-top: 20px;
+  border-spacing: 0px;
 }
 
-
-
-.exercise-container table th{
-    background-color: rgb(74, 0, 0);
-    padding: 15px;
+.exercise-container table th {
+  background-color: var(--color-4);
+  padding: 15px;
+  border: solid var(--color-3) 2px;
 }
 
-
-
-.exercise-container table td{
-    background-color: rgb(40, 38, 38);
-    padding: 10px 0px;
+.exercise-container table td {
+  background-color: var(--color-6);
+  padding: 10px 10px;
+  border: solid var(--color-3) 2px;
 }
 
+.exercise-container table .set-note {
+  min-width: 200px;
+}
 
+.exercise-container table .set-number {
+}
+
+.exercise-container table .set-repetitions {
+}
 
 /* Estilos del contenedor de agregar ejercicio a la rutina */
-.add-exercise-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 60px;
-    margin-top: 30px;
+.add-exercise-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 60px;
+  margin-top: 30px;
 }
 
-
-
-.add-exercise-container a{
-    background-color: rgba(0, 0, 0, 0.805);
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    width: 40%;
-    padding: 10px 10px;
-    text-decoration: none;
-    cursor: pointer;
-    color: aliceblue;
-    border: solid rgb(243, 243, 243) 1px;
-    border-radius: 10px;
-    text-align: center;
-    transition: ease 0.3s;
-    font-weight: 1000;
-    flex-direction: column;
+.add-exercise-container a {
+  background-color: var(--color-7);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  width: 40%;
+  padding: 10px 10px;
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--color-5);
+  border: solid var(--color-1) 1px;
+  border-radius: 10px;
+  text-align: center;
+  transition: ease 0.3s;
+  font-weight: 1000;
+  flex-direction: column;
 }
 
-
-
-.add-exercise-container a .icon{
-    font-size: 30px;
+.add-exercise-container a .icon {
+  font-size: 30px;
 }
 
-
-
-.add-exercise-container a:hover{
-    transform: scale(1.1);
-    background-color: white;
-    color: red;
+.add-exercise-container a:hover {
+  transform: scale(1.1);
+  background-color: var(--color-2);
+  color: var(--color-1);
 }
-
-
 
 @media screen and (max-width: 800px) {
-    .routine-main-container{
-        width: 100%;
-        margin-top: 0px;
-        margin-bottom: 0px;
-        border-radius: 0px;
-    }
+  .routine-main-container {
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-radius: 0px;
+  }
 
-    
+  .routine-head h1 {
+    transform: translateY(50%);
+    font-size: 30px;
+  }
 
-    .routine-head h1{
-        transform: translateY(50%);
-        font-size: 30px;
-    }
+  .exercise-container {
+    width: 90%;
+  }
+
+  .exercise-container table {
+    align-items: center;
+    justify-content: left;
+    width: 100%;
+    display: flex;
+    overflow: auto;
+  }
 }

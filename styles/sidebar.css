@@ -1,350 +1,273 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/*Estilos de la sidebar*/
+.sidebar {
+  position: absolute;
+  background-color: var(--color-4);
+  width: 100px;
+  height: 100vh;
+  transition: all 0.5s ease;
+  position: fixed;
+  z-index: 9;
+  flex-direction: column;
+  display: flex;
+  overflow: visible;
+}
+
+/*Estilos de la sidebar cuando se despliega*/
+.sidebar.active {
+  width: 250px;
+}
+
+/*Estilos del boton para desplegar la sidebar*/
+.sidebar #btn-sidebar {
+  cursor: pointer;
+  color: var(--color-1);
+  position: absolute;
+  top: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 40px;
+}
+
+.sidebar #btn-sidebar:hover {
+  font-weight: 1000;
+}
+
+.sidebar.active #btn-sidebar {
+  left: 90%;
+  color: var(--color-1);
+}
+
+/*Estilos del contenedor del logo en la sidebar*/
+.logo {
+  display: flex;
+  background-color: var(--color-3);
+  align-items: center;
+  justify-content: center;
+  color: var(--color-2);
+  height: 100px;
+  padding-right: 50px;
+}
+
+.sidebar.active .logo {
+  opacity: 1;
+}
+
+.logo span {
+  font-size: 20px;
+  opacity: 0;
+}
+
+.logo img {
+  height: 50px;
+  opacity: 0;
+}
+
+.sidebar.active .logo span {
+  opacity: 1;
+}
+
+.sidebar.active .logo img {
+  opacity: 1;
+}
+
+/*Estilos del contenedor del usuario*/
+.user {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.sidebar.active .user {
+  display: flex;
+}
+
+.user .user-data {
+  margin-left: 20px;
+}
+
+.user-data p {
+  color: var(--color-5);
+  display: none;
+  font-size: 20px;
+}
+
+.sidebar.active .user p {
+  display: flex;
+}
+
+.user div {
+  display: flexbox;
+  justify-content: center;
+  align-items: center;
+}
+
+.user div img {
+  height: 50px;
+  border-radius: 100%;
+  border: solid var(--color-1) 2px;
+  transition: ease 0.3s;
+  cursor: pointer;
+}
+
+.user img:hover {
+  transform: scale(1.1);
+}
+
+/*Estilos de la lista de secciones sidebar*/
+.sidebar ul {
+  padding-top: 40px;
+  align-items: center;
+  text-decoration: none;
+  gap: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar ul li {
+  position: relative;
+  list-style-type: none;
+  height: 50px;
+  width: 90%;
+  line-height: 50px;
+}
+
+.sidebar ul li a {
+  margin: 0;
+  color: var(--color-5);
+  display: flex;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar.active ul li a {
+  width: 100%;
+  justify-content: start;
+  padding-left: 20px;
+  transition: ease 0.2s;
+}
+
+.sidebar ul li a:hover {
+  background-color: var(--color-1);
+  color: var(--color-3);
+  box-shadow: var(--color-1) 0px 0px 25px 10px;
+}
+
+.sidebar ul li a .icon {
+  font-size: 35px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.sidebar.active ul li a .icon {
+  margin-right: 10px;
+}
+
+.sidebar ul li a span {
+  transition: ease 0.1s;
+}
+
+.sidebar .nav-item {
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar.active .nav-item {
+  display: flex;
+}
+
+.tooltip {
+  width: fit-content;
+  word-wrap: none;
+}
+
+.sidebar ul li .tooltip {
+  position: absolute;
+  top: 50%;
+  left: 125px;
+  transform: translate(-50%, -50%);
+  background-color: var(--color-1);
+  padding: 3px 15px;
+  border-radius: 10px;
+  display: none;
+}
+
+.sidebar ul li:hover .tooltip {
+  display: block;
+}
+
+.sidebar.active ul li .tooltip {
+  display: none;
+}
+
+.sidebar.active ~ .main-content {
+  left: 250px;
+  width: calc(100% - 250px);
+}
+
+.sidebar-lower {
+  display: none;
+}
+
+@media screen and (max-width: 500px) {
+  .sidebar {
+    display: none;
   }
-  
-  
-  
-  :root{
-    --form-colo1: #1e0000cc;
-    --form-colo2: #c6b9d4;
-    --form-colo3: #c70000;
-    --form-colo4: #c70000;
-    --form-colo5: #140b0b;
-    --form-colo6: #dcd2c8;
-  }
-  
-  
-  
-  /*Estilos de la sidebar*/
-  .sidebar{
+
+  .main-content {
     position: absolute;
-    background-color: var(--form-colo5);
-    width: 90px;
-    height: 100%;
-    transition: all 0.5s ease;
+    left: 0px;
+    width: calc(100% - 0px);
+  }
+
+  .sidebar-lower {
+    display: flex;
+    background-color: var(--color-4);
     position: fixed;
     z-index: 9;
-    flex-direction: column;
-    display: flex;
-    overflow: visible;
-  }
-  
-  
-
-  /*Estilos de la sidebar cuando se despliega*/
-  .sidebar.active{
-    width: 250px;
-  }
-  
-  
-  
-  /*Estilos del boton para desplegar la sidebar*/
-  .sidebar #btn-sidebar{
-    cursor: pointer;
-    color: var(--form-colo2);
-    position: absolute;
-    top: 32px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 40px;
-  }
-  
-  
-  
-  .sidebar #btn-sidebar:hover{
-    color: var(--form-colo4);
-    font-weight: 1000;
-  }
-  
-  
-  
-  .sidebar.active #btn-sidebar{
-    left: 90%;
-    color: #f00000;
-  }
-  
-  
-  
-  /*Estilos del contenedor del logo en la sidebar*/
-  .logo{
-    display: flex;
-    background-color: rgb(0, 0, 0);
-    align-items: center;
-    justify-content: center;
-    color: var(--form-colo2);
-    height: 100px;
-    padding-right: 50px;
-  }
-
-
-
-  .sidebar.active .logo{
-    opacity: 1;
-  }
-  
-  
-  
-  .logo span{
-    font-size: 20px;
-    opacity: 0;
-  }
-  
-  
-  
-  .logo img{
-    height: 50px;
-    opacity: 0;
-  }
-  
-  
-  
-  .sidebar.active .logo span{
-    opacity: 1;
-  }
-  
-  
-  
-  .sidebar.active .logo img{
-    opacity: 1;
-  }
-  
-  
-  /*Estilos del contenedor del usuario*/
-  .user{
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    margin-top: 30px;
-  }
-  
-  
-  
-  .sidebar.active .user{
-    display: flex;
-  }
-  
-  
-  
-  .user .user-data{
-    margin-left: 20px;
-  }
-  
-  
-  
-  .user-data p{
-    color: var(--form-colo2);
-    display: none;
-    font-size: 20px;
-  }
-  
-  
-  
-  .sidebar.active .user p{
-    display: flex;
-  }
-  
-  
-  
-  .user div img{
-    height: 50px;
-    border-radius: 100%;
-    border: solid var(--form-colo4) 1px;
-    transition: ease 0.3s;
-    cursor: pointer;
-  }
-  
-  
-  
-  .user img:hover{
-    transform: scale(1.1);
-  }
-  
-  
-  /*Estilos de la lista de secciones sidebar*/
-  .sidebar ul{
-    padding: 10px;
-    text-decoration: none;
-  }
-  
-  
-  
-  .sidebar ul li{
-    position: relative;
-    list-style-type: none;
-    height: 50px;
-    width: 90%;
-    margin: 1rem auto;
-    line-height: 50px;
-  }
-  
-  
-  
-  .sidebar ul li a{
-    margin: 0;
-    color: var(--form-colo2);
-    display: flex;
-    text-decoration: none;
-    border-radius: 0.8rem;
-    font-size: 20px;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  
-  
-  .sidebar.active ul li a{
     width: 100%;
-    justify-content: start;
-    padding-left: 20px;
+    bottom: 0;
+    transition: ease 0.3s;
   }
-  
-  
-  
-  .sidebar ul li a:hover{
-    background-color: var(--form-colo4);
-    color: black;
-    box-shadow: var(--form-colo4) 0px 0px 15px 3px;
-  }
-  
-  
-  
-  .sidebar ul li a .icon{
-    font-size: 35px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-  
-  
-  .sidebar.active ul li a .icon{
-    margin-right: 10px;
-  }
-  
-  
-  
-  .sidebar .nav-item{
-    display: none;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  
-  
-  .sidebar.active .nav-item{
+
+  .sidebar-lower ul {
     display: flex;
-  }
-  
-  
-
-  .tooltip{
-    width: fit-content;
-    word-wrap: none;
+    list-style: none;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
   }
 
-
-  
-  .sidebar ul li .tooltip{
-    position: absolute;
-    top: 50%;
-    left: 125px;
-    transform: translate(-50%, -50%);
-    background-color: var(--form-colo6);
-    padding: 3px 15px;
-    border-radius: 10px;
-    display: none;
-  }
-  
-  
-  
-  .sidebar ul li:hover .tooltip{
-    display: block;
-  }
-  
-  
-  
-  .sidebar.active ul li .tooltip{
-    display: none;
-  }
-  
-  
-  /*Estilos del contenido principal de la pagina*/
-  .main-content{
-    position: absolute;
-    left: 90px;
-    width: calc(100% - 90px);
-    min-height: 100%;
-  }
-  
-  
-  
-  .sidebar.active ~ .main-content{
-    left: 250px;
-    width: calc(100% - 250px);
+  .sidebar-lower ul li {
+    width: 20%;
+    padding: 20px 0px;
+    display: flex;
+    justify-content: center;
+    transition: ease 0.3s;
   }
 
-
-
-  .sidebar-lower{
-    display: none;
+  .sidebar-lower ul li:hover {
+    background-color: var(--color-3);
   }
-  
-  
-  
-  @media screen and (max-width:500px) {
-    .sidebar{
-      display: none;
-    }
 
-
-
-    .main-content{
-      position: absolute;
-      left: 0px;
-      width: calc(100% - 0px);
-      min-height: calc(100% - 200px);
-    }
-
-
-
-    .sidebar-lower{
-      display: flex;
-      background-color: var(--form-colo5);
-      position: fixed;
-      z-index: 9;
-      width: 100%;
-      bottom: 0;
-      transition: ease 0.3s;
-    }
-
-    .sidebar-lower ul{
-      display: flex;
-      list-style: none;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-    }
-
-    .sidebar-lower ul li{
-      width: 20%;
-      padding: 20px 0px;
-      display: flex;
-      justify-content: center;
-      transition: ease 0.3s;
-    }
-
-    .sidebar-lower ul li:hover{
-      background-color: black;
-    }
-
-    .sidebar-lower ul li:hover a span{
-      color: red;
-    }
-
-    .sidebar-lower ul li a span{
-      font-size: 30px;
-      color: var(--form-colo6);
-    }
-
+  .sidebar-lower ul li:hover a span {
+    color: var(--color-1);
   }
+
+  .sidebar-lower ul li a span {
+    font-size: 30px;
+    color: var(--color-5);
+  }
+
+}

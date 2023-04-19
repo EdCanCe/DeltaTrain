@@ -1,23 +1,6 @@
-/* Ajustes generales para el contenedor principal */
-.main-content{
-  justify-content: center; /* Centra el contenido horizontalmente */
-  align-items: center; /* Centra el contenido verticalmente */
-  display: flex; /* Utiliza el modelo de caja flexible */
-  background: url("/DeltaTrain/imgs/fondo-rojo.svg"); /* Establece una imagen de fondo */
-  background-repeat: no-repeat; /* Evita que la imagen se repita */
-  background-size: cover; /* Ajusta la imagen de fondo para que cubra todo el contenedor */
-  background-position: center center; /* Alinea la imagen de fondo en el centro */
-  transition: ease 0.5s; /* Establece una transición suave de medio segundo */
-}
-
-
 
 /* Estilos para el contenedor del formulario */
 .box{
-  margin-top: 50px;
-  margin-bottom: 50px; 
-  background-color: rgba(0, 0, 0, 0); 
-  padding: 10px;
   width: 60%; 
   overflow: hidden; 
 }
@@ -26,7 +9,7 @@
 
 /* Estilos para el formulario */
 .box form{
-  background-color: rgba(37, 0, 0, 0.829);
+  background-color: var(--color-6);
   padding: 40px;
   text-align: center;
   display: flex;
@@ -34,13 +17,14 @@
   align-items: center;
   z-index: 2;
   border-radius: 10px;
+  gap: 70px;
 }
 
 
 
 /* Estilos para el título del formulario */
 .box form h2{
-  color: var(--form-colo2);
+  color: var(--color-5);
   text-align: center;
   margin-bottom: 60px;
   font-size: 40px;
@@ -51,7 +35,6 @@
 
 /* Estilos para el contenedor de cada campo de entrada */
 .input-container{
-  margin-bottom: 70px;
   position: relative;
   justify-content: center;
   display: flex;
@@ -70,7 +53,7 @@
   font-size: 20px;
   outline: none;
   z-index: 2;
-  color: var(--form-colo2);
+  color: var(--color-5);
   border-radius: 10px;
 }
 
@@ -81,7 +64,7 @@
   position: absolute;
   left: 10px;
   bottom: 13px;
-  color: var(--form-colo2);
+  color: var(--color-5);
   transition: ease 0.5s;
   font-size: 20px;
   pointer-events: none;
@@ -90,25 +73,38 @@
   align-items: center;
 }
 
+.input-container #birth{
+  color: transparent;
+  transition: ease 0.3s;
+}
+
 
 
 /*Estilos para el placeholder de los inputs cuando se esten rellenando o tengan contenido*/
 .input-container input:focus ~ .placeholder-input,
-.input-container input:valid ~ .placeholder-input,
-.input-container textarea:focus ~ .placeholder-input,
-.input-container textarea:valid ~ .placeholder-input{
+.input-container input:valid ~ .placeholder-input{
   transform: translateY(-55px);
   font-size: 17px;
-  color: var(--form-colo3);
+  color: var(--color-5);
 }
 
+.input-container textarea:focus ~ .placeholder-input,
+.input-container textarea:valid ~ .placeholder-input{
+  transform: translateY(-75px);
+  font-size: 17px;
+  color: var(--color-5);
+}
 
+.input-container #birth:focus,
+.input-container #birth:valid{
+  color: var(--color-5);
+}
 
 /*Estilos para la linea inferior de los inputs*/
 .input-container i{
   width: 100%;
   height: 2px;
-  background-color: var(--form-colo2);
+  background-color: var(--color-1);
   position: absolute;
   left: 0;
   bottom: 0;
@@ -121,12 +117,17 @@
 
 /*Estilos para la linea inferior de los inputs cuando se este rellendo o tengan contenido dentro*/
 .input-container input:focus ~ i,
-.input-container input:valid ~ i,
-.input-container textarea:focus ~ i,
-.input-container textarea:valid ~ i{
+.input-container input:valid ~ i{
   height: 50px;
   border-radius: 10px;
-  background-color: var(--form-colo3);
+  background-color: var(--color-1);
+}
+
+.input-container textarea:focus ~ i,
+.input-container textarea:valid ~ i{
+  height: 80px;
+  border-radius: 10px;
+  background-color: var(--color-1);
 }
 
 
@@ -141,21 +142,21 @@
 
 /*Estilos de los links que esten dentro del contenedor*/
 .links-container a{
-  color: var(--form-colo4);
+  color: var(--color-5);
   font-size: 15px;
 }
 
 
 
 .links-container a:hover{
-  color: var(--form-colo2);
+  color: var(--color-2);
 }
 
 
 
 /*Estilos para el mensaje de error mostrado debajo del input*/
 .error-input.message{
-  color: var(--form-colo4);
+  color: var(--color-5);
   position: absolute;
   bottom: -30px;
   left: 5px;
@@ -166,29 +167,29 @@
 
 /*Estilos para la linea inferior del input cuando no sea valido*/
 .input-container i.error-input{
-  background-color: var(--form-colo4) !important;
-  box-shadow: var(--form-colo4) 0px 0px 15px 3px;
+  background-color: var(--color-1) !important;
+  box-shadow: var(--color-1) 0px 0px 15px 3px;
 }
 
 
 
 /*Estilos para el placeholder del input no valido*/
 .input-container .error-input.placeholder-input{
-  color: var(--form-colo4) !important;
+  color: var(--color-5) !important;
 }
 
 
 
 .input-container input.error-input{
-  color: white;
+  color: var(--color-2);
 }
 
 
 
 /*Estilos del boton submit*/
 .btn-submit {
-  background-color: var(--form-colo4);
-  color: #fff;
+  background-color: var(--color-1);
+  color: var(--color-2);
   border: none;
   border-radius: 20px;
   font-size: 20px;
@@ -211,8 +212,9 @@
 
 
 .btn-submit:hover {
-  box-shadow: var(--form-colo4) 0px 0px 15px 3px;
+  box-shadow: var(--color-1) 0px 0px 15px 3px;
   transform: scale(1.1);
+  border: solid var(--color-1) 2px;
 }
 
 
@@ -223,5 +225,8 @@
   .box{
       width: 100%;
       height: 100%;
+  }
+  .input-container{
+    width: 90%;
   }
 }

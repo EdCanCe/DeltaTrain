@@ -1,0 +1,224 @@
+.main-content{
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    display: flex; /* Utiliza el modelo de caja flexible */
+    background: url(../imgs/fondo-rojo.svg); /* Establece una imagen de fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-size: cover; /* Ajusta la imagen de fondo para que cubra todo el contenedor */
+    background-position: center center; /* Alinea la imagen de fondo en el centro */
+    transition: ease 0.5s; /* Establece una transición suave de medio segundo */
+}
+
+
+
+/* Estilos del contenedor principal de la rutina */
+.recipes-main-container{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 80%;
+    background-color: rgba(201, 0, 0, 0.742);
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+/* Estilos de la cabecera del contendeor de la rutina */
+.recipes-head{
+    background: url(../imgs/banner.jpg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    color: aliceblue;
+}
+
+
+
+.recipes-head h1{
+    transform: translateY(100%);
+    font-size: 50px;
+    text-align: center;
+}
+
+
+
+.recipes-head .recipes-description{
+    transform: translateY(100%);
+    color: rgb(145, 153, 160);
+}
+
+
+
+.recipes-head .icon{
+    color: rgb(255, 0, 60);
+    font-size: 50px;
+    background-color: black;
+    border-radius: 100%;
+    padding: 20px;
+    border: solid white;
+    transform: translateY(50%);
+}
+
+
+
+/* Estilos del del cuerpo de la rutina */
+.recipes-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    gap: 70px;
+}
+
+
+
+.recipe-img-container {
+    width: 50%;
+    background-color: black;
+    position: relative;
+    padding-top: 50%;
+    overflow: hidden;
+    border-radius: 10px;
+}
+ 
+.recipe-img-container img{
+    max-width: 100%;
+    position: absolute;
+    position: absolute;
+    inset: 50%;
+    transform: translate(-50%, -50%);
+}
+
+ 
+
+
+
+/* Estilos de los contenedores de los ejercicios de la rutina */
+.ingredients-container, .nutritional-information-container, .preparation-container{
+    width: 80%;
+    background-color: #0000008b;
+    border-radius: 10px;
+    color: aliceblue;
+    transition: ease 0.2s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    text-decoration: none;
+}
+
+
+
+.ingredients-container:hover, .nutritional-information-container:hover, .preparation-container:hover{
+    background-color: rgb(0, 0, 0);
+    transform: scale(1.1);
+    border: solid white 2px;
+}
+
+
+
+.recipes-body h3{
+    color: aliceblue;
+    margin-bottom: 30px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.recipes-body h4{
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.recipes-body ol, .recipes-body ul{
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+
+
+
+
+/* Estilos del contenedor de agregar ejercicio a la rutina */
+.add-exercise-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 60px;
+    margin-top: 30px;
+}
+
+
+
+.add-exercise-container a{
+    background-color: rgba(0, 0, 0, 0.805);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 40%;
+    padding: 10px 10px;
+    text-decoration: none;
+    cursor: pointer;
+    color: aliceblue;
+    border: solid rgb(243, 243, 243) 1px;
+    border-radius: 10px;
+    text-align: center;
+    transition: ease 0.3s;
+    font-weight: 1000;
+    flex-direction: column;
+}
+
+
+
+.add-exercise-container a .icon{
+    font-size: 30px;
+}
+
+
+
+.add-exercise-container a:hover{
+    transform: scale(1.1);
+    background-color: white;
+    color: red;
+}
+
+
+
+@media screen and (max-width: 800px) {
+    .recipes-main-container{
+        width: 100%;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        border-radius: 0px;
+    }
+
+    .recipe-img-container{
+        width: 75%;
+        padding-top: 75%;
+    }
+
+    .recipes-head h1{
+        transform: translateY(50%);
+        font-size: 30px;
+    }
+
+    .exercise-container{
+        width: 90%;
+    }
+
+
+    .exercise-container table{
+        align-items: center;
+        justify-content: left;
+        width: 100%;
+        display: flex;
+        overflow: auto;
+    }
+}

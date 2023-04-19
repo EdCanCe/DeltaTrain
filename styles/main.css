@@ -2,9 +2,20 @@
 
 
 
+:root{
+    --color-1: #c70000;
+    --color-2: #ffffff;
+    --color-3: #000000;
+    --color-4: #141414;
+    --color-5: #c6b9d4;
+    --color-6: #950011b2;
+    --color-7: #000000b2;
+    --color-8: #c6b9d4b2;
+    --color-9: #121417de;
+  }
 
 
-
+  
 *{
     font-family: 'Poppins', sans-serif;
 }
@@ -12,6 +23,45 @@
 
 
 
+.main-content{
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    display: flex; /* Utiliza el modelo de caja flexible */
+    background: url(../imgs/fondo-rojo.svg); /* Establece una imagen de fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-size: cover; /* Ajusta la imagen de fondo para que cubra todo el contenedor */
+    background-position: center center; /* Alinea la imagen de fondo en el centro */
+    transition: ease 0.5s; /* Establece una transición suave de medio segundo */
+}
+
+
+
+  /*Estilos del contenido principal de la pagina*/
+  .main-content{
+    position: absolute;
+    left: 100px;
+    width: calc(100% - 90px);
+    min-height: 100%;
+  }
+
+
+
+  /* Establece el ancho de la barra de desplazamiento */
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+  
+  /* Establece el color de la "manija" de la barra de desplazamiento */
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--color-6);
+    border-radius: 5px;
+  }
+  
+  /* Establece el color de fondo de la barra de desplazamiento */
+  ::-webkit-scrollbar-track {
+    background-color: var(--color-3);
+  }
 
 
 h1, h2, h3{
