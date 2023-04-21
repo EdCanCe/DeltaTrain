@@ -1,0 +1,159 @@
+
+/* Estilos del contenedor principal de rutinas del usuario */
+.recipes-main-container{
+    border-radius: 5px;
+    overflow: hidden;
+    width: 80%;
+    background-color: var(--color-6);
+    display: flex;
+    flex-direction: column;
+    max-width: 2000px;
+    min-height: 100vh;
+}
+
+
+
+/* Estilos de la cabecera de rutinas del usuario */
+.recipes-head{
+    background: url(../imgs/banner4k.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    color: var(--color-5);
+}
+
+
+
+.recipes-head h1{
+    transform: translateY(100%);
+    font-size: 50px;
+}
+
+
+
+.recipes-head span{
+    box-shadow: 0px 5px 40px 10px var(--color-3);
+    color: var(--color-1);
+    font-size: 50px;
+    background-color: var(--color-4);
+    border-radius: 100%;
+    padding: 20px;
+    border: solid var(--color-5);
+    transform: translateY(50%);
+}
+
+
+
+/* Estilos del cuerpo de rutinas del usuario */
+.recipes-body{ 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    gap: 50px;
+}
+
+
+
+.recipes-container{
+    width: 70%;
+    background-color: var(--color-7);
+    border-radius: 5px;
+    transition: ease 0.2s;
+}
+
+
+
+.recipes-container:hover{
+    background-color: var(--color-3);
+    transform: scale(1.1);
+    border: solid var(--color-1) 2px;
+    box-shadow: 0px 5px 20px 2px var(--color-1);
+}
+
+
+
+.recipes-container a{
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0px;
+    text-decoration: none;
+}
+
+
+
+.recipes-container h3{
+    color: var(--color-1);
+}
+
+
+
+.recipes-container span{
+    color: rgb(145, 153, 160);
+    text-align: center;
+}
+
+
+
+/* Estilos del contenedor de crear rutina */
+.create-recipes-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 60px;
+    margin-top: 30px;
+}
+
+
+
+.create-recipes-container a{
+    background-color: var(--color-7);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 40%;
+    padding: 10px 10px;
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--color-5);
+    border: solid var(--color-1) 1px;
+    border-radius: 10px;
+    text-align: center;
+    transition: ease 0.3s;
+    font-weight: 1000;
+    flex-direction: column;
+}
+
+
+
+.create-recipes-container a .icon{
+    font-size: 30px;
+}
+
+
+
+.create-recipes-container a:hover{
+    transform: scale(1.1);
+    background-color: var(--color-2);
+    color: var(--color-1);
+}
+
+
+
+@media screen and (max-width: 800px) {
+    .recipes-main-container{
+        width: 100%;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        border-radius: 0px;
+    }
+}
