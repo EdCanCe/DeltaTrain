@@ -57,7 +57,7 @@ $navConCuenta = '
             <li>
                 <div>
                 <a href="/DeltaTrain/daily">
-                    <span class="material-symbols-outlined icon">fact_check</span>
+                    <span class="material-symbols-outlined icon">calendar_month</span>
                     <span class="nav-item">Actividades</span>
                 </a>
                 <label for="" class="tooltip">Actividades</label>
@@ -180,7 +180,7 @@ $navConAdmin = '
             <li>
                 <div>
                 <a href="/DeltaTrain/daily">
-                    <span class="material-symbols-outlined icon">fact_check</span>
+                    <span class="material-symbols-outlined icon">calendar_month</span>
                     <span class="nav-item">Actividades</span>
                 </a>
                 <label for="" class="tooltip">Actividades</label>
