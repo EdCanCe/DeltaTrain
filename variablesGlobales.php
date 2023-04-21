@@ -12,7 +12,7 @@ $navConCuenta = '
 
             <!-- Logo y nombre de la empresa -->
             <div class="logo">
-                <img src="/DeltaTrain/imgs/logo.svg" alt="">
+                <img src="/DeltaTrain/imgs/logo.svg" alt="deltatrain">
                 <span>DeltaTrain</span>
             </div>
             <!-- Botón para abrir/cerrar la barra lateral -->

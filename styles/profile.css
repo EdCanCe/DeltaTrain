@@ -1,31 +1,19 @@
-.main-content{
-    justify-content: center; /* Centra el contenido horizontalmente */
-    align-items: center; /* Centra el contenido verticalmente */
-    display: flex; /* Utiliza el modelo de caja flexible */
-    background: url("../imgs/fondo-rojo.svg"); /* Establece una imagen de fondo */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    background-size: cover; /* Ajusta la imagen de fondo para que cubra todo el contenedor */
-    background-position: center center; /* Alinea la imagen de fondo en el centro */
-    transition: ease 0.5s; /* Establece una transición suave de medio segundo */
-}
-
 /* Estilos del contenedor principal del perfil */
 .profile-body{
-    margin-top: 50px;
-    margin-bottom: 50px;
     border-radius: 5px;
     overflow: hidden;
     width: 80%;
-    background-color: rgba(201, 0, 0, 0.742);
+    background-color: var(--color-6);
     display: flex;
     flex-direction: column;
+    min-height: 100vw;;
 }
 
 
 
 /* Estilos del banner */
 .profile-banner-container{
-    background-color: black;
+    background-color: var(--color-3);
 }
 
 
@@ -54,7 +42,7 @@
 .profile-user-img-container img{
     border-radius: 100%;
     max-width: 100%;
-    border: solid 5px black;
+    border: solid 5px var(--color-3);
     background-image: url("../imgs/defaultpfp2.jpg");
     background-size: cover;
     background-position: center;
@@ -66,7 +54,7 @@
     font-size: 25px;
     padding-left: 40px;
     transform: translate(0px, -50px);
-    color: aliceblue;
+    color: var(--color-2);
 }
 
 
@@ -79,7 +67,7 @@
 
 .user-dates-container .user-description{
     font-size: 20px;
-    color: rgb(194, 193, 193);
+    color: var(--color-5);
 }
 
 
@@ -88,11 +76,9 @@
 .profile-sections-container{
     overflow: auto;
     display: flex;
-    background-color: rgba(0, 0, 0, 0.577);
+    background-color: var(--color-9);
     justify-content: center;
     align-items: center;
-    border-bottom: solid;
-    border-top: solid;
 }
 
 
@@ -110,7 +96,9 @@
     text-decoration: none;
     justify-content: center;
     align-items: center;
-    color: aliceblue;
+    color: var(--color-5);
+    transition: ease 0.3s;
+    font-weight: 550;
 }
 
 
@@ -119,7 +107,7 @@
     width: 100%;
     content: '';
     height: 2px;
-    background-color: white;
+    background-color: var(--color-5);
     pointer-events: none;
     transition: ease 0.3s;
 }
@@ -127,15 +115,22 @@
 
 
 .profile-section:hover{
-    background-color: black;
+    background-color: var(--color-3);
 }
 
 
 
 .profile-section:hover i{
-    background-color: red;
-    box-shadow: red 0px 0px 15px 3px;
+    background-color: var(--color-1);
+    box-shadow: var(--color-1) 0px 0px 15px 2px;
     height: 4px;
+}
+
+
+
+.profile-section:hover a{
+    color: var(--color-1);
+    
 }
 
 
@@ -146,7 +141,6 @@
     padding-top: 30px;
     padding-bottom: 30px;
     padding-right: 30px;
-    border-bottom: solid white 2px;
     color: aliceblue;
 }
 

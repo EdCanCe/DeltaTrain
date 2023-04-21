@@ -101,13 +101,13 @@ session_start();
 
             <!-- Banner del perfil -->
             <div class="profile-banner-container">
-                <img src="/DeltaTrain/imgs/banner.png" id="profileBanner" alt="">
+                <img src="/DeltaTrain/imgs/banner.png" id="profileBanner" alt="banner">
             </div>
 
 
             <!-- Foto del perfil -->
             <div class="profile-user-img-container">
-                <img src="/DeltaTrain/imgs/pfp.png"  id="profilePfp" alt="">
+                <img src="/DeltaTrain/imgs/pfp.png"  id="profilePfp" alt="user-img">
             </div>
 
 
@@ -198,7 +198,7 @@ session_start();
 
                     <div class="post-div-1">
                         <div class="post-user-img-container">
-                            <img src="/DeltaTrain/imgs/defaultpfp2.jpg" alt="">
+                            <img src="/DeltaTrain/imgs/defaultpfp2.jpg" id="post-user-img-container" alt="user-img">
                         </div>
                     </div>
                     
