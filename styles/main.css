@@ -2,12 +2,6 @@
 
 
 
-body{
-  overflow-x: hidden;
-}
-
-
-
 :root{
     --color-1: #c70000;
     --color-2: #ffffff;
@@ -33,7 +27,7 @@ body{
     justify-content: center; /* Centra el contenido horizontalmente */
     align-items: center; /* Centra el contenido verticalmente */
     display: flex; /* Utiliza el modelo de caja flexible */
-    background: url(../imgs/fondo-rojo.svg); /* Establece una imagen de fondo */
+    background: var(--color-3); /* Establece una imagen de fondo */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
     background-size: cover; /* Ajusta la imagen de fondo para que cubra todo el contenedor */
     background-position: center center; /* Alinea la imagen de fondo en el centro */

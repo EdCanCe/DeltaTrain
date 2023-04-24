@@ -162,6 +162,9 @@ ADD Pfp_User longblob;
 ALTER TABLE User
 ADD Banner_User longblob;
 
+ALTER TABLE User
+ADD Color_User tinyint DEFAULT 0;
+
 create table NONUSABLE(
     Word_NONUSABLE varchar(60)
 );
