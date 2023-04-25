@@ -49,9 +49,11 @@ session_start();
             $CurrentUserAdministrator = $_SESSION["CurrentUserAdministratorSession"]; #Recoge sobre si el usuario es administrador o no
             if($CurrentUserAdministrator == '0'){ #Es 0 en caso de ser un usuario normal
                 echo $navConCuenta;
+                echo $navConCuentaAbajo;
             }
             else{ #Si se usa este es porque el usuario es admin
                 echo $navConAdmin;
+                echo $navConAdminAbajo;
             }
 
 
@@ -74,6 +76,7 @@ session_start();
         }
         else{ #Si se usa este es porque aún no se ha iniciado sesión
             echo $navSinCuenta;
+            echo $navSinCuentaAbajo;
             echo "<script> window. location='/DeltaTrain/index.php'</script>"; #Como no iniciaste sesión te manda a hacerlo
         }
 

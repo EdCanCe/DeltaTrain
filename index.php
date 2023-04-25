@@ -49,10 +49,12 @@ session_start();
             $CurrentUserAdministrator = $_SESSION["CurrentUserAdministratorSession"]; #Recoge sobre si el usuario es administrador o no
             if($CurrentUserAdministrator == '0'){ #Es 0 en caso de ser un usuario normal
                 echo $navConCuenta;
+                echo $navConCuentaAbajo;
                 echo "<script> window. location='/DeltaTrain/feed.php'</script>"; #Como ya tienes sesión y no deberías de iniciarla te manda a tu feed directamente
             }
             else{ #Si se usa este es porque el usuario es admin
                 echo $navConAdmin;
+                echo $navConAdminAbajo;
             }
 
 
@@ -75,7 +77,8 @@ session_start();
 
         }
         else{ #Si se usa este es porque aún no se ha iniciado sesión
-            echo $navSinCuenta; #En este caso como es el login no, pero para todo lo demás te debe saltar que ocupas crear la sesión primero
+            echo $navSinCuenta;
+            echo $navSinCuentaAbajo; #En este caso como es el login no, pero para todo lo demás te debe saltar que ocupas crear la sesión primero
         }
 
 

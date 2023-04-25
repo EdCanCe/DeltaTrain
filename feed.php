@@ -53,7 +53,7 @@ session_start();
             }
             else{ #Si se usa este es porque el usuario es admin
                 echo $navConAdmin;
-                echo $navConCuentaAbajo;
+                echo $navConAdminAbajo;
             }
             
 
@@ -76,7 +76,7 @@ session_start();
 
         }
         else{ #Si se usa este es porque aún no se ha iniciado sesión
-            echo $navSinCuenta;
+            echo $navConAdmin;
         }
 
 

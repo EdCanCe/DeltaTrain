@@ -427,3 +427,112 @@ $navConCuentaAbajo = '
 
 
 </div>';
+
+$navConAdminAbajo = '
+<!-- Barra lateral -->
+<div class="sidebar-lower">
+
+
+
+        <!-- Lista de enlaces de navegación -->
+        <ul>
+
+
+
+            <li>
+                <a href="/DeltaTrain/home">
+                    <span class="material-symbols-outlined icon">home</span>
+                </a>
+            </li>
+
+
+
+            <li>
+                <div>
+                <a href="/DeltaTrain/daily">
+                    <span class="material-symbols-outlined icon">calendar_month</span>
+                </a>
+            </li>
+
+
+
+            <li>
+                <div>
+                <a href="/DeltaTrain/routines">
+                    <span class="material-symbols-outlined icon">fact_check</span>
+                </a>
+            </li>
+
+
+
+            <li>
+                <div>
+                <a href="/DeltaTrain/recipes">
+                    <span class="material-symbols-outlined icon">cookie</span>
+                </a>
+            </li>
+
+
+
+            <li>
+                <a href="/DeltaTrain/suppport">
+                    <span class="material-symbols-rounded icon">contact_support</span>
+                </a>
+            </li>
+
+
+
+            <li>
+                <a href="/DeltaTrain/settings">
+                    <span class="material-symbols-rounded icon">settings</span>
+                </a>
+            </li>
+
+
+
+            <li>
+                <a href="/DeltaTrain/logout">
+                    <span class="material-symbols-rounded icon">tab_close</span>
+                </a>
+            </li>
+
+
+
+        </ul>
+        
+
+
+</div>';
+
+$navSinCuentaAbajo = '
+<!-- Barra lateral -->
+<div class="sidebar-lower">
+        
+
+
+        <!-- Lista de enlaces de navegación -->
+        <ul>
+
+
+
+            <li>
+                <a href="/DeltaTrain/support">
+                    <span class="material-symbols-rounded icon">contact_support</span>
+                </a>
+            </li>
+
+
+
+            <li>
+                <a href="/DeltaTrain/">
+                    <span class="material-symbols-rounded icon">tab_move</span>
+                </a>
+            </li>
+
+
+
+        </ul>
+        
+
+
+</div>';
