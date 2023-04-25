@@ -119,18 +119,18 @@ h1, h2, h3{
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: calc(100% - 0px);
+  height: calc(100% - 0px);
   background-color: rgba(0,0,0,0.8);
   z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 50px;
 }
 
 .img-extended-container img{
+  object-fit: contain;
   max-width: 80%;
-  width: fit-content;
   max-height: 80%;
-  height: fit-content;
 }
