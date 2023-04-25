@@ -88,9 +88,15 @@
   color: var(--color-5);
 }
 
+.input-container textarea:focus + .input-container,
+.input-container textarea:valid + .input-container{
+  height: 175px;
+  display: block;
+}
+
 .input-container textarea:focus ~ .placeholder-input,
 .input-container textarea:valid ~ .placeholder-input{
-  transform: translateY(-75px);
+  transform: translateY(-175px);
   font-size: 17px;
   color: var(--color-5);
 }
@@ -125,7 +131,7 @@
 
 .input-container textarea:focus ~ i,
 .input-container textarea:valid ~ i{
-  height: 80px;
+  height: 180px;
   border-radius: 10px;
   background-color: var(--color-1);
 }
@@ -229,4 +235,13 @@
   .input-container{
     width: 90%;
   }
+}
+
+
+
+
+
+textarea{
+  resize: none;
+  padding-top: 0;
 }

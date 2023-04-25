@@ -1,3 +1,3 @@
 function loadpfp(rawdata, backgroundId){
-    document.getElementById(backgroundId).style.backgroundImage=rawdata;
+    document.getElementById(backgroundId).src=rawdata;
 }

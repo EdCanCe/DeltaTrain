@@ -44,6 +44,7 @@ session_start();
         echo "<script src='/DeltaTrain/scripts/alert.js'></script>";
         echo "<script src='/DeltaTrain/scripts/load-pfp.js'></script>";
         echo "<script src='/DeltaTrain/scripts/colorchange.js'></script>";
+        echo "<script src='/DeltaTrain/scripts/image.js'></script>";
 
         if(isset($_SESSION["CurrentUserIDSession"])){ #Checa si ya inició sesión
             $CurrentUserID = $_SESSION["CurrentUserIDSession"]; #Recoge el id del usuario
@@ -63,7 +64,7 @@ session_start();
             $pfpData = "";
             while($row=mysqli_fetch_assoc($result)){
                 if(!is_null($row["Pfp_User"])){
-                    ?><script>loadpfp('url(data:image/jpeg;base64,<?php echo base64_encode($row["Pfp_User"]); ?>)', "RealUserIcon");</script><?php
+                    ?><script>loadpfp('data:image/jpeg;base64,<?php echo base64_encode($row["Pfp_User"]); ?>', "RealUserIcon");</script><?php
                 }
                 ?><script>document.getElementById("RealUserName").textContent="<?php echo $row["Username_User"]; ?>";</script><?php
                 ?><script>document.getElementById("RealUserProfile").href="/DeltaTrain/<?php echo $row["Username_User"]; ?>";</script><?php
@@ -145,10 +146,10 @@ session_start();
                     ?><script>document.getElementById("profileUsername").innerHTML="<?php echo $row["Username_User"]; ?>";</script><?php
                     ?><script>document.getElementById("profileDescription").innerHTML="<?php echo preg_replace('/\s+/', ' ',  (nl2br($row["Description_User"]))); ?>";</script><?php
                     if(!is_null($row["Pfp_User"])){
-                        ?><script>loadpfp('url(data:image/jpeg;base64,<?php echo base64_encode($row["Pfp_User"]); ?>)', "profilePfp");</script><?php
+                        ?><script>loadpfp('data:image/jpeg;base64,<?php echo base64_encode($row["Pfp_User"]); ?>', "profilePfp");</script><?php
                     }
                     if(!is_null($row["Banner_User"])){
-                        ?><script>loadpfp('url(data:image/jpeg;base64,<?php echo base64_encode($row["Banner_User"]); ?>)', "profileBanner");</script><?php
+                        ?><script>loadpfp('data:image/jpeg;base64,<?php echo base64_encode($row["Banner_User"]); ?>', "profileBanner");</script><?php
                     }
 
                 }
