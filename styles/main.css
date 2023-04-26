@@ -32,6 +32,7 @@
     background-size: cover; /* Ajusta la imagen de fondo para que cubra todo el contenedor */
     background-position: center center; /* Alinea la imagen de fondo en el centro */
     transition: ease 0.5s; /* Establece una transición suave de medio segundo */
+    padding-right: 100px;
 }
 
 
@@ -133,4 +134,10 @@ h1, h2, h3{
   object-fit: contain;
   max-width: 80%;
   max-height: 80%;
+}
+
+
+
+html{
+  overflow-x: hidden;
 }

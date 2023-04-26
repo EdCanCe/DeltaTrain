@@ -44,7 +44,6 @@ session_start();
         echo "<script src='/DeltaTrain/scripts/alert.js'></script>";
         echo "<script src='/DeltaTrain/scripts/load-pfp.js'></script>";
         echo "<script src='/DeltaTrain/scripts/colorchange.js'></script>";
-        echo "<script src='/DeltaTrain/scripts/image.js'></script>";
 
         if(isset($_SESSION["CurrentUserIDSession"])){ #Checa si ya inició sesión
             $CurrentUserID = $_SESSION["CurrentUserIDSession"]; #Recoge el id del usuario
@@ -239,6 +238,7 @@ session_start();
 
 <!--Enlazando archivo JavaScript de la sidebar-->
 <script src="/DeltaTrain/scripts/sidebar.js"></script>
+<script src='/DeltaTrain/scripts/image.js'></script>
 
 
 
