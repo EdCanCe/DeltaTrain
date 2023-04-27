@@ -42,7 +42,6 @@ session_start();
         echo "<script src='/DeltaTrain/scripts/alert.js'></script>";
         echo "<script src='/DeltaTrain/scripts/load-pfp.js'></script>";
         echo "<script src='/DeltaTrain/scripts/colorchange.js'></script>";
-        echo "<script src='/DeltaTrain/scripts/image.js'></script>";
 
         if(isset($_SESSION["CurrentUserIDSession"])){ #Checa si ya inició sesión
             $CurrentUserID = $_SESSION["CurrentUserIDSession"]; #Recoge el id del usuario
@@ -76,7 +75,8 @@ session_start();
 
         }
         else{ #Si se usa este es porque aún no se ha iniciado sesión
-            echo $navConAdmin;
+            echo $navSinCuenta;
+            echo $navSinCuentaAbajo;
         }
 
 
@@ -114,5 +114,6 @@ session_start();
     
 <script src="/DeltaTrain/scripts/sidebar.js"></script>
 <script src="/DeltaTrain/scripts/script-form.js"></script>
+<script src='/DeltaTrain/scripts/image.js'></script>
 </body>
 </html>

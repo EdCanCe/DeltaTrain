@@ -32,7 +32,6 @@
     background-size: cover; /* Ajusta la imagen de fondo para que cubra todo el contenedor */
     background-position: center center; /* Alinea la imagen de fondo en el centro */
     transition: ease 0.5s; /* Establece una transición suave de medio segundo */
-    padding-right: 100px;
 }
 
 
@@ -128,6 +127,13 @@ h1, h2, h3{
   align-items: center;
   justify-content: center;
   padding: 50px;
+  padding-left: 150px;
+}
+
+@media screen and (max-width: 500px){
+  .img-extended-container{
+    padding-left: 50px;
+  }
 }
 
 .img-extended-container img{

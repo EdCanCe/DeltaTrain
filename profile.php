@@ -25,6 +25,8 @@ session_start();
     <!-- Enlazando archivo de estilos para el perfil -->
     <link rel="stylesheet" href="/DeltaTrain/styles/profile.css">
     <!-- Enlazando la fuente Material Symbols Outlined de Google -->
+    <link rel="stylesheet" href="/DeltaTrain/styles/follow.css">
+    <!-- Enlazando la fuente Material Symbols Outlined de Google -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- Enlazando la fuente Material Symbols Rounded de Google -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -121,6 +123,7 @@ session_start();
 
                 <div>
                     <span class="username" id="profileUsername">Usuario</span>
+                    <span class="follow-button">a</span>
                 </div>
                 <br>
                 <span class="user-description" id="profileDescription">Descripción del usuario</span>

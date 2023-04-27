@@ -41,7 +41,6 @@ session_start();
         echo $alertas;
         echo "<script src='/DeltaTrain/scripts/alert.js'></script>";
         echo "<script src='/DeltaTrain/scripts/colorchange.js'></script>";
-        echo "<script src='/DeltaTrain/scripts/image.js'></script>";
 
         if(isset($_SESSION["CurrentUserIDSession"])){ #Checa si ya inició sesión
             $CurrentUserID = $_SESSION["CurrentUserIDSession"]; #Recoge el id del usuario
@@ -221,6 +220,7 @@ session_start();
 
 <script src="scripts/sidebar.js"></script>
 <script src="scripts/script-form.js"></script>
+<script src='/DeltaTrain/scripts/image.js'></script>
 
 
 
