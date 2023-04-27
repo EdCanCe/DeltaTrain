@@ -13,7 +13,7 @@
     <!-- Enlazando archivo de estilos para la pantalla de carga -->
     <link rel="stylesheet" href="../styles/load.css">
     <!-- Enlazando archivo de estilos principales para el perfil -->
-    <link rel="stylesheet" href="../styles/recipe.css">
+    <link rel="stylesheet" href="../styles/recipe_creator.css">
     <!-- Enlazando la fuente Material Symbols Outlined de Google -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- Enlazando la fuente Material Symbols Rounded de Google -->
@@ -200,8 +200,13 @@
 
         <!-- Cabecera del contenedor de la receta -->
         <div class="recipes-head">
-          <h1 class="recipes-name">Nombre de la receta <input type="text" name="" id=""></h1>
-          <span class="recipes-description">Descripcion de la receta <input type="text" name="" id=""></span>
+          <h1 class="recipes-name">
+            <input type="text" name="recipes-name" required>
+            <span class="placeholder-input">Nombre de la receta</span>
+            <i class="input-line"></i>
+            <span class="message"></span>
+          </h1>
+          
           <span class="material-symbols-outlined icon">cooking</span>
         </div>
 
@@ -211,12 +216,23 @@
         <div class="recipes-body">
 
             <div class="recipe-img-container">
-              <img src="https://www.xtrafondos.com/descargar.php?id=7225&vertical=1" alt="">
+              <h3>Imagen</h3>  
+              <div>
+                <img src="" class="image-preview" alt="">
+              </div>           
+              <input type="file" class="image-input">
             </div>
 
             <div class="nutritional-information-container">
               <h3>Información nuticiónal</h3>
-              <h4>Tamaño de la porción: <span><input type="number" name="" id=""></span></h4>
+              <h4>Tamaño de la porción: 
+                <span>
+                  <input type="number" name="" id="">
+                  <select name="" id="">
+                    <option value="">g</option>
+                  </select>
+                </span>
+              </h4>
               <ul>
                 <li>Proteinas: <span><input type="number" name="" id=""></span></li>
                 <li>Grasas: <span><input type="number" name="" id=""></span></li>
@@ -228,7 +244,7 @@
             <div class="ingredients-container">
                 <h3>Ingredientes</h3>
                 <ol>
-                  <li><span><input type="text" name="" id=""></span></li>
+                  <li><span><input type="text" name="" id=""></span><button class="delete-btn">Eliminar</button></li>
                 </ol>
                 <div class="add-ingredient-container">
                   <button class="add-ingredient-button">

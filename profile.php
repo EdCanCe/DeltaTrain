@@ -13,17 +13,17 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DeltaTrain | Perfil</title>
-    <link rel="stylesheet" href="/DeltaTrain/styles/main.css">
+    <link rel="stylesheet" href="../styles/main.css">
     <!-- Enlazando archivo de estilos normalize-->
-    <link rel="stylesheet" href="/DeltaTrain/styles/normalize.css">
+    <link rel="stylesheet" href="../styles/normalize.css">
     <!-- Enlazando archivo de estilos para la barra lateral -->
-    <link rel="stylesheet" href="/DeltaTrain/styles/sidebar.css">
+    <link rel="stylesheet" href="../styles/sidebar.css">
     <!-- Enlazando archivo de estilos para el formulario -->
-    <link rel="stylesheet" href="/DeltaTrain/styles/form.css">
+    <link rel="stylesheet" href="../styles/form.css">
     <!-- Enlazando archivo de estilos para las alertas -->
-    <link rel="stylesheet" href="/DeltaTrain/styles/alerts.css">
+    <link rel="stylesheet" href="../styles/alerts.css">
     <!-- Enlazando archivo de estilos para el perfil -->
-    <link rel="stylesheet" href="/DeltaTrain/styles/profile.css">
+    <link rel="stylesheet" href="../styles/profile.css">
     <!-- Enlazando la fuente Material Symbols Outlined de Google -->
     <link rel="stylesheet" href="/DeltaTrain/styles/follow.css">
     <!-- Enlazando la fuente Material Symbols Outlined de Google -->
@@ -35,7 +35,7 @@ session_start();
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital@0;1&display=swap" rel="stylesheet">
     <!-- Añadiendo el icono a la página -->
-    <link rel="icon" href="/DeltaTrain/imgs/logo.svg">
+    <link rel="icon" href="../imgs/logo.svg">
 </head>
 <body>
 
@@ -43,9 +43,9 @@ session_start();
 
     <?php
         echo $alertas;
-        echo "<script src='/DeltaTrain/scripts/alert.js'></script>";
-        echo "<script src='/DeltaTrain/scripts/load-pfp.js'></script>";
-        echo "<script src='/DeltaTrain/scripts/colorchange.js'></script>";
+        echo "<script src='../scripts/alert.js'></script>";
+        echo "<script src='../scripts/load-pfp.js'></script>";
+        echo "<script src='../scripts/colorchange.js'></script>";
 
         if(isset($_SESSION["CurrentUserIDSession"])){ #Checa si ya inició sesión
             $CurrentUserID = $_SESSION["CurrentUserIDSession"]; #Recoge el id del usuario
@@ -70,7 +70,7 @@ session_start();
                     ?><script>loadpfp('data:image/jpeg;base64,<?php echo base64_encode($row["Pfp_User"]); ?>', "RealUserIcon");</script><?php
                 }
                 ?><script>document.getElementById("RealUserName").textContent="<?php echo $row["Username_User"]; ?>";</script><?php
-                ?><script>document.getElementById("RealUserProfile").href="/DeltaTrain/<?php echo $row["Username_User"]; ?>";</script><?php
+                ?><script>document.getElementById("RealUserProfile").href="../<?php echo $row["Username_User"]; ?>";</script><?php
                 ?><script>document.title="DeltaTrain | <?php echo $row["Username_User"]; ?>";</script><?php
                 ?><script>changeColor(<?php echo $row["Color_User"] ?>)</script><?php
             }
@@ -107,13 +107,13 @@ session_start();
 
             <!-- Banner del perfil -->
             <div class="profile-banner-container">
-                <img src="/DeltaTrain/imgs/banner.png" id="profileBanner" alt="banner">
+                <img src="../imgs/banner.png" id="profileBanner" alt="banner">
             </div>
 
 
             <!-- Foto del perfil -->
             <div class="profile-user-img-container">
-                <img src="/DeltaTrain/imgs/pfp.png"  id="profilePfp" alt="user-img">
+                <img src="../imgs/pfp.png"  id="profilePfp" alt="user-img">
             </div>
 
 
@@ -137,14 +137,14 @@ session_start();
                 if(!isset($_GET["user"])){ #checa primero que se haya dado un usario
                     $_SESSION["ErrorHeader"] = "NO SE PUDO ACCEDER AL USUARIO";
                     $_SESSION["ErrorText"] = "Se necesita proporcionar un username.";
-                    echo "<script> window.location='/DeltaTrain/feed.php'</script>";
+                    echo "<script> window.location='../feed.php'</script>";
                 }
                 $query = "SELECT Username_User, Description_User, Pfp_User, Banner_User from User where Username_User = '".$_GET["user"]."'";
                 $result = mysqli_query($conexion, $query);
                 if(mysqli_num_rows($result) == 0){
                     $_SESSION["ErrorHeader"] = "NO SE PUDO ACCEDER AL USUARIO";
                     $_SESSION["ErrorText"] = "Se necesita proporcionar un username con una cuenta existente.";
-                    echo "<script> window.location='/DeltaTrain/feed.php'</script>";
+                    echo "<script> window.location='../feed.php'</script>";
                 }
                 while($row=mysqli_fetch_assoc($result)){
                     ?><script>document.getElementById("profileUsername").innerHTML="<?php echo $row["Username_User"]; ?>";</script><?php
@@ -205,7 +205,7 @@ session_start();
 
                     <div class="post-div-1">
                         <div class="post-user-img-container">
-                            <img src="/DeltaTrain/imgs/defaultpfp2.jpg" id="post-user-img-container" alt="user-img">
+                            <img src="../imgs/defaultpfp2.jpg" id="post-user-img-container" alt="user-img">
                         </div>
                     </div>
                     
@@ -240,8 +240,8 @@ session_start();
 
 
 <!--Enlazando archivo JavaScript de la sidebar-->
-<script src="/DeltaTrain/scripts/sidebar.js"></script>
-<script src='/DeltaTrain/scripts/image.js'></script>
+<script src="../scripts/sidebar.js"></script>
+<script src='../scripts/image.js'></script>
 
 
 

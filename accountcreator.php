@@ -30,7 +30,7 @@ if($GLOBALS["errorForm"]!=""){
     $_SESSION["ErrorHeader"] = "NO SE PUDO CREAR LA CUENTA";
     $_SESSION["ErrorText"] = "Colocó caracteres no permitidos en algún campo.";
     $GLOBALS["errorForm"] = "";
-    echo "<script> window.location='/DeltaTrain/createaccount.php'</script>";
+    echo "<script> window.location='../createaccount.php'</script>";
     return;
 }
 
@@ -44,7 +44,7 @@ $bannerType = $_FILES["banner"]["type"];
 if((($pfpName != "" and substr($pfpType, 0, 5) != "image") or ($bannerName != "" and substr($bannerType, 0, 5) != "image"))){
     $_SESSION["ErrorHeader"] = "NO SE PUDO CREAR LA CUENTA";
     $_SESSION["ErrorText"] = "Las imágenes que subió son de un formato no aceptado.";
-    echo "<script> window.location='/DeltaTrain/createaccount.php'</script>";
+    echo "<script> window.location='../createaccount.php'</script>";
     return;
 }
 $pfpSize = $_FILES["pfp"]["size"];
@@ -52,7 +52,7 @@ $bannerSize = $_FILES["banner"]["size"];
 if(($pfpName != "" and $pfpSize > 3*1024*1024) or ($bannerName != "" and $bannerSize > 3*1024*1024)){
     $_SESSION["ErrorHeader"] = "NO SE PUDO CREAR LA CUENTA";
     $_SESSION["ErrorText"] = "Las imágenes que subió son muy pesadas, el tamaño máximo es de 3mb.";
-    echo "<script> window.location='/DeltaTrain/createaccount.php'</script>";
+    echo "<script> window.location='../createaccount.php'</script>";
     return;
 }
 
@@ -90,7 +90,7 @@ if(mysqli_num_rows($result) == 0){ #Checa si hay almenos alguna cuenta que coinc
         $query = 'UPDATE User SET Banner_User = "'.$bannerData.'" WHERE ID_User = '.$_SESSION["CurrentUserIDSession"];
         $result = mysqli_query($conexion, $query);
     }
-    echo "<script> window.location='/DeltaTrain/index.php'</script>";
+    echo "<script> window.location='../index.php'</script>";
     
 
 
@@ -102,7 +102,7 @@ else{
 
     $_SESSION["ErrorHeader"] = "NO SE PUDO CREAR LA CUENTA";
     $_SESSION["ErrorText"] = "Ya existe una cuenta con el mismo nombre de usuario o correo asociados";
-    echo "<script> window.location='/DeltaTrain/createaccount.php'</script>"; 
+    echo "<script> window.location='../createaccount.php'</script>"; 
 
 
 

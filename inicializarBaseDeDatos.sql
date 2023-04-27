@@ -1,5 +1,5 @@
-create Database DeltaTrain;
-use DeltaTrain;
+-- create Database DeltaTrain;
+-- use DeltaTrain;
 
 create table User(
     ID_User bigint NOT NULL AUTO_INCREMENT PRIMARY KEY,
