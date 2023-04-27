@@ -15,7 +15,7 @@
 
 /* Estilos de la cabecera de rutinas del usuario */
 .recipes-head{
-    background: url(../imgs/banner4k.jpg);
+    background: url(/DeltaTrain/imgs/banner4k.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;

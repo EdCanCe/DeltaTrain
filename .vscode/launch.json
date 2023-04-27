@@ -9,7 +9,7 @@
       "stopAtEntry": false,
       "externalConsole": true,
       "cwd": "d:/Apps/XAMPP/htdocs/DeltaTrain",
-      "program": "d:/Apps/XAMPP/htdocs../build/Debug/outDebug",
+      "program": "d:/Apps/XAMPP/htdocs/DeltaTrain/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

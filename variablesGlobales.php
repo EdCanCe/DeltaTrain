@@ -12,7 +12,7 @@ $navConCuenta = '
 
             <!-- Logo y nombre de la empresa -->
             <div class="logo">
-                <img src="../imgs/logo.svg" alt="deltatrain">
+                <img src="/DeltaTrain/imgs/logo.svg" alt="deltatrain">
                 <span>DeltaTrain</span>
             </div>
             <!-- Botón para abrir/cerrar la barra lateral -->
@@ -45,7 +45,7 @@ $navConCuenta = '
 
 
             <li>
-                <a href="../home">
+                <a href="/DeltaTrain/home">
                     <span class="material-symbols-outlined icon">home</span>
                     <span class="nav-item">Home</span>
                 </a>
@@ -56,7 +56,7 @@ $navConCuenta = '
 
             <li>
                 <div>
-                <a href="../daily">
+                <a href="/DeltaTrain/daily">
                     <span class="material-symbols-outlined icon">calendar_month</span>
                     <span class="nav-item">Actividades</span>
                 </a>
@@ -67,7 +67,7 @@ $navConCuenta = '
 
             <li>
                 <div>
-                <a href="../routines">
+                <a href="/DeltaTrain/routines">
                     <span class="material-symbols-outlined icon">fact_check</span>
                     <span class="nav-item">Rutinas</span>
                 </a>
@@ -78,7 +78,7 @@ $navConCuenta = '
 
             <li>
                 <div>
-                <a href="../recipes">
+                <a href="/DeltaTrain/recipes">
                     <span class="material-symbols-outlined icon">cookie</span>
                     <span class="nav-item">Recetas</span>
                 </a>
@@ -88,7 +88,7 @@ $navConCuenta = '
 
 
             <li>
-                <a href="../support">
+                <a href="/DeltaTrain/support">
                     <span class="material-symbols-rounded icon">contact_support</span>
                     <span class="nav-item">Contacto</span>
                 </a>
@@ -98,7 +98,7 @@ $navConCuenta = '
 
 
             <li>
-                <a href="../settings">
+                <a href="/DeltaTrain/settings">
                     <span class="material-symbols-rounded icon">settings</span>
                     <span class="nav-item">Ajustes</span>
                 </a>
@@ -108,7 +108,7 @@ $navConCuenta = '
 
 
             <li>
-                <a href="../logout">
+                <a href="/DeltaTrain/logout">
                     <span class="material-symbols-rounded icon">tab_close</span>
                     <span class="nav-item">Cerrar Sesión</span>
                 </a>
@@ -135,7 +135,7 @@ $navConAdmin = '
 
             <!-- Logo y nombre de la empresa -->
             <div class="logo">
-                <img src="../imgs/logo.svg" alt="">
+                <img src="/DeltaTrain/imgs/logo.svg" alt="">
                 <span>DeltaTrain</span>
             </div>
             <!-- Botón para abrir/cerrar la barra lateral -->
@@ -168,7 +168,7 @@ $navConAdmin = '
 
 
             <li>
-                <a href="../home">
+                <a href="/DeltaTrain/home">
                     <span class="material-symbols-outlined icon">home</span>
                     <span class="nav-item">Home</span>
                 </a>
@@ -179,7 +179,7 @@ $navConAdmin = '
 
             <li>
                 <div>
-                <a href="../daily">
+                <a href="/DeltaTrain/daily">
                     <span class="material-symbols-outlined icon">calendar_month</span>
                     <span class="nav-item">Actividades</span>
                 </a>
@@ -190,7 +190,7 @@ $navConAdmin = '
 
             <li>
                 <div>
-                <a href="../routines">
+                <a href="/DeltaTrain/routines">
                     <span class="material-symbols-outlined icon">fact_check</span>
                     <span class="nav-item">Rutinas</span>
                 </a>
@@ -201,7 +201,7 @@ $navConAdmin = '
 
             <li>
                 <div>
-                <a href="../recipes">
+                <a href="/DeltaTrain/recipes">
                     <span class="material-symbols-outlined icon">cookie</span>
                     <span class="nav-item">Recetas</span>
                 </a>
@@ -211,7 +211,7 @@ $navConAdmin = '
 
 
             <li>
-                <a href="../suppport">
+                <a href="/DeltaTrain/suppport">
                     <span class="material-symbols-rounded icon">contact_support</span>
                     <span class="nav-item">Contacto</span>
                 </a>
@@ -221,7 +221,7 @@ $navConAdmin = '
 
 
             <li>
-                <a href="../settings">
+                <a href="/DeltaTrain/settings">
                     <span class="material-symbols-rounded icon">settings</span>
                     <span class="nav-item">Ajustes</span>
                 </a>
@@ -231,7 +231,7 @@ $navConAdmin = '
 
 
             <li>
-                <a href="../logout">
+                <a href="/DeltaTrain/logout">
                     <span class="material-symbols-rounded icon">tab_close</span>
                     <span class="nav-item">Cerrar Sesión</span>
                 </a>
@@ -258,7 +258,7 @@ $navSinCuenta = '
 
             <!-- Logo y nombre de la empresa -->
             <div class="logo">
-                <img src="../imgs/logo.svg" alt="">
+                <img src="/DeltaTrain/imgs/logo.svg" alt="">
                 <span>DeltaTrain</span>
             </div>
             <!-- Botón para abrir/cerrar la barra lateral -->
@@ -276,7 +276,7 @@ $navSinCuenta = '
 
 
             <li>
-                <a href="../support">
+                <a href="/DeltaTrain/support">
                     <span class="material-symbols-rounded icon">contact_support</span>
                     <span class="nav-item">Contacto</span>
                 </a>
@@ -286,7 +286,7 @@ $navSinCuenta = '
 
 
             <li>
-                <a href="../">
+                <a href="/DeltaTrain/">
                     <span class="material-symbols-rounded icon">tab_move</span>
                     <span class="nav-item">Iniciar Sesión</span>
                 </a>
@@ -364,7 +364,7 @@ $navConCuentaAbajo = '
 
 
             <li>
-                <a href="../home">
+                <a href="/DeltaTrain/home">
                     <span class="material-symbols-outlined icon">home</span>
                 </a>
             </li>
@@ -373,7 +373,7 @@ $navConCuentaAbajo = '
 
             <li>
                 <div>
-                <a href="../daily">
+                <a href="/DeltaTrain/daily">
                     <span class="material-symbols-outlined icon">calendar_month</span>
                 </a>
             </li>
@@ -382,7 +382,7 @@ $navConCuentaAbajo = '
 
             <li>
                 <div>
-                <a href="../routines">
+                <a href="/DeltaTrain/routines">
                     <span class="material-symbols-outlined icon">fact_check</span>
                 </a>
             </li>
@@ -391,7 +391,7 @@ $navConCuentaAbajo = '
 
             <li>
                 <div>
-                <a href="../recipes">
+                <a href="/DeltaTrain/recipes">
                     <span class="material-symbols-outlined icon">cookie</span>
                 </a>
             </li>
@@ -399,7 +399,7 @@ $navConCuentaAbajo = '
 
 
             <li>
-                <a href="../support">
+                <a href="/DeltaTrain/support">
                     <span class="material-symbols-rounded icon">contact_support</span>
                 </a>
             </li>
@@ -407,7 +407,7 @@ $navConCuentaAbajo = '
 
 
             <li>
-                <a href="../settings">
+                <a href="/DeltaTrain/settings">
                     <span class="material-symbols-rounded icon">settings</span>
                 </a>
             </li>
@@ -415,7 +415,7 @@ $navConCuentaAbajo = '
 
 
             <li>
-                <a href="../logout">
+                <a href="/DeltaTrain/logout">
                     <span class="material-symbols-rounded icon">tab_close</span>
                 </a>
             </li>
@@ -440,7 +440,7 @@ $navConAdminAbajo = '
 
 
             <li>
-                <a href="../home">
+                <a href="/DeltaTrain/home">
                     <span class="material-symbols-outlined icon">home</span>
                 </a>
             </li>
@@ -449,7 +449,7 @@ $navConAdminAbajo = '
 
             <li>
                 <div>
-                <a href="../daily">
+                <a href="/DeltaTrain/daily">
                     <span class="material-symbols-outlined icon">calendar_month</span>
                 </a>
             </li>
@@ -458,7 +458,7 @@ $navConAdminAbajo = '
 
             <li>
                 <div>
-                <a href="../routines">
+                <a href="/DeltaTrain/routines">
                     <span class="material-symbols-outlined icon">fact_check</span>
                 </a>
             </li>
@@ -467,7 +467,7 @@ $navConAdminAbajo = '
 
             <li>
                 <div>
-                <a href="../recipes">
+                <a href="/DeltaTrain/recipes">
                     <span class="material-symbols-outlined icon">cookie</span>
                 </a>
             </li>
@@ -475,7 +475,7 @@ $navConAdminAbajo = '
 
 
             <li>
-                <a href="../suppport">
+                <a href="/DeltaTrain/suppport">
                     <span class="material-symbols-rounded icon">contact_support</span>
                 </a>
             </li>
@@ -483,7 +483,7 @@ $navConAdminAbajo = '
 
 
             <li>
-                <a href="../settings">
+                <a href="/DeltaTrain/settings">
                     <span class="material-symbols-rounded icon">settings</span>
                 </a>
             </li>
@@ -491,7 +491,7 @@ $navConAdminAbajo = '
 
 
             <li>
-                <a href="../logout">
+                <a href="/DeltaTrain/logout">
                     <span class="material-symbols-rounded icon">tab_close</span>
                 </a>
             </li>
@@ -516,7 +516,7 @@ $navSinCuentaAbajo = '
 
 
             <li>
-                <a href="../support">
+                <a href="/DeltaTrain/support">
                     <span class="material-symbols-rounded icon">contact_support</span>
                 </a>
             </li>
@@ -524,7 +524,7 @@ $navSinCuentaAbajo = '
 
 
             <li>
-                <a href="../">
+                <a href="/DeltaTrain/">
                     <span class="material-symbols-rounded icon">tab_move</span>
                 </a>
             </li>

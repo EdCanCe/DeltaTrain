@@ -9,4 +9,4 @@ RewriteRule ^daily$ dailyactivities.php [NC]
 RewriteRule ^support$ support.php [NC]
 
 RewriteRule ^([a-zA-Z0-9ñÑ\-_\(\)\$\%\&]+)$ profile.php?user=$1 [L]
-ErrorDocument 404 ../error404.php
+ErrorDocument 404 /DeltaTrain/error404.php

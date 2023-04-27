@@ -13,15 +13,15 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DeltaTrain | Feed</title>
-    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="/DeltaTrain/styles/main.css">
     <!-- Enlazando archivo de estilos normalize-->
-    <link rel="stylesheet" href="../styles/normalize.css">
+    <link rel="stylesheet" href="/DeltaTrain/styles/normalize.css">
     <!-- Enlazando archivo de estilos para la barra lateral -->
-    <link rel="stylesheet" href="../styles/sidebar.css">
+    <link rel="stylesheet" href="/DeltaTrain/styles/sidebar.css">
     <!-- Enlazando archivo de estilos para el formulario -->
-    <link rel="stylesheet" href="../styles/form.css">
+    <link rel="stylesheet" href="/DeltaTrain/styles/form.css">
     <!-- Enlazando archivo de estilos para las alertas -->
-    <link rel="stylesheet" href="../styles/alerts.css">
+    <link rel="stylesheet" href="/DeltaTrain/styles/alerts.css">
     <!-- Enlazando la fuente Material Symbols Outlined de Google -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- Enlazando la fuente Material Symbols Rounded de Google -->
@@ -31,7 +31,7 @@ session_start();
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital@0;1&display=swap" rel="stylesheet">
     <!-- Añadiendo el icono a la página -->
-    <link rel="icon" href="../imgs/logo.svg">
+    <link rel="icon" href="/DeltaTrain/imgs/logo.svg">
 </head>
 <body>
 
@@ -44,10 +44,10 @@ session_start();
         echo "<script src='/DeltaTrain/scripts/load-pfp.js'></script>";
         echo "<script src='/DeltaTrain/scripts/colorchange.js'></script>";
 =======
-        echo "<script src='../scripts/alert.js'></script>";
-        echo "<script src='../scripts/load-pfp.js'></script>";
-        echo "<script src='../scripts/colorchange.js'></script>";
-        echo "<script src='../scripts/image.js'></script>";
+        echo "<script src='/DeltaTrain/scripts/alert.js'></script>";
+        echo "<script src='/DeltaTrain/scripts/load-pfp.js'></script>";
+        echo "<script src='/DeltaTrain/scripts/colorchange.js'></script>";
+        echo "<script src='/DeltaTrain/scripts/image.js'></script>";
 >>>>>>> Stashed changes
 
         if(isset($_SESSION["CurrentUserIDSession"])){ #Checa si ya inició sesión
@@ -73,7 +73,7 @@ session_start();
                     ?><script>loadpfp('data:image/jpeg;base64,<?php echo base64_encode($row["Pfp_User"]); ?>', "RealUserIcon");</script><?php
                 }
                 ?><script>document.getElementById("RealUserName").textContent="<?php echo $row["Username_User"]; ?>";</script><?php
-                ?><script>document.getElementById("RealUserProfile").href="../<?php echo $row["Username_User"]; ?>";</script><?php
+                ?><script>document.getElementById("RealUserProfile").href="/DeltaTrain/<?php echo $row["Username_User"]; ?>";</script><?php
                 ?><script>changeColor(<?php echo $row["Color_User"] ?>)</script><?php
             }
 
@@ -124,8 +124,8 @@ session_start();
 <script src="/DeltaTrain/scripts/script-form.js"></script>
 <script src='/DeltaTrain/scripts/image.js'></script>
 =======
-<script src="../scripts/sidebar.js"></script>
-<script src="../scripts/script-form.js"></script>
+<script src="/DeltaTrain/scripts/sidebar.js"></script>
+<script src="/DeltaTrain/scripts/script-form.js"></script>
 >>>>>>> Stashed changes
 </body>
 </html>
