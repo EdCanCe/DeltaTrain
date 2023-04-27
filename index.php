@@ -39,16 +39,9 @@ session_start();
 
     <?php
         echo $alertas;
-<<<<<<< Updated upstream
         echo "<script src='/DeltaTrain/scripts/alert.js'></script>";
         echo "<script src='/DeltaTrain/scripts/load-pfp.js'></script>";
         echo "<script src='/DeltaTrain/scripts/colorchange.js'></script>";
-=======
-        echo "<script src='/DeltaTrain/scripts/alert.js'></script>";
-        echo "<script src='/DeltaTrain/scripts/load-pfp.js'></script>";
-        echo "<script src='/DeltaTrain/scripts/colorchange.js'></script>";
-        echo "<script src='/DeltaTrain/scripts/image.js'></script>";
->>>>>>> Stashed changes
 
         if(isset($_SESSION["CurrentUserIDSession"])){ #Checa si ya inició sesión
             $CurrentUserID = $_SESSION["CurrentUserIDSession"]; #Recoge el id del usuario
@@ -56,7 +49,7 @@ session_start();
             if($CurrentUserAdministrator == '0'){ #Es 0 en caso de ser un usuario normal
                 echo $navConCuenta;
                 echo $navConCuentaAbajo;
-                echo "<script> window. location='/DeltaTrain/feed.php'</script>"; #Como ya tienes sesión y no deberías de iniciarla te manda a tu feed directamente
+                echo "<script> window. location='/DeltaTrain/home'</script>"; #Como ya tienes sesión y no deberías de iniciarla te manda a tu feed directamente
             }
             else{ #Si se usa este es porque el usuario es admin
                 echo $navConAdmin;
@@ -139,7 +132,7 @@ session_start();
 
                 <!--Link para redireccionar a el inicio de sesión-->
                 <div class="links-container">
-                    <a href="createaccount.php">¿No tienes cuenta? Créala ahora</a>
+                    <a href="createaccount">¿No tienes cuenta? Créala ahora</a>
                 </div>
 
 

@@ -49,7 +49,6 @@ $navConCuenta = '
                     <span class="material-symbols-outlined icon">home</span>
                     <span class="nav-item">Home</span>
                 </a>
-                <label for="" class="tooltip">Home</label>
             </li>
 
 
@@ -60,7 +59,6 @@ $navConCuenta = '
                     <span class="material-symbols-outlined icon">calendar_month</span>
                     <span class="nav-item">Actividades</span>
                 </a>
-                <label for="" class="tooltip">Actividades</label>
             </li>
 
 
@@ -71,7 +69,6 @@ $navConCuenta = '
                     <span class="material-symbols-outlined icon">fact_check</span>
                     <span class="nav-item">Rutinas</span>
                 </a>
-                <label for="" class="tooltip">Rutinas</label>
             </li>
 
 
@@ -82,7 +79,6 @@ $navConCuenta = '
                     <span class="material-symbols-outlined icon">cookie</span>
                     <span class="nav-item">Recetas</span>
                 </a>
-                <label for="" class="tooltip">Recetas</label>
             </li>
 
 
@@ -92,7 +88,6 @@ $navConCuenta = '
                     <span class="material-symbols-rounded icon">contact_support</span>
                     <span class="nav-item">Contacto</span>
                 </a>
-                <label for="" class="tooltip">Contacto</label>
             </li>
 
 
@@ -102,7 +97,6 @@ $navConCuenta = '
                     <span class="material-symbols-rounded icon">settings</span>
                     <span class="nav-item">Ajustes</span>
                 </a>
-                <label for="" class="tooltip">Ajustes</label>
             </li>
 
 
@@ -112,7 +106,6 @@ $navConCuenta = '
                     <span class="material-symbols-rounded icon">tab_close</span>
                     <span class="nav-item">Cerrar Sesión</span>
                 </a>
-                <label for="" class="tooltip">Cerrar Sesión</label>
             </li>
 
 
@@ -172,7 +165,6 @@ $navConAdmin = '
                     <span class="material-symbols-outlined icon">home</span>
                     <span class="nav-item">Home</span>
                 </a>
-                <label for="" class="tooltip">Home</label>
             </li>
 
 
@@ -183,7 +175,6 @@ $navConAdmin = '
                     <span class="material-symbols-outlined icon">calendar_month</span>
                     <span class="nav-item">Actividades</span>
                 </a>
-                <label for="" class="tooltip">Actividades</label>
             </li>
 
 
@@ -194,7 +185,6 @@ $navConAdmin = '
                     <span class="material-symbols-outlined icon">fact_check</span>
                     <span class="nav-item">Rutinas</span>
                 </a>
-                <label for="" class="tooltip">Rutinas</label>
             </li>
 
 
@@ -205,7 +195,6 @@ $navConAdmin = '
                     <span class="material-symbols-outlined icon">cookie</span>
                     <span class="nav-item">Recetas</span>
                 </a>
-                <label for="" class="tooltip">Recetas</label>
             </li>
 
 
@@ -215,7 +204,6 @@ $navConAdmin = '
                     <span class="material-symbols-rounded icon">contact_support</span>
                     <span class="nav-item">Contacto</span>
                 </a>
-                <label for="" class="tooltip">Contacto</label>
             </li>
 
 
@@ -225,7 +213,6 @@ $navConAdmin = '
                     <span class="material-symbols-rounded icon">settings</span>
                     <span class="nav-item">Ajustes</span>
                 </a>
-                <label for="" class="tooltip">Ajustes</label>
             </li>
 
 
@@ -235,7 +222,6 @@ $navConAdmin = '
                     <span class="material-symbols-rounded icon">tab_close</span>
                     <span class="nav-item">Cerrar Sesión</span>
                 </a>
-                <label for="" class="tooltip">Cerrar Sesión</label>
             </li>
 
 
@@ -280,7 +266,6 @@ $navSinCuenta = '
                     <span class="material-symbols-rounded icon">contact_support</span>
                     <span class="nav-item">Contacto</span>
                 </a>
-                <label for="" class="tooltip">Contacto</label>
             </li>
 
 
@@ -290,7 +275,6 @@ $navSinCuenta = '
                     <span class="material-symbols-rounded icon">tab_move</span>
                     <span class="nav-item">Iniciar Sesión</span>
                 </a>
-                <label for="" class="tooltip">Iniciar Sesión</label>
             </li>
 
 

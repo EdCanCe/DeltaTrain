@@ -39,16 +39,9 @@ session_start();
 
     <?php
         echo $alertas;
-<<<<<<< Updated upstream
         echo "<script src='/DeltaTrain/scripts/alert.js'></script>";
         echo "<script src='/DeltaTrain/scripts/load-pfp.js'></script>";
         echo "<script src='/DeltaTrain/scripts/colorchange.js'></script>";
-=======
-        echo "<script src='/DeltaTrain/scripts/alert.js'></script>";
-        echo "<script src='/DeltaTrain/scripts/load-pfp.js'></script>";
-        echo "<script src='/DeltaTrain/scripts/colorchange.js'></script>";
-        echo "<script src='/DeltaTrain/scripts/image.js'></script>";
->>>>>>> Stashed changes
 
         if(isset($_SESSION["CurrentUserIDSession"])){ #Checa si ya inició sesión
             $CurrentUserID = $_SESSION["CurrentUserIDSession"]; #Recoge el id del usuario
@@ -83,7 +76,7 @@ session_start();
         else{ #Si se usa este es porque aún no se ha iniciado sesión
             echo $navSinCuenta;
             echo $navSinCuentaAbajo;
-            echo "<script> window. location='/DeltaTrain/index.php'</script>"; #Como no iniciaste sesión te manda a hacerlo
+            echo "<script> window. location='/DeltaTrain/login'</script>"; #Como no iniciaste sesión te manda a hacerlo
         }
 
 

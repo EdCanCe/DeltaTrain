@@ -1,5 +1,18 @@
-follow-button{
-    display: inline-block;
+.follow-button{
     background: var(--color-3);
     color: var(--color-2);
+    font-size: 20px;
+    float: right;
+    padding: 10px 20px;
+    border-radius: 100px;
+}
+
+.user-follow-container{
+    width: auto;
+    display: inline-block;
+    padding-left: 40px;
+    padding-right: 40px;
+    transform: translate(0px, -51px);
+    height: 0;
+    overflow: visible;
 }

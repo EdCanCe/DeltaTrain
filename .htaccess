@@ -1,4 +1,5 @@
 RewriteEngine On
+RewriteRule ^login$ index.php [NC]
 RewriteRule ^home$ feed.php [NC]
 RewriteRule ^settings$ configuration.php [NC]
 RewriteRule ^createaccount$ createaccount.php [NC]

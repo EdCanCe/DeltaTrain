@@ -11,3 +11,13 @@ achievments
 follows
 weights
 weightcontrol
+home
+login
+settings
+createaccount
+logout
+recipes
+routines
+daily
+support
+user

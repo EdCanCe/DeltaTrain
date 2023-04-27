@@ -117,13 +117,19 @@ session_start();
             </div>
 
 
+            <!-- Botón para el follow -->
+            <div class="user-follow-container">
+                <span class="follow-button unfollow">Siguiendo</span>
+            </div>
+
+
 
             <!-- Datos del perfil del usuario -->
             <div class="user-dates-container">
 
                 <div>
-                    <span class="username" id="profileUsername">Usuario</span>
-                    <span class="follow-button">a</span>
+                    <p class="username" id="profileName">Usuario</p>
+                    <p class="light" id="profileUsername">Usuario</p>
                 </div>
                 <br>
                 <span class="user-description" id="profileDescription">Descripción del usuario</span>
@@ -135,19 +141,20 @@ session_start();
             <!-- Esto permite cargar los datos de las fotos en el perfil del usuario -->
             <?php
                 if(!isset($_GET["user"])){ #checa primero que se haya dado un usario
-                    $_SESSION["ErrorHeader"] = "NO SE PUDO ACCEDER AL USUARIO";
-                    $_SESSION["ErrorText"] = "Se necesita proporcionar un username.";
-                    echo "<script> window.location='/DeltaTrain/feed.php'</script>";
+                    $_SESSION["ErrorHeader"] = "ERROR 404";
+                    $_SESSION["ErrorText"] = "La página que trató de acceder no existe.";
+                    echo "<script> window.location='/DeltaTrain/home'</script>";
                 }
-                $query = "SELECT Username_User, Description_User, Pfp_User, Banner_User from User where Username_User = '".$_GET["user"]."'";
+                $query = "SELECT Username_User, Description_User, Pfp_User, Name_User, LastName_User, Banner_User from User where Username_User = '".$_GET["user"]."'";
                 $result = mysqli_query($conexion, $query);
                 if(mysqli_num_rows($result) == 0){
                     $_SESSION["ErrorHeader"] = "NO SE PUDO ACCEDER AL USUARIO";
                     $_SESSION["ErrorText"] = "Se necesita proporcionar un username con una cuenta existente.";
-                    echo "<script> window.location='/DeltaTrain/feed.php'</script>";
+                    echo "<script> window.location='/DeltaTrain/home'</script>";
                 }
                 while($row=mysqli_fetch_assoc($result)){
-                    ?><script>document.getElementById("profileUsername").innerHTML="<?php echo $row["Username_User"]; ?>";</script><?php
+                    ?><script>document.getElementById("profileName").innerHTML="<?php echo $row["Name_User"]." ".$row["LastName_User"] ?>";</script><?php
+                    ?><script>document.getElementById("profileUsername").innerHTML="<?php echo "@".$row["Username_User"]; ?>";</script><?php
                     ?><script>document.getElementById("profileDescription").innerHTML="<?php echo preg_replace('/\s+/', ' ',  (nl2br($row["Description_User"]))); ?>";</script><?php
                     if(!is_null($row["Pfp_User"])){
                         ?><script>loadpfp('data:image/jpeg;base64,<?php echo base64_encode($row["Pfp_User"]); ?>', "profilePfp");</script><?php
