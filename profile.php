@@ -1,6 +1,7 @@
 <?php #Esta página muestra el feed del usuario
 include("variablesGlobales.php");
 include("conexion.php");
+include("follow.php");
 session_start();
 ?>
 
@@ -119,7 +120,7 @@ session_start();
 
             <!-- Botón para el follow -->
             <div class="user-follow-container">
-                <span class="follow-button unfollow">Siguiendo</span>
+                <button id="followbutton" class="follow-button unfollow">Siguiendo</button>
             </div>
 
 
@@ -138,14 +139,14 @@ session_start();
 
 
 
-            <!-- Esto permite cargar los datos de las fotos en el perfil del usuario -->
+            <!-- Esto permite cargar los datos de perfil -->
             <?php
                 if(!isset($_GET["user"])){ #checa primero que se haya dado un usario
                     $_SESSION["ErrorHeader"] = "ERROR 404";
                     $_SESSION["ErrorText"] = "La página que trató de acceder no existe.";
                     echo "<script> window.location='/DeltaTrain/home'</script>";
                 }
-                $query = "SELECT Username_User, Description_User, Pfp_User, Name_User, LastName_User, Banner_User from User where Username_User = '".$_GET["user"]."'";
+                $query = "SELECT Username_User, Description_User, Pfp_User, Name_User, LastName_User, Banner_User, ID_User from User where Username_User = '".$_GET["user"]."'";
                 $result = mysqli_query($conexion, $query);
                 if(mysqli_num_rows($result) == 0){
                     $_SESSION["ErrorHeader"] = "NO SE PUDO ACCEDER AL USUARIO";
@@ -153,16 +154,31 @@ session_start();
                     echo "<script> window.location='/DeltaTrain/home'</script>";
                 }
                 while($row=mysqli_fetch_assoc($result)){
-                    ?><script>document.getElementById("profileName").innerHTML="<?php echo $row["Name_User"]." ".$row["LastName_User"] ?>";</script><?php
-                    ?><script>document.getElementById("profileUsername").innerHTML="<?php echo "@".$row["Username_User"]; ?>";</script><?php
-                    ?><script>document.getElementById("profileDescription").innerHTML="<?php echo preg_replace('/\s+/', ' ',  (nl2br($row["Description_User"]))); ?>";</script><?php
+                    ?><script>document.getElementById("profileName").innerHTML="<?php echo $row["Name_User"]." ".$row["LastName_User"] ?>";</script><?php #carga el nombre del usuario
+                    ?><script>document.getElementById("profileUsername").innerHTML="<?php echo "@".$row["Username_User"]; ?>";</script><?php #carga el username del usuario
+                    ?><script>document.getElementById("profileDescription").innerHTML="<?php echo preg_replace('/\s+/', ' ',  (nl2br($row["Description_User"]))); ?>";</script><?php #carga la descripción del usuario
                     if(!is_null($row["Pfp_User"])){
-                        ?><script>loadpfp('data:image/jpeg;base64,<?php echo base64_encode($row["Pfp_User"]); ?>', "profilePfp");</script><?php
+                        ?><script>loadpfp('data:image/jpeg;base64,<?php echo base64_encode($row["Pfp_User"]); ?>', "profilePfp");</script><?php #carga el pfp del usuario
                     }
                     if(!is_null($row["Banner_User"])){
-                        ?><script>loadpfp('data:image/jpeg;base64,<?php echo base64_encode($row["Banner_User"]); ?>', "profileBanner");</script><?php
+                        ?><script>loadpfp('data:image/jpeg;base64,<?php echo base64_encode($row["Banner_User"]); ?>', "profileBanner");</script><?php #carga el banner del usuario
                     }
 
+                    if(isset($_SESSION["CurrentUserIDSession"]) and $CurrentUserID!=$row["ID_User"]){ #la parte que permite ver, hacer y quitar follow
+                        $query2 = "SELECT * from Follow where FKID_UserB_Follow = ".$row["ID_User"]." and FKID_UserA_Follow = ".$CurrentUserID; 
+                        $result2 = mysqli_query($conexion, $query2);
+                        if(mysqli_num_rows($result2) == 0){ #significa que el usuario aún no sigue al perfil que visita
+                            ?><script>document.getElementById("followbutton").innerHTML="Seguir";</script><?php
+                            ?><script>document.getElementById('followbutton').setAttribute( "onClick", "doFollow()" );</script><?php
+                        }
+                        else{ #significa que el usuario si sigue al perfil que visita
+                            ?><script>document.getElementById("followbutton").innerHTML="Siguiendo";</script><?php
+                            ?><script>document.getElementById('followbutton').setAttribute( "onClick", "doUnfollow()" );</script><?php
+                        }
+                    }
+                    else{ #significa que o no se ha iniciado sesión, o, el usuario está visitando su propio perfil
+                        ?><script>document.getElementById("followbutton").style="display:none;";</script><?php
+                    }
                 }
             ?>
 
@@ -250,7 +266,38 @@ session_start();
 <script src="/DeltaTrain/scripts/sidebar.js"></script>
 <script src='/DeltaTrain/scripts/image.js'></script>
 
-
-
-
+<script>
+    function doUnfollow(){
+        <?php
+            function phpUnfollow(){
+                $query = "SELECT ID_User from User where Username_User = '".$_GET["user"]."'";
+                $userView="";
+                $result = mysqli_query($conexion, $query);
+                while($row=mysqli_fetch_assoc($result)){
+                    $userView = $row["ID_User"];
+                }
+                $query = "DELETE FROM Follow WHERE FKID_UserB_Follow = ".$userView." and FKID_UserA_Follow = ".$CurrentUserID; 
+                $result = mysqli_query($conexion, $query);
+            }
+            phpUnfollow();
+        ?>
+    }
+</script>
+<script>
+    function doFollow(){
+        <?php
+            function phpFollow(){
+                $query = "SELECT ID_User from User where Username_User = '".$_GET["user"]."'";
+                $userView="";
+                $result = mysqli_query($conexion, $query);
+                while($row=mysqli_fetch_assoc($result)){
+                    $userView = $row["ID_User"];
+                }
+                $query = "INSERT INTO Follow(FKID_UserA_Follow, FKID_UserB_Follow) VALUES ($CurrentUserID, $userView);";
+                $result = mysqli_query($conexion, $query);
+            }
+            phpFollow();
+        ?>
+    }
+</script>
 </html>

@@ -7,6 +7,14 @@
     border-radius: 100px;
 }
 
+.follow-button:hover{
+    color: var(--color-1);
+}
+
+.follow-button:active{
+    background: var(--color-1);
+}
+
 .user-follow-container{
     width: auto;
     display: inline-block;
@@ -15,4 +23,5 @@
     transform: translate(0px, -51px);
     height: 0;
     overflow: visible;
+    z-index: 15;
 }
