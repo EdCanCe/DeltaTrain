@@ -122,6 +122,6 @@ function insertRecipe(){
     };
 
     // Enviar la petición al archivo PHP que inserta los datos
-    xhr.open("GET", "recipecreator.php?preparation=" + preparationData + "&portion=" + portionData + "&type=" + typeData + "&protein=" + proteinData + "&fat=" + fatData + "&carbs=" + carbsData + "&name=" + nameData + "&ingredients=" + ingredientData, true);
+    xhr.open("GET", "/DeltaTrain/recipecreator.php?preparation=" + preparationData + "&portion=" + portionData + "&type=" + typeData + "&protein=" + proteinData + "&fat=" + fatData + "&carbs=" + carbsData + "&name=" + nameData + "&ingredients=" + ingredientData, true);
     xhr.send();
 }
