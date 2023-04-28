@@ -139,6 +139,14 @@ session_start();
 
 
 
+            <!-- Muestra los seguidos y seguidores del usuario -->
+            <div  class="user-dates-container">
+                <a class="userFollow" href="<?php echo $_GET["user"] ?>/following"><b id="userFollowing">000</b> Siguiendo</a>    
+                <a class="userFollow" href="<?php echo $_GET["user"] ?>/followers"><b id="userFollowers">000</b> Seguidores</a>    
+            </div>
+
+
+
             <!-- Esto permite cargar los datos de perfil -->
             <?php
                 if(!isset($_GET["user"])){ #checa primero que se haya dado un usario
