@@ -176,7 +176,7 @@ session_start();
                         $query2 = "SELECT * from Follow where FKID_UserB_Follow = ".$row["ID_User"]." and FKID_UserA_Follow = ".$CurrentUserID; 
                         $result2 = mysqli_query($conexion, $query2);
                         if(mysqli_num_rows($result2) == 0){ #significa que el usuario aún no sigue al perfil que visita
-                            ?><script>document.getElementById("followbutton").innerHTML="Seguir";</script><?php
+                            ?><script>document.getElementById("followbutton").innerHTML='Seguir &nbsp <span class="material-symbols-outlined">add_circle</span>';</script><?php
                             ?><script>document.getElementById('followbutton').setAttribute( "onClick", "doFollow(<?php echo "'".$CurrentUserID."', '".$row["ID_User"],"'" ?>)" );</script><?php
                         }
                         else{ #significa que el usuario si sigue al perfil que visita

@@ -8,6 +8,9 @@
     transition: ease-out 0.2s;
     font-weight: 550;
     border: solid var(--color-5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .follow-button:hover{
