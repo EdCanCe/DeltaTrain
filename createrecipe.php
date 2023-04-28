@@ -138,19 +138,13 @@ session_start();
                 </h3>
                 <h4>Tamaño de la porción: 
                 <span>
-                    <input type="number" id="portionData">
-                    <select name="" id="typeData">
-                        <option value="g / %">g / %</option>
-                        <option value="g / g">g / g</option>
-                        <option value="ml / g">ml / g</option>
-                        <option value="ml / %">ml / %</option>
-                    </select>
+                    <input type="text" maxlength="8" id="portionData">
                 </span>
                 </h4>
                 <ul>
-                    <li>Proteinas: <span><input type="number" id="proteinData"></span></li>
-                    <li>Grasas: <span><input type="number" id="fatData"></span></li>
-                    <li>Carbohidratos: <span><input type="number"  id="carbsData"></span></li>
+                    <li>Proteinas: <span><input type="text" maxlength="8" id="proteinData"></span></li>
+                    <li>Grasas: <span><input type="text" maxlength="8" id="fatData"></span></li>
+                    <li>Carbohidratos: <span><input type="text" maxlength="8"  id="carbsData"></span></li>
                 </ul>
             </div>
 

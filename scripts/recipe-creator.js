@@ -113,15 +113,11 @@ function insertRecipe(){
     
     var xhr = new XMLHttpRequest();
 
-    // Definir la función que se ejecutará cuando la respuesta sea recibida
-    xhr.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-        // Mostrar la respuesta en la consola del navegador
-        console.log(this.responseText);
-        }
-    };
+    xhr.open("POST", "recipecreator.php");
 
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+    let allData = "preparation=" + preparationData + "&portion=" + portionData + "&type=" + typeData + "&protein=" + proteinData + "&fat=" + fatData + "&carbs=" + carbsData + "&name=" + nameData + "&ingredients=" + ingredientData;
     // Enviar la petición al archivo PHP que inserta los datos
-    xhr.open("GET", "/DeltaTrain/recipecreator.php?preparation=" + preparationData + "&portion=" + portionData + "&type=" + typeData + "&protein=" + proteinData + "&fat=" + fatData + "&carbs=" + carbsData + "&name=" + nameData + "&ingredients=" + ingredientData, true);
-    xhr.send();
+    xhr.send(allData);
 }
