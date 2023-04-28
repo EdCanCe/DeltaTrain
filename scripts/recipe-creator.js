@@ -49,7 +49,30 @@ for(let i=0; i<ingredientDelete.length;i++){
 
 let imageInput = document.querySelector('.image-input');
 let imagePreview = document.querySelector('.image-preview');
-let imageContainer=document.querySelector('.recipe-img-container');
+let imageContainer=document.querySelector('.recipe-img-main-container');
+let divInputFile=document.querySelector('.input-file-div');
+
+
+divInputFile.addEventListener('click', function(){
+  imageInput.click();
+});
+
+// divInputFile.addEventListener("dragover", (event) => {
+//   event.preventDefault();
+// });
+
+
+// divInputFile.addEventListener("drop", (event) => {
+//   event.preventDefault();
+
+//   // Obtenemos la imagen que se soltó
+//   let imageFile = event.dataTransfer.files[0];
+
+
+//   // La agregamos al input file
+//   imageInput.files = new DataTransfer().files.add(imageFile);
+// });
+
 
 imageInput.addEventListener('change', () => {
   let file = imageInput.files[0]; // obtener el archivo de imagen seleccionado

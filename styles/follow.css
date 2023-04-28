@@ -23,7 +23,7 @@
     color: var(--color-1);
     transform: scale(1.1);
 }
-
+ 
 .user-follow-container{
     width: auto;
     display: inline-block;
@@ -48,23 +48,46 @@
     text-decoration: underline;
 }
 
+.normal-content{
+    background-color: var(--color-9);
+}
+
 .follow-header{
-    background: var(--color-1);
+    background: url(/DeltaTrain/imgs/banner4k.jpg);
     color: var(--color-2);
     text-align: center;
     padding: 20px;
     margin: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-5);
+    font-size: 40px;
+}
+
+
+.follow-header span{
+    font-size: 50px;
 }
 
 .follow-list{
     display: block;
     border-bottom: 1px solid var(--color-1);
     padding: 20px;
-    transition: 0.2s background;
+    transition: 0.2s background ease-out;
+    background: var(--color-7);
+    border: solid 3px transparent;
 }
 
 .follow-list:hover{
     background: var(--color-3);
+    border: solid 3px var(--color-5);
+    border-radius: 5px;
+    transform: scale(1.1);
 }
 
 .follow-list-img-container{

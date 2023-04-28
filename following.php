@@ -101,7 +101,7 @@ session_start();
 
 
 
-            <h1 class="follow-header">Siguiendo</h1>
+            <h1 class="follow-header">Siguiendo<span class="material-symbols-outlined">add_task</span></h1>
 
 
 
