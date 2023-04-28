@@ -187,6 +187,14 @@ session_start();
                     else{ #significa que o no se ha iniciado sesión, o, el usuario está visitando su propio perfil
                         ?><script>document.getElementById("followbutton").style="display:none;";</script><?php
                     }
+
+                    $query2 = "SELECT * FROM Follow where FKID_UserA_Follow = ".$row["ID_User"];
+                    $result2 = mysqli_query($conexion, $query2);
+                    ?><script>document.getElementById("userFollowing").innerHTML="<?php echo mysqli_num_rows($result2); ?>";</script><?php
+
+                    $query2 = "SELECT * FROM Follow where FKID_UserB_Follow = ".$row["ID_User"];
+                    $result2 = mysqli_query($conexion, $query2);
+                    ?><script>document.getElementById("userFollowers").innerHTML="<?php echo mysqli_num_rows($result2); ?>";</script><?php
                 }
             ?>
 
