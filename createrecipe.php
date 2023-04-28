@@ -110,7 +110,7 @@ session_start();
         <!-- Cabecera del contenedor de la receta -->
         <div class="recipes-head">
             <h1 class="recipes-name">
-            <input type="text" name="recipes-name" required>
+            <input type="text" name="recipes-name" id="nameData" required>
             <span class="placeholder-input">Nombre de la receta</span>
             <i class="input-line"></i>
             <span class="message"></span>
@@ -125,9 +125,8 @@ session_start();
         <div class="recipes-body">
 
             <div class="recipe-img-main-container">
-                
                 <div class="recipe-img-container">
-                <img src="" class="image-preview" alt="">
+                    <img src="" class="image-preview" alt="">
                 </div>           
                 <input type="file" class="image-input">
                 <div class="input-file-div"><h3>Agregar Imagen<span class="material-symbols-outlined">add_photo_alternate</span></h3></div>
@@ -135,20 +134,23 @@ session_start();
 
             <div class="nutritional-information-container">
                 <h3>Información nuticiónal
-                <span class="material-symbols-outlined">nutrition</span>
+                    <span class="material-symbols-outlined">nutrition</span>
                 </h3>
                 <h4>Tamaño de la porción: 
                 <span>
-                    <input type="number" name="" id="">
-                    <select name="" id="">
-                    <option value="">g</option>
+                    <input type="number" id="portionData">
+                    <select name="" id="typeData">
+                        <option value="g / %">g / %</option>
+                        <option value="g / g">g / g</option>
+                        <option value="ml / g">ml / g</option>
+                        <option value="ml / %">ml / %</option>
                     </select>
                 </span>
                 </h4>
                 <ul>
-                <li>Proteinas: <span><input type="number" name="" id=""></span></li>
-                <li>Grasas: <span><input type="number" name="" id=""></span></li>
-                <li>Carbohidratos: <span><input type="number" name="" id=""></span></li>
+                    <li>Proteinas: <span><input type="number" id="proteinData"></span></li>
+                    <li>Grasas: <span><input type="number" id="fatData"></span></li>
+                    <li>Carbohidratos: <span><input type="number"  id="carbsData"></span></li>
                 </ul>
             </div>
 
@@ -158,12 +160,12 @@ session_start();
                     receipt_long
                     </span></h3>
                 <ol>
-                    <li><span><input type="text" name="" id=""></span><button class="delete-btn">Eliminar</button></li>
+                    <li><span><input type="text" class="ingredientData"></span><button class="delete-btn">Eliminar</button></li>
                 </ol>
                 <div class="add-ingredient-container">
                     <button class="add-ingredient-button">
-                    <span>Añadir Ingrediente</span>
-                    <span class="material-symbols-outlined icon">add_circle</span>
+                        <span>Añadir Ingrediente</span>
+                        <span class="material-symbols-outlined icon">add_circle</span>
                     </button>
                 </div>
             </div>
@@ -171,21 +173,22 @@ session_start();
 
 
             <div class="preparation-container">
-                <h3>Preparación <span class="material-symbols-outlined">
+                <h3>Preparación<span class="material-symbols-outlined">
                 outdoor_grill
                 </span>
                 </h3>
-                <textarea name="" id="" cols="30" rows="10"></textarea>
+                <textarea id="preparationData" cols="30" rows="10" style="resize:vertical;"></textarea>
             </div>
+            
         </div>
 
 
 
         <!-- Agregar ejercicio a la receta contenedor -->
         <div class="add-exercise-container">
-            <a href="">
-            <span>Guardar receta</span>
-            <span class="material-symbols-outlined icon">add_circle</span>
+            <a class="mouse-hover" onclick="insertRecipe()">
+                <span>Guardar receta</span>
+                <span class="material-symbols-outlined icon">add_circle</span>
             </a>
         </div>
 

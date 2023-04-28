@@ -175,3 +175,6 @@ html{
   opacity: 0.5;
 }
 
+.mouse-hover{
+  cursor: pointer
+}
