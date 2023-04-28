@@ -112,7 +112,7 @@
 .user div img {
   height: 50px;
   border-radius: 100%;
-  border: solid var(--color-1) 2px;
+  border: solid var(--color-5) 2px;
   transition: ease 0.3s;
   cursor: pointer;
 }
@@ -159,9 +159,9 @@
 }
 
 .sidebar ul li a:hover {
-  background-color: var(--color-1);
+  background-color: var(--color-5);
   color: var(--color-3);
-  box-shadow: var(--color-1) 0px 0px 25px 10px;
+  box-shadow: var(--color-3) 0px 0px 25px 10px;
 }
 
 .sidebar ul li a .icon {
