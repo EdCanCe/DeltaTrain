@@ -3,7 +3,7 @@ include("variablesGlobales.php");
 include("conexion.php");
 session_start();
 $CurrentUserID = $_SESSION["CurrentUserIDSession"];
-$preparation = $_GET['prepataion'];
+$preparation = $_GET['preparation'];
 $portion = $_GET['portion'];
 $type = $_GET['type'];
 $protein = $_GET['protein'];
