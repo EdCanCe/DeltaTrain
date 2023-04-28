@@ -1,7 +1,6 @@
 <?php #Esta página muestra el feed del usuario
 include("variablesGlobales.php");
 include("conexion.php");
-include("follow.php");
 session_start();
 ?>
 
@@ -38,6 +37,7 @@ session_start();
     <!-- Añadiendo el icono a la página -->
     <link rel="icon" href="/DeltaTrain/imgs/logo.svg">
 </head>
+
 <body>
 
 
@@ -169,11 +169,11 @@ session_start();
                         $result2 = mysqli_query($conexion, $query2);
                         if(mysqli_num_rows($result2) == 0){ #significa que el usuario aún no sigue al perfil que visita
                             ?><script>document.getElementById("followbutton").innerHTML="Seguir";</script><?php
-                            ?><script>document.getElementById('followbutton').setAttribute( "onClick", "doFollow()" );</script><?php
+                            ?><script>document.getElementById('followbutton').setAttribute( "onClick", "doFollow(<?php echo "'".$CurrentUserID."', '".$row["ID_User"],"'" ?>)" );</script><?php
                         }
                         else{ #significa que el usuario si sigue al perfil que visita
                             ?><script>document.getElementById("followbutton").innerHTML="Siguiendo";</script><?php
-                            ?><script>document.getElementById('followbutton').setAttribute( "onClick", "doUnfollow()" );</script><?php
+                            ?><script>document.getElementById('followbutton').setAttribute( "onClick", "doUnfollow(<?php echo "'".$CurrentUserID."', '".$row["ID_User"],"'" ?>)" );</script><?php
                         }
                     }
                     else{ #significa que o no se ha iniciado sesión, o, el usuario está visitando su propio perfil
@@ -265,39 +265,5 @@ session_start();
 <!--Enlazando archivo JavaScript de la sidebar-->
 <script src="/DeltaTrain/scripts/sidebar.js"></script>
 <script src='/DeltaTrain/scripts/image.js'></script>
-
-<script>
-    function doUnfollow(){
-        <?php
-            function phpUnfollow(){
-                $query = "SELECT ID_User from User where Username_User = '".$_GET["user"]."'";
-                $userView="";
-                $result = mysqli_query($conexion, $query);
-                while($row=mysqli_fetch_assoc($result)){
-                    $userView = $row["ID_User"];
-                }
-                $query = "DELETE FROM Follow WHERE FKID_UserB_Follow = ".$userView." and FKID_UserA_Follow = ".$CurrentUserID; 
-                $result = mysqli_query($conexion, $query);
-            }
-            phpUnfollow();
-        ?>
-    }
-</script>
-<script>
-    function doFollow(){
-        <?php
-            function phpFollow(){
-                $query = "SELECT ID_User from User where Username_User = '".$_GET["user"]."'";
-                $userView="";
-                $result = mysqli_query($conexion, $query);
-                while($row=mysqli_fetch_assoc($result)){
-                    $userView = $row["ID_User"];
-                }
-                $query = "INSERT INTO Follow(FKID_UserA_Follow, FKID_UserB_Follow) VALUES ($CurrentUserID, $userView);";
-                $result = mysqli_query($conexion, $query);
-            }
-            phpFollow();
-        ?>
-    }
-</script>
+<script src='/DeltaTrain/scripts/follow.js'></script>
 </html>

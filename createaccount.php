@@ -190,7 +190,7 @@ session_start();
 
                 <!--Link para redireccionar a el inicio de sesión-->
                 <div class="links-container">
-                    <a href="">¿Ya tienes cuenta? Inicia Sesión</a>
+                    <a href="login">¿Ya tienes cuenta? Inicia Sesión</a>
                 </div>
 
 
