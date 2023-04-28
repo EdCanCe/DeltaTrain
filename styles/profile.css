@@ -31,19 +31,23 @@
 
 .profile-user-img-container{
     display: flex;
-    background-color: transparent;
+    background-color: red;
     width: 150px;
     transform: translate(40px, -80px);
-
+    border-radius: 100%;
+    border: solid 5px var(--color-3);
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    height: auto;
 }
 
 
 
 /* Estilos de la foto de perfil */
 .profile-user-img-container img{
-    border-radius: 100%;
+    
     max-width: 100%;
-    border: solid 5px var(--color-3);
+    
     background-image: url("/DeltaTrain/imgs/defaultpfp2.jpg");
     background-size: cover;
     background-position: center;
