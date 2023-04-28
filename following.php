@@ -22,6 +22,8 @@ session_start();
     <link rel="stylesheet" href="/DeltaTrain/styles/form.css">
     <!-- Enlazando archivo de estilos para las alertas -->
     <link rel="stylesheet" href="/DeltaTrain/styles/alerts.css">
+    <!-- Enlazando archivo de estilos para los follows -->
+    <link rel="stylesheet" href="/DeltaTrain/styles/follow.css">
     <!-- Enlazando la fuente Material Symbols Outlined de Google -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- Enlazando la fuente Material Symbols Rounded de Google -->
@@ -95,8 +97,40 @@ session_start();
     <div class="main-content">
 
 
+        <div class="normal-content">
 
-        <div class="box">
+
+
+            <h1 class="follow-header">Siguiendo</h1>
+
+
+
+            <?php
+                if(!isset($_GET["user"])){ #checa primero que se haya dado un usario
+                    $_SESSION["ErrorHeader"] = "ERROR 404";
+                    $_SESSION["ErrorText"] = "La página que trató de acceder no existe.";
+                    echo "<script> window.location='/DeltaTrain/home'</script>";
+                }
+                ?><script>document.title="DeltaTrain | Personas que sigue <?php echo $_GET["user"]; ?>";</script><?php
+                $query = "SELECT ID_User from User where Username_User = '".$_GET["user"]."'";
+                $result = mysqli_query($conexion, $query);
+                if(mysqli_num_rows($result) == 0){
+                    $_SESSION["ErrorHeader"] = "ERROR 404";
+                    $_SESSION["ErrorText"] = "La página que trató de acceder no existe.";
+                    echo "<script> window.location='/DeltaTrain/home'</script>";
+                }
+                $userID="";
+                while($row=mysqli_fetch_assoc($result)){
+                    $userID = $row["ID_User"];
+                }
+                $query = "SELECT Follow.*, User.* FROM User RIGHT JOIN Follow ON Follow.FKID_UserB_Follow = User.ID_User WHERE Follow.FKID_UserA_Follow = ".$userID;
+                $result = mysqli_query($conexion, $query);
+                while($row=mysqli_fetch_assoc($result)){
+                    echo "<p>".$row["Username_User"]."</p>";
+                }
+                //brToSpace();
+
+            ?>
 
 
 

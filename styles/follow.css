@@ -38,3 +38,11 @@
 .userFollow:hover{
     text-decoration: underline;
 }
+
+.follow-header{
+    background: var(--color-1);
+    color: var(--color-2);
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+}
