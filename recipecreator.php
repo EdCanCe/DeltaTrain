@@ -12,13 +12,12 @@ $carbs = $_GET['carbs'];
 $name = $_GET['name'];
 $ingredients = $_GET['ingredients'];
 
-$query = "INSERT INTO Ingredient(Name_Ingredient) VALUES ('zanahorias')";
-$result = mysqli_query($conexion, $query);
-
 $ingredient = explode('<', $ingredients);
 for($i=0;$i<count($ingredient);$i++){
-    $query = "SELECT * FROM Ingredient where Name_Ingredient = ".$ingredient[$i];
+    $query = "SELECT * FROM Ingredient where Name_Ingredient = '".$ingredient[$i]."'";
     $result = mysqli_query($conexion, $query);
-    if(mysqli_num_rows($result) == 0) $query = "INSERT INTO Ingredient(Name_Ingredient) VALUES ('".$ingredient[$i]."')";
+    if(mysqli_num_rows($result) == 0){
+        $query = 'INSERT INTO Ingredient(Name_Ingredient) VALUES ("'.$ingredient[$i].'")';
+    }
     $result = mysqli_query($conexion, $query);
 }

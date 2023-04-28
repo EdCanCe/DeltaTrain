@@ -389,7 +389,7 @@
 .add-exercise-container a:hover{
     transform: scale(1.1);
     background-color: white;
-    color: red;
+    color: var(--color-1);
 }
 
 
