@@ -101,7 +101,7 @@ session_start();
 
 
 
-            <h1 class="follow-header">Siguiendo</h1>
+            <h1 class="follow-header">Seguidores</h1>
 
 
 
@@ -111,7 +111,7 @@ session_start();
                     $_SESSION["ErrorText"] = "La página que trató de acceder no existe.";
                     echo "<script> window.location='/DeltaTrain/home'</script>";
                 }
-                ?><script>document.title="DeltaTrain | Personas que sigue <?php echo $_GET["user"]; ?>";</script><?php
+                ?><script>document.title="DeltaTrain | Personas que siguen a <?php echo $_GET["user"]; ?>";</script><?php
                 $query = "SELECT ID_User from User where Username_User = '".$_GET["user"]."'";
                 $result = mysqli_query($conexion, $query);
                 if(mysqli_num_rows($result) == 0){
@@ -123,7 +123,7 @@ session_start();
                 while($row=mysqli_fetch_assoc($result)){
                     $userID = $row["ID_User"];
                 }
-                $query = "SELECT Follow.*, User.* FROM User RIGHT JOIN Follow ON Follow.FKID_UserB_Follow = User.ID_User WHERE Follow.FKID_UserA_Follow = ".$userID;
+                $query = "SELECT Follow.*, User.* FROM User RIGHT JOIN Follow ON Follow.FKID_UserA_Follow = User.ID_User WHERE Follow.FKID_UserB_Follow = ".$userID;
                 $result = mysqli_query($conexion, $query);
                 while($row=mysqli_fetch_assoc($result)){
                     ?>

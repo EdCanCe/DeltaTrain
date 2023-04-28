@@ -55,3 +55,36 @@
     padding: 20px;
     margin: 0;
 }
+
+.follow-list{
+    display: block;
+    border-bottom: 1px solid var(--color-1);
+    padding: 20px;
+    transition: 0.2s background;
+}
+
+.follow-list:hover{
+    background: var(--color-3);
+}
+
+.follow-list-img-container{
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+}
+
+.follow-list-img-container img{
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    border-radius: 100px;
+}
+
+.follow-list-data{
+    width: calc(100% - 120px);
+    height: 100%;
+    display: inline-block;
+    padding: 10px;
+    color: var(--color-2);
+    text-decoration: none;
+}

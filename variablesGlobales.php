@@ -341,7 +341,7 @@ function loadFormData($previousData){
 }
 
 function brToSpace($word){
-    $newData = explode('<br>', $previousData);
+    $newData = explode('<br>', $word);
     $dataPass="";
     for($i=0;$i<count($newData);$i++){
         $dataPass=$dataPass.$newData[$i]." ";
