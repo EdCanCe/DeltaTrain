@@ -340,6 +340,15 @@ function loadFormData($previousData){
     $GLOBALS["setForm"] = "";
 }
 
+function brToSpace($word){
+    $newData = explode('<br>', $previousData);
+    $dataPass="";
+    for($i=0;$i<count($newData);$i++){
+        $dataPass=$dataPass.$newData[$i]." ";
+    }
+    return $dataPass;
+}
+
 $navConCuentaAbajo = '
 <!-- Barra lateral -->
 <div class="sidebar-lower">

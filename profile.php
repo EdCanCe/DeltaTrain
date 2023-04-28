@@ -24,7 +24,7 @@ session_start();
     <link rel="stylesheet" href="/DeltaTrain/styles/alerts.css">
     <!-- Enlazando archivo de estilos para el perfil -->
     <link rel="stylesheet" href="/DeltaTrain/styles/profile.css">
-    <!-- Enlazando la fuente Material Symbols Outlined de Google -->
+    <!-- Enlazando archivo de estilos para los follows -->
     <link rel="stylesheet" href="/DeltaTrain/styles/follow.css">
     <!-- Enlazando la fuente Material Symbols Outlined de Google -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -72,7 +72,6 @@ session_start();
                 }
                 ?><script>document.getElementById("RealUserName").textContent="<?php echo $row["Username_User"]; ?>";</script><?php
                 ?><script>document.getElementById("RealUserProfile").href="/DeltaTrain/<?php echo $row["Username_User"]; ?>";</script><?php
-                ?><script>document.title="DeltaTrain | <?php echo $row["Username_User"]; ?>";</script><?php
                 ?><script>changeColor(<?php echo $row["Color_User"] ?>)</script><?php
             }
 
@@ -154,11 +153,12 @@ session_start();
                     $_SESSION["ErrorText"] = "La página que trató de acceder no existe.";
                     echo "<script> window.location='/DeltaTrain/home'</script>";
                 }
+                ?><script>document.title="DeltaTrain | <?php echo $_GET["user"]; ?>";</script><?php
                 $query = "SELECT Username_User, Description_User, Pfp_User, Name_User, LastName_User, Banner_User, ID_User from User where Username_User = '".$_GET["user"]."'";
                 $result = mysqli_query($conexion, $query);
                 if(mysqli_num_rows($result) == 0){
-                    $_SESSION["ErrorHeader"] = "NO SE PUDO ACCEDER AL USUARIO";
-                    $_SESSION["ErrorText"] = "Se necesita proporcionar un username con una cuenta existente.";
+                    $_SESSION["ErrorHeader"] = "ERROR 404";
+                    $_SESSION["ErrorText"] = "La página que trató de acceder no existe.";
                     echo "<script> window.location='/DeltaTrain/home'</script>";
                 }
                 while($row=mysqli_fetch_assoc($result)){

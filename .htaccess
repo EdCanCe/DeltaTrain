@@ -9,5 +9,6 @@ RewriteRule ^routines$ routines.php [NC]
 RewriteRule ^daily$ dailyactivities.php [NC]
 RewriteRule ^support$ support.php [NC]
 
+RewriteRule ^([a-zA-Z0-9ñÑ\-_\(\)\$\%\&]+)/following$ following.php?user=$1 [L]
 RewriteRule ^([a-zA-Z0-9ñÑ\-_\(\)\$\%\&]+)$ profile.php?user=$1 [L]
 ErrorDocument 404 /DeltaTrain/error404.php
