@@ -111,6 +111,17 @@ function insertRecipe(){
     let carbsData = document.getElementById("carbsData").value;
     let nameData = document.getElementById("nameData").value;
     
-    let prueba=nameData+"\n"+portionData+typeData+"\n"+proteinData+"\n"+fatData+"\n"+carbsData+"\n"+ingredientData+"\n"+preparationData;
-    alert(prueba);
+    var xhr = new XMLHttpRequest();
+
+    // Definir la función que se ejecutará cuando la respuesta sea recibida
+    xhr.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+        // Mostrar la respuesta en la consola del navegador
+        console.log(this.responseText);
+        }
+    };
+
+    // Enviar la petición al archivo PHP que inserta los datos
+    xhr.open("GET", "recipecreator.php?preparation=" + preparationData + "&portion=" + portionData + "&type=" + typeData + "&protein=" + proteinData + "&fat=" + fatData + "&carbs=" + carbsData + "&name=" + nameData + "&ingredients=" + ingredientData, true);
+    xhr.send();
 }
