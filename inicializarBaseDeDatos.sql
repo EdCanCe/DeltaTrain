@@ -7,7 +7,6 @@ create table User(
     Name_User varchar(25) NOT NULL,
     LastName_User varchar(60),
     BirthDate_User date NOT NULL,
-    Mail_User varchar(70) NOT NULL,
     Username_User varchar(20) NOT NULL,
     Administrator_User tinyint NOT NULL,
     Description_User varchar(250)

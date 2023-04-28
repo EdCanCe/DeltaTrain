@@ -167,16 +167,6 @@ session_start();
 
 
 
-                        <!--Campo para ingresar el correo del usuario-->
-                        <div class="input-container">
-                            <input type="text" name="email" id="email" value="<?php echo $row["Mail_User"]?>" required>
-                            <span class="placeholder-input"><span class="material-symbols-outlined">mail</span>&nbsp;Correo</span>
-                            <i class="input-line"></i>
-                            <span class="message"></span>
-                        </div>
-
-
-
                         <!--Campo para ingresar la descripción del usuario-->
                         <div class="input-container">
                             <textarea name="description" id="description" required><?php echo $row["Description_User"] ?></textarea>

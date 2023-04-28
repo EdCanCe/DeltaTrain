@@ -8,7 +8,6 @@ $password=$_POST['password'];
 $name=$_POST['name'];
 $lastnames=$_POST['lastnames'];
 $birth=$_POST['birth'];
-$email=$_POST['email'];
 $description=$_POST['description'];
 $password=encrypt($password);
 
@@ -22,7 +21,6 @@ validateChar($username, "username");
 validateChar($name, "name");
 validateChar($birth, "birth");
 validateChar($lastnames, "lastnames");
-validateChar($email, "email");
 $_SESSION["setForm"]=$GLOBALS["setForm"];
 if($GLOBALS["errorForm"]!=""){
     $_SESSION["ErrorHeader"] = "NO SE PUDO MODIFICAR LA CUENTA";
@@ -56,9 +54,9 @@ if(($pfpName != "" and $pfpSize > 3*1024*1024) or ($bannerName != "" and $banner
 
 
 
-$query="SELECT * FROM User where (Username_User='$username' or Mail_User='$email') and not ID_User=".$_SESSION["CurrentUserIDSession"];
+$query="SELECT * FROM User where Username_User='$username' and not ID_User=".$_SESSION["CurrentUserIDSession"];
 $result = mysqli_query($conexion, $query);
-$insert = "UPDATE User SET Password_User='$password', Name_User='$name', LastName_User='$lastnames', BirthDate_User='$birth', Mail_User='$email', Username_User='$username', Administrator_User=0, Description_User='$description' WHERE ID_User = ".$_SESSION["CurrentUserIDSession"];
+$insert = "UPDATE User SET Password_User='$password', Name_User='$name', LastName_User='$lastnames', BirthDate_User='$birth', Username_User='$username', Administrator_User=0, Description_User='$description' WHERE ID_User = ".$_SESSION["CurrentUserIDSession"];
 
 
 
@@ -70,7 +68,7 @@ if(mysqli_num_rows($result) == 0){ #Checa si hay almenos alguna cuenta que coinc
     if($result){
         session_destroy();
         session_start();
-        $query2="SELECT * FROM User where Username_User='$username' or Mail_User='$email'";
+        $query2="SELECT * FROM User where Username_User='$username'";
         $result = mysqli_query($conexion, $query2);
         while($row=mysqli_fetch_assoc($result)) {
             $_SESSION["CurrentUserIDSession"] = $row["ID_User"];
@@ -99,7 +97,7 @@ else{
 
 
     $_SESSION["ErrorHeader"] = "NO SE PUDO MODIFICAR LA CUENTA";
-    $_SESSION["ErrorText"] = "Ya existe una cuenta con el mismo nombre de usuario o correo asociados";
+    $_SESSION["ErrorText"] = "Ya existe una cuenta con el mismo nombre de usuario";
     echo "<script> window.location='/DeltaTrain/settings'</script>"; 
 
 

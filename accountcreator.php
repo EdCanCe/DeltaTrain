@@ -10,7 +10,6 @@ $password=$_POST['password'];
 $name=$_POST['name'];
 $lastnames=$_POST['lastnames'];
 $birth=$_POST['birth'];
-$email=$_POST['email'];
 $description=$_POST['description'];
 $password=encrypt($password);
 
@@ -24,7 +23,6 @@ validateChar($username, "username");
 validateChar($name, "name");
 validateChar($birth, "birth");
 validateChar($lastnames, "lastnames");
-validateChar($email, "email");
 $_SESSION["setForm"]=$GLOBALS["setForm"];
 if($GLOBALS["errorForm"]!=""){
     $_SESSION["ErrorHeader"] = "NO SE PUDO CREAR LA CUENTA";
@@ -58,9 +56,9 @@ if(($pfpName != "" and $pfpSize > 3*1024*1024) or ($bannerName != "" and $banner
 
 
 
-$query="SELECT * FROM User where Username_User='$username' or Mail_User='$email'";
+$query="SELECT * FROM User where Username_User='$username'";
 $result = mysqli_query($conexion, $query);
-$insert = "INSERT INTO User(Password_User, Name_User, LastName_User, BirthDate_User, Mail_User, Username_User, Administrator_User, Description_User) VALUES ('$password', '$name', '$lastnames', '$birth', '$email', '$username', 0, '$description')";
+$insert = "INSERT INTO User(Password_User, Name_User, LastName_User, BirthDate_User, Username_User, Administrator_User, Description_User) VALUES ('$password', '$name', '$lastnames', '$birth','$username', 0, '$description')";
 
 
 
@@ -72,7 +70,7 @@ if(mysqli_num_rows($result) == 0){ #Checa si hay almenos alguna cuenta que coinc
     if($result){
         session_destroy();
         session_start();
-        $query2="SELECT * FROM User where Username_User='$username' or Mail_User='$email'";
+        $query2="SELECT * FROM User where Username_User='$username'";
         $result = mysqli_query($conexion, $query2);
         while($row=mysqli_fetch_assoc($result)) {
             $_SESSION["CurrentUserIDSession"] = $row["ID_User"];

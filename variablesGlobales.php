@@ -1,5 +1,4 @@
 <?php
-include("conexion.php");
 $navConCuenta = '
 <!-- Barra lateral -->
 <div class="sidebar">
@@ -317,8 +316,16 @@ function validateChar($word, $index){
     $noEmojisWord = mb_ereg_replace('[[:^print:]]', '', $word);
     if ((strlen($noEmojisWord) == strlen($word)) and (((preg_match('/^[a-zA-Z0-9ñÑ\-_\(\)\$\%\&]+$/', $word))) or ($index=="email" and (preg_match('/^[a-zA-ZáéíóúüñÁÉÍÓÚÜÑ0-9\-_\(\)\$\%\&@\.]+$/', $word))) or (($index!="username" and $index!="email") and (preg_match('/^[a-zA-Z0-9áéíóúüñÑÁÉÍÓÚÜ\s\-_\(\)\$\%\&]+$/', $word))))) {
         if($index=="username"){
-            $query = "SELECT * FROM NONUSABLE where Word_NONUSABLE = '$word'";
-
+            session_start();
+            include("conexion.php");
+            $query2 = "SELECT * FROM NONUSABLE where Word_NONUSABLE='$word'";
+            $result2 = mysqli_query($conexion, $query2);
+            if(mysqli_num_rows($result2)!=0){ # significa que está usando un nombre no permitido
+                $_SESSION["ErrorHeader"] = "NO SE PUDO HACER EL PROCESO";
+                $_SESSION["ErrorText"] = "Ya existe una cuenta con el mismo nombre de usuario";
+                $GLOBALS["errorForm"] = "a";
+                echo "<script>history.back()</script>";
+            }
         }
         $GLOBALS["setForm"] = $GLOBALS["setForm"].$index."|".$word."|";
         #El string cumple con los criterios
