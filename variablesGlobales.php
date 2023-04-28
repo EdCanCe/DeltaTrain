@@ -321,10 +321,7 @@ function validateChar($word, $index){
             $query2 = "SELECT * FROM NONUSABLE where Word_NONUSABLE='$word'";
             $result2 = mysqli_query($conexion, $query2);
             if(mysqli_num_rows($result2)!=0){ # significa que está usando un nombre no permitido
-                $_SESSION["ErrorHeader"] = "NO SE PUDO HACER EL PROCESO";
-                $_SESSION["ErrorText"] = "Ya existe una cuenta con el mismo nombre de usuario";
-                $GLOBALS["errorForm"] = "a";
-                echo "<script>history.back()</script>";
+                $GLOBALS["errorForm"] = "reserved";
             }
         }
         $GLOBALS["setForm"] = $GLOBALS["setForm"].$index."|".$word."|";

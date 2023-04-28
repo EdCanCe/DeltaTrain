@@ -22,11 +22,17 @@ validateChar($name, "name");
 validateChar($birth, "birth");
 validateChar($lastnames, "lastnames");
 $_SESSION["setForm"]=$GLOBALS["setForm"];
+if($GLOBALS["errorForm"]=="reserved"){
+    $_SESSION["ErrorHeader"] = "NO SE PUDO MODIFICAR LA CUENTA";
+    $_SESSION["ErrorText"] = "El nombre de usuario es un usuario no permitido";
+    echo "<script> window.location='/DeltaTrain/settings'</script>";
+    return;
+}
 if($GLOBALS["errorForm"]!=""){
     $_SESSION["ErrorHeader"] = "NO SE PUDO MODIFICAR LA CUENTA";
     $_SESSION["ErrorText"] = "Colocó caracteres no permitidos en algún campo.";
     $GLOBALS["errorForm"] = "";
-    echo "<script> window.location='/DeltaTrain/createaccount'</script>";
+    echo "<script> window.location='/DeltaTrain/settings'</script>";
     return;
 }
 

@@ -110,7 +110,7 @@
 .f-modal-alert .f-modal-icon.f-modal-error:before {
 	border-radius: 120px 0 0 120px;
 	left: -33px;
-	top: -7px;
+	top: -15px;
 	transform-origin: 60px 60px;
 	transform: rotate(-45deg);
 }
