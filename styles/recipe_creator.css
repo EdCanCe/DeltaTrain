@@ -12,7 +12,7 @@
 
 /* Estilos de la cabecera del contendeor de la rutina */
 .recipes-head{
-    background: url(/DeltaTrain/imgs/banner4k.jpg);
+    background: url(../imgs/banner4k.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -126,12 +126,36 @@
 
 
 .image-input{
-    background-color: var(--color-7);
-    color: var(--color-2);
-    padding: 15px 20px;
+    display: none;
 }
 
-.recipe-img-container{
+.recipe-img-main-container .input-file-div{
+    background-color: var(--color-7);
+    color: var(--color-2);
+    width: 40%;
+    text-align: center;
+    padding: 10px 30px;
+    border-radius: 10px;
+    transition: ease-out 0.2s;
+    border: var(--color-9) solid 2px;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+}
+
+.recipe-img-main-container .input-file-div:hover{
+    transform: scale(1.1);
+    background-color: var(--color-2);
+    color: var(--color-1);
+    border: var(--color-1) solid 2px;
+}
+
+
+
+.recipe-img-main-container{
     margin-top: 50px;
     width: 100%;
     display: flex;
@@ -141,22 +165,18 @@
 }
 
 
-.recipe-img-container div{
-    
-}
 
-
-.recipe-img-container.active div{
+.recipe-img-main-container.active .recipe-img-container{
     width: 50%;
-    background-color: var(--color-3);
+    background-color: transparent;
     position: relative;
     padding-top: 50%;
     overflow: hidden;
-    border-radius: 10px;
+    border-radius: 5px;
     margin-bottom: 20px;
 }
  
-.recipe-img-container.active div img{
+.recipe-img-main-container.active .recipe-img-container img{
     max-width: 100%;
     position: absolute;
     position: absolute;
@@ -200,6 +220,25 @@
     margin-bottom: 30px;
     font-size: 30px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.recipes-body h3 span{
+    font-size: 50px;
+    text-align: center;
+    color: var(--color-1);
+}
+
+.input-file-div h3{
+    margin-bottom: 0;
+}
+
+.input-file-div:hover h3{
+    color: var(--color-1);
 }
 
 .recipes-body h4{
@@ -304,6 +343,7 @@
     border: solid 3px var(--color-6);
     color: var(--color-5);
     padding: 20px 40px;
+    border-radius: 5px;
 }
 
 
@@ -362,7 +402,7 @@
         border-radius: 0px;
     }
 
-    .recipe-img-container{
+    .recipe-img-main-container{
         width: 75%;
     }
 
