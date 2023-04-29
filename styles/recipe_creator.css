@@ -192,7 +192,7 @@
 
 
 /* Estilos de los contenedores de los ejercicios de la rutina */
-.ingredients-container, .nutritional-information-container, .preparation-container{
+.ingredients-container, .nutritional-information-container, .preparation-container, .exercise-container{
     width: 80%;
     background-color: var(--color-7);
     border-radius: 10px;
