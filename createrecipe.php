@@ -46,6 +46,7 @@ session_start();
         echo "<script src='/DeltaTrain/scripts/alert.js'></script>";
         echo "<script src='/DeltaTrain/scripts/load-pfp.js'></script>";
         echo "<script src='/DeltaTrain/scripts/colorchange.js'></script>";
+        echo '<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>';
 
         if(isset($_SESSION["CurrentUserIDSession"])){ #Checa si ya inició sesión
             $CurrentUserID = $_SESSION["CurrentUserIDSession"]; #Recoge el id del usuario
@@ -105,88 +106,84 @@ session_start();
         <!-- Ejercicios de la receta contenedor principal -->
         <div class="recipes-main-container">
 
-
-
-        <!-- Cabecera del contenedor de la receta -->
-        <div class="recipes-head">
-            <h1 class="recipes-name">
-            <input type="text" name="recipes-name" id="nameData" required>
-            <span class="placeholder-input">Nombre de la receta</span>
-            <i class="input-line"></i>
-            <span class="message"></span>
-            </h1>
-            
-            <span class="material-symbols-outlined icon">cooking</span>
-        </div>
-
-
-
-        <!-- Cuerpo de del contenedor de la receta -->
-        <div class="recipes-body">
-
-            <div class="recipe-img-main-container">
-                <div class="recipe-img-container">
-                    <img src="" class="image-preview" alt="">
-                </div>           
-                <input type="file" class="image-input">
-                <div class="input-file-div"><h3>Agregar Imagen<span class="material-symbols-outlined">add_photo_alternate</span></h3></div>
-            </div>
-
-            <div class="nutritional-information-container">
-                <h3>Información nuticiónal
-                    <span class="material-symbols-outlined">nutrition</span>
-                </h3>
-                <h4>Tamaño de la porción: 
-                <span>
-                    <input type="text" maxlength="8" id="portionData">
-                </span>
-                </h4>
-                <ul>
-                    <li>Proteinas: <span><input type="text" maxlength="8" id="proteinData"></span></li>
-                    <li>Grasas: <span><input type="text" maxlength="8" id="fatData"></span></li>
-                    <li>Carbohidratos: <span><input type="text" maxlength="8"  id="carbsData"></span></li>
-                </ul>
-            </div>
-
-            <!-- Contenedor del ejercicio -->
-            <div class="ingredients-container">
-                <h3>Ingredientes<span class="material-symbols-outlined">
-                    receipt_long
-                    </span></h3>
-                <ol>
-                    <li><span><input type="text" class="ingredientData"></span><button class="delete-btn">Eliminar</button></li>
-                </ol>
-                <div class="add-ingredient-container">
-                    <button class="add-ingredient-button">
-                        <span>Añadir Ingrediente</span>
-                        <span class="material-symbols-outlined icon">add_circle</span>
-                    </button>
+                <!-- Cabecera del contenedor de la receta -->
+                <div class="recipes-head">
+                    <h1 class="recipes-name">
+                    <input type="text" name="recipes-name" id="nameData" required>
+                    <span class="placeholder-input">Nombre de la receta</span>
+                    <i class="input-line"></i>
+                    <span class="message"></span>
+                    </h1>
+                    
+                    <span class="material-symbols-outlined icon">cooking</span>
                 </div>
-            </div>
 
 
 
-            <div class="preparation-container">
-                <h3>Preparación<span class="material-symbols-outlined">
-                outdoor_grill
-                </span>
-                </h3>
-                <textarea id="preparationData" cols="30" rows="10" style="resize:vertical;"></textarea>
-            </div>
-            
-        </div>
+                <!-- Cuerpo de del contenedor de la receta -->
+                <div class="recipes-body">
+
+                    <div class="recipe-img-main-container">
+                        <div class="recipe-img-container">
+                            <img src="" class="image-preview" alt="">
+                        </div>           
+                        <input type="file" id="pictureData" class="image-input">
+                        <div class="input-file-div"><h3>Agregar Imagen<span class="material-symbols-outlined">add_photo_alternate</span></h3></div>
+                    </div>
+
+                    <div class="nutritional-information-container">
+                        <h3>Información nuticiónal
+                            <span class="material-symbols-outlined">nutrition</span>
+                        </h3>
+                        <h4>Tamaño de la porción: 
+                        <span>
+                            <input type="text" maxlength="8" id="portionData">
+                        </span>
+                        </h4>
+                        <ul>
+                            <li>Proteinas: <span><input type="text" maxlength="8" id="proteinData"></span></li>
+                            <li>Grasas: <span><input type="text" maxlength="8" id="fatData"></span></li>
+                            <li>Carbohidratos: <span><input type="text" maxlength="8"  id="carbsData"></span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contenedor del ejercicio -->
+                    <div class="ingredients-container">
+                        <h3>Ingredientes<span class="material-symbols-outlined">
+                            receipt_long
+                            </span></h3>
+                        <ol>
+                            <li><span><input type="text" class="ingredientData" required></span><button class="delete-btn">Eliminar</button></li>
+                        </ol>
+                        <div class="add-ingredient-container">
+                            <button class="add-ingredient-button">
+                                <span>Añadir Ingrediente</span>
+                                <span class="material-symbols-outlined icon">add_circle</span>
+                            </button>
+                        </div>
+                    </div>
 
 
 
-        <!-- Agregar ejercicio a la receta contenedor -->
-        <div class="add-exercise-container">
-            <a class="mouse-hover" onclick="insertRecipe()">
-                <span>Guardar receta</span>
-                <span class="material-symbols-outlined icon">add_circle</span>
-            </a>
-        </div>
+                    <div class="preparation-container">
+                        <h3>Preparación<span class="material-symbols-outlined">
+                        outdoor_grill
+                        </span>
+                        </h3>
+                        <textarea id="preparationData" cols="30" rows="10" style="resize:vertical;" required></textarea>
+                    </div>
+                    
+                </div>
 
 
+
+                <!-- Agregar ejercicio a la receta contenedor -->
+                <div class="add-exercise-container">
+                    <a class="mouse-hover" onclick="insertRecipe()">
+                        <span>Guardar receta</span>
+                        <span class="material-symbols-outlined icon">add_circle</span>
+                    </a>
+                </div>
         
         </div>
     </div>

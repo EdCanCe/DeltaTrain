@@ -98,48 +98,75 @@ imageInput.addEventListener('change', () => {
 
 //Esto de abajo es para meter los datos
 function insertRecipe(){
-    let ingredientTag = document.getElementsByClassName("ingredientData");
-    let ingredientData = "";
-    for(let i=0; i<ingredientTag.length; i++){
-        ingredientData = ingredientData + ingredientTag[i].value+"<";
+
+    let requiredInputs = document.querySelectorAll('input[required]');
+    let allFilled = true;
+    requiredInputs.forEach(input => {
+    if (!input.value) {
+        allFilled = false;
     }
-    let preparationData = document.getElementById("preparationData").value;
-    preparationData = preparationData.replace(/(?:\r\n|\r|\n)/g, '\\n');
-    let portionData = document.getElementById("portionData").value;
-    let proteinData = document.getElementById("proteinData").value;
-    let fatData = document.getElementById("fatData").value;
-    let carbsData = document.getElementById("carbsData").value;
-    let nameData = document.getElementById("nameData").value;
-    let formData = new FormData();
-    formData.append("preparation", preparationData);
-    formData.append("portion", portionData);
-    formData.append("protein", proteinData);
-    formData.append("fat", fatData);
-    formData.append("carbs", carbsData);
-    formData.append("name", nameData);
-    formData.append("ingredients", ingredientData);
-    
-    var xhr = new XMLHttpRequest();
+    });
+    requiredInputs = document.querySelectorAll('textarea[required]');
+    requiredInputs.forEach(input => {
+    if (!input.value) {
+        allFilled = false;
+    }
+    });
 
-    xhr.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-        // Mostrar la respuesta en la consola del navegador
-        console.log(this.responseText);
+    // Output a message if any required input is not filled
+    if (!allFilled) {
+
+        alert('Please fill in all required fields');
+
+    }else{
+        let ingredientTag = document.getElementsByClassName("ingredientData");
+        let ingredientData = "";
+        for(let i=0; i<ingredientTag.length; i++){
+            ingredientData = ingredientData + ingredientTag[i].value+"<";
         }
-    };
+        let preparationData = document.getElementById("preparationData").value;
+        preparationData = preparationData.replace(/(?:\r\n|\r|\n)/g, '\\n');
+        let portionData = document.getElementById("portionData").value;
+        let proteinData = document.getElementById("proteinData").value;
+        let fatData = document.getElementById("fatData").value;
+        let carbsData = document.getElementById("carbsData").value;
+        let nameData = document.getElementById("nameData").value;
+        let pictureData = document.getElementById("pictureData").value;
+        let formData = new FormData();
+        formData.append("preparation", preparationData);
+        formData.append("portion", portionData);
+        formData.append("protein", proteinData);
+        formData.append("fat", fatData);
+        formData.append("carbs", carbsData);
+        formData.append("name", nameData);
+        formData.append("ingredient", ingredientData);
+        formData.append("picture", pictureData);
+        
+        /*var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+            // Mostrar la respuesta en la consola del navegador
+            console.log(this.responseText);
+            }
+        };
+        let allData = "preparation='" + preparationData + "'&portion=" + portionData + "&protein=" + proteinData + "&fat=" + fatData + "&carbs=" + carbsData + "&name=" + nameData + "&ingredient=" + ingredientData + "&picture=" + pictureData;
+        xhr.open("GET", "../recipecreator.php?"+allData, true);
+        xhr.setRequestHeader("Cache-Control", "no-cache, must-revalidate");
+        xhr.send(allData);
+        alert(allData);*/
 
-    //xhr.open("GET", "/DeltaTrain/recipecreator.php?");
-    
-
-    
-
-    let allData = "preparation='" + preparationData + "'&portion=" + portionData + "&protein=" + proteinData + "&fat=" + fatData + "&carbs=" + carbsData + "&name=" + nameData + "&ingredient=" + ingredientData;
-    // Enviar la petición al archivo PHP que inserta los datos
-
-    xhr.open("GET", "../recipecreator.php?"+allData, true);
-    xhr.setRequestHeader("Cache-Control", "no-cache, must-revalidate");
-    xhr.send(allData);
-
-    alert(allData);
+        $.ajax({
+            url: "../recipecreator.php",
+            type: "POST",
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function(response) {
+                console.log(response);
+            },
+            error: function(jqXHR, textStatus, errorMessage) {
+            }
+        });
+    }
 
 }
