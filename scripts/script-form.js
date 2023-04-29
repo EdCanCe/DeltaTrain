@@ -1,4 +1,31 @@
-  /*
+const inputImageContainers = document.querySelectorAll('.input-container.image');
+
+inputImageContainers.forEach((container) => {
+  const input = container.querySelector('input[type="file"]');
+  const preview = container.querySelector('.vew-image-container img');
+
+  container.addEventListener('click', (event) => {
+    input.click();
+  });
+
+  input.addEventListener('change', (event) => {
+    const file = input.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        preview.src = event.target.result;
+        preview.parentNode.classList.add('active');
+      };
+      reader.readAsDataURL(file);
+    } else {
+      preview.src = '';
+      preview.parentNode.classList.remove('active');
+    }
+  });
+});
+
+ 
+ /*
   // Selecciona el formulario y agrega un manejador de eventos al evento 'submit'
   const form = document.querySelector('.form');
   form.addEventListener('submit', function(event) {
@@ -103,3 +130,7 @@ btnSubmit.addEventListener('mouseover', function(){
 btnSubmit.addEventListener('mouseout', function(){
   btnSubmit.innerHTML = 'Enviar';
 });
+
+
+
+
