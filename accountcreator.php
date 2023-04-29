@@ -12,6 +12,7 @@ $lastnames=$_POST['lastnames'];
 $birth=$_POST['birth'];
 $description=$_POST['description'];
 $password=encrypt($password);
+$color=$_POST['color'];
 
 
 
@@ -64,7 +65,7 @@ if(($pfpName != "" and $pfpSize > 3*1024*1024) or ($bannerName != "" and $banner
 
 $query="SELECT * FROM User where Username_User='$username'";
 $result = mysqli_query($conexion, $query);
-$insert = "INSERT INTO User(Password_User, Name_User, LastName_User, BirthDate_User, Username_User, Administrator_User, Description_User) VALUES ('$password', '$name', '$lastnames', '$birth','$username', 0, '$description')";
+$insert = "INSERT INTO User(Password_User, Name_User, LastName_User, BirthDate_User, Username_User, Administrator_User, Description_User, Color_User) VALUES ('$password', '$name', '$lastnames', '$birth','$username', 0, '$description', '$color')";
 
 
 

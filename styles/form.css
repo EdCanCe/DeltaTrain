@@ -197,6 +197,33 @@
   aspect-ratio: auto;
 }
 
+.input-container.color{
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-container .color-selector{
+  display: flex;
+}
+
+.input-container .color-selector.selec input + span{
+  transform: scale(1.1);
+  border: double var(--color-2) 2px;
+}
+
+.input-container .color-selector input{
+  display: none;
+}
+
+.input-container .color-selector input + span{
+  width: 40px;
+  aspect-ratio: 1/1;
+  background-color: var(--color-2);
+  border-radius: 100%;
+}
+
+
+
 /*Estilos del contenedor de los links para redireccionas debajo del formulario*/
 .links-container{
   text-align: center;

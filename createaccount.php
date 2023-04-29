@@ -165,7 +165,7 @@ session_start();
                             <span class="placeholder-input"><span class="material-symbols-outlined">description</span>&nbsp;Descripción del perfil</span>
                             <i class="input-line"></i>
                             <span class="message"></span>
-                        </div>
+                </div>
 
 
                 <!--Campo para ingresar la foto de perfil del usuario-->
@@ -190,6 +190,40 @@ session_start();
                     <div class="vew-image-container banner">
                         <img src="" alt="">
                     </div>        
+                </div>
+
+
+                <div class="input-container color">
+                    <div class="color-selector">
+                        <input type="radio" name="color" id="" value="0">
+                        <span for="radio"></span>
+                    </div>
+                    <div class="color-selector">
+                        <input type="radio" name="color" id="" value="1">
+                        <span for="radio"></span>
+                    </div>
+                    <div class="color-selector">
+                        <input type="radio" name="color" id="" value="2">
+                        <span for="radio"></span>
+                    </div>
+                    <div class="color-selector">
+                        <input type="radio" name="color" id="" value="3">
+                        <span for="radio"></span>
+                    </div>
+                    <div class="color-selector">
+                        <input type="radio" name="color" id="" value="4">
+                        <span for="radio"></span>
+                    </div>
+                    <div class="color-selector">
+                        <input type="radio" name="color" id="" value="5">
+                        <span for="radio"></span>
+                    </div>
+                    <div class="color-selector">
+                        <input type="radio" name="color" id="" value="6">
+                        <span for="radio"></span>
+                    </div>
+                    
+                    
                 </div>
                 
 
