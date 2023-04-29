@@ -131,7 +131,67 @@
   background-color: var(--color-1);
 }
 
+.input-container.image{
+  background-color: var(--color-7);
+  width: 100%;
+  color: var(--color-5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 20px;
+  border-radius: 5px;
+  flex-direction: column;
+  gap: 30px;
+}
 
+.input-container.image input{
+  display: none;
+}
+
+.input-container.image div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 20px;
+}
+
+.input-container.image div .icon{
+  font-size: 30px;
+}
+
+.input-container.image .vew-image-container{
+  display: none;
+}
+
+.input-container.image .vew-image-container.active{
+  width: 30%;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  border: solid 5px var(--color-3);
+}
+
+.input-container.image .vew-image-container.active.banner{
+  width: 100%;
+  border-radius: 0px;
+  max-height: 200px;
+}
+
+
+
+.input-container.image .vew-image-container img{
+  width: 100%;
+  aspect-ratio: 1/1;
+}
+
+.input-container.image .vew-image-container.active.banner img{
+  width: 100%;
+  aspect-ratio: auto;
+}
 
 /*Estilos del contenedor de los links para redireccionas debajo del formulario*/
 .links-container{

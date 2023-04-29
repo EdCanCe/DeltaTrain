@@ -76,18 +76,17 @@
 
 .follow-list{
     display: block;
-    border-bottom: 1px solid var(--color-1);
     padding: 20px;
     transition: 0.2s background ease-out;
     background: var(--color-7);
     border: solid 3px transparent;
+    border-bottom: 1px solid var(--color-5);
 }
 
 .follow-list:hover{
     background: var(--color-3);
     border: solid 3px var(--color-5);
     border-radius: 5px;
-    transform: scale(1.1);
 }
 
 .follow-list-img-container{
@@ -110,4 +109,5 @@
     padding: 10px;
     color: var(--color-2);
     text-decoration: none;
+    overflow: hidden;
 }
