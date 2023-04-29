@@ -11,6 +11,7 @@ $birth=$_POST['birth'];
 $description=$_POST['description'];
 $color=$_POST['color'];
 $password=encrypt($password);
+$color=$_POST['color'];
 
 
 
