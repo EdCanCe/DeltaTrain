@@ -246,7 +246,7 @@ for (let i = 0; i < colorSelectorContainer.length; i++) {
   input.addEventListener('change', () => {
     if (input.checked) {
       changeColor(input.value);
-      input.parentElement.classList.add('selec');
+      //input.parentElement.classList.add('selec');
       console.log(`El input ${input.value} está seleccionado`);
     } else {
       input.parentElement.classList.remove('selec');
