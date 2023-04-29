@@ -200,10 +200,18 @@
 .input-container.color{
   display: flex;
   justify-content: space-between;
+  background-color: var(--color-7);
+  width: 100%;
+  padding: 20px 50px;
+  border-radius: 5px;
 }
 
 .input-container .color-selector{
   display: flex;
+}
+
+.input-container .color-selector:hover{
+  transform: scale(1.1);
 }
 
 .input-container .color-selector.selec input + span{

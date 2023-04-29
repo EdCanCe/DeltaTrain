@@ -10,6 +10,7 @@ $lastnames=$_POST['lastnames'];
 $birth=$_POST['birth'];
 $description=$_POST['description'];
 $password=encrypt($password);
+$color=$_POST['color'];
 
 
 
@@ -62,7 +63,7 @@ if(($pfpName != "" and $pfpSize > 3*1024*1024) or ($bannerName != "" and $banner
 
 $query="SELECT * FROM User where Username_User='$username' and not ID_User=".$_SESSION["CurrentUserIDSession"];
 $result = mysqli_query($conexion, $query);
-$insert = "UPDATE User SET Password_User='$password', Name_User='$name', LastName_User='$lastnames', BirthDate_User='$birth', Username_User='$username', Administrator_User=0, Description_User='$description' WHERE ID_User = ".$_SESSION["CurrentUserIDSession"];
+$insert = "UPDATE User SET Password_User='$password', Name_User='$name', LastName_User='$lastnames', BirthDate_User='$birth', Username_User='$username', Administrator_User=0, Description_User='$description', Color_User='$color' WHERE ID_User = ".$_SESSION["CurrentUserIDSession"];
 
 
 
