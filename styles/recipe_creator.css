@@ -125,64 +125,67 @@
 }
 
 
-.image-input{
-    display: none;
-}
 
-.recipe-img-main-container .input-file-div{
+.input-container.image{
     background-color: var(--color-7);
-    color: var(--color-2);
-    width: 40%;
-    text-align: center;
-    padding: 10px 30px;
-    border-radius: 10px;
-    transition: ease-out 0.2s;
-    border: var(--color-9) solid 2px;
-    font-weight: 600;
+    width: 80%;
+    color: var(--color-5);
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    font-size: 30px;
-}
-
-.recipe-img-main-container .input-file-div:hover{
-    transform: scale(1.1);
+    align-items: center;
+    padding: 20px 20px;
+    border-radius: 5px;
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .input-container.image.dragover{
     background-color: var(--color-2);
     color: var(--color-1);
-    border: var(--color-1) solid 2px;
-}
-
-
-
-.recipe-img-main-container{
-    margin-top: 50px;
-    width: 100%;
+  }
+  
+  .input-container.image input{
+    display: none;
+  }
+  
+  .input-container.image div{
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-
-
-.recipe-img-main-container.active .recipe-img-container{
-    width: 50%;
-    background-color: transparent;
-    position: relative;
-    padding-top: 50%;
+    flex-direction: column;
+    font-size: 20px;
+  }
+  
+  .input-container.image div .icon{
+    font-size: 30px;
+  }
+  
+  .input-container.image .vew-image-container{
+    display: none;
+  }
+  
+  .input-container.image .vew-image-container.active{
+    width: 60%;
+    aspect-ratio: 1/1;
     overflow: hidden;
-    border-radius: 5px;
-    margin-bottom: 20px;
-}
- 
-.recipe-img-main-container.active .recipe-img-container img{
-    max-width: 100%;
-    position: absolute;
-    position: absolute;
-    inset: 50%;
-    transform: translate(-50%, -50%);
-}
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px
+  }
+  
+  
+  
+  
+  .input-container.image .vew-image-container img{
+    width: 100%;
+    aspect-ratio: 1/1;
+  }
+  
+  .input-container.image .vew-image-container.active.banner img{
+    width: 100%;
+    aspect-ratio: auto;
+  }
 
  
 

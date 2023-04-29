@@ -216,7 +216,7 @@
 
 .input-container .color-selector.selec input + span{
   transform: scale(1.1);
-  border: double var(--color-2) 2px;
+  border: solid var(--color-2) 3px;
 }
 
 .input-container .color-selector input{

@@ -36,6 +36,7 @@ session_start();
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital@0;1&display=swap" rel="stylesheet">
     <!-- Añadiendo el icono a la página -->
     <link rel="icon" href="/DeltaTrain/imgs/logo.svg">
+    
 </head>
 
 <body>

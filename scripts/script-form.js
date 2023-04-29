@@ -1,24 +1,31 @@
+//Input que mustra una imagen seleccionada o arrastrada y soltada
+
+//Seleccionamos el contenedor que tiene dentro los elementos a usar
 let inputContainer = document.querySelectorAll('.input-container.image');
 
+//Con un ciclo for recorremos todos los elementos con esa clase
 for(let i=0; i<inputContainer.length; i++){
+
+  //Seleccinamos el input de tipo file, el contenedor dedonde se mostrara la imagen, y el texto que se comstrara del contenedor  
       let input = inputContainer[i].querySelector('input[type=file]');
       let viewImageContainer = inputContainer[i].querySelector('.vew-image-container');
       let text=inputContainer[i].querySelector('.text-input-image');
 
+      //Agregamos evento cuando se este arrastrando un archivo sobre el contenedor principal 
       inputContainer[i].addEventListener('dragover', (event)=>{
         event.preventDefault();
         text.innerHTML='<span>Subir Imagen</span><span class="material-symbols-outlined icon">download_for_offline</span>';
         inputContainer[i].classList.add('dragover');
       });
 
+      //Agregamos un evento cuando ya no se este arrastrando un archivo sobre el contenedor principal
       inputContainer[i].addEventListener('dragleave', (event)=>{
         event.preventDefault();
         text.innerHTML="<span>Agregar Foto de perfil</span><span class='material-symbols-outlined icon'>add_photo_alternate</span>";
         inputContainer[i].classList.remove('dragover');
       });
 
-
-      // Agregar evento de escucha de drop en el div "input-container image"
+      //Agregamos un evento cuando se suelte un archivo sobre el contenedor principal 
       inputContainer[i].addEventListener('drop', (e) => {
         e.preventDefault();
         const file = e.dataTransfer.files[0];
@@ -244,13 +251,14 @@ for (let i = 0; i < colorSelectorContainer.length; i++) {
   });
 
   input.addEventListener('change', () => {
-    if (input.checked) {
+    if (!input.checked) {
+      input.parentElement.classList.remove('selec');
+      console.log(`El input ${input.value} no está seleccionado`);
+      
+    } else if(input.checked){
       changeColor(input.value);
       input.parentElement.classList.add('selec');
       console.log(`El input ${input.value} está seleccionado`);
-    } else {
-      input.parentElement.classList.remove('selec');
-      console.log(`El input ${input.value} no está seleccionado`);
     }
   });
 }

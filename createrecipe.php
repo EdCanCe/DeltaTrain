@@ -123,13 +123,15 @@ session_start();
                 <!-- Cuerpo de del contenedor de la receta -->
                 <div class="recipes-body">
 
-                    <div class="recipe-img-main-container">
-                        <div class="recipe-img-container">
-                            <img src="" class="image-preview" alt="">
-                        </div>           
-                        <input type="file" id="pictureData" class="image-input">
-                        <div class="input-file-div"><h3>Agregar Imagen<span class="material-symbols-outlined">add_photo_alternate</span></h3></div>
+                <div class="input-container image">
+                    <input type="file" name="banner" id="banner">
+                    <div class="text-input-image">
+                    <span>Agregar Imagen</span><span class='material-symbols-outlined icon'>add_photo_alternate</span>
                     </div>
+                    <div class="vew-image-container">
+                        <img src="" alt="">
+                    </div>        
+                </div>
 
                     <div class="nutritional-information-container">
                         <h3>Información nuticiónal
