@@ -174,7 +174,7 @@ btnSubmit.addEventListener('mouseout', function(){
 
 //Aqui lo copie por que si descomento el de colorchage.js no jala
 
-let brightRed = "#c70000";
+/*let brightRed = "#c70000";
 let darkRed = "#950011b2";
 
 let brightOrange = "#db7900";
@@ -195,9 +195,9 @@ let darkSky = "#00a8a3b2";
 let brightPurple = "#7100e3";
 let darkPurple = "#5400a8b2";
 
-const r = document.querySelector(':root');
+const r = document.querySelector(':root');*/
 
-function changeColor(userColor){
+/*function formColor(userColor){
     if(userColor==0){
         r.style.setProperty('--color-1', brightRed);
         r.style.setProperty('--color-6', darkRed);
@@ -220,7 +220,7 @@ function changeColor(userColor){
         r.style.setProperty('--color-1', brightPurple);
         r.style.setProperty('--color-6', darkPurple);
     }
-}
+}*/
 
 
 
