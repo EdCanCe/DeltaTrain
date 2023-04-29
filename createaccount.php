@@ -171,9 +171,8 @@ session_start();
                 <!--Campo para ingresar la foto de perfil del usuario-->
                 <div class="input-container image">
                     <input type="file" name="pfp" id="pfp">
-                    <div>
-                        <span>Agregar Foto de perfil</span> 
-                        <span class="material-symbols-outlined icon">add_photo_alternate</span>
+                    <div class="text-input-image">
+                    <span>Agregar Foto de perfil</span><span class='material-symbols-outlined icon'>add_photo_alternate</span>
                     </div>
                     <div class="vew-image-container">
                         <img src="" alt="">
@@ -184,10 +183,9 @@ session_start();
 
                 <!--Campo para ingresar el banner del usuario-->
                 <div class="input-container image">
-                    <input type="file" name="banner" id="banner">
-                    <div>
-                        <span>Agregar Banner</span> 
-                        <span class="material-symbols-outlined icon">add_photo_alternate</span>
+                <input type="file" name="banner" id="banner">
+                    <div class="text-input-image">
+                    <span>Agregar Banner</span><span class='material-symbols-outlined icon'>add_photo_alternate</span>
                     </div>
                     <div class="vew-image-container banner">
                         <img src="" alt="">

@@ -178,21 +178,27 @@ session_start();
 
 
                         <!--Campo para ingresar la foto de perfil del usuario-->
-                        <div class="input-container">
+                        <div class="input-container image">
                             <input type="file" name="pfp" id="pfp">
-                            <span class="placeholder-input"><span class="material-symbols-outlined">photo_camera</span>&nbsp;Foto de perfil</span>
-                            <i class="input-line"></i>
-                            <span class="message"></span>
+                            <div class="text-input-image">
+                            <span>Agregar Foto de perfil</span><span class='material-symbols-outlined icon'>add_photo_alternate</span>
+                            </div>
+                            <div class="vew-image-container">
+                                <img src="" alt="">
+                            </div>        
                         </div>
 
 
 
                         <!--Campo para ingresar el banner del usuario-->
-                        <div class="input-container">
-                            <input type="file" name="banner" id="banner">
-                            <span class="placeholder-input"><span class="material-symbols-outlined">landscape</span>&nbsp;Banner de perfil</span>
-                            <i class="input-line"></i>
-                            <span class="message"></span>
+                        <div class="input-container image">
+                        <input type="file" name="banner" id="banner">
+                            <div class="text-input-image">
+                            <span>Agregar Banner</span><span class='material-symbols-outlined icon'>add_photo_alternate</span>
+                            </div>
+                            <div class="vew-image-container banner">
+                                <img src="" alt="">
+                            </div>        
                         </div>
 
 

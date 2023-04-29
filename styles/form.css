@@ -144,6 +144,11 @@
   gap: 30px;
 }
 
+.input-container.image.dragover{
+  background-color: var(--color-2);
+  color: var(--color-1);
+}
+
 .input-container.image input{
   display: none;
 }
@@ -172,7 +177,6 @@
   justify-content: center;
   align-items: center;
   border-radius: 100%;
-  border: solid 5px var(--color-3);
 }
 
 .input-container.image .vew-image-container.active.banner{
