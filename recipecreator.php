@@ -5,12 +5,14 @@ session_start();
 $CurrentUserID = $_SESSION["CurrentUserIDSession"];
 $preparation = $_GET['preparation'];
 $portion = $_GET['portion'];
-$type = $_GET['type'];
 $protein = $_GET['protein'];
 $fat = $_GET['fat'];
 $carbs = $_GET['carbs'];
 $name = $_GET['name'];
-$ingredients = $_GET['ingredients'];
+$ingredients = $_GET['ingredient'];
+
+$query = 'INSERT INTO Ingredient(Name_Ingredient) VALUES ("'.$preparation.' <- preparación")';
+$result = mysqli_query($conexion, $query);
 
 $ingredient = explode('<', $ingredients);
 for($i=0;$i<count($ingredient);$i++){

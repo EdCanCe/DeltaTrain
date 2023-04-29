@@ -104,20 +104,42 @@ function insertRecipe(){
         ingredientData = ingredientData + ingredientTag[i].value+"<";
     }
     let preparationData = document.getElementById("preparationData").value;
+    preparationData = preparationData.replace(/(?:\r\n|\r|\n)/g, '\\n');
     let portionData = document.getElementById("portionData").value;
-    let typeData = document.getElementById("typeData").value;
     let proteinData = document.getElementById("proteinData").value;
     let fatData = document.getElementById("fatData").value;
     let carbsData = document.getElementById("carbsData").value;
     let nameData = document.getElementById("nameData").value;
+    let formData = new FormData();
+    formData.append("preparation", preparationData);
+    formData.append("portion", portionData);
+    formData.append("protein", proteinData);
+    formData.append("fat", fatData);
+    formData.append("carbs", carbsData);
+    formData.append("name", nameData);
+    formData.append("ingredients", ingredientData);
     
     var xhr = new XMLHttpRequest();
 
-    xhr.open("POST", "recipecreator.php");
+    xhr.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+        // Mostrar la respuesta en la consola del navegador
+        console.log(this.responseText);
+        }
+    };
 
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    //xhr.open("GET", "/DeltaTrain/recipecreator.php?");
+    
 
-    let allData = "preparation=" + preparationData + "&portion=" + portionData + "&type=" + typeData + "&protein=" + proteinData + "&fat=" + fatData + "&carbs=" + carbsData + "&name=" + nameData + "&ingredients=" + ingredientData;
+    
+
+    let allData = "preparation='" + preparationData + "'&portion=" + portionData + "&protein=" + proteinData + "&fat=" + fatData + "&carbs=" + carbsData + "&name=" + nameData + "&ingredient=" + ingredientData;
     // Enviar la petición al archivo PHP que inserta los datos
+
+    xhr.open("GET", "../recipecreator.php?"+allData, true);
+    xhr.setRequestHeader("Cache-Control", "no-cache, must-revalidate");
     xhr.send(allData);
+
+    alert(allData);
+
 }

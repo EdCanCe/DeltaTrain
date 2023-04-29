@@ -176,5 +176,9 @@ html{
 }
 
 .mouse-hover{
-  cursor: pointer
+  cursor: pointer;
+}
+
+.mouse-hover:active{
+  transform: scale(0.9) !important;
 }
