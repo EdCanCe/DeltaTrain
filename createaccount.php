@@ -189,7 +189,7 @@ session_start();
                         <span>Agregar Banner</span> 
                         <span class="material-symbols-outlined icon">add_photo_alternate</span>
                     </div>
-                    <div class="vew-image-container">
+                    <div class="vew-image-container banner">
                         <img src="" alt="">
                     </div>        
                 </div>

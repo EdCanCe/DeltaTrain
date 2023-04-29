@@ -175,9 +175,22 @@
   border: solid 5px var(--color-3);
 }
 
+.input-container.image .vew-image-container.active.banner{
+  width: 100%;
+  border-radius: 0px;
+  max-height: 200px;
+}
+
+
+
 .input-container.image .vew-image-container img{
   width: 100%;
   aspect-ratio: 1/1;
+}
+
+.input-container.image .vew-image-container.active.banner img{
+  width: 100%;
+  aspect-ratio: auto;
 }
 
 /*Estilos del contenedor de los links para redireccionas debajo del formulario*/
