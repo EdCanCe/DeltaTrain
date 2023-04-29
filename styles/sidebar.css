@@ -123,7 +123,7 @@
 
 /*Estilos de la lista de secciones sidebar*/
 .sidebar ul {
-  padding-top: 40px;
+  padding: 40px 0;
   align-items: center;
   text-decoration: none;
   gap: 30px;

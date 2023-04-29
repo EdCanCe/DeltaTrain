@@ -104,8 +104,8 @@ function insertRecipe(){
         ingredientData = ingredientData + ingredientTag[i].value+"<";
     }
     let preparationData = document.getElementById("preparationData").value;
-    let portionDataBr = document.getElementById("portionData").value;
-    let portionData = portionDataBr.replace(/(?:\r\n|\r|\n)/g, '\\n');
+    preparationData = preparationData.replace(/(?:\r\n|\r|\n)/g, '\\n');
+    let portionData = document.getElementById("portionData").value;
     let proteinData = document.getElementById("proteinData").value;
     let fatData = document.getElementById("fatData").value;
     let carbsData = document.getElementById("carbsData").value;
