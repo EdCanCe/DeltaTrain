@@ -78,7 +78,7 @@
 
 .user-dates-container .user-description{
     font-size: 20px;
-    color: var(--color-5);
+    color: var(--color-2);
 }
 
 
@@ -107,7 +107,7 @@
     text-decoration: none;
     justify-content: center;
     align-items: center;
-    color: var(--color-5);
+    color: var(--color-2);
     transition: ease 0.2s;
     font-weight: 550;
 }
@@ -118,7 +118,7 @@
     width: 100%;
     content: '';
     height: 2px;
-    background-color: var(--color-5);
+    background-color: var(--color-2);
     pointer-events: none;
     transition: ease 0.2s;
 }

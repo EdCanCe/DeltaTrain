@@ -21,17 +21,21 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 30px;
-    color: var(--color-5);
+    color: var(--color-2);
 }
 
 
 
 .recipes-head h1{
+    position: relative;
     transform: translateY(30%);
     font-size: 50px;
     text-align: center;
-    color: var(--color-5);
+    color: var(--color-2);
     width: 60%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
 }
 
 
@@ -54,7 +58,6 @@
 .recipes-head h1 span{
     position: absolute;
     top: 0;
-    left: 20px;
     font-size: 35px;
     transform: translate(0%, 40%);
     pointer-events: none;
@@ -67,7 +70,7 @@
     position: absolute;
     width: 100%;
     height: 2px;
-    background-color: var(--color-5);
+    background-color: var(--color-2);
     left: 0;
     bottom: 0;
     transition: ease 0.3s;
@@ -96,7 +99,7 @@
     background-color: var(--color-6);
     height: 60px;
     border-radius: 5px;
-    border: solid var(--color-5) 3px;
+    border: solid var(--color-2) 3px;
 }
 
 
@@ -108,7 +111,7 @@
     background-color: var(--color-4);
     border-radius: 100%;
     padding: 20px;
-    border: solid var(--color-5);
+    border: solid var(--color-2);
     transform: translateY(50%);
 }
 
@@ -129,7 +132,7 @@
 .input-container.image{
     background-color: var(--color-7);
     width: 80%;
-    color: var(--color-5);
+    color: var(--color-2);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -196,7 +199,7 @@
     width: 80%;
     background-color: var(--color-7);
     border-radius: 10px;
-    color: var(--color-5);
+    color: var(--color-2);
     transition: ease 0.2s;
     display: flex;
     flex-direction: column;
@@ -276,7 +279,7 @@
 .nutritional-information-container input:active,
 .ingredients-container input:focus,
 .ingredients-container input:active{
-    border: solid var(--color-5) 3px;
+    border: solid var(--color-2) 3px;
     background-color: var(--color-1);
     color: var(--color-2);
 }
@@ -305,7 +308,7 @@
 .ingredients-container .delete-btn:hover{
     background-color: var(--color-6);
     color: var(--color-2);
-    border: solid var(--color-5) 3px;
+    border: solid var(--color-2) 3px;
 }
 
 .add-ingredient-button{
@@ -317,7 +320,7 @@
     padding: 10px 10px;
     text-decoration: none;
     cursor: pointer;
-    color: var(--color-5);
+    color: var(--color-2);
     border: solid var(--color-1) 1px;
     border-radius: 10px;
     text-align: center;
@@ -343,9 +346,10 @@
     width: 100%;
     background-color: var(--color-6);
     border: solid 3px var(--color-6);
-    color: var(--color-5);
+    color: var(--color-2);
     padding: 20px 40px;
     border-radius: 5px;
+    outline: none;
 }
 
 
@@ -371,7 +375,7 @@
     padding: 10px 10px;
     text-decoration: none;
     cursor: pointer;
-    color: var(--color-5);
+    color: var(--color-2);
     border: solid var(--color-1) 1px;
     border-radius: 10px;
     text-align: center;

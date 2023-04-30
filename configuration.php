@@ -117,7 +117,7 @@ session_start();
 
 
                         <!--Campo para ingresar el nombre de usuario-->
-                        <div class="input-container">
+                        <div class="input-container normal">
                             <input type="text" name="username" id="username" value="<?php echo $row["Username_User"]?>" required>
                             <span class="placeholder-input"><span class="material-symbols-outlined">person</span>&nbsp;Nombre de Usuario</span>
                             <i class="input-line"></i>
@@ -127,7 +127,7 @@ session_start();
 
 
                         <!--Campo para ingresar la contraseña del usuario-->
-                        <div class="input-container">
+                        <div class="input-container normal">
                             <input type="password" name="password" id="password" required>
                             <span class="placeholder-input"><span class="material-symbols-outlined icon">lock</span>&nbsp;Contraseña</span>
                             <i class="input-line"></i>
@@ -138,7 +138,7 @@ session_start();
 
 
                         <!--Campo para ingresar los nombres del usuario-->
-                        <div class="input-container">
+                        <div class="input-container normal">
                             <input type="text" name="name" id="name" value="<?php echo $row["Name_User"]?>" required>
                             <span class="placeholder-input">Nombre(s)</span>
                             <i class="input-line"></i>
@@ -148,7 +148,7 @@ session_start();
 
 
                         <!--Campo para ingresar los apellidos del usuario-->
-                        <div class="input-container">
+                        <div class="input-container normal">
                             <input type="text" name="lastnames" id="lastnames" value="<?php echo $row["LastName_User"]?>" required>
                             <span class="placeholder-input">Apellido(s)</span>
                             <i class="input-line"></i>
@@ -158,7 +158,7 @@ session_start();
 
 
                         <!--Campo para ingresar la fecha de nacimiento del usuario-->
-                        <div class="input-container">
+                        <div class="input-container normal">
                             <input type="date" name="birth" id="birth" value="<?php echo $row["BirthDate_User"]?>" required>
                             <span class="placeholder-input"><span class="material-symbols-outlined icon">event</span>&nbsp;Fecha de Nacimiento</span>
                             <i class="input-line"></i>

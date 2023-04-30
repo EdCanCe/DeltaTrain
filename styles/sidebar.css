@@ -64,9 +64,9 @@
   opacity: 0;
 }
 
-.logo img {
-  height: 50px;
-  opacity: 0;
+.logo svg{
+  max-width: 100%;
+  fill: var(--color-1);
 }
 
 .sidebar.active .logo span {
@@ -94,7 +94,7 @@
 }
 
 .user-data p {
-  color: var(--color-5);
+  color: var(--color-2);
   display: none;
   font-size: 20px;
 }
@@ -112,7 +112,7 @@
 .user div img {
   height: 50px;
   border-radius: 100%;
-  border: solid var(--color-5) 2px;
+  border: solid var(--color-2) 2px;
   transition: ease 0.3s;
   cursor: pointer;
 }
@@ -142,7 +142,7 @@
 
 .sidebar ul li a {
   margin: 0;
-  color: var(--color-5);
+  color: var(--color-2);
   display: flex;
   text-decoration: none;
   border-radius: 5px;
@@ -159,7 +159,7 @@
 }
 
 .sidebar ul li a:hover {
-  background-color: var(--color-5);
+  background-color: var(--color-2);
   color: var(--color-3);
   box-shadow: var(--color-3) 0px 0px 25px 10px;
 }
@@ -268,7 +268,7 @@
 
   .sidebar-lower ul li a span {
     font-size: 30px;
-    color: var(--color-5);
+    color: var(--color-2);
   }
 
 }

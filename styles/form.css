@@ -17,14 +17,14 @@
   align-items: center;
   z-index: 2;
   border-radius: 10px;
-  gap: 70px;
+  gap: 80px;
 }
 
 
 
 /* Estilos para el título del formulario */
 .box form h2{
-  color: var(--color-5);
+  color: var(--color-2);
   text-align: center;
   margin-bottom: 60px;
   font-size: 40px;
@@ -42,6 +42,11 @@
 }
 
 
+.input-container.normal{
+  height: 50px;
+}
+
+
 
 /*Estilos para el los campos del formulario*/
 .input-container input, .input-container textarea{
@@ -53,8 +58,9 @@
   font-size: 20px;
   outline: none;
   z-index: 2;
-  color: var(--color-5);
+  color: var(--color-2);
   border-radius: 10px;
+  height: 100%;
 }
 
 
@@ -64,7 +70,7 @@
   position: absolute;
   left: 10px;
   bottom: 13px;
-  color: var(--color-5);
+  color: var(--color-2);
   transition: ease 0.5s;
   font-size: 20px;
   pointer-events: none;
@@ -85,7 +91,7 @@
 .input-container input:valid ~ .placeholder-input{
   transform: translateY(-55px);
   font-size: 17px;
-  color: var(--color-5);
+  color: var(--color-2);
 }
 
 
@@ -93,12 +99,12 @@
 .input-container textarea:valid ~ .placeholder-input{
   transform: translateY(-195px);
   font-size: 17px;
-  color: var(--color-5);
+  color: var(--color-2);
 }
 
 .input-container #birth:focus,
 .input-container #birth:valid{
-  color: var(--color-5);
+  color: var(--color-2);
 }
 
 /*Estilos para la linea inferior de los inputs*/
@@ -119,7 +125,7 @@
 /*Estilos para la linea inferior de los inputs cuando se este rellendo o tengan contenido dentro*/
 .input-container input:focus ~ i,
 .input-container input:valid ~ i{
-  height: 50px;
+  height: 100%;
   border-radius: 10px;
   background-color: var(--color-1);
 }
@@ -134,7 +140,7 @@
 .input-container.image{
   background-color: var(--color-7);
   width: 100%;
-  color: var(--color-5);
+  color: var(--color-2);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -242,7 +248,7 @@
 
 /*Estilos de los links que esten dentro del contenedor*/
 .links-container a{
-  color: var(--color-5);
+  color: var(--color-2);
   font-size: 15px;
 }
 
@@ -256,7 +262,7 @@
 
 /*Estilos para el mensaje de error mostrado debajo del input*/
 .error-input.message{
-  color: var(--color-5);
+  color: var(--color-2);
   position: absolute;
   bottom: -30px;
   left: 5px;
@@ -275,7 +281,7 @@
 
 /*Estilos para el placeholder del input no valido*/
 .input-container .error-input.placeholder-input{
-  color: var(--color-5) !important;
+  color: var(--color-2) !important;
 }
 
 

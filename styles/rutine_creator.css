@@ -49,6 +49,7 @@
   margin-top: 30px;
 }
 
+
 .exercise-container .exercise-name{
   width: 70%;
   max-width: 90%;
@@ -81,6 +82,10 @@
 .exercise-container .exercise-name:focus{
   background-color: var(--color-6);
 }
+
+
+
+
 
 .exercise-notes{
   width: 100%;
@@ -159,7 +164,7 @@
     aspect-ratio: 1/1;
     background-color: transparent;
     border: none;
-    color: var(--color-5);
+    color: var(--color-2);
     transition: ease 0.2s;
   }
 
@@ -231,9 +236,9 @@
   .add-exercise-container, 
   .save-rutine-container{
     background-color: var(--color-7);
-    color: var(--color-5);
+    color: var(--color-2);
     border-radius: 5px;
-    border: solid 3px var(--color-5);
+    border: solid 3px var(--color-2);
     padding: 20px 30px;
     display: flex;
     flex-direction: column;

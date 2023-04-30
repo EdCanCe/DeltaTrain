@@ -21,7 +21,7 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 30px;
-  color: var(--color-5);
+  color: var(--color-2);
 }
 
 .routine-head h1 {
@@ -36,7 +36,7 @@
   background-color: var(--color-4);
   border-radius: 100%;
   padding: 20px;
-  border: solid var(--color-5);
+  border: solid var(--color-2);
   transform: translateY(50%);
 }
 
@@ -79,7 +79,7 @@
 }
 
 .routine-container span {
-  color: var(--color-5);
+  color: var(--color-2);
   text-align: center;
 }
 
@@ -101,7 +101,7 @@
   padding: 10px 10px;
   text-decoration: none;
   cursor: pointer;
-  color: var(--color-5);
+  color: var(--color-2);
   border: solid var(--color-1) 1px;
   border-radius: 10px;
   text-align: center;

@@ -1,25 +1,24 @@
-//rojo, naranja, amarillo, verde lima, azul rey, azul cielo, morado
-
-let brightRed = "#c70000";
+let brightRed = "#950011";
 let darkRed = "#950011b2";
 
-let brightOrange = "#db7900";
-let darkOrange = "#955400b2";
+let brightOrange = "#952600";
+let darkOrange = "#952600b2";
 
-let brightYellow = "#eeff00";
-let darkYellow = "#969e02b2";
+let brightYellow = "#957200";
+let darkYellow = "#957200b2";
 
-let brightGreen = "#00ff84";
-let darkGreen = "#00a857b2";
+let brightGreen = "#009532";
+let darkGreen = "#009532b2";
 
-let brightBlue = "#0018d1";
-let darkBlue = "#0011a8b2";
+let brightBlue = "#005a95";
+let darkBlue = "#005a95b2";
 
-let brightSky = "#00d1ca";
-let darkSky = "#00a8a3b2";
+let brightSky = "#008395";
+let darkSky = "#008395b2";
 
-let brightPurple = "#7100e3";
-let darkPurple = "#5400a8b2";
+let brightPurple = "#660095";
+let darkPurple = "#660095b2";
+
 
 const r = document.querySelector(':root');
 
@@ -45,5 +44,8 @@ function changeColor(userColor){
     }else if(userColor==6){
         r.style.setProperty('--color-1', brightPurple);
         r.style.setProperty('--color-6', darkPurple);
+    }else if(userColor==7){
+        r.style.setProperty('--color-1', brightCustom);
+        r.style.setProperty('--color-6', darkCustom);
     }
 }
