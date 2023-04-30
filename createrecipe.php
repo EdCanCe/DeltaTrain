@@ -177,13 +177,13 @@ session_start();
 
             <!-- Agregar ejercicio a la receta contenedor -->
             <div class="add-exercise-container">
-                <a class="mouse-hover">
+                <button class="mouse-hover" type="submit">
                     <span>Guardar receta</span>
                     <span class="material-symbols-outlined icon">add_circle</span>
-                </a>
+                </button>
             </div>
 
-            <input type="submit">
+            <button type="submit" class="btn-submit">Guardar receta</button> 
 
         </form>
 

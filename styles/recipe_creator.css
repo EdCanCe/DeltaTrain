@@ -367,7 +367,7 @@
 
 
 
-.add-exercise-container a{
+.add-exercise-container a, .add-exercise-container button{
     background-color: var(--color-7);
     justify-content: center;
     align-items: center;
@@ -387,13 +387,13 @@
 
 
 
-.add-exercise-container a .icon{
+.add-exercise-container a .icon, .add-exercise-container button .icon{
     font-size: 30px;
 }
 
 
 
-.add-exercise-container a:hover{
+.add-exercise-container a:hover,.add-exercise-container button:hover{
     transform: scale(1.1);
     background-color: white;
     color: var(--color-1);
