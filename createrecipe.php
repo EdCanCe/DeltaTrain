@@ -124,7 +124,7 @@ session_start();
                 <div class="recipes-body">
 
                 <div class="input-container image">
-                    <input type="file" name="banner" id="banner">
+                    <input type="file" name="banner" id="pictureData">
                     <div class="text-input-image">
                     <span>Agregar Imagen</span><span class='material-symbols-outlined icon'>add_photo_alternate</span>
                     </div>

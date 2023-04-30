@@ -47,3 +47,4 @@ for($i=0;$i<count($ingredient)-1;$i++){ #Esta parte crea los ingredientes por re
         $result2 = mysqli_query($conexion, $query);
     }
 }
+
