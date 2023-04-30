@@ -20,12 +20,10 @@ session_start();
     <link rel="stylesheet" href="/DeltaTrain/styles/sidebar.css">
     <!-- Enlazando archivo de estilos para el formulario -->
     <link rel="stylesheet" href="/DeltaTrain/styles/form.css">
-    <!-- Enlazando archivo de estilos para la pantalla de carga -->
-    <link rel="stylesheet" href="/DeltaTrain/styles/load.css">
     <!-- Enlazando archivo de estilos para las alertas -->
     <link rel="stylesheet" href="/DeltaTrain/styles/alerts.css">
-    <!-- Enlazando la fuente Material Symbols Outlined de Google -->
-    <link rel="stylesheet" href="/DeltaTrain/styles/recipe_creator.css">
+    <!-- Enlazando archivo de estilos para los follows -->
+    <link rel="stylesheet" href="/DeltaTrain/styles/follow.css">
     <!-- Enlazando la fuente Material Symbols Outlined de Google -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- Enlazando la fuente Material Symbols Rounded de Google -->
@@ -46,7 +44,6 @@ session_start();
         echo "<script src='/DeltaTrain/scripts/alert.js'></script>";
         echo "<script src='/DeltaTrain/scripts/load-pfp.js'></script>";
         echo "<script src='/DeltaTrain/scripts/colorchange.js'></script>";
-        echo '<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>';
 
         if(isset($_SESSION["CurrentUserIDSession"])){ #Checa si ya inició sesión
             $CurrentUserID = $_SESSION["CurrentUserIDSession"]; #Recoge el id del usuario
@@ -82,7 +79,6 @@ session_start();
         else{ #Si se usa este es porque aún no se ha iniciado sesión
             echo $navSinCuenta;
             echo $navSinCuentaAbajo;
-            echo "<script> window. location='/DeltaTrain/login'</script>"; #Como no iniciaste sesión te manda a hacerlo
         }
 
 
@@ -98,98 +94,27 @@ session_start();
 
 
 
-    <!-- Contenido principal de la pagina -->
     <div class="main-content">
 
 
+        <div class="normal-content">
 
-        <form action="../recipecreator.php" method="post" class="recipes-main-container" enctype="multipart/form-data">
 
-            <div class="recipes-head">
-                <h1 class="recipes-name">
-                <input type="text" name="name" id="nameData" required>
-                <span class="placeholder-input">Nombre de la receta</span>
-                <i class="input-line"></i>
-                <span class="message"></span>
-                </h1>
-                
-                <span class="material-symbols-outlined icon">cooking</span>
-            </div>
-
-            <!-- Cuerpo de del contenedor de la receta -->
-            <div class="recipes-body">
-
-                <div class="input-container image">
-                    <input type="file" id="pictureData" name="picture">
-                    <div class="text-input-image">
-                    <span>Agregar Imagen</span><span class='material-symbols-outlined icon'>add_photo_alternate</span>
-                    </div>
-                    <div class="vew-image-container">
-                        <img src="" alt="">
-                    </div>        
-                </div>
-
-                <div class="nutritional-information-container">
-                    <h3>Información nuticiónal
-                        <span class="material-symbols-outlined">nutrition</span>
-                    </h3>
-                    <h4>Tamaño de la porción: 
-                    <span>
-                        <input type="text" maxlength="8" id="portionData" name="portion">
-                    </span>
-                    </h4>
-                    <ul>
-                        <li>Proteinas: <span><input type="text" maxlength="8" id="proteinData" name="protein"></span></li>
-                        <li>Grasas: <span><input type="text" maxlength="8" id="fatData" name="fat"></span></li>
-                        <li>Carbohidratos: <span><input type="text" maxlength="8"  id="carbsData" name="carbs"></span></li>
-                    </ul>
-                </div>
-
-                <!-- Contenedor del ejercicio -->
-                <div class="ingredients-container">
-                    <h3>Ingredientes<span class="material-symbols-outlined">
-                        receipt_long
-                        </span></h3>
-                    <ol>
-                        <li><span><input type="text" class="ingredientData"  onkeyup="checkWords()"  required></span><button class="delete-btn" type="button">Eliminar</button></li>
-                    </ol>
-                    <div class="add-ingredient-container">
-                        <button class="add-ingredient-button" type="button">
-                            <span>Añadir Ingrediente</span>
-                            <span class="material-symbols-outlined icon">add_circle</span>
-                        </button>
-                    </div>
-                </div>
-
-                <input type="hidden" name="ingredient" id="hiddenIngredient">
-
-                <div class="preparation-container">
-                    <h3>Preparación<span class="material-symbols-outlined">
-                    outdoor_grill
-                    </span>
-                    </h3>
-                    <textarea id="preparationData" name="preparation" cols="30" rows="10" style="resize:vertical;" required></textarea>
-                </div>
-                
-            </div>
+            <?php
+                if(!isset($_GET["recipeID"])){ #checa primero que se haya dado un usario
+                    $_SESSION["ErrorHeader"] = "ERROR 404";
+                    $_SESSION["ErrorText"] = "La página que trató de acceder no existe.";
+                    echo "<script> window.location='/DeltaTrain/home'</script>";
+                }
+                ?><script>document.title="DeltaTrain | Receta | ";</script><?php
+            ?>
 
 
 
-            <!-- Agregar ejercicio a la receta contenedor -->
-            <div class="add-exercise-container">
-                <a class="mouse-hover">
-                    <span>Guardar receta</span>
-                    <span class="material-symbols-outlined icon">add_circle</span>
-                </a>
-            </div>
-
-            <input type="submit">
-
-        </form>
-
+        </div>
     </div>
-        
 
+    
     
 
 
@@ -197,7 +122,5 @@ session_start();
 <script src="/DeltaTrain/scripts/sidebar.js"></script>
 <script src="/DeltaTrain/scripts/script-form.js"></script>
 <script src='/DeltaTrain/scripts/image.js'></script>
-<script src="/DeltaTrain/scripts/recipe-creator.js"></script>
-
 </body>
 </html>

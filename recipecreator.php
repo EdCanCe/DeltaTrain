@@ -61,7 +61,7 @@ if(($pfpName != "" and substr($pfpType, 0, 5) != "image")){ #Esta parte añade l
     echo "<script> window.location='/DeltaTrain/recipes/create'</script>";
     return;
 }
-$pfpSize = $_FILES["pfp"]["size"];
+$pfpSize = $_FILES["picture"]["size"];
 if($pfpName != "" and $pfpSize > 3*1024*1024){
     $_SESSION["ErrorHeader"] = "NO SE PUDO CREAR LA RECETA";
     $_SESSION["ErrorText"] = "Las imágenes que subió son muy pesadas, el tamaño máximo es de 3mb.";
@@ -73,7 +73,9 @@ if($pfpName!=""){
     $result = mysqli_query($conexion, $query);
     $row = mysqli_fetch_row($result);
     $activityID = $row[0];
-    $pfpData = addslashes(file_get_contents($_FILES["pfp"]["tmp_name"]));
+    $pfpData = addslashes(file_get_contents($_FILES["picture"]["tmp_name"]));
     $query = 'INSERT INTO Visuals(FKID_UserActivity_Visuals, Info_Visuals) VALUES ('.$activityID.',"'.$pfpData.'")';
     $result = mysqli_query($conexion, $query);
 }
+
+echo "<script> window. location='/DeltaTrain/recipes/".$idRecipe."'</script>";

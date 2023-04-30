@@ -10,7 +10,7 @@ function addIngredient(){
     ingredientOl.appendChild(newIngredientLi);
     let ingredientLiLast = ingredientOl.querySelector('li:last-child');
     let ingredientInputLast=ingredientLiLast.querySelector('input');
-    ingredientInputLast.value='';
+    ingredientInputLast.value="";
     let ingredientDeleteLast=ingredientLiLast.querySelector(".delete-btn");
     ingredientDeleteLast.addEventListener('click', function(){
         let ingredientLiParent=this.parentNode;
@@ -25,7 +25,8 @@ addIngredientButton.addEventListener('click', function(){
 
 function loadEvents(){
     ingredientOl.lastElementChild.querySelector('input').addEventListener('keydown', function(event) {
-        if (event.key === 'Enter') {
+        if (event.key == 'Enter') {
+            event.preventDefault();
             addIngredient();
             loadEvents();
         }
