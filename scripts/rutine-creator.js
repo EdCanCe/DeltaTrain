@@ -30,7 +30,7 @@ exerciseContainers.forEach(container => {
 let bodyExercises = document.querySelector('.exercises-container-container');
 let addExerciseContainerDefault = document.querySelector('.add-exercise-container');
 addExerciseContainerDefault.addEventListener('click', () => {
-  let exerciseContainerDefault = '<div class="exercise-container">                   <button class="delete-exercise-btn">Eliminar</button>                   <h3>                     <input type="text">                     <span class="material-symbols-outlined">nutrition</span>                   </h3>                   <div>                     <h4 class="recipes-name">                       <input type="text" name="recipes-name" required>                       <span class="placeholder-input">Notas</span>                       <i class="input-line"></i>                       <span class="message"></span>                     </h4>                   </div>                   <table class="sets-table">                     <tr>                       <th>Serie</th>                       <th>Repeticiones</th>                       <th>Notas</th>                     </tr>                     <tr>                       <td><input type="text"></td>                       <td><input type="text"></td>                       <td><input type="text"></td>                       <td><button class="remove-set">Eliminar</button></td>                     </tr>                   </table>                   <button class="add-set">Agregar Serie</button>                 </div>';
+  let exerciseContainerDefault = '<div class="exercise-container"> <button class="delete-exercise-btn"><span class="material-symbols-outlined icon">close</span></button> <h3> <input type="text" class="exercise-name" name="name-exercise" required> <label for="name-exercise">Nombre del Ejercicio</label> </h3> <div> <h4 class="notes-exercise-container"> <textarea name="notes-exercise" class="exercise-notes" cols="30" rows="10" required></textarea> <label class="placeholder-input">Notas</label> </h4> </div> <table class="sets-table"> <tr> <th>Serie</th> <th>Repeticiones</th> <th>Notas</th> </tr> <tr> <td><input type="text"></td> <td><input type="text"></td> <td><input type="text"></td> <td><button class="remove-set"><span class="material-symbols-outlined icon">close</span></button></td> </tr> </table> <button class="add-set"><span class="material-symbols-outlined icon">add</span></button> </div>';
   bodyExercises.insertAdjacentHTML('beforeend', exerciseContainerDefault);
 
   // Agregar controlador de eventos al botón "Eliminar Ejercicio"
@@ -46,3 +46,7 @@ addExerciseContainerDefault.addEventListener('click', () => {
     addSetToTable(table);
   });
 });
+
+
+
+

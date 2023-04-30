@@ -234,17 +234,15 @@
 
 
                 <div class="exercise-container">
-                  <button class="delete-exercise-btn">Eliminar</button>
+                  <button class="delete-exercise-btn"><span class="material-symbols-outlined icon">close</span></button>
                   <h3>
-                    <input type="text">
-                    <span class="material-symbols-outlined">nutrition</span>
+                    <input type="text" class="exercise-name" name="name-exercise" required>
+                    <label for="name-exercise">Nombre del Ejercicio</label>
                   </h3>
                   <div>
-                    <h4 class="recipes-name">
-                      <input type="text" name="recipes-name" required>
-                      <span class="placeholder-input">Notas</span>
-                      <i class="input-line"></i>
-                      <span class="message"></span>
+                    <h4 class="notes-exercise-container">
+                      <textarea name="notes-exercise" class="exercise-notes" cols="30" rows="10" required></textarea>
+                      <label class="placeholder-input">Notas</label>
                     </h4>
                   </div>
                   <table class="sets-table">
@@ -257,10 +255,10 @@
                       <td><input type="text"></td>
                       <td><input type="text"></td>
                       <td><input type="text"></td>
-                      <td><button class="remove-set">Eliminar</button></td>
+                      <td><button class="remove-set"><span class="material-symbols-outlined icon">close</span></button></td>
                     </tr>
                   </table>
-                  <button class="add-set">Agregar Serie</button>
+                  <button class="add-set"><span class="material-symbols-outlined icon">add</span></button>
                 </div>
 
 
@@ -269,18 +267,9 @@
               
 
           
-              <button class="add-exercise-container">Agregar ejercicio</button>
+              <button class="add-exercise-container">Agregar ejercicio<span class="material-symbols-outlined icon">post_add</span></button>
 
-
-
-      <!-- Agregar ejercicio a la receta contenedor -->
-      <div class="add-exercise-container">
-        <a href="">
-          <span>Guardar receta</span>
-          <span class="material-symbols-outlined icon">add_circle</span>
-        </a>
-      </div>
-
+              <button type="submit" class="save-rutine-container">Guardar Rutina<span class="material-symbols-outlined icon">save</span></button>
 
       
     </div>
