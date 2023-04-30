@@ -10,7 +10,8 @@ $fat = $_POST['fat'];
 $carbs = $_POST['carbs'];
 $name = $_POST['name'];
 $ingredients = $_POST['ingredient'];
-$picture = $_POST['picture'];
+$pfpName = $_FILES["picture"]["name"];
+$pfpType = $_FILES["picture"]["type"];
 
 
 $ingredient = explode('<', $ingredients); #Esta parte crea los ingredientes que aún no se han creado
@@ -39,6 +40,7 @@ $result = mysqli_query($conexion, $query);
 $row = mysqli_fetch_row($result);
 $idRecipe = $row[0];
 
+
 for($i=0;$i<count($ingredient)-1;$i++){ #Esta parte crea los ingredientes por receta
     $query = "SELECT ID_Ingredient FROM Ingredient where Name_Ingredient = '".$ingredient[$i]."'";
     $result = mysqli_query($conexion, $query);
@@ -48,3 +50,30 @@ for($i=0;$i<count($ingredient)-1;$i++){ #Esta parte crea los ingredientes por re
     }
 }
 
+
+$query = "INSERT INTO UserActivity(FKID_Recipe_UserActivity, Type_UserActivity, Visibility) VALUES ($idRecipe, 2, 1)"; #Esta parte hace la actividad del usuario
+$result = mysqli_query($conexion, $query);
+
+
+if(($pfpName != "" and substr($pfpType, 0, 5) != "image")){ #Esta parte añade las imágenes en caso de tener que meterlas
+    $_SESSION["ErrorHeader"] = "NO SE PUDO CREAR LA RECETA";
+    $_SESSION["ErrorText"] = "Las imágenes que subió son de un formato no aceptado.";
+    echo "<script> window.location='/DeltaTrain/recipes/create'</script>";
+    return;
+}
+$pfpSize = $_FILES["pfp"]["size"];
+if($pfpName != "" and $pfpSize > 3*1024*1024){
+    $_SESSION["ErrorHeader"] = "NO SE PUDO CREAR LA RECETA";
+    $_SESSION["ErrorText"] = "Las imágenes que subió son muy pesadas, el tamaño máximo es de 3mb.";
+    echo "<script> window.location='/DeltaTrain/recipes/create'</script>";
+    return;
+}
+if($pfpName!=""){
+    $query = "SELECT * FROM UserActivity WHERE FKID_Recipe_UserActivity = $idRecipe";
+    $result = mysqli_query($conexion, $query);
+    $row = mysqli_fetch_row($result);
+    $activityID = $row[0];
+    $pfpData = addslashes(file_get_contents($_FILES["pfp"]["tmp_name"]));
+    $query = 'INSERT INTO Visuals(FKID_UserActivity_Visuals, Info_Visuals) VALUES ('.$activityID.',"'.$pfpData.'")';
+    $result = mysqli_query($conexion, $query);
+}

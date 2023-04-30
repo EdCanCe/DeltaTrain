@@ -54,11 +54,21 @@ for(let i=0; i<ingredientDelete.length;i++){
 
 
 
-
+function checkWords(){
+    let ingredientTag = document.getElementsByClassName("ingredientData");
+    let ingredientData = "";
+    for(let i=0; i<ingredientTag.length; i++){
+        ingredientData = ingredientData + ingredientTag[i].value+"<";
+    }
+    console.log(ingredientData);
+    document.getElementById("hiddenIngredient").value=ingredientData;
+    console.log("--> "+document.getElementById("hiddenIngredient").value);
+}
 //Esto de abajo es para meter los datos
 function insertRecipe(){
 
-    let requiredInputs = document.querySelectorAll('input[required]');
+
+    /*let requiredInputs = document.querySelectorAll('input[required]');
     let allFilled = true;
     requiredInputs.forEach(input => {
     if (!input.value) {
@@ -72,7 +82,7 @@ function insertRecipe(){
     }
     });
 
-    // Output a message if any required input is not filled
+
     if (!allFilled) {
 
         alert('Please fill in all required fields');
@@ -90,7 +100,7 @@ function insertRecipe(){
         let fatData = document.getElementById("fatData").value;
         let carbsData = document.getElementById("carbsData").value;
         let nameData = document.getElementById("nameData").value;
-        let pictureData = document.getElementById("pictureData").value;
+        let pictureData = document.getElementById("pictureData");
         let formData = new FormData();
         formData.append("preparation", preparationData);
         formData.append("portion", portionData);
@@ -99,20 +109,8 @@ function insertRecipe(){
         formData.append("carbs", carbsData);
         formData.append("name", nameData);
         formData.append("ingredient", ingredientData);
-        formData.append("picture", pictureData);
-        
-        /*var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-            // Mostrar la respuesta en la consola del navegador
-            console.log(this.responseText);
-            }
-        };
-        let allData = "preparation='" + preparationData + "'&portion=" + portionData + "&protein=" + proteinData + "&fat=" + fatData + "&carbs=" + carbsData + "&name=" + nameData + "&ingredient=" + ingredientData + "&picture=" + pictureData;
-        xhr.open("GET", "../recipecreator.php?"+allData, true);
-        xhr.setRequestHeader("Cache-Control", "no-cache, must-revalidate");
-        xhr.send(allData);
-        alert(allData);*/
+        formData.append("picture", pictureData.files[0]);
+
 
         $.ajax({
             url: "../recipecreator.php",
@@ -126,6 +124,6 @@ function insertRecipe(){
             error: function(jqXHR, textStatus, errorMessage) {
             }
         });
-    }
+    }*/
 
 }

@@ -103,13 +103,15 @@ session_start();
 
 
 
-        <!-- Ejercicios de la receta contenedor principal -->
-        <div class="recipes-main-container">
+        <form action="../recipecreator.php" method="post" class="form" id="form" enctype="multipart/form-data">
 
-                <!-- Cabecera del contenedor de la receta -->
+            <!-- Ejercicios de la receta contenedor principal -->
+            <div class="recipes-main-container">
+
+                    <!-- Cabecera del contenedor de la receta -->
                 <div class="recipes-head">
                     <h1 class="recipes-name">
-                    <input type="text" name="recipes-name" id="nameData" required>
+                    <input type="text" name="name" id="nameData" required>
                     <span class="placeholder-input">Nombre de la receta</span>
                     <i class="input-line"></i>
                     <span class="message"></span>
@@ -118,20 +120,18 @@ session_start();
                     <span class="material-symbols-outlined icon">cooking</span>
                 </div>
 
-
-
                 <!-- Cuerpo de del contenedor de la receta -->
                 <div class="recipes-body">
 
-                <div class="input-container image">
-                    <input type="file" name="banner" id="pictureData">
-                    <div class="text-input-image">
-                    <span>Agregar Imagen</span><span class='material-symbols-outlined icon'>add_photo_alternate</span>
+                    <div class="input-container image">
+                        <input type="file" id="pictureData" name="picture">
+                        <div class="text-input-image">
+                        <span>Agregar Imagen</span><span class='material-symbols-outlined icon'>add_photo_alternate</span>
+                        </div>
+                        <div class="vew-image-container">
+                            <img src="" alt="">
+                        </div>        
                     </div>
-                    <div class="vew-image-container">
-                        <img src="" alt="">
-                    </div>        
-                </div>
 
                     <div class="nutritional-information-container">
                         <h3>Información nuticiónal
@@ -139,13 +139,13 @@ session_start();
                         </h3>
                         <h4>Tamaño de la porción: 
                         <span>
-                            <input type="text" maxlength="8" id="portionData">
+                            <input type="text" maxlength="8" id="portionData" name="portion">
                         </span>
                         </h4>
                         <ul>
-                            <li>Proteinas: <span><input type="text" maxlength="8" id="proteinData"></span></li>
-                            <li>Grasas: <span><input type="text" maxlength="8" id="fatData"></span></li>
-                            <li>Carbohidratos: <span><input type="text" maxlength="8"  id="carbsData"></span></li>
+                            <li>Proteinas: <span><input type="text" maxlength="8" id="proteinData" name="protein"></span></li>
+                            <li>Grasas: <span><input type="text" maxlength="8" id="fatData" name="fat"></span></li>
+                            <li>Carbohidratos: <span><input type="text" maxlength="8"  id="carbsData" name="carbs"></span></li>
                         </ul>
                     </div>
 
@@ -155,7 +155,7 @@ session_start();
                             receipt_long
                             </span></h3>
                         <ol>
-                            <li><span><input type="text" class="ingredientData" required></span><button class="delete-btn">Eliminar</button></li>
+                            <li><span><input type="text" class="ingredientData" onkeyUp="checkWords()" required></span><button class="delete-btn">Eliminar</button></li>
                         </ol>
                         <div class="add-ingredient-container">
                             <button class="add-ingredient-button">
@@ -165,14 +165,14 @@ session_start();
                         </div>
                     </div>
 
-
+                    <input type="hidden" name="ingredient" id="hiddenIngredient">
 
                     <div class="preparation-container">
                         <h3>Preparación<span class="material-symbols-outlined">
                         outdoor_grill
                         </span>
                         </h3>
-                        <textarea id="preparationData" cols="30" rows="10" style="resize:vertical;" required></textarea>
+                        <textarea id="preparationData" name="preparation" cols="30" rows="10" style="resize:vertical;" required></textarea>
                     </div>
                     
                 </div>
@@ -186,8 +186,13 @@ session_start();
                         <span class="material-symbols-outlined icon">add_circle</span>
                     </a>
                 </div>
-        
-        </div>
+
+                <input type="submit">
+
+            </div>
+
+        </form>
+
     </div>
         
 
