@@ -62,7 +62,7 @@ if(($pfpName != "" and $pfpSize > 3*1024*1024) or ($bannerName != "" and $banner
 
 
 
-$query="SELECT * FROM User where Username_User='$username' and not ID_User=".$_SESSION["CurrentUserIDSession"];
+$query="SELECT * FROM User WHERE Username_User='$username' and not ID_User=".$_SESSION["CurrentUserIDSession"];
 $result = mysqli_query($conexion, $query);
 $insert = "UPDATE User SET Password_User='$password', Name_User='$name', LastName_User='$lastnames', BirthDate_User='$birth', Username_User='$username', Administrator_User=0, Description_User='$description', Color_User=".$color." WHERE ID_User = ".$_SESSION["CurrentUserIDSession"];
 
@@ -76,7 +76,7 @@ if(mysqli_num_rows($result) == 0){ #Checa si hay almenos alguna cuenta que coinc
     if($result){
         session_destroy();
         session_start();
-        $query2="SELECT * FROM User where Username_User='$username'";
+        $query2="SELECT * FROM User WHERE Username_User='$username'";
         $result = mysqli_query($conexion, $query2);
         while($row=mysqli_fetch_assoc($result)) {
             $_SESSION["CurrentUserIDSession"] = $row["ID_User"];

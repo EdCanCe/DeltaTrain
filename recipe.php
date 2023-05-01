@@ -18,12 +18,10 @@ session_start();
     <link rel="stylesheet" href="/DeltaTrain/styles/normalize.css">
     <!-- Enlazando archivo de estilos para la barra lateral -->
     <link rel="stylesheet" href="/DeltaTrain/styles/sidebar.css">
-    <!-- Enlazando archivo de estilos para el formulario -->
-    <link rel="stylesheet" href="/DeltaTrain/styles/form.css">
+    <!-- Enlazando archivo de estilos para los follows -->
+    <link rel="stylesheet" href="/DeltaTrain/styles/recipe.css">
     <!-- Enlazando archivo de estilos para las alertas -->
     <link rel="stylesheet" href="/DeltaTrain/styles/alerts.css">
-    <!-- Enlazando archivo de estilos para los follows -->
-    <link rel="stylesheet" href="/DeltaTrain/styles/follow.css">
     <!-- Enlazando la fuente Material Symbols Outlined de Google -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- Enlazando la fuente Material Symbols Rounded de Google -->
@@ -60,7 +58,7 @@ session_start();
 
 
             mysqli_query($conexion, "SET GLOBAL max_allowed_packet=1073741824");
-            $query = "SELECT Pfp_User, Username_User, Color_User from User where ID_User = $CurrentUserID";
+            $query = "SELECT Pfp_User, Username_User, Color_User from User WHERE ID_User = $CurrentUserID";
             $result = mysqli_query($conexion, $query);
             $pfpData = "";
             while($row=mysqli_fetch_assoc($result)){
@@ -97,7 +95,8 @@ session_start();
     <div class="main-content">
 
 
-        <div class="normal-content">
+        <div class="recipes-main-container">
+
 
 
             <?php
@@ -106,7 +105,100 @@ session_start();
                     $_SESSION["ErrorText"] = "La página que trató de acceder no existe.";
                     echo "<script> window.location='/DeltaTrain/home'</script>";
                 }
-                ?><script>document.title="DeltaTrain | Receta | ";</script><?php
+                $query = "SELECT * FROM Recipe WHERE ID_Recipe = ".$_GET["recipeID"];
+                $result = mysqli_query($conexion, $query);
+                if(mysqli_num_rows($result) == 0){
+                    $_SESSION["ErrorHeader"] = "ERROR 404";
+                    $_SESSION["ErrorText"] = "La página que trató de acceder no existe.";
+                    echo "<script> window.location='/DeltaTrain/home'</script>";
+                }
+                while($row=mysqli_fetch_assoc($result)){ ?>
+                    <script>document.title="DeltaTrain | <?php echo $row["Name_Recipe"]?>";</script>
+
+
+
+                    <div class="recipes-head">
+                        <h1 class="recipes-name"><?php echo $row["Name_Recipe"] ?></h1>
+                        <span class="material-symbols-outlined icon">cooking</span>
+                    </div>
+
+
+
+                    <div class="recipes-body">
+
+                        <?php #permite cargar una foto en caso de que haya una
+                        $query2 = "SELECT ID_UserActivity FROM UserActivity WHERE FKID_Recipe_UserActivity = ".$_GET["recipeID"];
+                        $result2 = mysqli_query($conexion, $query2);
+                        $row2 = mysqli_fetch_row($result2);
+                        $idUserActivity = $row2[0];
+                        $query2 = "SELECT Info_Visuals FROM Visuals WHERE FKID_UserActivity_Visuals = ".$idUserActivity;
+                        $result2 = mysqli_query($conexion, $query2);
+                        while($row2=mysqli_fetch_assoc($result2)){
+                            ?>
+                                <div class="recipe-img-container">
+                                    <img src='data:image/jpeg;base64,<?php echo base64_encode($row2["Info_Visuals"]); ?>' alt="">
+                                </div>
+                            <?php
+                        }?>
+
+
+                        <div class="nutritional-information-container">
+                            <h3>Información nutricional</h3>
+                            <?php
+                            $nutrition = explode('|', $row["Portions_Recipe"]);
+                            for($i=0;$i<count($nutrition);$i++){
+                                if($nutrition[$i]=="") $nutrition[$i]="-";
+                            }
+                            ?>
+                            <h4>Tamaño de la porción: <span><?php echo $nutrition[0]?></span></h4>
+                            <ul>
+                                <li>Proteinas: <span><?php echo $nutrition[1]?></span></li>
+                                <li>Grasas: <span><?php echo $nutrition[2]?></span></li>
+                                <li>Carbohidratos: <span><?php echo $nutrition[3]?></span></li>
+                            </ul>
+                        </div>
+
+                        <!-- Contenedor del ejercicio -->
+                        <div class="ingredients-container">
+                            <h3>Ingredientes</h3>
+                            <ol>
+                            <?php
+                            $query2 = "SELECT FKID_Ingredient_RecipeIngredient FROM RecipeIngredient WHERE FKID_Recipe_RecipeIngredient = ".$_GET["recipeID"];
+                            $result2 = mysqli_query($conexion, $query2);
+                            while($row2=mysqli_fetch_assoc($result2)){
+                                $query3 = "SELECT Name_Ingredient FROM Ingredient WHERE ID_Ingredient = ".$row2["FKID_Ingredient_RecipeIngredient"];
+                                $result3 = mysqli_query($conexion, $query3);
+                                while($row3=mysqli_fetch_assoc($result3)){
+                                    echo "<li>".$row3["Name_Ingredient"]."</li>";   
+                                }
+                            }
+                            ?>
+                            </ol>
+                        </div>
+
+
+
+                        <div class="preparation-container">
+                            <h3>Preparación</h3>
+                            <p><?php echo nl2br($row["Preparation_Recipe"]) ?></p>
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Agregar ejercicio a la receta contenedor -->
+                    <div class="add-exercise-container">
+                    <a href="">
+                        <span>Modificar receta</span>
+                        <span class="material-symbols-outlined icon">add_circle</span>
+                    </a>
+                    </div>
+
+
+
+                    <?php
+                    }
             ?>
 
 
@@ -122,5 +214,6 @@ session_start();
 <script src="/DeltaTrain/scripts/sidebar.js"></script>
 <script src="/DeltaTrain/scripts/script-form.js"></script>
 <script src='/DeltaTrain/scripts/image.js'></script>
+
 </body>
 </html>

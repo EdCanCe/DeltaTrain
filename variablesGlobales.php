@@ -318,7 +318,7 @@ function validateChar($word, $index){
         if($index=="username"){
             session_start();
             include("conexion.php");
-            $query2 = "SELECT * FROM NONUSABLE where Word_NONUSABLE='$word'";
+            $query2 = "SELECT * FROM NONUSABLE WHERE Word_NONUSABLE='$word'";
             $result2 = mysqli_query($conexion, $query2);
             if(mysqli_num_rows($result2)!=0){ # significa que está usando un nombre no permitido
                 $GLOBALS["errorForm"] = "reserved";

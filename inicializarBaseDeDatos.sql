@@ -72,7 +72,7 @@ create table Recipe(
     CONSTRAINT FKID_User_Recipe FOREIGN KEY (FKID_User_Recipe) REFERENCES User(ID_User),
     Name_Recipe varchar(30) NOT NULL,
     Preparation_Recipe text(1000) NOT NULL,
-    Portions_Recipe varchar(50) NOT NULL
+    Portions_Recipe varchar(100) NOT NULL
 );
 
 create table Ingredient(

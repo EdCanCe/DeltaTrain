@@ -63,7 +63,7 @@ session_start();
 
 
             mysqli_query($conexion, "SET GLOBAL max_allowed_packet=1073741824");
-            $query = "SELECT Pfp_User, Username_User, Color_User from User where ID_User = $CurrentUserID";
+            $query = "SELECT Pfp_User, Username_User, Color_User from User WHERE ID_User = $CurrentUserID";
             $result = mysqli_query($conexion, $query);
             $pfpData = "";
             while($row=mysqli_fetch_assoc($result)){
@@ -130,7 +130,7 @@ session_start();
                 </div>
 
                 <div class="nutritional-information-container">
-                    <h3>Información nuticiónal
+                    <h3>Información nutricional
                         <span class="material-symbols-outlined">nutrition</span>
                     </h3>
                     <h4>Tamaño de la porción: 

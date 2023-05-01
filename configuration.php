@@ -58,7 +58,7 @@ session_start();
 
 
             mysqli_query($conexion, "SET GLOBAL max_allowed_packet=1073741824");
-            $query = "SELECT Pfp_User, Username_User, Color_User from User where ID_User = $CurrentUserID";
+            $query = "SELECT Pfp_User, Username_User, Color_User from User WHERE ID_User = $CurrentUserID";
             $result = mysqli_query($conexion, $query);
             $pfpData = "";
             while($row=mysqli_fetch_assoc($result)){
@@ -101,7 +101,7 @@ session_start();
 
 
             <?php #Va a permitir rellenar los datos para poder actualizarlos al cargarlos con los actuales.
-                $query = "SELECT * FROM User where ID_User=$CurrentUserID";
+                $query = "SELECT * FROM User WHERE ID_User=$CurrentUserID";
                 $result = mysqli_query($conexion, $query);
                 while($row=mysqli_fetch_assoc($result)){?>
 

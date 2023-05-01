@@ -63,7 +63,7 @@ if(($pfpName != "" and $pfpSize > 3*1024*1024) or ($bannerName != "" and $banner
 
 
 
-$query="SELECT * FROM User where Username_User='$username'";
+$query="SELECT * FROM User WHERE Username_User='$username'";
 $result = mysqli_query($conexion, $query);
 $insert = "INSERT INTO User(Password_User, Name_User, LastName_User, BirthDate_User, Username_User, Administrator_User, Description_User, Color_User) VALUES ('$password', '$name', '$lastnames', '$birth','$username', 0, '$description', $color)";
 
@@ -77,7 +77,7 @@ if(mysqli_num_rows($result) == 0){ #Checa si hay almenos alguna cuenta que coinc
     if($result){
         session_destroy();
         session_start();
-        $query2="SELECT * FROM User where Username_User='$username'";
+        $query2="SELECT * FROM User WHERE Username_User='$username'";
         $result = mysqli_query($conexion, $query2);
         while($row=mysqli_fetch_assoc($result)) {
             $_SESSION["CurrentUserIDSession"] = $row["ID_User"];

@@ -60,7 +60,7 @@ session_start();
 
 
             mysqli_query($conexion, "SET GLOBAL max_allowed_packet=1073741824");
-            $query = "SELECT Pfp_User, Username_User, Color_User from User where ID_User = $CurrentUserID";
+            $query = "SELECT Pfp_User, Username_User, Color_User from User WHERE ID_User = $CurrentUserID";
             $result = mysqli_query($conexion, $query);
             $pfpData = "";
             while($row=mysqli_fetch_assoc($result)){
@@ -112,7 +112,7 @@ session_start();
                     echo "<script> window.location='/DeltaTrain/home'</script>";
                 }
                 ?><script>document.title="DeltaTrain | Personas que siguen a <?php echo $_GET["user"]; ?>";</script><?php
-                $query = "SELECT ID_User from User where Username_User = '".$_GET["user"]."'";
+                $query = "SELECT ID_User from User WHERE Username_User = '".$_GET["user"]."'";
                 $result = mysqli_query($conexion, $query);
                 if(mysqli_num_rows($result) == 0){
                     $_SESSION["ErrorHeader"] = "ERROR 404";

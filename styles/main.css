@@ -214,3 +214,11 @@ html{
 .mouse-hover:active{
   transform: scale(0.9) !important;
 }
+
+.textarea-visualizer{
+  width: 100%;
+  height: fit-content;
+  background: none;
+  color: var(--color-2);
+  
+}

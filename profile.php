@@ -64,7 +64,7 @@ session_start();
 
 
             mysqli_query($conexion, "SET GLOBAL max_allowed_packet=1073741824");
-            $query = "SELECT Pfp_User, Username_User, Color_User from User where ID_User = $CurrentUserID";
+            $query = "SELECT Pfp_User, Username_User, Color_User from User WHERE ID_User = $CurrentUserID";
             $result = mysqli_query($conexion, $query);
             $pfpData = "";
             while($row=mysqli_fetch_assoc($result)){
@@ -155,7 +155,7 @@ session_start();
                     echo "<script> window.location='/DeltaTrain/home'</script>";
                 }
                 ?><script>document.title="DeltaTrain | <?php echo $_GET["user"]; ?>";</script><?php
-                $query = "SELECT Username_User, Description_User, Pfp_User, Name_User, LastName_User, Banner_User, ID_User from User where Username_User = '".$_GET["user"]."'";
+                $query = "SELECT Username_User, Description_User, Pfp_User, Name_User, LastName_User, Banner_User, ID_User from User WHERE Username_User = '".$_GET["user"]."'";
                 $result = mysqli_query($conexion, $query);
                 if(mysqli_num_rows($result) == 0){
                     $_SESSION["ErrorHeader"] = "ERROR 404";
@@ -174,7 +174,7 @@ session_start();
                     }
 
                     if(isset($_SESSION["CurrentUserIDSession"]) and $CurrentUserID!=$row["ID_User"]){ #la parte que permite ver, hacer y quitar follow
-                        $query2 = "SELECT * from Follow where FKID_UserB_Follow = ".$row["ID_User"]." and FKID_UserA_Follow = ".$CurrentUserID; 
+                        $query2 = "SELECT * from Follow WHERE FKID_UserB_Follow = ".$row["ID_User"]." and FKID_UserA_Follow = ".$CurrentUserID; 
                         $result2 = mysqli_query($conexion, $query2);
                         if(mysqli_num_rows($result2) == 0){ #significa que el usuario aún no sigue al perfil que visita
                             ?><script>document.getElementById("followbutton").innerHTML='Seguir &nbsp <span class="material-symbols-outlined">add_circle</span>';</script><?php
@@ -189,11 +189,11 @@ session_start();
                         ?><script>document.getElementById("followbutton").style="display:none;";</script><?php
                     }
 
-                    $query2 = "SELECT * FROM Follow where FKID_UserA_Follow = ".$row["ID_User"];
+                    $query2 = "SELECT * FROM Follow WHERE FKID_UserA_Follow = ".$row["ID_User"];
                     $result2 = mysqli_query($conexion, $query2);
                     ?><script>document.getElementById("userFollowing").innerHTML="<?php echo mysqli_num_rows($result2); ?>";</script><?php
 
-                    $query2 = "SELECT * FROM Follow where FKID_UserB_Follow = ".$row["ID_User"];
+                    $query2 = "SELECT * FROM Follow WHERE FKID_UserB_Follow = ".$row["ID_User"];
                     $result2 = mysqli_query($conexion, $query2);
                     ?><script>document.getElementById("userFollowers").innerHTML="<?php echo mysqli_num_rows($result2); ?>";</script><?php
                 }

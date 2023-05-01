@@ -10,7 +10,7 @@ include("conexion.php");
 
 
 
-$query ="SELECT * FROM User where Username_User='$username' and Password_User='$password'";
+$query ="SELECT * FROM User WHERE Username_User='$username' and Password_User='$password'";
 $result = mysqli_query($conexion, $query);
 
 

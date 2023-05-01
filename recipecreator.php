@@ -16,7 +16,7 @@ $pfpType = $_FILES["picture"]["type"];
 
 $ingredient = explode('<', $ingredients); #Esta parte crea los ingredientes que aún no se han creado
 for($i=0;$i<count($ingredient)-1;$i++){
-    $query = "SELECT * FROM Ingredient where Name_Ingredient = '".$ingredient[$i]."'";
+    $query = "SELECT * FROM Ingredient WHERE Name_Ingredient = '".$ingredient[$i]."'";
     $result = mysqli_query($conexion, $query);
     if(mysqli_num_rows($result) == 0){
         $query = 'INSERT INTO Ingredient(Name_Ingredient) VALUES ("'.$ingredient[$i].'")';
@@ -42,7 +42,7 @@ $idRecipe = $row[0];
 
 
 for($i=0;$i<count($ingredient)-1;$i++){ #Esta parte crea los ingredientes por receta
-    $query = "SELECT ID_Ingredient FROM Ingredient where Name_Ingredient = '".$ingredient[$i]."'";
+    $query = "SELECT ID_Ingredient FROM Ingredient WHERE Name_Ingredient = '".$ingredient[$i]."'";
     $result = mysqli_query($conexion, $query);
     while($row=mysqli_fetch_assoc($result)){
         $query = "INSERT INTO RecipeIngredient(FKID_Recipe_RecipeIngredient, FKID_Ingredient_RecipeIngredient) VALUES ($idRecipe, ".$row['ID_Ingredient'].")";
