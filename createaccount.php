@@ -170,7 +170,7 @@ session_start();
 
                 <!--Campo para ingresar la foto de perfil del usuario-->
                 <div class="input-container image">
-                    <input type="file" name="pfp" id="pfp">
+                    <input type="file" accept="image/*" name="pfp" id="pfp">
                     <div class="text-input-image">
                     <span>Agregar Foto de perfil</span><span class='material-symbols-outlined icon'>add_photo_alternate</span>
                     </div>
@@ -183,7 +183,7 @@ session_start();
 
                 <!--Campo para ingresar el banner del usuario-->
                 <div class="input-container image">
-                <input type="file" name="banner" id="banner">
+                <input type="file" accept="image/*" name="banner" id="banner">
                     <div class="text-input-image">
                     <span>Agregar Banner</span><span class='material-symbols-outlined icon'>add_photo_alternate</span>
                     </div>

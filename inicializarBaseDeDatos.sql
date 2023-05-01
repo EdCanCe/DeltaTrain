@@ -45,8 +45,7 @@ create table Routine(
 create table Exercise(
     ID_Exercise bigint NOT NULL AUTO_INCREMENT PRIMARY KEY,
     Name_Exercise varchar(30) NOT NULL,
-    Description_Exercise varchar(150) NOT NULL,
-    Target_Exercise varchar(30) NOT NULL
+    Description_Exercise text(500) NOT NULL
 );
 
 create table RoutineExercise (
@@ -54,8 +53,7 @@ create table RoutineExercise (
     FKID_Routine_RoutineExercise bigint NOT NULL,
     CONSTRAINT FKID_Routine_RoutineExercise FOREIGN KEY (FKID_Routine_RoutineExercise) REFERENCES Routine(ID_Routine),
     FK_Exercise_RoutineExercise bigint NOT NULL,
-    CONSTRAINT FK_Exercise_RoutineExercise FOREIGN KEY (FK_Exercise_RoutineExercise) REFERENCES Exercise(ID_Exercise),
-    Reps_Exercise varchar(30) NOT NULL
+    CONSTRAINT FK_Exercise_RoutineExercise FOREIGN KEY (FK_Exercise_RoutineExercise) REFERENCES Exercise(ID_Exercise)
 );
 
 create table WeightControl(

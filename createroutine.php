@@ -27,6 +27,8 @@ session_start();
     <!-- Enlazando la fuente Material Symbols Outlined de Google -->
     <link rel="stylesheet" href="/DeltaTrain/styles/recipe_creator.css">
     <!-- Enlazando la fuente Material Symbols Outlined de Google -->
+    <link rel="stylesheet" href="/DeltaTrain/styles/routine_creator.css">
+    <!-- Enlazando la fuente Material Symbols Outlined de Google -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- Enlazando la fuente Material Symbols Rounded de Google -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -103,88 +105,76 @@ session_start();
 
 
 
-        <form action="../recipecreator.php" method="post" class="recipes-main-container" enctype="multipart/form-data">
+        <form action="../routinecreator.php" method="post" class="recipes-main-container" enctype="multipart/form-data">
 
+            
+            <!-- Cabecera del contenedor de la receta -->
             <div class="recipes-head">
                 <h1 class="recipes-name">
-                <input type="text" name="name" id="nameData" required>
-                <span class="placeholder-input">Nombre de la receta</span>
-                <i class="input-line"></i>
-                <span class="message"></span>
+                    <input type="text" name="name" onkeyup="checkExercise()" required>
+                    <span class="placeholder-input">Nombre de la rutina</span>
+                        <i class="input-line"></i>
+                    <span class="message"></span>
                 </h1>
-                
-                <span class="material-symbols-outlined icon">cooking</span>
+                <span class="material-symbols-outlined icon">sprint</span>
             </div>
+
 
             <!-- Cuerpo de del contenedor de la receta -->
             <div class="recipes-body">
 
+                
+                    
                 <div class="input-container image">
-                    <input type="file" accept="image/*" id="pictureData" name="picture">
+                    <input type="file" accept="image/*" name="picture">
                     <div class="text-input-image">
-                    <span>Agregar Imagen</span><span class='material-symbols-outlined icon'>add_photo_alternate</span>
+                        <span>Agregar Imagen</span><span class='material-symbols-outlined icon'>add_photo_alternate</span>
                     </div>
                     <div class="vew-image-container">
                         <img src="" alt="">
                     </div>        
                 </div>
 
-                <div class="nutritional-information-container">
-                    <h3>Información nutricional
-                        <span class="material-symbols-outlined">nutrition</span>
-                    </h3>
-                    <h4>Tamaño de la porción: 
-                    <span>
-                        <input type="text" maxlength="8" id="portionData" name="portion">
-                    </span>
-                    </h4>
-                    <ul>
-                        <li>Proteinas: <span><input type="text" maxlength="8" id="proteinData" name="protein"></span></li>
-                        <li>Grasas: <span><input type="text" maxlength="8" id="fatData" name="fat"></span></li>
-                        <li>Carbohidratos: <span><input type="text" maxlength="8"  id="carbsData" name="carbs"></span></li>
-                    </ul>
-                </div>
-
-                <!-- Contenedor del ejercicio -->
-                <div class="ingredients-container">
-                    <h3>Ingredientes<span class="material-symbols-outlined">
-                        receipt_long
-                        </span></h3>
-                    <ol>
-                        <li><span><input type="text" class="ingredientData"  onkeyup="checkWords()"  required></span><button class="delete-btn" type="button">Eliminar</button></li>
-                    </ol>
-                    <div class="add-ingredient-container">
-                        <button class="add-ingredient-button" type="button">
-                            <span>Añadir Ingrediente</span>
-                            <span class="material-symbols-outlined icon">add_circle</span>
-                        </button>
+                <div class="exercises-container-container">
+                    <div class="exercise-container">
+                        <button type="button" class="delete-exercise-btn"><span class="material-symbols-outlined icon">close</span></button>
+                        <h3>
+                            <input type="text" class="exercise-name" name="name-exercise" onkeyup="checkExercise()" required>
+                            <label for="name-exercise">Nombre del Ejercicio</label>
+                        </h3>
+                        <div>
+                            <h4 class="notes-exercise-container">
+                            <textarea name="notes-exercise" class="exercise-notes" cols="30" rows="10" style="resize:vertical;" onkeyup="checkExercise()" required></textarea>
+                            <label class="placeholder-input">Notas</label>
+                            </h4>
+                        </div>
+                        <table class="sets-table">
+                            <tr>
+                                <th>Serie</th>
+                                <th>Repeticiones</th>
+                                <th>Notas</th>
+                            </tr>
+                            <tr>
+                                <td><input type="text" onkeyup="checkExercise()"></td>
+                                <td><input type="text" onkeyup="checkExercise()"></td>
+                                <td><input type="text" onkeyup="checkExercise()"></td>
+                                <td><button type="button" class="remove-set"><span class="material-symbols-outlined icon">close</span></button></td>
+                            </tr>
+                        </table>
+                        <button class="add-set" type="button"><span class="material-symbols-outlined icon">add</span></button>
                     </div>
                 </div>
-
-                <input type="hidden" name="ingredient" id="hiddenIngredient">
-
-                <div class="preparation-container">
-                    <h3>Preparación<span class="material-symbols-outlined">
-                    outdoor_grill
-                    </span>
-                    </h3>
-                    <textarea id="preparationData" name="preparation" cols="30" rows="10" style="resize:vertical;" required></textarea>
-                </div>
                 
-            </div>
-
-
-
-            <!-- Agregar ejercicio a la receta contenedor -->
-            <div class="add-exercise-container">
-                <button class="mouse-hover" type="submit">
-                    <span>Guardar receta</span>
-                    <span class="material-symbols-outlined icon">add_circle</span>
-                </button>
-            </div>
-
 
             
+                <button type="button" class="add-exercise-container">Agregar ejercicio<span class="material-symbols-outlined icon">post_add</span></button>
+                <button type="submit" class="save-rutine-container">Guardar Rutina<span class="material-symbols-outlined icon">save</span></button>
+
+
+                <textarea id="hiddenExercise" name="exercises" required></textarea>
+
+            <div>
+
         </form>
 
     </div>
@@ -196,8 +186,8 @@ session_start();
     
 <script src="/DeltaTrain/scripts/sidebar.js"></script>
 <script src="/DeltaTrain/scripts/script-form.js"></script>
+<script src="/DeltaTrain/scripts/routine-creator.js"></script>
 <script src='/DeltaTrain/scripts/image.js'></script>
-<script src="/DeltaTrain/scripts/recipe-creator.js"></script>
 
 </body>
 </html>

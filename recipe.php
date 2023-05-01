@@ -130,7 +130,8 @@ session_start();
                         $query2 = "SELECT ID_UserActivity FROM UserActivity WHERE FKID_Recipe_UserActivity = ".$_GET["recipeID"];
                         $result2 = mysqli_query($conexion, $query2);
                         $row2 = mysqli_fetch_row($result2);
-                        $idUserActivity = $row2[0];
+                        $idUserActivity = 0;
+                        if(mysqli_num_rows($result2) != 0) $idUserActivity = $row2[0];
                         $query2 = "SELECT Info_Visuals FROM Visuals WHERE FKID_UserActivity_Visuals = ".$idUserActivity;
                         $result2 = mysqli_query($conexion, $query2);
                         while($row2=mysqli_fetch_assoc($result2)){
