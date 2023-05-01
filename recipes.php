@@ -12,7 +12,7 @@ session_start();
     <meta charset="utf8mb4">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DeltaTrain | Feed</title>
+    <title>DeltaTrain | Recetas</title>
     <link rel="stylesheet" href="/DeltaTrain/styles/main.css">
     <!-- Enlazando archivo de estilos normalize-->
     <link rel="stylesheet" href="/DeltaTrain/styles/normalize.css">
@@ -79,7 +79,6 @@ session_start();
         else{ #Si se usa este es porque aún no se ha iniciado sesión
             echo $navSinCuenta;
             echo $navSinCuentaAbajo;
-            echo "<script> window. location='/DeltaTrain/login'</script>"; #Como no iniciaste sesión te manda a hacerlo
         }
 
 
@@ -106,7 +105,7 @@ session_start();
 
             <!-- Cabecera de la sección rutinas -->
             <div class="recipes-head">
-                <h1>Recetas</h1>
+                <h1 id="recipesHeader">Recetas</h1>
                 <span class="material-symbols-outlined icon">cooking</span>
             </div>
 
@@ -115,27 +114,40 @@ session_start();
             <div class="recipes-body">
 
 
-                <!-- Contenedor de rutina -->
-                <div class="recipes-container">
-                    <a href="">
-                        <h3 class="recipes-name">Nombre de la receta</h3>
-                        <span class="recipes-description">5 ingedientes, 30 minutos, dificultad media</span>
-                    </a>
-                </div>
+                <?php
+                if(isset($_GET["user"])){
+                    $query = "SELECT Username_User, ID_User FROM User WHERE Username_User = '".$_GET["user"]."'";
+                    $result = mysqli_query($conexion, $query);
+                    if(mysqli_num_rows($result) == 0){
+                        $_SESSION["ErrorHeader"] = "ERROR 404";
+                        $_SESSION["ErrorText"] = "La página que trató de acceder no existe.";
+                        echo "<script> window.location='/DeltaTrain/home'</script>";
+                    }
+                    while($row=mysqli_fetch_assoc($result)){
+                        ?><script>document.title="DeltaTrain | Recetas de <?php echo $row["Username_User"]?>";</script><?php
+                        $mainUser = $row["ID_User"];
+                        ?><script>document.getElementById("recipesHeader").textContent="Recetas de <?php echo $row["Username_User"]; ?>";</script><?php
+                    }
+                }else{
+                    if(!isset($_SESSION["CurrentUserIDSession"])) echo "<script> window. location='/DeltaTrain/login'</script>"; #Como no iniciaste sesión te manda a hacerlo
+                    $mainUser = $CurrentUserID;
+                }
+                ?>
 
-                <div class="recipes-container">
-                    <a href="">
-                        <h3 class="recipes-name">Nombre de la receta</h3>
-                        <span class="recipes-description">Descripción o notas de la receta</span>
-                    </a>
-                </div>
 
-                <div class="recipes-container">
-                    <a href="">
-                        <h3 class="recipes-name">Nombre de la receta</h3>
-                        <span class="recipes-description">Descripción o notas de la receta</span>
-                    </a>
-                </div>
+                <?php
+                $query="SELECT ID_Recipe, Name_Recipe FROM Recipe WHERE FKID_User_Recipe =".$mainUser;
+                $result = mysqli_query($conexion, $query);
+                while($row=mysqli_fetch_assoc($result)){
+                    ?>
+                    <div class="recipes-container">
+                        <a href="/DeltaTrain/recipes/<?php echo $row["ID_Recipe"] ?>">
+                        <h3 class="recipes-name"><?php echo $row["Name_Recipe"] ?></h3>
+                        </a>
+                    </div>
+                    <?php
+                }
+                ?>
 
 
 
@@ -144,8 +156,8 @@ session_start();
 
             <!-- Crear rutina contenedor -->
             <div class="create-recipes-container">
-                <a href="">
-                    <span>Crear Rutina Nueva</span>
+                <a href="recipes/create">
+                    <span>Crear receta nueva</span>
                     <span class="material-symbols-outlined icon">add_circle</span>
                 </a>
             </div>
