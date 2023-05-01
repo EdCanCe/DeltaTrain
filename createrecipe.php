@@ -183,8 +183,8 @@ session_start();
                 </button>
             </div>
 
-            <button type="submit" class="btn-submit">Guardar receta</button> 
 
+            
         </form>
 
     </div>
