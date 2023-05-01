@@ -34,11 +34,10 @@
 
 .profile-user-img-container{
     display: flex;
-    background-color: red;
+    background-color: var(--color-1);
     width: 150px;
     transform: translate(40px, -80px);
     border-radius: 100%;
-    border: solid 5px var(--color-3);
     overflow: hidden;
     aspect-ratio: 1 / 1;
     height: auto;
@@ -49,10 +48,12 @@
 /* Estilos de la foto de perfil */
 .profile-user-img-container img{
     
-    width: 140px;
-    height: 140px;
+    width: 150px;
+    height: 150px;
     object-fit: cover;
     object-position: center center;
+    border-radius: 100%;
+    border: solid 5px var(--color-3);
 
     background-size: cover;
     background-position: center;

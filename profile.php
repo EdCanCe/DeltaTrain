@@ -35,7 +35,7 @@ session_start();
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital@0;1&display=swap" rel="stylesheet">
     <!-- Añadiendo el icono a la página -->
-    <link rel="icon" href="/DeltaTrain/imgs/logo.svg">
+    <link rel="icon" href="/DeltaTrain/imgs/logoDT.svg">
     
 </head>
 
@@ -108,13 +108,13 @@ session_start();
 
             <!-- Banner del perfil -->
             <div class="profile-banner-container">
-                <img src="/DeltaTrain/imgs/banner4k.jpg" id="profileBanner" alt="banner">
+                <img src="/DeltaTrain/imgs/Default-BANNER.png" id="profileBanner" alt="banner">
             </div>
 
 
             <!-- Foto del perfil -->
             <div class="profile-user-img-container">
-                <img src="/DeltaTrain/imgs/defaultpfp2.jpg"  id="profilePfp" alt="user-img">
+                <img src="/DeltaTrain/imgs/Default-PFP.jpg"  id="profilePfp" alt="user-img">
             </div>
 
 
@@ -245,7 +245,7 @@ session_start();
 
                     <div class="post-div-1">
                         <div class="post-user-img-container">
-                            <img src="/DeltaTrain/imgs/defaultpfp2.jpg" id="post-user-img-container" alt="user-img">
+                            <img src="/DeltaTrain/imgs/Default-PFP.jpg" id="post-user-img-container" alt="user-img">
                         </div>
                     </div>
                     

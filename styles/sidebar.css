@@ -44,8 +44,8 @@
   color: var(--color-1);
 }
 
-/*Estilos del contenedor del logo en la sidebar*/
-.logo {
+/*Estilos del contenedor del logoDT en la sidebar*/
+.logoDT {
   display: flex;
   background-color: var(--color-3);
   align-items: center;
@@ -55,25 +55,26 @@
   padding-right: 50px;
 }
 
-.sidebar.active .logo {
+.sidebar.active .logoDT {
   opacity: 1;
 }
 
-.logo span {
+.logoDT span {
   font-size: 20px;
   opacity: 0;
 }
 
-.logo svg{
+.logoDT svg{
   max-width: 100%;
   fill: var(--color-1);
+  padding: 10px;
 }
 
-.sidebar.active .logo span {
+.sidebar.active .logoDT span {
   opacity: 1;
 }
 
-.sidebar.active .logo img {
+.sidebar.active .logoDT img {
   opacity: 1;
 }
 

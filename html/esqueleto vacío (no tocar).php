@@ -31,7 +31,7 @@ session_start();
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital@0;1&display=swap" rel="stylesheet">
     <!-- Añadiendo el icono a la página -->
-    <link rel="icon" href="imgs/logo.svg">
+    <link rel="icon" href="imgs/logoDT.svg">
 </head>
 <body>
 
