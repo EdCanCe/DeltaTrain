@@ -48,7 +48,7 @@
 
 .media-container *{
     display: block;
-    width: 90%;
+    width: 50%;
     border: solid var(--color-2);
     border-radius: 10px;
     margin: 40px auto 30px auto;
@@ -118,6 +118,10 @@ a{
     width: 150px;
     padding: 10px;
     font-size: 15px;
+    max-height: 43px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .user-object h2{

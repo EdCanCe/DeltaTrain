@@ -27,7 +27,7 @@ document.getElementById("pictureData").addEventListener("change", () => {
     reader.onload = () => {
         if(file.type.startsWith('image/')) imagePreview.innerHTML = "<img src="+reader.result+">";
         else if (file.type.startsWith('video/')) {
-            imagePreview.innerHTML = "<video><source src='"+reader.result+"' type='video/mp4'></video>";
+            imagePreview.innerHTML = "<video src='"+reader.result+"' type='video/mp4' controls ></video>";
         }
     };
   

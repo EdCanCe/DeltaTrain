@@ -157,6 +157,9 @@ ADD Pfp_User longblob;
 ALTER TABLE User
 ADD Banner_User longblob;
 
+ALTER TABLE Post
+ADD Media_Post longblob;
+
 ALTER TABLE User
 ADD Color_User tinyint DEFAULT 0;
 

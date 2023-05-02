@@ -123,9 +123,9 @@ session_start();
                             <button type="submit">Enviar</button>
                         </div>
                         <input id="pictureData" type="file" name="picture" style="display:none;">
+                        <h2 id="linked-object" class="linked-object"></h2>
+                        <input id="linkedObject" type="hidden"  name="linkedObject">
                     </form>
-                    <h2 id="linked-object" class="linked-object"></h2>
-                    <input id="linkedObject" type="hidden" name="linkedObject">
                     <div class="user-objects">
 
                         <div id="userRoutines" class="user-object">
