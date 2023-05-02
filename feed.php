@@ -200,13 +200,13 @@ session_start();
                                 if(isset($row["Media_Post"])){
                                     ?>
                                     <div id="media-container" class="media-container"><?php
-                                    if($row["Media_Type"] == 0){
+                                    if($row["MediaType_Post"] == 0){
                                         ?>
                                             <img src="data:image/jpeg;base64,<?php echo base64_encode($row["Media_Post"]); ?>"> 
                                         <?php
                                     }else{
                                         ?>
-                                            <video src="data:image/jpeg;base64,<?php echo base64_encode($row["Media_Post"]); ?> type='video/mp4' controls"> 
+                                            <video src="data:video/mp4;base64,<?php echo base64_encode($row["Media_Post"]); ?>" type='video/mp4' controls=""> 
                                         <?php
                                     }
                                     ?></div><?php

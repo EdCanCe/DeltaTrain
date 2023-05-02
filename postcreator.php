@@ -25,7 +25,7 @@ if(isset($_POST['linkedObject']) and $_POST['linkedObject']!=""){ #significa que
     $result = mysqli_query($conexion, $query);
 }
 
-if(isset($_FILES["picture"]["name"])){ #significa que si se puede subir el archivo
+if(isset($_FILES["picture"]["name"]) and $_FILES["picture"]["name"]!=""){ #significa que si se puede subir el archivo
     $pfpName = $_FILES["picture"]["name"];
     $pfpType = $_FILES["picture"]["type"];
     if(strpos($pfpType, 'image/') or strpos($pfpType, 'video/')){ #Esta parte añade las imágenes en caso de tener que meterlas
