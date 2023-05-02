@@ -167,7 +167,7 @@ session_start();
 
         <div id="posts-container" class="posts-container">
             <?php
-            $query="SELECT * FROM Post";
+            $query="SELECT * FROM Post ORDER BY Date_Post DESC";
             $result = mysqli_query($conexion, $query);
             while($row=mysqli_fetch_assoc($result)){
                 ?>

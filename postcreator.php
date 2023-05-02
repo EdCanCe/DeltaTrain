@@ -28,17 +28,18 @@ if(isset($_POST['linkedObject']) and $_POST['linkedObject']!=""){ #significa que
 if(isset($_FILES["picture"]["name"]) and $_FILES["picture"]["name"]!=""){ #significa que si se puede subir el archivo
     $pfpName = $_FILES["picture"]["name"];
     $pfpType = $_FILES["picture"]["type"];
-    if(strpos($pfpType, 'image/') or strpos($pfpType, 'video/')){ #Esta parte añade las imágenes en caso de tener que meterlas
+    if(!((substr($pfpType, 0, 5) == 'image') or (substr($pfpType, 0, 5) == 'video'))){ #Esta parte añade las imágenes en caso de tener que meterlas
         $_SESSION["ErrorHeader"] = "NO SE PUDO CREAR EL POST";
         $_SESSION["ErrorText"] = "Los archivos que subió son de un formato no aceptado.";
         echo "<script> window.location='/DeltaTrain/home'</script>";
         return;
     }
-    if(strpos($pfpType, 'image/')){
+    if((substr($pfpType, 0, 5) == 'image')){
         $query = "UPDATE Post SET MediaType_Post = 0 WHERE FKID_User_Post = $CurrentUserID and Info_Post = '".$pData."'";
     }else{
         $query = "UPDATE Post SET MediaType_Post = 1 WHERE FKID_User_Post = $CurrentUserID and Info_Post = '".$pData."'";
     }
+    $result = mysqli_query($conexion, $query);
     $pfpSize = $_FILES["picture"]["size"];
     if($pfpSize > 15*1024*1024){
         $_SESSION["ErrorHeader"] = "NO SE PUDO CREAR EL POST";
