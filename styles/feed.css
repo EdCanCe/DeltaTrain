@@ -1,0 +1,125 @@
+.create-post-container{
+    background: var(--color-3);
+    border-bottom: 3px solid var(--color-2);
+}
+
+.post-content{
+    display: block;
+    background: var(--color-7);
+    resize: vertical;
+    width: 90%;
+    margin: 20px auto;
+    border-radius: 10px;
+    border: 3px solid var(--color-2);
+    padding: 10px;
+    min-height: 150px;
+}
+
+.post-buttons{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+}
+
+.post-buttons button, .post-buttons input, .user-object button{
+    padding: 10px 20px;
+    border-radius: 100px;
+    background: var(--color-3);
+    border: solid var(--color-2);
+    font-size: 20px;
+    font-weight: 550;
+    width: 130px;
+    margin: 15px;
+    transition: ease-out 0.2s;
+}
+
+.post-buttons button:hover, .post-buttons input:hover, .user-object button:hover{
+    color: var(--color-1);
+    background-color: var(--color-2);
+}
+
+.post-buttons button:active, .post-buttons input:active, .user-object button:active{
+    background: var(--color-1);
+    color: var(--color-1);
+    transform: scale(1.1);
+}
+
+.media-container *{
+    display: block;
+    width: 90%;
+    border: solid var(--color-2);
+    border-radius: 10px;
+    margin: 0 auto;
+}
+
+.post-list{
+    display: block;
+    padding: 20px;
+    transition: 0.2s background ease-out;
+    background: var(--color-7);
+    border: solid 3px transparent;
+    border-bottom: 1px solid var(--color-2);
+}
+
+.post-list-img-container{
+    height: 50px;
+    width: 50px;
+    display: inline-block;
+    text-decoration: none;
+    border: none;
+}
+
+.post-list-img-container img{
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    border-radius: 100px;
+}
+
+.post-list-data{
+    width: calc(100% - 100px);
+    height: 100%;
+    display: inline-block;
+    padding: 10px;
+    color: var(--color-2);
+    text-decoration: none;
+    overflow: hidden;
+}
+
+.post-list *{
+    text-decoration: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+.post-text{
+    padding: 20px;
+}
+
+.user-object{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 90%;
+    margin: -20px auto 20px auto;
+    border: solid var(--color-2);
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.user-object button{
+    width: 150px;
+    padding: 10px;
+    font-size: 15px;
+}
+
+.user-object h2{
+    width: 100%;
+    text-align: center;
+    margin: 10px;
+}

@@ -154,13 +154,20 @@ session_start();
             </div>
 
 
-            <!-- Crear rutina contenedor -->
-            <div class="create-recipes-container">
-                <a href="recipes/create">
-                    <span>Crear receta nueva</span>
-                    <span class="material-symbols-outlined icon">add_circle</span>
-                </a>
-            </div>
+
+            <?php
+            if(!isset($_GET["user"]) and isset($_SESSION["CurrentUserIDSession"])){
+                ?>
+                    <!-- Crear rutina contenedor -->
+                    <div class="create-recipes-container">
+                        <a href="recipes/create">
+                            <span>Crear receta nueva</span>
+                            <span class="material-symbols-outlined icon">add_circle</span>
+                        </a>
+                    </div>
+                <?php
+            }
+            ?>
 
 
 

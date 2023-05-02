@@ -130,7 +130,9 @@ session_start();
                         <a class="follow-list"  href="/DeltaTrain/<?php echo $row["Username_User"] ?>">
                             <div class="follow-list-img-container">
                                 <img src="/DeltaTrain/imgs/Default-PFP.jpg" id="follow-list-img-<?php echo $row["Username_User"] ?>">
-                                <?php if(!is_null($row["Pfp_User"])){ ?><script>loadpfp('data:image/jpeg;base64,<?php echo base64_encode($row["Pfp_User"]); ?>', "follow-list-img-<?php echo $row["Username_User"] ?>");</script><?php } #carga el pfp del usuario  ?>
+                                <?php if(!is_null($row["Pfp_User"])){
+                                    ?><script>loadpfp('data:image/jpeg;base64,<?php echo base64_encode($row["Pfp_User"]); ?>', "follow-list-img-<?php echo $row["Username_User"] ?>");</script><?php
+                                } #carga el pfp del usuario?>
                             </div>
                             <div class="follow-list-data">
                                 <h3><?php echo $row["Name_User"]." ".$row["LastName_User"]?></h3>

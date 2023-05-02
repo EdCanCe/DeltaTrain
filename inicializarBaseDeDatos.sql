@@ -126,13 +126,13 @@ create table UserActivity(
 
 create table Post(
     ID_Post bigint NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    FKID_UserActivity_Post bigint NOT NULL,
+    FKID_UserActivity_Post bigint,
     CONSTRAINT FKID_UserActivity_Post FOREIGN KEY (FKID_UserActivity_Post) REFERENCES UserActivity(ID_UserActivity),
     FKID_User_Post bigint NOT NULL,
     CONSTRAINT FKID_User_Post FOREIGN KEY (FKID_User_Post) REFERENCES User(ID_User),
     FKID_Post_Post bigint,
     CONSTRAINT FKID_Post_Post FOREIGN KEY (FKID_Post_Post) REFERENCES Post(ID_Post),
-    Info_Post varchar(250) NOT NULL,
+    Info_Post text(500) NOT NULL,
     Date_Post timestamp NOT NULL
 );
 

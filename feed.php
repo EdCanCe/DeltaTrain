@@ -22,6 +22,10 @@ session_start();
     <link rel="stylesheet" href="/DeltaTrain/styles/form.css">
     <!-- Enlazando archivo de estilos para las alertas -->
     <link rel="stylesheet" href="/DeltaTrain/styles/alerts.css">
+    <!-- Enlazando archivo de estilos para los follows -->
+    <link rel="stylesheet" href="/DeltaTrain/styles/follow.css">
+    <!-- Enlazando archivo de estilos para el feed -->
+    <link rel="stylesheet" href="/DeltaTrain/styles/feed.css">
     <!-- Enlazando la fuente Material Symbols Outlined de Google -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- Enlazando la fuente Material Symbols Rounded de Google -->
@@ -96,24 +100,100 @@ session_start();
 
 
 
-        <div class="box">
-
-
-
-
+        <div class="normal-content">
         
+        <?php
+        if(isset($_SESSION["CurrentUserIDSession"])){ #Entonces significa que SI se puede hacer un post
+            ?>
+                <div class="create-post-container">
+                    <br>
+                    <center><h1>Crear publicación</h1></center>
+                    <form action="postcreator.php" method="post" enctype="multipart/form-data">
+                        <textarea class="post-content" name="postData" placeholder="¿En qué estas pensando?" required></textarea>
+                        <div id="media-container" class="media-container">
+                            <img src="imgs/banner.jpg">
+                        </div>
+                        <div id="link-container" class="link-container">
+                            <input type="hidden" name="link">
+                        </div>
+                        <div class="post-buttons">
+                            <button type="button" onclick="openRecipes()">Recetas</button>
+                            <button type="button" onclick="openRoutines()">Rutinas</button>
+                            <button type="button" onclick="clickInput()">Media</button>
+                            <button type="submit">Enviar</button>
+                        </div>
+                        <input id="pictureData" type="file" name="picture" style="display:none;">
+                    </form>
 
+                    <div class="user-objects">
+                        <div id="userRoutines" class="user-object">
+                            <h2>Rutinas</h2>
+                            <?php
+                            $query="SELECT Name_Routine, ID_Routine FROM Routine WHERE FKID_User_Routine =".$_SESSION["CurrentUserIDSession"];
+                            $result = mysqli_query($conexion, $query);
+                            while($row=mysqli_fetch_assoc($result)){
+                                ?>
+                                <button onclick="addObject('routines/<?php echo $row['ID_Routine'] ?>')">
+                                    <?php echo $row["Name_Routine"] ?>
+                                </button>
+                                <?php
+                            }
+                            ?>
+                        </div>
+                    </div>
+
+                </div>
+            <?php
+        }
+        ?>
+
+        <div id="posts-container" class="posts-container">
+            <?php
+            $query="SELECT * FROM Post";
+            $result = mysqli_query($conexion, $query);
+            while($row=mysqli_fetch_assoc($result)){
+                ?>
+                <div class="posts">
+                <?php
+                
+
+                $query2 = "SELECT * FROM User WHERE ID_User = ".$row["FKID_User_Post"];
+                $result2 = mysqli_query($conexion, $query2);
+                while($row2=mysqli_fetch_assoc($result2)){
+                    ?>
+                        <a class="post-list"  href="/DeltaTrain/post/<?php echo $row["ID_Post"] ?>">
+                            <div>
+                                <div class="post-list-img-container">
+                                    <img src="/DeltaTrain/imgs/Default-PFP.jpg" id="follow-list-img-<?php echo $row2["Username_User"].$row["ID_Post"] ?>">
+                                    <?php if(!is_null($row2["Pfp_User"])){
+                                        ?><script>loadpfp('data:image/jpeg;base64,<?php echo base64_encode($row2["Pfp_User"]); ?>', "follow-list-img-<?php echo $row2["Username_User"].$row["ID_Post"] ?>");</script><?php
+                                    } #carga el pfp del usuario?>
+                                </div>
+                                <div class="post-list-data">
+                                    <h3><?php echo $row2["Name_User"]." ".$row2["LastName_User"]?></h3>
+                                    <p>@<?php echo $row2["Username_User"] ?></p>
+                                </div>
+                            </div>
+                            <br>
+                            <p class="post-text"><?php echo nl2br($row["Info_Post"]) ?></p>
+                        </a>
+                    <?php
+                }
+
+
+
+                ?>
+                </div>
+                <?php
+            }
+            ?>
+        </div>
 
         </div>
     </div>
-
-    
-    
-
-
-    
 <script src="/DeltaTrain/scripts/sidebar.js"></script>
 <script src="/DeltaTrain/scripts/script-form.js"></script>
 <script src='/DeltaTrain/scripts/image.js'></script>
+<script src='/DeltaTrain/scripts/feed.js'></script>
 </body>
 </html>

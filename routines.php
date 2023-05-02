@@ -12,7 +12,7 @@ session_start();
     <meta charset="utf8mb4">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DeltaTrain | Recetas</title>
+    <title>DeltaTrain | Rutinas</title>
     <link rel="stylesheet" href="/DeltaTrain/styles/main.css">
     <!-- Enlazando archivo de estilos normalize-->
     <link rel="stylesheet" href="/DeltaTrain/styles/normalize.css">
@@ -105,8 +105,8 @@ session_start();
 
             <!-- Cabecera de la sección rutinas -->
             <div class="recipes-head">
-                <h1 id="recipesHeader">Recetas</h1>
-                <span class="material-symbols-outlined icon">cooking</span>
+                <h1 id="recipesHeader">Rutinas</h1>
+                <span class="material-symbols-outlined icon">sprint</span>
             </div>
 
 
@@ -126,7 +126,7 @@ session_start();
                     while($row=mysqli_fetch_assoc($result)){
                         ?><script>document.title="DeltaTrain | Rutinas de <?php echo $row["Username_User"]?>";</script><?php
                         $mainUser = $row["ID_User"];
-                        ?><script>document.getElementById("recipesHeader").textContent="Recetas de <?php echo $row["Username_User"]; ?>";</script><?php
+                        ?><script>document.getElementById("recipesHeader").textContent="Rutinas de <?php echo $row["Username_User"]; ?>";</script><?php
                     }
                 }else{
                     if(!isset($_SESSION["CurrentUserIDSession"])) echo "<script> window. location='/DeltaTrain/login'</script>"; #Como no iniciaste sesión te manda a hacerlo
@@ -154,14 +154,19 @@ session_start();
             </div>
 
 
-            <!-- Crear rutina contenedor -->
-            <div class="create-recipes-container">
-                <a href="routines/create">
-                    <span>Crear rutina nueva</span>
-                    <span class="material-symbols-outlined icon">add_circle</span>
-                </a>
-            </div>
-
+            <?php
+            if(!isset($_GET["user"]) and isset($_SESSION["CurrentUserIDSession"])){
+                ?>
+                    <!-- Crear rutina contenedor -->
+                    <div class="create-recipes-container">
+                        <a href="routines/create">
+                            <span>Crear rutina nueva</span>
+                            <span class="material-symbols-outlined icon">add_circle</span>
+                        </a>
+                    </div>
+                <?php
+            }
+            ?>
 
 
         </div>
