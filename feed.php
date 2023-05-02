@@ -198,8 +198,17 @@ session_start();
                             <p class="post-text"><?php echo nl2br($row["Info_Post"]) ?></p>
                             <?php #Esta parte checa si hay elemento para añadir
                                 if(isset($row["Media_Post"])){
-                                    ?><div id="media-container" class="media-container"><?php                           
-                                        ?> <img src="data:image/jpeg;base64,<?php echo base64_encode($row["Media_Post"]); ?>"> <?php
+                                    ?>
+                                    <div id="media-container" class="media-container"><?php
+                                    if($row["Media_Type"] == 0){
+                                        ?>
+                                            <img src="data:image/jpeg;base64,<?php echo base64_encode($row["Media_Post"]); ?>"> 
+                                        <?php
+                                    }else{
+                                        ?>
+                                            <video src="data:image/jpeg;base64,<?php echo base64_encode($row["Media_Post"]); ?> type='video/mp4' controls"> 
+                                        <?php
+                                    }
                                     ?></div><?php
                                 }
                             ?>

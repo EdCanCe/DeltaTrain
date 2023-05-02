@@ -34,6 +34,11 @@ if(isset($_FILES["picture"]["name"])){ #significa que si se puede subir el archi
         echo "<script> window.location='/DeltaTrain/home'</script>";
         return;
     }
+    if(strpos($pfpType, 'image/')){
+        $query = "UPDATE Post SET MediaType_Post = 0 WHERE FKID_User_Post = $CurrentUserID and Info_Post = '".$pData."'";
+    }else{
+        $query = "UPDATE Post SET MediaType_Post = 1 WHERE FKID_User_Post = $CurrentUserID and Info_Post = '".$pData."'";
+    }
     $pfpSize = $_FILES["picture"]["size"];
     if($pfpSize > 15*1024*1024){
         $_SESSION["ErrorHeader"] = "NO SE PUDO CREAR EL POST";
