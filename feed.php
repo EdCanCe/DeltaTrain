@@ -111,7 +111,7 @@ session_start();
                     <form action="postcreator.php" method="post" enctype="multipart/form-data">
                         <textarea class="post-content" name="postData" placeholder="¿En qué estas pensando?" required></textarea>
                         <div id="media-container" class="media-container">
-                            <img src="imgs/banner.jpg">
+                            <!-- Aquí iría la imagen después de que se suba -->
                         </div>
                         <div id="link-container" class="link-container">
                             <input type="hidden" name="link">
@@ -124,8 +124,10 @@ session_start();
                         </div>
                         <input id="pictureData" type="file" name="picture" style="display:none;">
                     </form>
-
+                    <h2 id="linked-object" class="linked-object"></h2>
+                    <input id="linkedObject" type="hidden" name="linkedObject">
                     <div class="user-objects">
+
                         <div id="userRoutines" class="user-object">
                             <h2>Rutinas</h2>
                             <?php
@@ -133,13 +135,29 @@ session_start();
                             $result = mysqli_query($conexion, $query);
                             while($row=mysqli_fetch_assoc($result)){
                                 ?>
-                                <button onclick="addObject('routines/<?php echo $row['ID_Routine'] ?>')">
+                                <button onclick="addObject('routines/<?php echo $row['ID_Routine'] ?>', '<?php echo $row['Name_Routine'] ?>')">
                                     <?php echo $row["Name_Routine"] ?>
                                 </button>
                                 <?php
                             }
                             ?>
                         </div>
+
+                        <div id="userRecipes" class="user-object">
+                            <h2>Recetas</h2>
+                            <?php
+                            $query="SELECT Name_Recipe, ID_Recipe FROM Recipe WHERE FKID_User_Recipe =".$_SESSION["CurrentUserIDSession"];
+                            $result = mysqli_query($conexion, $query);
+                            while($row=mysqli_fetch_assoc($result)){
+                                ?>
+                                <button onclick="addObject('recipes/<?php echo $row['ID_Recipe'] ?>', '<?php echo $row['Name_Recipe'] ?>')">
+                                    <?php echo $row["Name_Recipe"] ?>
+                                </button>
+                                <?php
+                            }
+                            ?>
+                        </div>
+
                     </div>
 
                 </div>

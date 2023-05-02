@@ -171,7 +171,7 @@ session_start();
                 <button type="submit" class="save-rutine-container">Guardar Rutina<span class="material-symbols-outlined icon">save</span></button>
 
 
-                <textarea id="hiddenExercise" name="exercises" required></textarea>
+                <textarea id="hiddenExercise" name="exercises" style="display: none;" required></textarea>
 
             <div>
 
