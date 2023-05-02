@@ -190,10 +190,19 @@ session_start();
                                 <div class="post-list-data">
                                     <h3><?php echo $row2["Name_User"]." ".$row2["LastName_User"]?></h3>
                                     <p>@<?php echo $row2["Username_User"] ?></p>
+                                    <?php $rdate=date("j/F/y  g:i A", strtotime($row["Date_Post"]));?>
+                                    <p class="date"><small> <?php echo $rdate ?> </small></p>
                                 </div>
                             </div>
                             <br>
                             <p class="post-text"><?php echo nl2br($row["Info_Post"]) ?></p>
+                            <?php #Esta parte checa si hay elemento para añadir
+                                if(isset($row["Media_Post"])){
+                                    ?><div id="media-container" class="media-container"><?php                           
+                                        ?> <img src="data:image/jpeg;base64,<?php echo base64_encode($row["Media_Post"]); ?>"> <?php
+                                    ?></div><?php
+                                }
+                            ?>
                         </a>
                     <?php
                 }
