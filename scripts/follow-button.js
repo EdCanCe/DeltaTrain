@@ -15,7 +15,7 @@ followButtonTop.style.left = `${left}px`;
 
 
 
-const observer = new IntersectionObserver(entries => {
+/*const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       // Aquí se ejecuta el código cuando el botón de seguimiento es visible
@@ -31,7 +31,7 @@ const observer = new IntersectionObserver(entries => {
   threshold: 1.0 // El botón de seguimiento debe estar completamente visible
 });
 
-observer.observe(followButtonNormal);
+observer.observe(followButtonNormal);*/
 
 
 

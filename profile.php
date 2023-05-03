@@ -111,12 +111,11 @@ session_start();
 
         <div class="user-dates-container--fixed">
 
-            <button class="back-button"><span class="material-symbols-outlined">first_page</span></button>
-            <p class="username" class="profileName---fixed">Usuario</p>
-            <p class="light" class="profileUsername--fixed">Usuario</p>
+            <button class="back-button"><span class="material-symbols-outlined">undo</span></button>
+            <p class="username" class="profileName---fixed" id="profileNameE">Usuario</p>
+            <p class="light" class="profileUsername--fixed" id="profileUsernameE">Usuario</p>
             <p class="userFollow--fixed" href="<?php echo $_GET["user"] ?>/following"><b id="userFollowing">000</b> Siguiendo</p>    
             <p class="userFollow--fixed" href="<?php echo $_GET["user"] ?>/followers"><b id="userFollowers">000</b> Seguidores</p>
-            <button class="follow-button top-follow">Seguir</button>
 
         </div>
 
@@ -156,8 +155,8 @@ session_start();
 
             <!-- Muestra los seguidos y seguidores del usuario -->
             <div  class="user-dates-container">
-                <a class="userFollow" href="<?php echo $_GET["user"] ?>/following"><b id="userFollowing">000</b> Siguiendo</a>    
-                <a class="userFollow" href="<?php echo $_GET["user"] ?>/followers"><b id="userFollowers">000</b> Seguidores</a>    
+                <a class="userFollow" href="<?php echo $_GET["user"] ?>/following"><b id="userFollowingE">000</b> Siguiendo</a>    
+                <a class="userFollow" href="<?php echo $_GET["user"] ?>/followers"><b id="userFollowersE">000</b> Seguidores</a>    
             </div>
 
 
@@ -180,6 +179,8 @@ session_start();
                 while($row=mysqli_fetch_assoc($result)){
                     ?><script>document.getElementById("profileName").innerHTML="<?php echo $row["Name_User"]." ".$row["LastName_User"] ?>";</script><?php #carga el nombre del usuario
                     ?><script>document.getElementById("profileUsername").innerHTML="<?php echo "@".$row["Username_User"]; ?>";</script><?php #carga el username del usuario
+                    ?><script>document.getElementById("profileNameE").innerHTML="<?php echo $row["Name_User"]." ".$row["LastName_User"] ?>";</script><?php #carga el nombre del usuario
+                    ?><script>document.getElementById("profileUsernameE").innerHTML="<?php echo "@".$row["Username_User"]; ?>";</script><?php #carga el username del usuario
                     ?><script>document.getElementById("profileDescription").innerHTML="<?php echo preg_replace('/\s+/', ' ',  (nl2br($row["Description_User"]))); ?>";</script><?php #carga la descripción del usuario
                     if(!is_null($row["Pfp_User"])){
                         ?><script>loadpfp('data:image/jpeg;base64,<?php echo base64_encode($row["Pfp_User"]); ?>', "profilePfp");</script><?php #carga el pfp del usuario
@@ -207,10 +208,12 @@ session_start();
                     $query2 = "SELECT * FROM Follow WHERE FKID_UserA_Follow = ".$row["ID_User"];
                     $result2 = mysqli_query($conexion, $query2);
                     ?><script>document.getElementById("userFollowing").innerHTML="<?php echo mysqli_num_rows($result2); ?>";</script><?php
+                    ?><script>document.getElementById("userFollowingE").innerHTML="<?php echo mysqli_num_rows($result2); ?>";</script><?php
 
                     $query2 = "SELECT * FROM Follow WHERE FKID_UserB_Follow = ".$row["ID_User"];
                     $result2 = mysqli_query($conexion, $query2);
                     ?><script>document.getElementById("userFollowers").innerHTML="<?php echo mysqli_num_rows($result2); ?>";</script><?php
+                    ?><script>document.getElementById("userFollowersE").innerHTML="<?php echo mysqli_num_rows($result2); ?>";</script><?php
                 }
             ?>
 

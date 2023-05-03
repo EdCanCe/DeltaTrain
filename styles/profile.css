@@ -16,6 +16,7 @@
     z-index: 999;
     overflow: hidden;
     transition: ease 0.3s;
+    backdrop-filter: blur(10px);
 }
 
 .top-bar{
@@ -280,7 +281,7 @@
 
 @media screen and (max-width: 800px) {
     .main-content{
-        height: 100%;
+        /*height: 100%;*/
     }
 
     .profile-body{
@@ -312,6 +313,12 @@
         background-color: transparent;
         width: 100px;
         transform: translate(20px, -60px);
+        height: 100px;
+    }
+
+    .profile-user-img-container img{
+        width: 100px;
+        height: 100px;
     }
 
     .user-dates-container{
