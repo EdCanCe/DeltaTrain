@@ -107,7 +107,7 @@ session_start();
             ?>
                 <div class="create-post-container">
                     <br>
-                    <center><h1>Crear publicación</h1></center>
+                    <center><h1>Crear publicación <span class="material-symbols-outlined">edit_square</span></h1></center>
                     <form action="postcreator.php" method="post" enctype="multipart/form-data">
                         <textarea class="post-content" name="postData" placeholder="¿En qué estas pensando?" required></textarea>
                         <div id="media-container" class="media-container">
@@ -117,10 +117,10 @@ session_start();
                             <input type="hidden" name="link">
                         </div>
                         <div class="post-buttons">
-                            <button type="button" onclick="openRecipes()">Recetas</button>
-                            <button type="button" onclick="openRoutines()">Rutinas</button>
-                            <button type="button" onclick="clickInput()">Media</button>
-                            <button type="submit">Enviar</button>
+                            <button type="button" onclick="openRecipes()">Recetas <span class="material-symbols-outlined icon">cookie</span></button>
+                            <button type="button" onclick="openRoutines()">Rutinas <span class="material-symbols-outlined icon">sprint</span></button>
+                            <button type="button" onclick="clickInput()">Media <span class="material-symbols-outlined">perm_media</span></button>
+                            <button type="submit">Enviar <span class="material-symbols-rounded">send</span></button>
                         </div>
                         <input id="pictureData" type="file" name="picture" style="display:none;">
                         <h2 id="linked-object" class="linked-object"></h2>

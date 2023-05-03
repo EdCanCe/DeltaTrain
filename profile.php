@@ -104,6 +104,21 @@ session_start();
         <!-- Perfil de usuario contenedor principal -->
         <div class="profile-body">
 
+        <div class="top-bar">
+
+        </div>
+
+
+        <div class="user-dates-container--fixed">
+
+            <button class="back-button"><span class="material-symbols-outlined">first_page</span></button>
+            <p class="username" class="profileName---fixed">Usuario</p>
+            <p class="light" class="profileUsername--fixed">Usuario</p>
+            <p class="userFollow--fixed" href="<?php echo $_GET["user"] ?>/following"><b id="userFollowing">000</b> Siguiendo</p>    
+            <p class="userFollow--fixed" href="<?php echo $_GET["user"] ?>/followers"><b id="userFollowers">000</b> Seguidores</p>
+            <button class="follow-button top-follow">Seguir</button>
+
+        </div>
 
 
             <!-- Banner del perfil -->
@@ -120,7 +135,7 @@ session_start();
 
             <!-- Botón para el follow -->
             <div class="user-follow-container">
-                <button id="followbutton" class="follow-button unfollow">Siguiendo</button>
+                <button id="followbutton" class="follow-button normal-follow unfollow">Siguiendo</button>
             </div>
 
 
@@ -261,6 +276,16 @@ session_start();
 
                         <span>Hola como estan asdas asdasd asdasdas asdasdas asds adas asdsad asdasdfwterh thfgjhyh adgaf dasd asd asd asd asd asdasdasd awsd sad as das d</span>
                     
+                        <div class="video-container">
+                        <video class="video" width="640" height="360" controls>
+                            <source src="/DeltaTrain/videos/prueba.mp4" type="video/mp4">
+                            <source src="video.webm" type="video/webm">
+                            <source src="video.ogg" type="video/ogg">
+                            Tu navegador no admite el elemento video.
+                        </video>
+
+                        </div>
+
                         <div class="interactions-post-container">
                             <span class="material-symbols-outlined like">favorite</span>
                             <span class="material-symbols-outlined comment">chat_bubble</span>
@@ -283,4 +308,6 @@ session_start();
 <script src="/DeltaTrain/scripts/sidebar.js"></script>
 <script src='/DeltaTrain/scripts/image.js'></script>
 <script src='/DeltaTrain/scripts/follow.js'></script>
+<script src='/DeltaTrain/scripts/follow-button.js'></script>
+
 </html>

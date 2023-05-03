@@ -1,3 +1,32 @@
+
+:root{
+    --height-top-user: 70px;
+}
+
+.user-dates-container--fixed{
+    background-color: var(--color-7);
+    display: flex;
+    color: var(--color-2);
+    gap: 20px;
+    padding: 20px;
+    position: fixed;
+    align-items: center;
+    width: 100%;
+    height: var(--height-top-user);
+    z-index: 999;
+    overflow: hidden;
+    transition: ease 0.3s;
+}
+
+.top-bar{
+    background-color: var(--color-3);
+    width: 100%;
+    height: var(--height-top-user);
+}
+
+
+
+
 /* Estilos del contenedor principal del perfil */
 .profile-body{
     border-radius: 5px;
@@ -238,6 +267,15 @@
     cursor: pointer;
 }
 
+
+
+  .video::-webkit-media-controls-play-button {
+    background-color: chocolate;
+  }
+  
+  .video::-webkit-media-controls-timeline::-webkit-media-controls-timeline-container::-webkit-media-controls-timeline-run {
+    background-color: green;
+  }
 
 
 @media screen and (max-width: 800px) {
