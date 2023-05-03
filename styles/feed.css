@@ -35,7 +35,7 @@
     transition: ease-out 0.2s;
 }
 
-.post-buttons button:hover, .post-buttons input:hover, .user-object button:hover{
+.post-buttons button:hover, .post-buttons button:hover span, .post-buttons input:hover, .user-object button:hover{
     color: var(--color-1);
     background-color: var(--color-2);
 }
@@ -49,8 +49,7 @@
 .media-container *{
     display: block;
     width: 70%;
-    border: solid var(--color-2);
-    border-radius: 10px;
+    border-radius: 5px;
     margin: 40px auto 30px auto;
 }
 
@@ -160,12 +159,12 @@ a{
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    background: linear-gradient(0deg, #00000000, var(--color-6));
+    background-image: linear-gradient(to right,rgb(70 0 0 / 57%), rgba(0, 0, 0, 0.698) 10% 90%, rgb(70 0 0 / 57%));
     transition: background-color 0.4s;
 }
 
 .link:hover{
-    background-color: var(--color-6     );
+    background-color: var(--color-1);
 }
 
 .link:active{
