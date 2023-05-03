@@ -137,6 +137,10 @@ a{
     margin: 10px;
 }
 
+.user-object *{
+    color: var(--color-2)
+}
+
 .linked-object{
     text-align: center;
     color: var(--color-1);
@@ -235,4 +239,8 @@ a{
 .post-interact-buttons p{
     font-style: italic;
     transform: translateY(13px);
+}
+
+.father{
+    opacity: 0.3;
 }

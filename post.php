@@ -125,7 +125,7 @@ session_start();
                             $result = mysqli_query($conexion, $query);
                             while($row=mysqli_fetch_assoc($result)){
                                 ?>
-                                <div class="posts">
+                                <div class="posts father">
                                 <?php
                                 $query2 = "SELECT * FROM User WHERE ID_User = ".$row["FKID_User_Post"];
                                 $result2 = mysqli_query($conexion, $query2);

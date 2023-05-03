@@ -39,3 +39,17 @@ function doFollow(userA, userB){
 function turnFollow(){
 
 }
+
+let lvq = 0;
+
+function likeVisual(){
+    if(lvq == 0){
+        document.getElementById("postsLikeados").style="display: block;";
+        document.getElementById("postsNormales").style="display: none;";
+        lvq = 1;
+    }else{
+        document.getElementById("postsNormales").style="display: block;";
+        document.getElementById("postsLikeados").style="display: none;";
+        lvq = 0;
+    }
+}
