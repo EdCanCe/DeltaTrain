@@ -360,7 +360,6 @@ session_start();
                 ?>
                     <div class="create-post-container" id="text-area-editor" style="display: none;">
                         <br>
-                        <center><h1>Crear publicación</h1></center>
                         <form action="/DeltaTrain/postcreator.php" method="post" enctype="multipart/form-data">
                             <textarea class="post-content" name="postData" placeholder="¿En qué estas pensando?" required></textarea>
                             <div id="media-container" class="media-container">
