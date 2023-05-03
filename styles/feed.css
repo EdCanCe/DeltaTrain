@@ -171,3 +171,61 @@ a{
 .link:active{
     transform: scale(0.9);
 }
+
+#posts-container-main .post-list-img-container img{
+    width: 80px;
+    height: 80px;
+}
+
+#posts-container-main .post-list-img-container{
+    width: 90px;
+    height: 90px;
+}
+
+#posts-container-main .post-list-data{
+    font-size: 1.32em;
+}
+
+#posts-container-main .post-text{
+    font-size: 1.2em;
+}
+
+#posts-container-main{
+    background: var(--color-6);
+}
+
+.post-interact-buttons{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.post-interact-buttons a, .post-interact-buttons button{
+    padding: 10px;
+    background: var(--color-3);
+    color: var(--color-2);
+    width: 80px;
+    margin: 10px 30px;
+    border-radius: 100px;
+    height: 52px;
+    border: solid var(--color-2);
+    z-index: 5;
+}
+
+.post-interact-buttons button:hover *{
+    color: var(--color-1);
+}
+
+.post-interact-buttons button:hover{
+    background: var(--color-2);
+}
+
+.post-interact-buttons *{
+    text-align: center;
+    line-height: 40px;
+    transition: color 0.2s, background 0.2s;
+}
+
+.post-interact-buttons p{
+    font-style: italic;
+    transform: translateY(13px);
+}

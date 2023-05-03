@@ -51,4 +51,14 @@ if(isset($_FILES["picture"]["name"]) and $_FILES["picture"]["name"]!=""){ #signi
     $result = mysqli_query($conexion, $query);
 }
 
-echo "<script> window. location='/DeltaTrain/home'</script>";
+if(isset($_POST['commentedPost']) and $_POST['commentedPost']!=""){
+    $query = "UPDATE Post SET FKID_Post_Post = ".$_POST['commentedPost']." WHERE FKID_User_Post = $CurrentUserID and Info_Post = '".$pData."' ORDER BY Date_Post DESC";
+    $result = mysqli_query($conexion, $query);
+}
+
+$query = "SELECT ID_Post FROM Post WHERE FKID_User_Post = $CurrentUserID and Info_Post = '".$pData."' ORDER BY Date_Post DESC";
+$result = mysqli_query($conexion, $query);
+$row = mysqli_fetch_row($result);
+$id = $row[0];
+
+echo "<script> window. location='/DeltaTrain/post/".$id."'</script>";

@@ -34,4 +34,51 @@ document.getElementById("pictureData").addEventListener("change", () => {
     if (file) {
         reader.readAsDataURL(file);
     }
-  });
+});
+
+function likePost(userID, postID){
+
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+        // Mostrar la respuesta en la consola del navegador
+        console.log(this.responseText);
+        }
+    };
+    xhr.open("GET", "/DeltaTrain/likepost.php?userID=" + userID + "&postID=" + postID, true);
+    xhr.send();
+    document.getElementById("like-"+postID).innerHTML='<span id="heartFill" class="material-symbols-outlined">heart_broken</span>';
+    document.getElementById("like-"+postID).setAttribute( "onClick", "unlikePost("+userID+", "+postID+")");
+    let span = document.getElementById('like-cuantity-'+postID);
+    let currentValue = parseInt(span.textContent);
+    let newValue = currentValue + 1;
+    span.textContent = newValue;
+}
+
+function unlikePost(userID, postID){
+
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+        // Mostrar la respuesta en la consola del navegador
+        console.log(this.responseText);
+        }
+    };
+    xhr.open("GET", "/DeltaTrain/unlikepost.php?userID=" + userID + "&postID=" + postID, true);
+    xhr.send();
+    document.getElementById("like-"+postID).innerHTML='<span id="heartFill" class="material-symbols-outlined">favorite</span>';
+    document.getElementById("like-"+postID).setAttribute( "onClick", "likePost("+userID+", "+postID+")");
+    let span = document.getElementById('like-cuantity-'+postID);
+    let currentValue = parseInt(span.textContent);
+    let newValue = currentValue - 1;
+    span.textContent = newValue;
+}
+
+function makeComment(postID){
+    document.getElementById("commented-post").innerHTML = "[ Se ha vinculado con el post ]";
+    document.getElementById("commentedPost").value = postID;
+    document.querySelector('#text-area-editor').style = "display: block ";
+    document.querySelector('#text-area-editor').scrollIntoView({ 
+        behavior: 'smooth' 
+    });
+}
