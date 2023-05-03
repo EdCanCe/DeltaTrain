@@ -17,7 +17,6 @@ if(isset($_POST['linkedObject']) and $_POST['linkedObject']!=""){ #significa que
     $id = $rData[1];
     if($type == "recipes") $query = "SELECT ID_UserActivity FROM UserActivity WHERE FKID_Recipe_UserActivity = $id";
     else $query = "SELECT ID_UserActivity FROM UserActivity WHERE FKID_Routine_UserActivity = $id";
-    echo $query;
     $result = mysqli_query($conexion, $query);
     $row = mysqli_fetch_row($result);
     $id = $row[0];

@@ -179,8 +179,8 @@ session_start();
                 $result2 = mysqli_query($conexion, $query2);
                 while($row2=mysqli_fetch_assoc($result2)){
                     ?>
-                        <a class="post-list"  href="/DeltaTrain/post/<?php echo $row["ID_Post"] ?>">
-                            <div>
+                        <div class="post-list">
+                            <a  href="/DeltaTrain/post/<?php echo $row["ID_Post"] ?>">
                                 <div class="post-list-img-container">
                                     <img src="/DeltaTrain/imgs/Default-PFP.jpg" id="follow-list-img-<?php echo $row2["Username_User"].$row["ID_Post"] ?>">
                                     <?php if(!is_null($row2["Pfp_User"])){
@@ -193,7 +193,7 @@ session_start();
                                     <?php $rdate=date("j/F/y  g:i A", strtotime($row["Date_Post"]));?>
                                     <p class="date"><small> <?php echo $rdate ?> </small></p>
                                 </div>
-                            </div>
+                                </a>
                             <br>
                             <p class="post-text"><?php echo nl2br($row["Info_Post"]) ?></p>
                             <?php #Esta parte checa si hay elemento para añadir
@@ -212,7 +212,34 @@ session_start();
                                     ?></div><?php
                                 }
                             ?>
-                        </a>
+                            <?php #Esta parte checa si hay link para añadir
+                                if(isset($row["FKID_UserActivity_Post"])){
+                                    $query3 = "SELECT * FROM UserActivity WHERE ID_UserActivity = ".$row['FKID_UserActivity_Post'];
+                                    $result3 = mysqli_query($conexion, $query3);
+                                    $name="";
+                                    $dir="";
+                                    while($row3=mysqli_fetch_assoc($result3)){
+                                        $sID="";
+                                        if($row3["Type_UserActivity"] == 1){ #rutinas
+                                            $query4 = "SELECT * FROM Routine WHERE ID_Routine = ".$row3['FKID_Routine_UserActivity'];
+                                            $sID = "Name_Routine";
+                                            $dir="routines/".$row3['FKID_Routine_UserActivity'];
+                                        }else{
+                                            $query4 = "SELECT * FROM Recipe WHERE ID_Recipe = ".$row3['FKID_Recipe_UserActivity'];
+                                            $sID = "Name_Recipe";
+                                            $dir="recipes/".$row3['FKID_Recipe_UserActivity'];
+                                        }
+                                        $result4 = mysqli_query($conexion, $query4);
+                                        while($row4=mysqli_fetch_assoc($result4)){
+                                            $name =  $row4[$sID];
+                                        }
+                                    }
+                                    ?>
+                                    <a class="link" href="<?php echo $dir ?>"><?php echo $name ?></a>
+                                    <?php
+                                }
+                                ?>
+                        </div>
                     <?php
                 }
 
