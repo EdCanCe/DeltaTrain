@@ -1,3 +1,13 @@
+function openNormal(){
+    document.getElementById("posts-container").style="display:block;";
+    document.getElementById("posts-container-follow").style="display:none;";
+}
+
+function openFollow(){
+    document.getElementById("posts-container-follow").style="display:block;";
+    document.getElementById("posts-container").style="display:none;";
+}
+
 function clickInput(){
     document.getElementById("pictureData").click();
 }
@@ -37,6 +47,11 @@ document.getElementById("pictureData").addEventListener("change", () => {
 });
 
 function likePost(userID, postID){
+    let extra = "";
+    if(postID[postID.length - 1] == 'e'){
+        extra = "e";
+        postID = postID.substr(0, postID.length - 1);
+    }
 
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
@@ -47,8 +62,8 @@ function likePost(userID, postID){
     };
     xhr.open("GET", "/DeltaTrain/likepost.php?userID=" + userID + "&postID=" + postID, true);
     xhr.send();
-    document.getElementById("like-"+postID).innerHTML='<span id="heartFill" class="material-symbols-outlined">heart_broken</span>';
-    document.getElementById("like-"+postID).setAttribute( "onClick", "unlikePost("+userID+", "+postID+")");
+    document.getElementById("like-"+postID+extra).innerHTML='<span id="heartFill" class="material-symbols-outlined">heart_broken</span>';
+    document.getElementById("like-"+postID+extra).setAttribute( "onClick", "unlikePost("+userID+", '"+postID+extra+"')");
     let span = document.getElementById('like-cuantity-'+postID);
     let currentValue = parseInt(span.textContent);
     let newValue = currentValue + 1;
@@ -56,6 +71,11 @@ function likePost(userID, postID){
 }
 
 function unlikePost(userID, postID){
+    let extra = "";
+    if(postID[postID.length - 1] == 'e'){
+        extra = "e";
+        postID = postID.substr(0, postID.length - 1);
+    }
 
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
@@ -66,8 +86,8 @@ function unlikePost(userID, postID){
     };
     xhr.open("GET", "/DeltaTrain/unlikepost.php?userID=" + userID + "&postID=" + postID, true);
     xhr.send();
-    document.getElementById("like-"+postID).innerHTML='<span id="heartFill" class="material-symbols-outlined">favorite</span>';
-    document.getElementById("like-"+postID).setAttribute( "onClick", "likePost("+userID+", "+postID+")");
+    document.getElementById("like-"+postID+extra).innerHTML='<span id="heartFill" class="material-symbols-outlined">favorite</span>';
+    document.getElementById("like-"+postID+extra).setAttribute( "onClick", "likePost("+userID+", '"+postID+extra+"')");
     let span = document.getElementById('like-cuantity-'+postID);
     let currentValue = parseInt(span.textContent);
     let newValue = currentValue - 1;

@@ -244,3 +244,15 @@ a{
 .father{
     opacity: 0.3;
 }
+
+.buttons-prefer-container center{
+    margin-top: 20px;
+    margin-bottom: 5px;
+    flex: 0 0 100%; /* flex-grow, flex-shrink, flex-basis */
+}
+
+.buttons-prefer-container{
+    background: var(--color-3);
+    margin: 0;
+    border-bottom: 3px solid var(--color-2);
+}

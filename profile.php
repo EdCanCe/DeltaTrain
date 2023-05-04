@@ -527,7 +527,7 @@ session_start();
                                         }
                                         ?>
                                         <div class="post-interact-buttons">
-                                            <button id="like-<?php echo $row['ID_Post'] ?>" onclick="<?php echo $typeLike ?>(<?php echo $CurrentUserID ?>, <?php echo $row['ID_Post'] ?>)"><span id="heartFill" class="material-symbols-outlined"><?php echo $typeText ?></span></button>
+                                            <button id="like-<?php echo $row['ID_Post'] ?>e" onclick="<?php echo $typeLike ?>(<?php echo $CurrentUserID ?>, '<?php echo $row['ID_Post'] ?>e')"><span id="heartFill" class="material-symbols-outlined"><?php echo $typeText ?></span></button>
                                             <p><span id="like-cuantity-<?php echo $row['ID_Post'] ?>"><?php echo $quantityLikes ?></span> likes</p>
                                             <button onclick="makeComment( <?php echo $row['ID_Post'] ?> )"><span class="material-symbols-outlined">comment</span></a>
                                         </div>
