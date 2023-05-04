@@ -9,9 +9,9 @@ $name=$_POST['name'];
 $lastnames=$_POST['lastnames'];
 $birth=$_POST['birth'];
 $description=$_POST['description'];
-$color=$_POST['color'];
+if(!isset($_POST['color'])) $color = 0;
+else $color=$_POST['color'];
 $password=encrypt($password);
-$color=$_POST['color'];
 
 
 

@@ -169,3 +169,19 @@ ADD Color_User tinyint DEFAULT 0;
 create table NONUSABLE(
     Word_NONUSABLE varchar(60)
 );
+
+CREATE TABLE Changes(
+    ID_Changes INT(11) NOT NULL AUTO_INCREMENT,
+    User_Changes VARCHAR(50) NOT NULL,
+    Table_Changes VARCHAR(50) NOT NULL,
+    Time_Changes DATETIME,
+    Description_Changes VARCHAR(255) NOT NULL,
+    PRIMARY KEY (ID_Changes)
+);
+
+CREATE TRIGGER userCreate AFTER INSERT ON User
+FOR EACH ROW
+BEGIN
+    INSERT INTO Changes (User_Changes, Table_Changes, Description_Changes, Time_Changes)
+    VALUES (USER(), 'User', 'Creación de cuenta', NOW());
+END;
