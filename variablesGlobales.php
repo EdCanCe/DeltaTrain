@@ -1,5 +1,12 @@
 <?php
 $navConCuenta = '
+<div class="loader-1">
+      <div><img class="loader-svg" src="/DeltaTrain/imgs/logoDT.svg"></svg></div>
+</div>
+
+
+
+
 <!-- Barra lateral -->
 <div class="sidebar">
 

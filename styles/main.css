@@ -12,12 +12,18 @@
     --color-7: #000000b2;
     --color-8: #c6b9d4b2;
     --color-9: #121417de;
+    --color-10:#313131a1;
   }
 
 
   
 *{
     font-family: 'Poppins', sans-serif;
+}
+
+body{
+  background-image: url(../imgs/oscuro.png);
+    background-color: var(--color-1);
 }
 
 
@@ -27,7 +33,7 @@
     justify-content: center; /* Centra el contenido horizontalmente */
     align-items: center; /* Centra el contenido verticalmente */
     display: flex; /* Utiliza el modelo de caja flexible */
-    background: var(--color-3); /* Establece una imagen de fondo */
+    
     background-repeat: no-repeat; /* Evita que la imagen se repita */
     background-size: cover; /* Ajusta la imagen de fondo para que cubra todo el contenedor */
     background-position: center center; /* Alinea la imagen de fondo en el centro */

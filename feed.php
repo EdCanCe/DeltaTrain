@@ -36,6 +36,7 @@ session_start();
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital@0;1&display=swap" rel="stylesheet">
     <!-- Añadiendo el icono a la página -->
     <link rel="icon" href="/DeltaTrain/imgs/logoDT.svg">
+    <link rel="stylesheet" href="/DeltaTrain/styles/load.css">
 </head>
 <body>
 
@@ -47,6 +48,7 @@ session_start();
         echo "<script src='/DeltaTrain/scripts/load-pfp.js'></script>";
         echo "<script src='/DeltaTrain/scripts/colorchange.js'></script>";
         echo "<script src='/DeltaTrain/scripts/feed.js'></script>";
+        echo "<script src='/DeltaTrain/scripts/load.js'></script>";
 
         if(isset($_SESSION["CurrentUserIDSession"])){ #Checa si ya inició sesión
             $CurrentUserID = $_SESSION["CurrentUserIDSession"]; #Recoge el id del usuario
@@ -108,7 +110,7 @@ session_start();
                 ?>
                     <div class="create-post-container" id="text-area-editor">
                         <br>
-                        <center><h1>Crear publicación</h1></center>
+                        <center><h1>Crear publicación <span class="material-symbols-outlined icon"> edit_square </span></h1></center>
                         <form action="postcreator.php" method="post" enctype="multipart/form-data">
                             <textarea class="post-content" name="postData" placeholder="¿En qué estas pensando?" required></textarea>
                             <div id="media-container" class="media-container">
@@ -120,10 +122,10 @@ session_start();
                             <h2 id="linked-object" class="linked-object"></h2>
                             <h2 id="commented-post" class="linked-object"></h2>
                             <div class="post-buttons">
-                                <button type="button" onclick="openRecipes()">Recetas</button>
-                                <button type="button" onclick="openRoutines()">Rutinas</button>
-                                <button type="button" onclick="clickInput()">Media</button>
-                                <button type="submit">Enviar</button>
+                                <button type="button" onclick="openRecipes()"><span class="material-symbols-outlined icon">local_dining</span></button>
+                                <button type="button" onclick="openRoutines()"><span class="material-symbols-outlined icon">sprint</span></button>
+                                <button type="button" onclick="clickInput()"><span class="material-symbols-outlined icon"> perm_media </span></button>
+                                <button type="submit"><span class="material-symbols-rounded icon"> send </span></button>
                             </div>
                             <input id="pictureData" type="file" name="picture" style="display:none;">
                             
@@ -172,8 +174,10 @@ session_start();
             <?php if(isset($_SESSION["CurrentUserIDSession"])){?>
                 <div class="post-buttons buttons-prefer-container">
                     <center><h2>Posts de usuarios a ver:</h2></center>
-                    <button onclick="openNormal()">Todos</button>
-                    <button onclick="openFollow()">Sigo</button>
+                    <div>
+                        <button class="button-prefer prefer-all" onclick="openNormal()">Todos</button>
+                        <button class="button-prefer prefer-follow" onclick="openFollow()">Sigo</button>
+                    </div>
                 </div>
             <?php } ?>
 

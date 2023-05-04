@@ -1,11 +1,15 @@
 function openNormal(){
     document.getElementById("posts-container").style="display:block;";
     document.getElementById("posts-container-follow").style="display:none;";
+    document.querySelector('.prefer-follow').classList.remove('active');
+    document.querySelector('.prefer-all').classList.add('active');
 }
 
 function openFollow(){
     document.getElementById("posts-container-follow").style="display:block;";
     document.getElementById("posts-container").style="display:none;";
+    document.querySelector('.prefer-follow').classList.add('active');
+    document.querySelector('.prefer-all').classList.remove('active');
 }
 
 function clickInput(){

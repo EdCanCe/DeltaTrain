@@ -6,14 +6,23 @@
 
 .post-content{
     display: block;
-    background: var(--color-7);
+    background: var(--color-10);
     resize: vertical;
     width: 90%;
     margin: 20px auto;
     border-radius: 10px;
-    border: 3px solid var(--color-2);
+    border: 3px solid var(--color-6);
     padding: 10px;
     min-height: 150px;
+    transition: 0.3s ease;
+    outline: none;
+}
+
+.post-content:focus,
+.post-content:valid{
+    background-color: var(--color-6);
+    border: var(--color-8) solid 3px;
+    color: var(--color-2);
 }
 
 .post-buttons{
@@ -176,12 +185,13 @@ a{
 }
 
 .posts-container{
-    background: var(--color-3);
+    background: var(--color-7);
 }
 
 .posts-container *, .post-content, .post-buttons *{
     color: var(--color-2);
 }
+
 
 #posts-container-main .post-list-img-container img{
     width: 80px;
@@ -209,6 +219,7 @@ a{
     display: flex;
     justify-content: space-evenly;
 }
+
 
 .post-interact-buttons a, .post-interact-buttons button{
     padding: 10px;
@@ -259,7 +270,31 @@ a{
 }
 
 .buttons-prefer-container{
-    background: var(--color-3);
+    background: var(--color-1);
     margin: 0;
-    border-bottom: 3px solid var(--color-2);
+}
+
+.buttons-prefer-container center h2{
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.buttons-prefer-container div{
+    display: flex;
+    background-color: var(--color-1);
+    width: 100%;
+}
+
+.buttons-prefer-container .button-prefer{
+    width: 50%;
+    margin: 0;
+    border-radius: 0;
+    border: none;
+    background-color: var(--color-7);
+    border-bottom: solid 3px var(--color-5);
+}
+
+.buttons-prefer-container .button-prefer.active{
+    background-color: var(--color-2);
+    color: var(--color-1);
 }

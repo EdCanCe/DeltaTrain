@@ -32,6 +32,7 @@ session_start();
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital@0;1&display=swap" rel="stylesheet">
     <!-- Añadiendo el icono a la página -->
     <link rel="icon" href="/DeltaTrain/imgs/logoDT.svg">
+    <link rel="stylesheet" href="/DeltaTrain/styles/load.css">
 </head>
 <body>
 
@@ -42,6 +43,7 @@ session_start();
         echo "<script src='/DeltaTrain/scripts/alert.js'></script>";
         echo "<script src='/DeltaTrain/scripts/load-pfp.js'></script>";
         echo "<script src='/DeltaTrain/scripts/colorchange.js'></script>";
+        echo "<script src='/DeltaTrain/scripts/load.js'></script>";
 
         if(isset($_SESSION["CurrentUserIDSession"])){ #Checa si ya inició sesión
             $CurrentUserID = $_SESSION["CurrentUserIDSession"]; #Recoge el id del usuario
