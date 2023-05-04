@@ -222,6 +222,13 @@ a{
     z-index: 5;
 }
 
+.post-interact-buttons .like-link, .post-interact-buttons .like-link span{
+    background: none;
+    border: none;
+    font-style: italic;
+    color: var(--color-8);
+}
+
 .post-interact-buttons button:hover *{
     color: var(--color-1);
 }

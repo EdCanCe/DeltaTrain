@@ -151,7 +151,7 @@ session_start();
                                             <?php #Esta parte checa si hay elemento para añadir
                                                 if(isset($row["Media_Post"])){
                                                     ?>
-                                                    <div id="media-container" class="media-container"><?php
+                                                    <div id="media-container-ex" class="media-container"><?php
                                                     if($row["MediaType_Post"] == 0){
                                                         ?>
                                                             <img src="data:image/jpeg;base64,<?php echo base64_encode($row["Media_Post"]); ?>"> 
@@ -211,14 +211,14 @@ session_start();
                                                     ?>
                                                     <div class="post-interact-buttons">
                                                         <button id="like-<?php echo $row['ID_Post'] ?>" onclick="<?php echo $typeLike ?>(<?php echo $CurrentUserID ?>, <?php echo $row['ID_Post'] ?>)"><span id="heartFill" class="material-symbols-outlined"><?php echo $typeText ?></span></button>
-                                                        <p><span id="like-cuantity-<?php echo $row['ID_Post'] ?>"><?php echo $quantityLikes ?></span> likes</p>
+                                                        <a class="like-link" href="/DeltaTrain/post/<?php echo $row["ID_Post"]?>/likes"><span id="like-cuantity-<?php echo $row['ID_Post'] ?>"><?php echo $quantityLikes ?></span> likes</a>
                                                         <button onclick="makeComment( <?php echo $row['ID_Post'] ?> )"><span class="material-symbols-outlined">comment</span></a>
                                                     </div>
                                                     <?php
                                                 }else{
                                                     ?>
                                                     <div class="post-interact-buttons">
-                                                        <p><span id="like-cuantity-<?php echo $row['ID_Post'] ?>"><?php echo $quantityLikes ?></span> likes</p>
+                                                        <a class="like-link" href="/DeltaTrain/post/<?php echo $row["ID_Post"]?>/likes"><span id="like-cuantity-<?php echo $row['ID_Post'] ?>"><?php echo $quantityLikes ?></span> likes</a>
                                                     </div>
                                                     <?php
                                                 }
@@ -272,7 +272,7 @@ session_start();
                                 <?php #Esta parte checa si hay elemento para añadir
                                     if(isset($row["Media_Post"])){
                                         ?>
-                                        <div id="media-container" class="media-container"><?php
+                                        <div id="media-container-ex" class="media-container"><?php
                                         if($row["MediaType_Post"] == 0){
                                             ?>
                                                 <img src="data:image/jpeg;base64,<?php echo base64_encode($row["Media_Post"]); ?>"> 
@@ -332,14 +332,14 @@ session_start();
                                         ?>
                                         <div class="post-interact-buttons">
                                             <button id="like-<?php echo $row['ID_Post'] ?>" onclick="<?php echo $typeLike ?>(<?php echo $CurrentUserID ?>, <?php echo $row['ID_Post'] ?>)"><span id="heartFill" class="material-symbols-outlined"><?php echo $typeText ?></span></button>
-                                            <p><span id="like-cuantity-<?php echo $row['ID_Post'] ?>"><?php echo $quantityLikes ?></span> likes</p>
+                                            <a class="like-link" href="/DeltaTrain/post/<?php echo $row["ID_Post"]?>/likes"><span id="like-cuantity-<?php echo $row['ID_Post'] ?>"><?php echo $quantityLikes ?></span> likes</a>
                                             <button onclick="makeComment( <?php echo $row['ID_Post'] ?> )"><span class="material-symbols-outlined">comment</span></a>
                                         </div>
                                         <?php
                                     }else{
                                         ?>
                                         <div class="post-interact-buttons">
-                                            <p><span id="like-cuantity-<?php echo $row['ID_Post'] ?>"><?php echo $quantityLikes ?></span> likes</p>
+                                            <a class="like-link" href="/DeltaTrain/post/<?php echo $row["ID_Post"]?>/likes"><span id="like-cuantity-<?php echo $row['ID_Post'] ?>"><?php echo $quantityLikes ?></span> likes</a>
                                         </div>
                                         <?php
                                     }
@@ -454,7 +454,7 @@ session_start();
                                 <?php #Esta parte checa si hay elemento para añadir
                                     if(isset($row["Media_Post"])){
                                         ?>
-                                        <div id="media-container" class="media-container"><?php
+                                        <div id="media-container-ex" class="media-container"><?php
                                         if($row["MediaType_Post"] == 0){
                                             ?>
                                                 <img src="data:image/jpeg;base64,<?php echo base64_encode($row["Media_Post"]); ?>"> 
@@ -514,14 +514,15 @@ session_start();
                                         ?>
                                         <div class="post-interact-buttons">
                                             <button id="like-<?php echo $row['ID_Post'] ?>" onclick="<?php echo $typeLike ?>(<?php echo $CurrentUserID ?>, <?php echo $row['ID_Post'] ?>)"><span id="heartFill" class="material-symbols-outlined"><?php echo $typeText ?></span></button>
-                                            <p><span id="like-cuantity-<?php echo $row['ID_Post'] ?>"><?php echo $quantityLikes ?></span> likes</p>
+                                            <a class="like-link" href="/DeltaTrain/post/<?php echo $row["ID_Post"]?>/likes"><span id="like-cuantity-<?php echo $row['ID_Post'] ?>"><?php echo $quantityLikes ?></span> likes</a>
                                             <button onclick="makeComment( <?php echo $row['ID_Post'] ?> )"><span class="material-symbols-outlined">comment</span></a>
+                                            
                                         </div>
                                         <?php
                                     }else{
                                         ?>
                                         <div class="post-interact-buttons">
-                                            <p><span id="like-cuantity-<?php echo $row['ID_Post'] ?>"><?php echo $quantityLikes ?></span> likes</p>
+                                            <a class="like-link" href="/DeltaTrain/post/<?php echo $row["ID_Post"]?>/likes"><span id="like-cuantity-<?php echo $row['ID_Post'] ?>"><?php echo $quantityLikes ?></span> likes</a>
                                         </div>
                                         <?php
                                     }
