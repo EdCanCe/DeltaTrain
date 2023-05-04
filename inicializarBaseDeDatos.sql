@@ -12,29 +12,6 @@ create table User(
     Description_User varchar(250)
 );
 
-create table Progress(
-    ID_Progress bigint NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    FKID_User_Progress bigint NOT NULL,
-    CONSTRAINT FKID_User_Progress FOREIGN KEY (FKID_User_Progress) REFERENCES User(ID_User)
-);
-
-create table Activity(
-    ID_Activity bigint NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    FKID_Progress_Activity bigint NOT NULL,
-    CONSTRAINT FKID_Progress_Activity FOREIGN KEY (FKID_Progress_Activity) REFERENCES Progress(ID_Progress),
-    Name_Activity varchar(30) NOT NULL
-);
-
-create table DailyActivities(
-    ID_DailyActivities bigint NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    FKID_Progress_DailyActivities bigint NOT NULL,
-    CONSTRAINT FKID_Progress_DailyActivities FOREIGN KEY (FKID_Progress_DailyActivities) REFERENCES Progress(ID_Progress),
-    FKID_Activity_DailyActivities bigint NOT NULL,
-    CONSTRAINT FKID_Activity_DailyActivities FOREIGN KEY (FKID_Activity_DailyActivities) REFERENCES Activity(ID_Activity),
-    Date_DailyActivities date NOT NULL,
-    AlreadyDone_DailyActivities bool NOT NULL
-);
-
 create table Routine(
     ID_Routine bigint NOT NULL AUTO_INCREMENT PRIMARY KEY,
     FKID_User_Routine bigint NOT NULL,
@@ -54,14 +31,6 @@ create table RoutineExercise (
     CONSTRAINT FKID_Routine_RoutineExercise FOREIGN KEY (FKID_Routine_RoutineExercise) REFERENCES Routine(ID_Routine),
     FK_Exercise_RoutineExercise bigint NOT NULL,
     CONSTRAINT FK_Exercise_RoutineExercise FOREIGN KEY (FK_Exercise_RoutineExercise) REFERENCES Exercise(ID_Exercise)
-);
-
-create table WeightControl(
-    ID_WeightControl bigint NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    FKID_RoutineExercise_WeightControl bigint NOT NULL,
-    CONSTRAINT FKID_RoutineExercise_WeightControl FOREIGN KEY (FKID_RoutineExercise_WeightControl) REFERENCES RoutineExercise(ID_RoutineExercise),
-    Reps_WeightControl varchar(30) NOT NULL,
-    Date_WeightControl timestamp NOT NULL
 );
 
 create table Recipe(
@@ -86,16 +55,6 @@ create table RecipeIngredient(
     CONSTRAINT FKID_Ingredient_RecipeIngredient FOREIGN KEY (FKID_Ingredient_RecipeIngredient) REFERENCES Ingredient(ID_Ingredient)
 );
 
-create table Achievement(
-    ID_Achievement bigint NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    FKID_User_Achievement bigint NOT NULL,
-    CONSTRAINT FKID_User_Achievement FOREIGN KEY (FKID_User_Achievement) REFERENCES User(ID_User),
-    Description_Achievement varchar(100) NOT NULL,
-    StartDate_Achievement date NOT NULL,
-    Completed_Achievement bool NOT NULL,
-    FinishDate_Achievement date
-);
-
 create table Follow(
     ID_Follow bigint NOT NULL AUTO_INCREMENT PRIMARY KEY,
     FKID_UserA_Follow bigint NOT NULL,
@@ -104,22 +63,12 @@ create table Follow(
     CONSTRAINT FKID_UserB_Follow FOREIGN KEY (FKID_UserB_Follow) REFERENCES User(ID_User)
 );
 
-create table UserWeight(
-    ID_UserWeight bigint NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    FKID_User_UserWeight bigint NOT NULL,
-    CONSTRAINT FKID_User_UserWeight FOREIGN KEY (FKID_User_UserWeight) REFERENCES User(ID_User),
-    Weight_UserWeight float NOT NULL,
-    Date_UserWeight date NOT NULL
-);
-
 create table UserActivity(
     ID_UserActivity bigint NOT NULL AUTO_INCREMENT PRIMARY KEY,
     FKID_Routine_UserActivity bigint,
     CONSTRAINT FKID_Routine_UserActivity FOREIGN KEY (FKID_Routine_UserActivity) REFERENCES Routine(ID_Routine),
     FKID_Recipe_UserActivity bigint,
     CONSTRAINT FKID_Recipe_UserActivity FOREIGN KEY (FKID_Recipe_UserActivity) REFERENCES Recipe(ID_Recipe),
-    FKID_Achievement_UserActivity bigint,
-    CONSTRAINT FKID_Achievement_UserActivity FOREIGN KEY (FKID_Achievement_UserActivity) REFERENCES Achievement(ID_Achievement),
     Type_UserActivity tinyint NOT NULL,
     Visibility tinyint NOT NULL
 );
@@ -179,9 +128,23 @@ CREATE TABLE Changes(
     PRIMARY KEY (ID_Changes)
 );
 
-CREATE TRIGGER userCreate AFTER INSERT ON User
-FOR EACH ROW
-BEGIN
-    INSERT INTO Changes (User_Changes, Table_Changes, Description_Changes, Time_Changes)
-    VALUES (USER(), 'User', 'Creación de cuenta', NOW());
-END;
+DELIMITER $$
+CREATE TRIGGER userCreate AFTER INSERT on User FOR EACH row BEGIN
+INSERT INTO Changes (User_Changes, Table_Changes, Description_Changes, Time_Changes)
+    VALUES (USER(), EVENT_OBJECT_TABLE(), CONCAT('Creación de cuenta del usuario con ID ', NEW.ID_User), NOW());
+END $$
+DELIMITER ;
+
+DELIMITER $$
+CREATE TRIGGER postCreate AFTER INSERT on Post FOR EACH row BEGIN
+INSERT INTO Changes (User_Changes, Table_Changes, Description_Changes, Time_Changes)
+    VALUES (USER(), EVENT_OBJECT_TABLE(), CONCAT('Se creó el post con ID ', NEW.ID_Post, ', lo creó el usuario con ID ', NEW.FKID_User_Post), NOW());
+END $$
+DELIMITER ;
+
+DELIMITER $$
+CREATE TRIGGER followDone AFTER INSERT on Follow FOR EACH row BEGIN
+INSERT INTO Changes (User_Changes, Table_Changes, Description_Changes, Time_Changes)
+    VALUES (USER(), EVENT_OBJECT_TABLE(), CONCAT('El usuario con ID ', NEW.FKID_UserA_Follow, ' ahora sigue al usuario con ID ', NEW.FKID_UserB_Follow), NOW());
+END $$
+DELIMITER ;
