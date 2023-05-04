@@ -54,16 +54,6 @@ $navConCuenta = '
 
             <li>
                 <div>
-                <a href="/DeltaTrain/daily">
-                    <span class="material-symbols-outlined icon">calendar_month</span>
-                    <span class="nav-item">Actividades</span>
-                </a>
-            </li>
-
-
-
-            <li>
-                <div>
                 <a href="/DeltaTrain/routines">
                     <span class="material-symbols-outlined icon">fact_check</span>
                     <span class="nav-item">Rutinas</span>
@@ -75,7 +65,7 @@ $navConCuenta = '
             <li>
                 <div>
                 <a href="/DeltaTrain/recipes">
-                    <span class="material-symbols-outlined icon">cookie</span>
+                    <span class="material-symbols-outlined icon">local_dining</span>
                     <span class="nav-item">Recetas</span>
                 </a>
             </li>
@@ -170,16 +160,6 @@ $navConAdmin = '
 
             <li>
                 <div>
-                <a href="/DeltaTrain/daily">
-                    <span class="material-symbols-outlined icon">calendar_month</span>
-                    <span class="nav-item">Actividades</span>
-                </a>
-            </li>
-
-
-
-            <li>
-                <div>
                 <a href="/DeltaTrain/routines">
                     <span class="material-symbols-outlined icon">fact_check</span>
                     <span class="nav-item">Rutinas</span>
@@ -191,7 +171,7 @@ $navConAdmin = '
             <li>
                 <div>
                 <a href="/DeltaTrain/recipes">
-                    <span class="material-symbols-outlined icon">cookie</span>
+                    <span class="material-symbols-outlined icon">local_dining</span>
                     <span class="nav-item">Recetas</span>
                 </a>
             </li>
@@ -219,6 +199,15 @@ $navConAdmin = '
             <li>
                 <a href="/DeltaTrain/logout">
                     <span class="material-symbols-rounded icon">tab_close</span>
+                    <span class="nav-item">Cerrar Sesión</span>
+                </a>
+            </li>
+
+
+
+            <li>
+                <a href="/DeltaTrain/print.php">
+                    <span class="material-symbols-rounded icon">database</span>
                     <span class="nav-item">Cerrar Sesión</span>
                 </a>
             </li>
@@ -257,6 +246,16 @@ $navSinCuenta = '
 
         <!-- Lista de enlaces de navegación -->
         <ul>
+
+
+
+            <li>
+                <a href="/DeltaTrain/home">
+                    <span class="material-symbols-outlined icon">home</span>
+                    <span class="nav-item">Home</span>
+                </a>
+            </li>
+
 
 
 
@@ -370,15 +369,6 @@ $navConCuentaAbajo = '
 
             <li>
                 <div>
-                <a href="/DeltaTrain/daily">
-                    <span class="material-symbols-outlined icon">calendar_month</span>
-                </a>
-            </li>
-
-
-
-            <li>
-                <div>
                 <a href="/DeltaTrain/routines">
                     <span class="material-symbols-outlined icon">fact_check</span>
                 </a>
@@ -389,7 +379,7 @@ $navConCuentaAbajo = '
             <li>
                 <div>
                 <a href="/DeltaTrain/recipes">
-                    <span class="material-symbols-outlined icon">cookie</span>
+                    <span class="material-symbols-outlined icon">local_dining</span>
                 </a>
             </li>
 
@@ -444,14 +434,6 @@ $navConAdminAbajo = '
 
 
 
-            <li>
-                <div>
-                <a href="/DeltaTrain/daily">
-                    <span class="material-symbols-outlined icon">calendar_month</span>
-                </a>
-            </li>
-
-
 
             <li>
                 <div>
@@ -465,7 +447,7 @@ $navConAdminAbajo = '
             <li>
                 <div>
                 <a href="/DeltaTrain/recipes">
-                    <span class="material-symbols-outlined icon">cookie</span>
+                    <span class="material-symbols-outlined icon">local_dining</span>
                 </a>
             </li>
 
@@ -510,6 +492,12 @@ $navSinCuentaAbajo = '
         <!-- Lista de enlaces de navegación -->
         <ul>
 
+
+            <li>
+                <a href="/DeltaTrain/home">
+                    <span class="material-symbols-outlined icon">home</span>
+                </a>
+            </li>
 
 
             <li>

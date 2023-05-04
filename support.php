@@ -24,6 +24,10 @@ session_start();
     <link rel="stylesheet" href="/DeltaTrain/styles/alerts.css">
     <!-- Enlazando archivo de estilos para los follows -->
     <link rel="stylesheet" href="/DeltaTrain/styles/follow.css">
+    <!-- Enlazando archivo de estilos para el perfil -->
+    <link rel="stylesheet" href="/DeltaTrain/styles/profile.css">
+    <!-- Enlazando archivo de estilos para el feed -->
+    <link rel="stylesheet" href="/DeltaTrain/styles/feed.css">
     <!-- Enlazando la fuente Material Symbols Outlined de Google -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- Enlazando la fuente Material Symbols Rounded de Google -->
@@ -95,60 +99,12 @@ session_start();
 
 
     <div class="main-content">
-
-
-        <div class="normal-content">
-
-
-
-            <h1 class="follow-header">Siguiendo</h1>
-
-
-
-            <?php
-                if(!isset($_GET["user"])){ #checa primero que se haya dado un usario
-                    $_SESSION["ErrorHeader"] = "ERROR 404";
-                    $_SESSION["ErrorText"] = "La página que trató de acceder no existe.";
-                    echo "<script> window.location='/DeltaTrain/home'</script>";
-                }
-                ?><script>document.title="DeltaTrain | Personas que sigue <?php echo $_GET["user"]; ?>";</script><?php
-                $query = "SELECT ID_User from User WHERE Username_User = '".$_GET["user"]."'";
-                $result = mysqli_query($conexion, $query);
-                if(mysqli_num_rows($result) == 0){
-                    $_SESSION["ErrorHeader"] = "ERROR 404";
-                    $_SESSION["ErrorText"] = "La página que trató de acceder no existe.";
-                    echo "<script> window.location='/DeltaTrain/home'</script>";
-                }
-                $userID="";
-                while($row=mysqli_fetch_assoc($result)){
-                    $userID = $row["ID_User"];
-                }
-                $query = "SELECT Follow.*, User.* FROM User RIGHT JOIN Follow ON Follow.FKID_UserB_Follow = User.ID_User WHERE Follow.FKID_UserA_Follow = ".$userID;
-                $result = mysqli_query($conexion, $query);
-                while($row=mysqli_fetch_assoc($result)){
-                    ?>
-                        <a class="follow-list"  href="/DeltaTrain/<?php echo $row["Username_User"] ?>">
-                            <div class="follow-list-img-container">
-                                <img src="/DeltaTrain/imgs/Default-PFP.jpg" id="follow-list-img-<?php echo $row["Username_User"] ?>">
-                                <?php if(!is_null($row["Pfp_User"])){
-                                    ?><script>loadpfp('data:image/jpeg;base64,<?php echo base64_encode($row["Pfp_User"]); ?>', "follow-list-img-<?php echo $row["Username_User"] ?>");</script><?php
-                                } #carga el pfp del usuario?>
-                            </div>
-                            <div class="follow-list-data">
-                                <h3><?php echo $row["Name_User"]." ".$row["LastName_User"]?></h3>
-                                <p>@<?php echo $row["Username_User"] ?></p>
-                                <br>
-                                <p><?php echo brToSpace($row["Description_User"]) ?></p>
-                            </div>
-                        </a>
-                    <?php
-                }
-                //brToSpace();
-
-            ?>
-
-
-
+        <div class="profile-body">
+            <h1 class="follow-header">Soporte</h1>
+            <div class="info-support">
+                <p>Para cualquier duda y/o contacto mandar msj:</p>
+                <a class="link" href="mailto:edmundo.canedo@cetis120.edu.mx" target="_blank">Enviar correo</a>
+            </div>
         </div>
     </div>
 

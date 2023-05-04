@@ -225,3 +225,13 @@ html{
   color: var(--color-2);
   
 }
+
+.info-support{
+  padding: 30px;
+}
+
+.info-support *{
+  color: var(--color-2);
+  font-weight: 600;
+  text-align: center;
+}
