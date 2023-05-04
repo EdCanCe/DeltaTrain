@@ -28,8 +28,8 @@ if(isset($_FILES["picture"]["name"]) and $_FILES["picture"]["name"]!=""){ #signi
     $pfpName = $_FILES["picture"]["name"];
     $pfpType = $_FILES["picture"]["type"];
     if(!((substr($pfpType, 0, 5) == 'image') or (substr($pfpType, 0, 5) == 'video'))){ #Esta parte añade las imágenes en caso de tener que meterlas
-        $_SESSION["ErrorHeader"] = "NO SE PUDO CREAR EL POST";
-        $_SESSION["ErrorText"] = "Los archivos que subió son de un formato no aceptado.";
+        $_SESSION["ErrorHeader"] = "NO SE PUDO VINCULAR EL ARCHIVO";
+        $_SESSION["ErrorText"] = "Los archivos que subió son de un formato no aceptado, sin embargo si se creó el post.";
         echo "<script> window.location='/DeltaTrain/home'</script>";
         return;
     }

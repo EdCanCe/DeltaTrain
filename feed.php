@@ -176,7 +176,7 @@ session_start();
                     <center><h2>Posts de usuarios a ver:</h2></center>
                     <div>
                         <button class="button-prefer prefer-all" onclick="openNormal()">Todos</button>
-                        <button class="button-prefer prefer-follow" onclick="openFollow()">Sigo</button>
+                        <button class="button-prefer prefer-follow" onclick="openFollow()">Siguiendo</button>
                     </div>
                 </div>
             <?php } ?>

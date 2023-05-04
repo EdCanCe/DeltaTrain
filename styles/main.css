@@ -109,6 +109,10 @@ h1, h2, h3{
     background-size: cover;
     background-position: center;
     background-image: url("/DeltaTrain/imgs/Default-PFP.jpg");
+    object-fit: cover;
+    object-position: center center;
+    height: 50px;
+    width: 50px;
 }
 
 

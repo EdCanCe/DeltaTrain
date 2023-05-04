@@ -252,10 +252,10 @@ session_start();
                             <h2 id="linked-object" class="linked-object"></h2>
                             <h2 id="commented-post" class="linked-object"></h2>
                             <div class="post-buttons">
-                                <button type="button" onclick="openRecipes()">Recetas</button>
-                                <button type="button" onclick="openRoutines()">Rutinas</button>
-                                <button type="button" onclick="clickInput()">Media</button>
-                                <button type="submit">Enviar</button>
+                                <button type="button" onclick="openRecipes()"><span class="material-symbols-outlined icon">local_dining</span></button>
+                                <button type="button" onclick="openRoutines()"><span class="material-symbols-outlined icon">sprint</span></button>
+                                <button type="button" onclick="clickInput()"><span class="material-symbols-outlined icon"> perm_media </span></button>
+                                <button type="submit"><span class="material-symbols-rounded icon"> send </span></button>
                             </div>
                             <input id="pictureData" type="file" name="picture" style="display:none;">
                             
