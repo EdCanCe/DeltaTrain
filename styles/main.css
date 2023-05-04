@@ -24,6 +24,7 @@
 body{
   background-image: url(../imgs/oscuro.png);
     background-color: var(--color-1);
+    background-attachment: fixed;
 }
 
 
