@@ -153,6 +153,9 @@ INSERT INTO NONUSABLE VALUES ("support");
 INSERT INTO NONUSABLE VALUES ("user");
 INSERT INTO NONUSABLE VALUES ("post");
 
+ALTER TABLE 'Post' CHANGE 'Info_Post' 'Info_Post' TEXT CHARACTER SET CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
+ALTER TABLE 'User' CHANGE 'Description_User' 'Description_User' VARCHAR(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL; 
+
 DELIMITER $$
 CREATE TRIGGER userCreate AFTER INSERT on User FOR EACH row BEGIN
 INSERT INTO Changes (User_Changes, Table_Changes, Description_Changes, Time_Changes)
@@ -256,4 +259,3 @@ INSERT INTO Changes (User_Changes, Table_Changes, Description_Changes, Time_Chan
     VALUES (USER(), 'RecipeIngredient', CONCAT('El ingrediente con ID ', NEW.FKID_Ingredient_RecipeIngredient, ' está vinculado a la receta con ID ', NEW.FKID_Recipe_RecipeIngredient), NOW());
 END $$
 DELIMITER;
-
