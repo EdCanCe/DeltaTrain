@@ -12,7 +12,7 @@ RewriteRule ^daily$ dailyactivities.php [NC]
 RewriteRule ^support$ support.php [NC]
 
 RewriteRule ^post/([0-9]+)$ post.php?postID=$1 [NC,L]
-RewriteRule ^post/([0-9]+)/likes$ likes.php?postID=$1 [NC,L]
+RewriteRule ^likes/([0-9]+)$ likes.php?postID=$1 [NC,L]
 RewriteRule ^routines/([0-9]+)$ routine.php?routineID=$1 [NC,L]
 RewriteRule ^routines/([a-zA-Z0-9ñÑ\-_\(\)\$\%\&]+)$ routines.php?user=$1 [NC,L]
 RewriteRule ^recipes/([0-9]+)$ recipe.php?recipeID=$1 [NC,L]
