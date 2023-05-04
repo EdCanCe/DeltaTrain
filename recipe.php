@@ -187,17 +187,6 @@ session_start();
                     </div>
 
 
-
-                    <!-- Agregar ejercicio a la receta contenedor -->
-                    <div class="add-exercise-container">
-                    <a href="">
-                        <span>Modificar receta</span>
-                        <span class="material-symbols-outlined icon">add_circle</span>
-                    </a>
-                    </div>
-
-
-
                     <?php
                     }
             ?>
