@@ -29,7 +29,7 @@ $pdf->Cell(20,10,'Tabla',1,0,'C');
 $pdf->Cell(30,10,'Fecha y hora',1,0,'C');
 $pdf->Cell(110,10,utf8_decode('Descripción'),1,1,'C');
 
-$query = "SELECT * from Changes ORDER BY Time_Changes DESC";
+$query = "SELECT * from Changes ORDER BY ID_Changes DESC";
 
 $result = mysqli_query($conexion, $query);
 

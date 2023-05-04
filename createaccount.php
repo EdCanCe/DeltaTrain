@@ -195,7 +195,7 @@ session_start();
 
                 <div class="input-container color">
                     <div class="color-selector">
-                        <input type="radio" name="color" id="" value="0">
+                        <input type="radio" name="color" id="" value="0" checked="checked">
                         <span for="radio"></span>
                     </div>
                     <div class="color-selector">

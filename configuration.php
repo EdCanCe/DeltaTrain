@@ -205,31 +205,31 @@ session_start();
 
                         <div class="input-container color">
                             <div class="color-selector">
-                                <input type="radio" name="color" id="" value="0">
+                                <input type="radio" name="color" id="" value="0" <?php if($row['Color_User'] == 0) echo 'checked="checked"' ?>>
                                 <span for="radio"></span>
                             </div>
                             <div class="color-selector">
-                                <input type="radio" name="color" id="" value="1">
+                                <input type="radio" name="color" id="" value="1" <?php if($row['Color_User'] == 1) echo 'checked="checked"' ?>>
                                 <span for="radio"></span>
                             </div>
                             <div class="color-selector">
-                                <input type="radio" name="color" id="" value="2">
+                                <input type="radio" name="color" id="" value="2" <?php if($row['Color_User'] == 2) echo 'checked="checked"' ?>>
                                 <span for="radio"></span>
                             </div>
                             <div class="color-selector">
-                                <input type="radio" name="color" id="" value="3">
+                                <input type="radio" name="color" id="" value="3" <?php if($row['Color_User'] == 3) echo 'checked="checked"' ?>>
                                 <span for="radio"></span>
                             </div>
                             <div class="color-selector">
-                                <input type="radio" name="color" id="" value="4">
+                                <input type="radio" name="color" id="" value="4" <?php if($row['Color_User'] == 4) echo 'checked="checked"' ?>>
                                 <span for="radio"></span>
                             </div>
                             <div class="color-selector">
-                                <input type="radio" name="color" id="" value="5">
+                                <input type="radio" name="color" id="" value="5" <?php if($row['Color_User'] == 5) echo 'checked="checked"' ?>>
                                 <span for="radio"></span>
                             </div>
                             <div class="color-selector">
-                                <input type="radio" name="color" id="" value="6">
+                                <input type="radio" name="color" id="" value="6" <?php if($row['Color_User'] == 6) echo 'checked="checked"' ?>>
                                 <span for="radio"></span>
                             </div>
                             

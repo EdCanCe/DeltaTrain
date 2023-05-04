@@ -179,7 +179,7 @@ $navConAdmin = '
 
 
             <li>
-                <a href="/DeltaTrain/suppport">
+                <a href="/DeltaTrain/support">
                     <span class="material-symbols-rounded icon">contact_support</span>
                     <span class="nav-item">Contacto</span>
                 </a>
@@ -454,7 +454,7 @@ $navConAdminAbajo = '
 
 
             <li>
-                <a href="/DeltaTrain/suppport">
+                <a href="/DeltaTrain/support">
                     <span class="material-symbols-rounded icon">contact_support</span>
                 </a>
             </li>

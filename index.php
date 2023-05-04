@@ -54,6 +54,7 @@ session_start();
             else{ #Si se usa este es porque el usuario es admin
                 echo $navConAdmin;
                 echo $navConAdminAbajo;
+                echo "<script> window. location='/DeltaTrain/home'</script>";
             }
 
 
