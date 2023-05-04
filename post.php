@@ -214,14 +214,14 @@ session_start();
                                                     ?>
                                                     <div class="post-interact-buttons">
                                                         <button id="like-<?php echo $row['ID_Post'] ?>" onclick="<?php echo $typeLike ?>(<?php echo $CurrentUserID ?>, <?php echo $row['ID_Post'] ?>)"><span id="heartFill" class="material-symbols-outlined"><?php echo $typeText ?></span></button>
-                                                        <a class="like-link" href="/DeltaTrain/post/<?php echo $row["ID_Post"]?>/likes"><span id="like-cuantity-<?php echo $row['ID_Post'] ?>"><?php echo $quantityLikes ?></span> likes</a>
+                                                        <a class="like-link" href="/DeltaTrain/likes/<?php echo $row["ID_Post"]?>"><span id="like-cuantity-<?php echo $row['ID_Post'] ?>"><?php echo $quantityLikes ?></span> likes</a>
                                                         <button onclick="makeComment( <?php echo $row['ID_Post'] ?> )"><span class="material-symbols-outlined">comment</span></a>
                                                     </div>
                                                     <?php
                                                 }else{
                                                     ?>
                                                     <div class="post-interact-buttons">
-                                                        <a class="like-link" href="/DeltaTrain/post/<?php echo $row["ID_Post"]?>/likes"><span id="like-cuantity-<?php echo $row['ID_Post'] ?>"><?php echo $quantityLikes ?></span> likes</a>
+                                                        <a class="like-link" href="/DeltaTrain/likes/<?php echo $row["ID_Post"]?>"><span id="like-cuantity-<?php echo $row['ID_Post'] ?>"><?php echo $quantityLikes ?></span> likes</a>
                                                     </div>
                                                     <?php
                                                 }
@@ -335,14 +335,14 @@ session_start();
                                         ?>
                                         <div class="post-interact-buttons">
                                             <button id="like-<?php echo $row['ID_Post'] ?>" onclick="<?php echo $typeLike ?>(<?php echo $CurrentUserID ?>, <?php echo $row['ID_Post'] ?>)"><span id="heartFill" class="material-symbols-outlined"><?php echo $typeText ?></span></button>
-                                            <a class="like-link" href="/DeltaTrain/post/<?php echo $row["ID_Post"]?>/likes"><span id="like-cuantity-<?php echo $row['ID_Post'] ?>"><?php echo $quantityLikes ?></span> likes</a>
+                                            <a class="like-link" href="/DeltaTrain/likes/<?php echo $row["ID_Post"]?>"><span id="like-cuantity-<?php echo $row['ID_Post'] ?>"><?php echo $quantityLikes ?></span> likes</a>
                                             <button onclick="makeComment( <?php echo $row['ID_Post'] ?> )"><span class="material-symbols-outlined">comment</span></a>
                                         </div>
                                         <?php
                                     }else{
                                         ?>
                                         <div class="post-interact-buttons">
-                                            <a class="like-link" href="/DeltaTrain/post/<?php echo $row["ID_Post"]?>/likes"><span id="like-cuantity-<?php echo $row['ID_Post'] ?>"><?php echo $quantityLikes ?></span> likes</a>
+                                            <a class="like-link" href="/DeltaTrain/likes/<?php echo $row["ID_Post"]?>"><span id="like-cuantity-<?php echo $row['ID_Post'] ?>"><?php echo $quantityLikes ?></span> likes</a>
                                         </div>
                                         <?php
                                     }
@@ -517,7 +517,7 @@ session_start();
                                         ?>
                                         <div class="post-interact-buttons">
                                             <button id="like-<?php echo $row['ID_Post'] ?>" onclick="<?php echo $typeLike ?>(<?php echo $CurrentUserID ?>, <?php echo $row['ID_Post'] ?>)"><span id="heartFill" class="material-symbols-outlined"><?php echo $typeText ?></span></button>
-                                            <a class="like-link" href="/DeltaTrain/post/<?php echo $row["ID_Post"]?>/likes"><span id="like-cuantity-<?php echo $row['ID_Post'] ?>"><?php echo $quantityLikes ?></span> likes</a>
+                                            <a class="like-link" href="/DeltaTrain/likes/<?php echo $row["ID_Post"]?>"><span id="like-cuantity-<?php echo $row['ID_Post'] ?>"><?php echo $quantityLikes ?></span> likes</a>
                                             <button onclick="makeComment( <?php echo $row['ID_Post'] ?> )"><span class="material-symbols-outlined">comment</span></a>
                                             
                                         </div>
@@ -525,7 +525,7 @@ session_start();
                                     }else{
                                         ?>
                                         <div class="post-interact-buttons">
-                                            <a class="like-link" href="/DeltaTrain/post/<?php echo $row["ID_Post"]?>/likes"><span id="like-cuantity-<?php echo $row['ID_Post'] ?>"><?php echo $quantityLikes ?></span> likes</a>
+                                            <a class="like-link" href="/DeltaTrain/likes/<?php echo $row["ID_Post"]?>"><span id="like-cuantity-<?php echo $row['ID_Post'] ?>"><?php echo $quantityLikes ?></span> likes</a>
                                         </div>
                                         <?php
                                     }
