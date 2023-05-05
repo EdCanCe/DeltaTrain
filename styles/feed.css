@@ -277,6 +277,7 @@ a{
 .buttons-prefer-container center h2{
     font-size: 20px;
     font-weight: 400;
+    margin-bottom: 15px;
 }
 
 .buttons-prefer-container div{
@@ -297,4 +298,8 @@ a{
 .buttons-prefer-container .button-prefer.active{
     background-color: var(--color-2);
     color: var(--color-1);
+}
+
+.post-buttons button span{
+    background: none !important;   
 }
