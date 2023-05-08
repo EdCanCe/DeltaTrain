@@ -106,3 +106,16 @@ function makeComment(postID){
         behavior: 'smooth' 
     });
 }
+
+function deletePost(postID){
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            window.location.reload();
+        // Mostrar la respuesta en la consola del navegador
+        console.log(this.responseText);
+        }
+    };
+    xhr.open("GET", "/DeltaTrain/deletepost.php?postID=" + postID, true);
+    xhr.send();
+}

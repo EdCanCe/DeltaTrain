@@ -10,6 +10,7 @@ RewriteRule ^routines$ routines.php [NC]
 RewriteRule ^routines/create$ createroutine.php [NC]
 RewriteRule ^daily$ dailyactivities.php [NC]
 RewriteRule ^support$ support.php [NC]
+RewriteRule ^notifications$ notifications.php [NC]
 
 RewriteRule ^post/([0-9]+)$ post.php?postID=$1 [NC,L]
 RewriteRule ^likes/([0-9]+)$ likes.php?postID=$1 [NC,L]

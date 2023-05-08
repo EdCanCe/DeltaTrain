@@ -51,9 +51,35 @@ if(isset($_FILES["picture"]["name"]) and $_FILES["picture"]["name"]!=""){ #signi
     $result = mysqli_query($conexion, $query);
 }
 
-if(isset($_POST['commentedPost']) and $_POST['commentedPost']!=""){
+if(isset($_POST['commentedPost']) and $_POST['commentedPost']!=""){ #Aquí también genera una notificación de que te han comentado
     $query = "UPDATE Post SET FKID_Post_Post = ".$_POST['commentedPost']." WHERE FKID_User_Post = $CurrentUserID and Info_Post = '".$pData."' ORDER BY Date_Post DESC";
     $result = mysqli_query($conexion, $query);
+
+    $query = "SELECT ID_Post FROM Post WHERE FKID_User_Post = $CurrentUserID and Info_Post = '".$pData."' ORDER BY Date_Post DESC"; #Con esto obtengo para el source
+    $result = mysqli_query($conexion, $query);
+    $row = mysqli_fetch_row($result);
+    $id = $row[0];
+
+    $query = "SELECT FKID_User_Post from Post WHERE ID_Post = ".$_POST['commentedPost']; #Con esto obtengo el id del usuario a quien se le avisa.
+    $result = mysqli_query($conexion, $query);
+    $postUser="";
+    while($row=mysqli_fetch_assoc($result)){
+        $postUser = $row["FKID_User_Post"];
+    }
+
+    $query = "SELECT Username_User from User WHERE ID_User = $CurrentUserID";
+    $result = mysqli_query($conexion, $query);
+    $userID="";
+    while($row=mysqli_fetch_assoc($result)){
+        $userID = $row["Username_User"];
+    }
+
+    if($CurrentUserID != $postUser){
+        $query = "INSERT INTO Notis(FKID_User_Notis, Description_Notis, Source_Notis) VALUES ($postUser, '¡@$userID ha comentado en uno de tus posts!', '/DeltaTrain/post/$id');";
+        $result = mysqli_query($conexion, $query);
+    }
+
+
 }
 
 $query = "SELECT ID_Post FROM Post WHERE FKID_User_Post = $CurrentUserID and Info_Post = '".$pData."' ORDER BY Date_Post DESC";

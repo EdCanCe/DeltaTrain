@@ -112,6 +112,9 @@ ADD Media_Post longblob;
 ALTER TABLE Post
 ADD MediaType_Post tinyint;
 
+ALTER TABLE Post
+ADD Visibility_Post tinyint;
+
 ALTER TABLE User
 ADD Color_User tinyint DEFAULT 0;
 
@@ -120,12 +123,21 @@ create table NONUSABLE(
 );
 
 CREATE TABLE Changes(
-    ID_Changes INT(11) NOT NULL AUTO_INCREMENT,
+    ID_Changes bigint NOT NULL AUTO_INCREMENT PRIMARY KEY,
     User_Changes VARCHAR(50) NOT NULL,
     Table_Changes VARCHAR(50) NOT NULL,
     Time_Changes DATETIME,
     Description_Changes VARCHAR(255) NOT NULL,
     PRIMARY KEY (ID_Changes)
+);
+
+CREATE TABLE Notis(
+    ID_Notis bigint NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    FKID_User_Notis bigint NOT NULL,
+    CONSTRAINT FKID_User_Notis FOREIGN KEY (FKID_User_Notis) REFERENCES User(ID_User),
+    Description_Notis VARCHAR(255) NOT NULL,
+    Source_Notis VARCHAR(100) NOT NULL,
+    Date_Notis timestamp NOT NULL
 );
 
 INSERT INTO NONUSABLE VALUES ("feed");

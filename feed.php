@@ -183,7 +183,7 @@ session_start();
 
             <div id="posts-container" class="posts-container">
                 <?php
-                $query="SELECT * FROM Post WHERE FKID_Post_Post IS NULL ORDER BY Date_Post DESC";
+                $query="SELECT * FROM Post WHERE FKID_Post_Post IS NULL AND Visibility_Post = 0 ORDER BY Date_Post DESC";
                 $result = mysqli_query($conexion, $query);
                 while($row=mysqli_fetch_assoc($result)){
                     ?>
@@ -275,6 +275,13 @@ session_start();
                                             <button id="like-<?php echo $row['ID_Post'] ?>" onclick="<?php echo $typeLike ?>(<?php echo $CurrentUserID ?>, <?php echo $row['ID_Post'] ?>)"><span id="heartFill" class="material-symbols-outlined"><?php echo $typeText ?></span></button>
                                             <a class="like-link" href="/DeltaTrain/likes/<?php echo $row["ID_Post"]?>"><span id="like-cuantity-<?php echo $row['ID_Post'] ?>"><?php echo $quantityLikes ?></span> likes</a>
                                             <button onclick="makeComment( <?php echo $row['ID_Post'] ?> )"><span class="material-symbols-outlined">comment</span></a>
+                                            <?php
+                                                if($CurrentUserID == $row['FKID_User_Post']){
+                                                    ?>
+                                                    <button onclick="deletePost(<?php echo $row['ID_Post'] ?>)"><span class="material-symbols-outlined">delete</span></button>
+                                                    <?php
+                                                }
+                                            ?>
                                         </div>
                                         <?php
                                     }else{

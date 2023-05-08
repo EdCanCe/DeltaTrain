@@ -127,111 +127,127 @@ session_start();
                             <?php
                             $result = mysqli_query($conexion, $query);
                             while($row=mysqli_fetch_assoc($result)){
+                                if($row["Visibility_Post"] == 0){
                                 ?>
                                 <div class="posts father">
                                 <?php
                                 $query2 = "SELECT * FROM User WHERE ID_User = ".$row["FKID_User_Post"];
                                 $result2 = mysqli_query($conexion, $query2);
                                 while($row2=mysqli_fetch_assoc($result2)){
-                                    ?>
-                                        <div class="post-list">
-                                            <a  href="/DeltaTrain/post/<?php echo $row["ID_Post"] ?>">
-                                                <div class="post-list-img-container">
-                                                    <img src="/DeltaTrain/imgs/Default-PFP.jpg" id="follow-list-img-<?php echo $row2["Username_User"].$row["ID_Post"] ?>">
-                                                    <?php if(!is_null($row2["Pfp_User"])){
-                                                        ?><script>loadpfp('data:image/jpeg;base64,<?php echo base64_encode($row2["Pfp_User"]); ?>', "follow-list-img-<?php echo $row2["Username_User"].$row["ID_Post"] ?>");</script><?php
-                                                    } #carga el pfp del usuario?>
-                                                </div>
-                                                <div class="post-list-data">
-                                                    <h3><?php echo $row2["Name_User"]." ".$row2["LastName_User"]?></h3>
-                                                    <p>@<?php echo $row2["Username_User"] ?></p>
-                                                    <?php $rdate=date("j/F/y  g:i A", strtotime($row["Date_Post"]));?>
-                                                    <p class="date"><small> <?php echo $rdate ?> </small></p>
-                                                </div>
-                                                </a>
-                                            <br>
-                                            <p class="post-text"><?php echo nl2br($row["Info_Post"]) ?></p>
-                                            <?php #Esta parte checa si hay elemento para añadir
-                                                if(isset($row["Media_Post"])){
-                                                    ?>
-                                                    <div id="media-container-ex" class="media-container"><?php
-                                                    if($row["MediaType_Post"] == 0){
+
+                                        ?>
+                                            <div class="post-list">
+                                                <a  href="/DeltaTrain/post/<?php echo $row["ID_Post"] ?>">
+                                                    <div class="post-list-img-container">
+                                                        <img src="/DeltaTrain/imgs/Default-PFP.jpg" id="follow-list-img-<?php echo $row2["Username_User"].$row["ID_Post"] ?>">
+                                                        <?php if(!is_null($row2["Pfp_User"])){
+                                                            ?><script>loadpfp('data:image/jpeg;base64,<?php echo base64_encode($row2["Pfp_User"]); ?>', "follow-list-img-<?php echo $row2["Username_User"].$row["ID_Post"] ?>");</script><?php
+                                                        } #carga el pfp del usuario?>
+                                                    </div>
+                                                    <div class="post-list-data">
+                                                        <h3><?php echo $row2["Name_User"]." ".$row2["LastName_User"]?></h3>
+                                                        <p>@<?php echo $row2["Username_User"] ?></p>
+                                                        <?php $rdate=date("j/F/y  g:i A", strtotime($row["Date_Post"]));?>
+                                                        <p class="date"><small> <?php echo $rdate ?> </small></p>
+                                                    </div>
+                                                    </a>
+                                                <br>
+                                                <p class="post-text"><?php echo nl2br($row["Info_Post"]) ?></p>
+                                                <?php #Esta parte checa si hay elemento para añadir
+                                                    if(isset($row["Media_Post"])){
                                                         ?>
-                                                            <img src="data:image/jpeg;base64,<?php echo base64_encode($row["Media_Post"]); ?>"> 
-                                                        <?php
-                                                    }else{
-                                                        ?>
-                                                            <video src="data:video/mp4;base64,<?php echo base64_encode($row["Media_Post"]); ?>" type='video/mp4' controls=""> 
-                                                        <?php
-                                                    }
-                                                    ?></div><?php
-                                                }
-                                            ?>
-                                            <?php #Esta parte checa si hay link para añadir
-                                                if(isset($row["FKID_UserActivity_Post"])){
-                                                    $query3 = "SELECT * FROM UserActivity WHERE ID_UserActivity = ".$row['FKID_UserActivity_Post'];
-                                                    $result3 = mysqli_query($conexion, $query3);
-                                                    $name="";
-                                                    $dir="";
-                                                    while($row3=mysqli_fetch_assoc($result3)){
-                                                        $sID="";
-                                                        if($row3["Type_UserActivity"] == 1){ #rutinas
-                                                            $query4 = "SELECT * FROM Routine WHERE ID_Routine = ".$row3['FKID_Routine_UserActivity'];
-                                                            $sID = "Name_Routine";
-                                                            $dir="routines/".$row3['FKID_Routine_UserActivity'];
+                                                        <div id="media-container-ex" class="media-container"><?php
+                                                        if($row["MediaType_Post"] == 0){
+                                                            ?>
+                                                                <img src="data:image/jpeg;base64,<?php echo base64_encode($row["Media_Post"]); ?>"> 
+                                                            <?php
                                                         }else{
-                                                            $query4 = "SELECT * FROM Recipe WHERE ID_Recipe = ".$row3['FKID_Recipe_UserActivity'];
-                                                            $sID = "Name_Recipe";
-                                                            $dir="recipes/".$row3['FKID_Recipe_UserActivity'];
+                                                            ?>
+                                                                <video src="data:video/mp4;base64,<?php echo base64_encode($row["Media_Post"]); ?>" type='video/mp4' controls=""> 
+                                                            <?php
                                                         }
-                                                        $result4 = mysqli_query($conexion, $query4);
-                                                        while($row4=mysqli_fetch_assoc($result4)){
-                                                            $name =  $row4[$sID];
+                                                        ?></div><?php
+                                                    }
+                                                ?>
+                                                <?php #Esta parte checa si hay link para añadir
+                                                    if(isset($row["FKID_UserActivity_Post"])){
+                                                        $query3 = "SELECT * FROM UserActivity WHERE ID_UserActivity = ".$row['FKID_UserActivity_Post'];
+                                                        $result3 = mysqli_query($conexion, $query3);
+                                                        $name="";
+                                                        $dir="";
+                                                        while($row3=mysqli_fetch_assoc($result3)){
+                                                            $sID="";
+                                                            if($row3["Type_UserActivity"] == 1){ #rutinas
+                                                                $query4 = "SELECT * FROM Routine WHERE ID_Routine = ".$row3['FKID_Routine_UserActivity'];
+                                                                $sID = "Name_Routine";
+                                                                $dir="routines/".$row3['FKID_Routine_UserActivity'];
+                                                            }else{
+                                                                $query4 = "SELECT * FROM Recipe WHERE ID_Recipe = ".$row3['FKID_Recipe_UserActivity'];
+                                                                $sID = "Name_Recipe";
+                                                                $dir="recipes/".$row3['FKID_Recipe_UserActivity'];
+                                                            }
+                                                            $result4 = mysqli_query($conexion, $query4);
+                                                            while($row4=mysqli_fetch_assoc($result4)){
+                                                                $name =  $row4[$sID];
+                                                            }
                                                         }
+                                                        ?>
+                                                        <a class="link" href="/DeltaTrain/<?php echo $dir ?>"><?php echo $name ?></a>
+                                                        <?php
                                                     }
                                                     ?>
-                                                    <a class="link" href="/DeltaTrain/<?php echo $dir ?>"><?php echo $name ?></a>
-                                                    <?php
-                                                }
-                                                ?>
-                                                <?php #Esta madre permite hacer los likes y demás
-                                                $quantityLikes=0;
-                                                $query3 = "SELECT * FROM LikedPost WHERE FKID_Post_LikedPost = ".$row["ID_Post"];
-                                                $result3 = mysqli_query($conexion, $query3);
-                                                $quantityLikes = mysqli_num_rows($result3);
-                                                if(isset($_SESSION["CurrentUserIDSession"])){
-                                                    $typeLike="likePost";
-                                                    $typeText="";
-                                                    $query3 = "SELECT * FROM LikedPost WHERE FKID_Post_LikedPost = ".$row["ID_Post"]." AND FKID_User_LikedPost =".$_SESSION["CurrentUserIDSession"];
+                                                    <?php #Esta madre permite hacer los likes y demás
+                                                    $quantityLikes=0;
+                                                    $query3 = "SELECT * FROM LikedPost WHERE FKID_Post_LikedPost = ".$row["ID_Post"];
                                                     $result3 = mysqli_query($conexion, $query3);
-                                                    if(mysqli_num_rows($result3)==0){
+                                                    $quantityLikes = mysqli_num_rows($result3);
+                                                    if(isset($_SESSION["CurrentUserIDSession"])){
                                                         $typeLike="likePost";
-                                                        $typeText="favorite";
+                                                        $typeText="";
+                                                        $query3 = "SELECT * FROM LikedPost WHERE FKID_Post_LikedPost = ".$row["ID_Post"]." AND FKID_User_LikedPost =".$_SESSION["CurrentUserIDSession"];
+                                                        $result3 = mysqli_query($conexion, $query3);
+                                                        if(mysqli_num_rows($result3)==0){
+                                                            $typeLike="likePost";
+                                                            $typeText="favorite";
+                                                        }else{
+                                                            $typeLike="unlikePost";
+                                                            $typeText="heart_broken";
+                                                        }
+                                                        ?>
+                                                        <div class="post-interact-buttons">
+                                                            <button id="like-<?php echo $row['ID_Post'] ?>" onclick="<?php echo $typeLike ?>(<?php echo $CurrentUserID ?>, <?php echo $row['ID_Post'] ?>)"><span id="heartFill" class="material-symbols-outlined"><?php echo $typeText ?></span></button>
+                                                            <a class="like-link" href="/DeltaTrain/likes/<?php echo $row["ID_Post"]?>"><span id="like-cuantity-<?php echo $row['ID_Post'] ?>"><?php echo $quantityLikes ?></span> likes</a>
+                                                            <button onclick="makeComment( <?php echo $row['ID_Post'] ?> )"><span class="material-symbols-outlined">comment</span></a>
+                                                            <?php
+                                                                if($CurrentUserID == $row['FKID_User_Post']){
+                                                                    ?>
+                                                                    <button onclick="deletePost(<?php echo $row['ID_Post'] ?>)"><span class="material-symbols-outlined">delete</span></button>
+                                                                    <?php
+                                                                }
+                                                            ?>
+                                                        </div>
+                                                        <?php
                                                     }else{
-                                                        $typeLike="unlikePost";
-                                                        $typeText="heart_broken";
+                                                        ?>
+                                                        <div class="post-interact-buttons">
+                                                            <a class="like-link" href="/DeltaTrain/likes/<?php echo $row["ID_Post"]?>"><span id="like-cuantity-<?php echo $row['ID_Post'] ?>"><?php echo $quantityLikes ?></span> likes</a>
+                                                        </div>
+                                                        <?php
                                                     }
                                                     ?>
-                                                    <div class="post-interact-buttons">
-                                                        <button id="like-<?php echo $row['ID_Post'] ?>" onclick="<?php echo $typeLike ?>(<?php echo $CurrentUserID ?>, <?php echo $row['ID_Post'] ?>)"><span id="heartFill" class="material-symbols-outlined"><?php echo $typeText ?></span></button>
-                                                        <a class="like-link" href="/DeltaTrain/likes/<?php echo $row["ID_Post"]?>"><span id="like-cuantity-<?php echo $row['ID_Post'] ?>"><?php echo $quantityLikes ?></span> likes</a>
-                                                        <button onclick="makeComment( <?php echo $row['ID_Post'] ?> )"><span class="material-symbols-outlined">comment</span></a>
-                                                    </div>
-                                                    <?php
-                                                }else{
-                                                    ?>
-                                                    <div class="post-interact-buttons">
-                                                        <a class="like-link" href="/DeltaTrain/likes/<?php echo $row["ID_Post"]?>"><span id="like-cuantity-<?php echo $row['ID_Post'] ?>"><?php echo $quantityLikes ?></span> likes</a>
-                                                    </div>
-                                                    <?php
-                                                }
-                                                ?>
-                                        </div>
+                                            </div>
+                                        <?php
+                                    }
+                                    ?>
+                                    </div>
+                                    <?php
+                                }else{
+                                    ?>
+                                    <div class="post-list">
+                                        <p>Este post fue borrado.</p>
+                                    </div>
                                     <?php
                                 }
-                                ?>
-                                </div>
-                                <?php
                             }
                             ?>
                         </div>
@@ -248,111 +264,126 @@ session_start();
                 $query="SELECT * FROM Post WHERE ID_Post = ".$_GET['postID']." ORDER BY Date_Post DESC";
                 $result = mysqli_query($conexion, $query);
                 while($row=mysqli_fetch_assoc($result)){
-                    ?>
-                    <div class="posts">
-                    <?php
-                    $query2 = "SELECT * FROM User WHERE ID_User = ".$row["FKID_User_Post"];
-                    $result2 = mysqli_query($conexion, $query2);
-                    while($row2=mysqli_fetch_assoc($result2)){
+                    if($row["Visibility_Post"] == 0){
                         ?>
-                            <div class="post-list">
-                                <a  href="/DeltaTrain/<?php echo $row2["Username_User"] ?>">
-                                    <div class="post-list-img-container">
-                                        <img src="/DeltaTrain/imgs/Default-PFP.jpg" id="follow-list-img-<?php echo $row2["Username_User"].$row["ID_Post"] ?>">
-                                        <?php if(!is_null($row2["Pfp_User"])){
-                                            ?><script>loadpfp('data:image/jpeg;base64,<?php echo base64_encode($row2["Pfp_User"]); ?>', "follow-list-img-<?php echo $row2["Username_User"].$row["ID_Post"] ?>");</script><?php
-                                        } #carga el pfp del usuario?>
-                                    </div>
-                                    <div class="post-list-data">
-                                        <h3><?php echo $row2["Name_User"]." ".$row2["LastName_User"]?></h3>
-                                        <p>@<?php echo $row2["Username_User"] ?></p>
-                                        <?php $rdate=date("j/F/y  g:i A", strtotime($row["Date_Post"]));?>
-                                        <p class="date"><small> <?php echo $rdate ?> </small></p>
-                                    </div>
-                                    </a>
-                                <br>
-                                <p class="post-text"><?php echo nl2br($row["Info_Post"]) ?></p>
-                                <?php #Esta parte checa si hay elemento para añadir
-                                    if(isset($row["Media_Post"])){
-                                        ?>
-                                        <div id="media-container-ex" class="media-container"><?php
-                                        if($row["MediaType_Post"] == 0){
+                        <div class="posts">
+                        <?php
+                        $query2 = "SELECT * FROM User WHERE ID_User = ".$row["FKID_User_Post"];
+                        $result2 = mysqli_query($conexion, $query2);
+                        while($row2=mysqli_fetch_assoc($result2)){
+                            ?>
+                                <div class="post-list">
+                                    <a  href="/DeltaTrain/<?php echo $row2["Username_User"] ?>">
+                                        <div class="post-list-img-container">
+                                            <img src="/DeltaTrain/imgs/Default-PFP.jpg" id="follow-list-img-<?php echo $row2["Username_User"].$row["ID_Post"] ?>">
+                                            <?php if(!is_null($row2["Pfp_User"])){
+                                                ?><script>loadpfp('data:image/jpeg;base64,<?php echo base64_encode($row2["Pfp_User"]); ?>', "follow-list-img-<?php echo $row2["Username_User"].$row["ID_Post"] ?>");</script><?php
+                                            } #carga el pfp del usuario?>
+                                        </div>
+                                        <div class="post-list-data">
+                                            <h3><?php echo $row2["Name_User"]." ".$row2["LastName_User"]?></h3>
+                                            <p>@<?php echo $row2["Username_User"] ?></p>
+                                            <?php $rdate=date("j/F/y  g:i A", strtotime($row["Date_Post"]));?>
+                                            <p class="date"><small> <?php echo $rdate ?> </small></p>
+                                        </div>
+                                        </a>
+                                    <br>
+                                    <p class="post-text"><?php echo nl2br($row["Info_Post"]) ?></p>
+                                    <?php #Esta parte checa si hay elemento para añadir
+                                        if(isset($row["Media_Post"])){
                                             ?>
-                                                <img src="data:image/jpeg;base64,<?php echo base64_encode($row["Media_Post"]); ?>"> 
-                                            <?php
-                                        }else{
-                                            ?>
-                                                <video src="data:video/mp4;base64,<?php echo base64_encode($row["Media_Post"]); ?>" type='video/mp4' controls=""> 
-                                            <?php
-                                        }
-                                        ?></div><?php
-                                    }
-                                ?>
-                                <?php #Esta parte checa si hay link para añadir
-                                    if(isset($row["FKID_UserActivity_Post"])){
-                                        $query3 = "SELECT * FROM UserActivity WHERE ID_UserActivity = ".$row['FKID_UserActivity_Post'];
-                                        $result3 = mysqli_query($conexion, $query3);
-                                        $name="";
-                                        $dir="";
-                                        while($row3=mysqli_fetch_assoc($result3)){
-                                            $sID="";
-                                            if($row3["Type_UserActivity"] == 1){ #rutinas
-                                                $query4 = "SELECT * FROM Routine WHERE ID_Routine = ".$row3['FKID_Routine_UserActivity'];
-                                                $sID = "Name_Routine";
-                                                $dir="routines/".$row3['FKID_Routine_UserActivity'];
+                                            <div id="media-container-ex" class="media-container"><?php
+                                            if($row["MediaType_Post"] == 0){
+                                                ?>
+                                                    <img src="data:image/jpeg;base64,<?php echo base64_encode($row["Media_Post"]); ?>"> 
+                                                <?php
                                             }else{
-                                                $query4 = "SELECT * FROM Recipe WHERE ID_Recipe = ".$row3['FKID_Recipe_UserActivity'];
-                                                $sID = "Name_Recipe";
-                                                $dir="recipes/".$row3['FKID_Recipe_UserActivity'];
+                                                ?>
+                                                    <video src="data:video/mp4;base64,<?php echo base64_encode($row["Media_Post"]); ?>" type='video/mp4' controls=""> 
+                                                <?php
                                             }
-                                            $result4 = mysqli_query($conexion, $query4);
-                                            while($row4=mysqli_fetch_assoc($result4)){
-                                                $name =  $row4[$sID];
+                                            ?></div><?php
+                                        }
+                                    ?>
+                                    <?php #Esta parte checa si hay link para añadir
+                                        if(isset($row["FKID_UserActivity_Post"])){
+                                            $query3 = "SELECT * FROM UserActivity WHERE ID_UserActivity = ".$row['FKID_UserActivity_Post'];
+                                            $result3 = mysqli_query($conexion, $query3);
+                                            $name="";
+                                            $dir="";
+                                            while($row3=mysqli_fetch_assoc($result3)){
+                                                $sID="";
+                                                if($row3["Type_UserActivity"] == 1){ #rutinas
+                                                    $query4 = "SELECT * FROM Routine WHERE ID_Routine = ".$row3['FKID_Routine_UserActivity'];
+                                                    $sID = "Name_Routine";
+                                                    $dir="routines/".$row3['FKID_Routine_UserActivity'];
+                                                }else{
+                                                    $query4 = "SELECT * FROM Recipe WHERE ID_Recipe = ".$row3['FKID_Recipe_UserActivity'];
+                                                    $sID = "Name_Recipe";
+                                                    $dir="recipes/".$row3['FKID_Recipe_UserActivity'];
+                                                }
+                                                $result4 = mysqli_query($conexion, $query4);
+                                                while($row4=mysqli_fetch_assoc($result4)){
+                                                    $name =  $row4[$sID];
+                                                }
                                             }
+                                            ?>
+                                            <a class="link" href="/DeltaTrain/<?php echo $dir ?>"><?php echo $name ?></a>
+                                            <?php
                                         }
                                         ?>
-                                        <a class="link" href="/DeltaTrain/<?php echo $dir ?>"><?php echo $name ?></a>
-                                        <?php
-                                    }
-                                    ?>
-                                    <?php #Esta madre permite hacer los likes y demás
-                                    $quantityLikes=0;
-                                    $query3 = "SELECT * FROM LikedPost WHERE FKID_Post_LikedPost = ".$row["ID_Post"];
-                                    $result3 = mysqli_query($conexion, $query3);
-                                    $quantityLikes = mysqli_num_rows($result3);
-                                    if(isset($_SESSION["CurrentUserIDSession"])){
-                                        $typeLike="likePost";
-                                        $typeText="";
-                                        $query3 = "SELECT * FROM LikedPost WHERE FKID_Post_LikedPost = ".$row["ID_Post"]." AND FKID_User_LikedPost =".$_SESSION["CurrentUserIDSession"];
+                                        <?php #Esta madre permite hacer los likes y demás
+                                        $quantityLikes=0;
+                                        $query3 = "SELECT * FROM LikedPost WHERE FKID_Post_LikedPost = ".$row["ID_Post"];
                                         $result3 = mysqli_query($conexion, $query3);
-                                        if(mysqli_num_rows($result3)==0){
+                                        $quantityLikes = mysqli_num_rows($result3);
+                                        if(isset($_SESSION["CurrentUserIDSession"])){
                                             $typeLike="likePost";
-                                            $typeText="favorite";
+                                            $typeText="";
+                                            $query3 = "SELECT * FROM LikedPost WHERE FKID_Post_LikedPost = ".$row["ID_Post"]." AND FKID_User_LikedPost =".$_SESSION["CurrentUserIDSession"];
+                                            $result3 = mysqli_query($conexion, $query3);
+                                            if(mysqli_num_rows($result3)==0){
+                                                $typeLike="likePost";
+                                                $typeText="favorite";
+                                            }else{
+                                                $typeLike="unlikePost";
+                                                $typeText="heart_broken";
+                                            }
+                                            ?>
+                                            <div class="post-interact-buttons">
+                                                <button id="like-<?php echo $row['ID_Post'] ?>" onclick="<?php echo $typeLike ?>(<?php echo $CurrentUserID ?>, <?php echo $row['ID_Post'] ?>)"><span id="heartFill" class="material-symbols-outlined"><?php echo $typeText ?></span></button>
+                                                <a class="like-link" href="/DeltaTrain/likes/<?php echo $row["ID_Post"]?>"><span id="like-cuantity-<?php echo $row['ID_Post'] ?>"><?php echo $quantityLikes ?></span> likes</a>
+                                                <button onclick="makeComment( <?php echo $row['ID_Post'] ?> )"><span class="material-symbols-outlined">comment</span></a>
+                                                <?php
+                                                    if($CurrentUserID == $row['FKID_User_Post']){
+                                                        ?>
+                                                        <button onclick="deletePost(<?php echo $row['ID_Post'] ?>)"><span class="material-symbols-outlined">delete</span></button>
+                                                        <?php
+                                                    }
+                                                ?>
+                                            </div>
+                                            <?php
                                         }else{
-                                            $typeLike="unlikePost";
-                                            $typeText="heart_broken";
+                                            ?>
+                                            <div class="post-interact-buttons">
+                                                <a class="like-link" href="/DeltaTrain/likes/<?php echo $row["ID_Post"]?>"><span id="like-cuantity-<?php echo $row['ID_Post'] ?>"><?php echo $quantityLikes ?></span> likes</a>
+                                            </div>
+                                            <?php
                                         }
                                         ?>
-                                        <div class="post-interact-buttons">
-                                            <button id="like-<?php echo $row['ID_Post'] ?>" onclick="<?php echo $typeLike ?>(<?php echo $CurrentUserID ?>, <?php echo $row['ID_Post'] ?>)"><span id="heartFill" class="material-symbols-outlined"><?php echo $typeText ?></span></button>
-                                            <a class="like-link" href="/DeltaTrain/likes/<?php echo $row["ID_Post"]?>"><span id="like-cuantity-<?php echo $row['ID_Post'] ?>"><?php echo $quantityLikes ?></span> likes</a>
-                                            <button onclick="makeComment( <?php echo $row['ID_Post'] ?> )"><span class="material-symbols-outlined">comment</span></a>
-                                        </div>
-                                        <?php
-                                    }else{
-                                        ?>
-                                        <div class="post-interact-buttons">
-                                            <a class="like-link" href="/DeltaTrain/likes/<?php echo $row["ID_Post"]?>"><span id="like-cuantity-<?php echo $row['ID_Post'] ?>"><?php echo $quantityLikes ?></span> likes</a>
-                                        </div>
-                                        <?php
-                                    }
-                                    ?>
-                            </div>
+                                </div>
+                            <?php
+                        }
+                        ?>
+                        </div>
+                        <?php
+                    }else{
+                        ?>
+                        <div class="post-list">
+                            <p>Este post fue borrado.</p>
+                        </div>
                         <?php
                     }
-                    ?>
-                    </div>
-                    <?php
                 }
                 ?>
             </div>
@@ -427,7 +458,7 @@ session_start();
 
             <div id="posts-container" class="posts-container">
                 <?php
-                $query="SELECT * FROM Post WHERE FKID_Post_Post = ".$_GET["postID"]." ORDER BY Date_Post DESC";
+                $query="SELECT * FROM Post WHERE FKID_Post_Post = ".$_GET["postID"]." AND Visibility_Post = 0 ORDER BY Date_Post DESC";
                 $result = mysqli_query($conexion, $query);
                 while($row=mysqli_fetch_assoc($result)){
                     ?>
@@ -519,7 +550,13 @@ session_start();
                                             <button id="like-<?php echo $row['ID_Post'] ?>" onclick="<?php echo $typeLike ?>(<?php echo $CurrentUserID ?>, <?php echo $row['ID_Post'] ?>)"><span id="heartFill" class="material-symbols-outlined"><?php echo $typeText ?></span></button>
                                             <a class="like-link" href="/DeltaTrain/likes/<?php echo $row["ID_Post"]?>"><span id="like-cuantity-<?php echo $row['ID_Post'] ?>"><?php echo $quantityLikes ?></span> likes</a>
                                             <button onclick="makeComment( <?php echo $row['ID_Post'] ?> )"><span class="material-symbols-outlined">comment</span></a>
-                                            
+                                            <?php
+                                                if($CurrentUserID == $row['FKID_User_Post']){
+                                                    ?>
+                                                    <button onclick="deletePost(<?php echo $row['ID_Post'] ?>)"><span class="material-symbols-outlined">delete</span></button>
+                                                    <?php
+                                                }
+                                            ?>
                                         </div>
                                         <?php
                                     }else{

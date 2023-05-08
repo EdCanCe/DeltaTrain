@@ -76,6 +76,7 @@
 
 .sidebar.active .logoDT img {
   opacity: 1;
+  width: 80px;
 }
 
 /*Estilos del contenedor del usuario*/
