@@ -1,5 +1,5 @@
 /* create Database DeltaTrain; */
-use id20511897_dt;
+/*use id20511897_dt;*/
 
 create table User(
     ID_User bigint NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -127,8 +127,7 @@ CREATE TABLE Changes(
     User_Changes VARCHAR(50) NOT NULL,
     Table_Changes VARCHAR(50) NOT NULL,
     Time_Changes DATETIME,
-    Description_Changes VARCHAR(255) NOT NULL,
-    PRIMARY KEY (ID_Changes)
+    Description_Changes VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE Notis(
@@ -165,69 +164,69 @@ INSERT INTO NONUSABLE VALUES ("support");
 INSERT INTO NONUSABLE VALUES ("user");
 INSERT INTO NONUSABLE VALUES ("post");
 
-ALTER TABLE 'Post' CHANGE 'Info_Post' 'Info_Post' TEXT CHARACTER SET CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
-ALTER TABLE 'User' CHANGE 'Description_User' 'Description_User' VARCHAR(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL; 
+ALTER TABLE `Post` CHANGE `Info_Post` `Info_Post` TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
+ALTER TABLE `User` CHANGE `Description_User` `Description_User` VARCHAR(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL; 
 
 DELIMITER $$
 CREATE TRIGGER userCreate AFTER INSERT on User FOR EACH row BEGIN
 INSERT INTO Changes (User_Changes, Table_Changes, Description_Changes, Time_Changes)
-    VALUES (USER(), 'User', CONCAT('Creación de cuenta del usuario con ID ', NEW.ID_User), NOW());
+    VALUES (USER(), `User`, CONCAT(`Creación de cuenta del usuario con ID `, NEW.ID_User), NOW());
 END $$
 DELIMITER;
 
 DELIMITER $$
 CREATE TRIGGER postCreate AFTER INSERT on Post FOR EACH row BEGIN
 INSERT INTO Changes (User_Changes, Table_Changes, Description_Changes, Time_Changes)
-    VALUES (USER(), 'Post', CONCAT('Se creó el post con ID ', NEW.ID_Post, ', lo creó el usuario con ID ', NEW.FKID_User_Post), NOW());
+    VALUES (USER(), `Post`, CONCAT(`Se creó el post con ID `, NEW.ID_Post, `, lo creó el usuario con ID `, NEW.FKID_User_Post), NOW());
 END $$
 DELIMITER;
 
 DELIMITER $$
 CREATE TRIGGER followDone AFTER INSERT on Follow FOR EACH row BEGIN
 INSERT INTO Changes (User_Changes, Table_Changes, Description_Changes, Time_Changes)
-    VALUES (USER(), 'Follow', CONCAT('El usuario con ID ', NEW.FKID_UserA_Follow, ' ahora sigue al usuario con ID ', NEW.FKID_UserB_Follow), NOW());
+    VALUES (USER(), `Follow`, CONCAT(`El usuario con ID `, NEW.FKID_UserA_Follow, ` ahora sigue al usuario con ID `, NEW.FKID_UserB_Follow), NOW());
 END $$
 DELIMITER;
 
 DELIMITER $$
 CREATE TRIGGER followUndone AFTER DELETE on Follow FOR EACH row BEGIN
 INSERT INTO Changes (User_Changes, Table_Changes, Description_Changes, Time_Changes)
-    VALUES (USER(), 'Follow', CONCAT('El usuario con ID ', OLD.FKID_UserA_Follow, ' dejó de seguir al usuario con ID ', OLD.FKID_UserB_Follow), NOW());
+    VALUES (USER(), `Follow`, CONCAT(`El usuario con ID `, OLD.FKID_UserA_Follow, ` dejó de seguir al usuario con ID `, OLD.FKID_UserB_Follow), NOW());
 END $$
 DELIMITER;
 
 DELIMITER $$
 CREATE TRIGGER likeDone AFTER INSERT on LikedPost FOR EACH row BEGIN
 INSERT INTO Changes (User_Changes, Table_Changes, Description_Changes, Time_Changes)
-    VALUES (USER(), 'LikedPost', CONCAT('El usuario con ID ', NEW.FKID_User_LikedPost, ' le dió like al post con ID ', NEW.FKID_Post_LikedPost), NOW());
+    VALUES (USER(), `LikedPost`, CONCAT(`El usuario con ID `, NEW.FKID_User_LikedPost, ` le dió like al post con ID `, NEW.FKID_Post_LikedPost), NOW());
 END $$
 DELIMITER;
 
 DELIMITER $$
 CREATE TRIGGER likeUndone AFTER DELETE on LikedPost FOR EACH row BEGIN
 INSERT INTO Changes (User_Changes, Table_Changes, Description_Changes, Time_Changes)
-    VALUES (USER(), 'LikedPost', CONCAT('El usuario con ID ', OLD.FKID_User_LikedPost, ' le quitó el like al post con ID ', OLD.FKID_Post_LikedPost), NOW());
+    VALUES (USER(), `LikedPost`, CONCAT(`El usuario con ID `, OLD.FKID_User_LikedPost, ` le quitó el like al post con ID `, OLD.FKID_Post_LikedPost), NOW());
 END $$
 DELIMITER;
 
 DELIMITER $$
 CREATE TRIGGER createExercise AFTER INSERT on Exercise FOR EACH row BEGIN
 INSERT INTO Changes (User_Changes, Table_Changes, Description_Changes, Time_Changes)
-    VALUES (USER(), 'Exercise', CONCAT('Se creó un nuevo ejercicio con ID ', NEW.ID_Exercise), NOW());
+    VALUES (USER(), `Exercise`, CONCAT(`Se creó un nuevo ejercicio con ID `, NEW.ID_Exercise), NOW());
 END $$
 DELIMITER;
 
 DELIMITER $$
 CREATE TRIGGER createRoutine AFTER INSERT on Routine FOR EACH row BEGIN
 INSERT INTO Changes (User_Changes, Table_Changes, Description_Changes, Time_Changes)
-    VALUES (USER(), 'Routine', CONCAT('El usuario con ID ', NEW.FKID_User_Routine, ' creó una rutina con ID ', NEW.ID_Routine), NOW());
+    VALUES (USER(), `Routine`, CONCAT(`El usuario con ID `, NEW.FKID_User_Routine, ` creó una rutina con ID `, NEW.ID_Routine), NOW());
 END $$
 DELIMITER;
 
 DELIMITER $$
 CREATE TRIGGER linkRoutineExercise AFTER INSERT on RoutineExercise FOR EACH row BEGIN
 INSERT INTO Changes (User_Changes, Table_Changes, Description_Changes, Time_Changes)
-    VALUES (USER(), 'RoutineExercise', CONCAT('El ejercicio con ID ', NEW.FK_Exercise_RoutineExercise, ' está vinculado a la rutina con ID ', NEW.FKID_Routine_RoutineExercise), NOW());
+    VALUES (USER(), `RoutineExercise`, CONCAT(`El ejercicio con ID `, NEW.FK_Exercise_RoutineExercise, ` está vinculado a la rutina con ID `, NEW.FKID_Routine_RoutineExercise), NOW());
 END $$
 DELIMITER;
 
@@ -235,11 +234,11 @@ DELIMITER $$
 CREATE TRIGGER createActivity AFTER INSERT on UserActivity FOR EACH row BEGIN
 IF NEW.FKID_Recipe_UserActivity IS NULL THEN 
     INSERT INTO Changes (User_Changes, Table_Changes, Description_Changes, Time_Changes)
-    VALUES (USER(), 'UserActivity', CONCAT('Se creó una rutina con ID propio de ', NEW.FKID_Routine_UserActivity, ' y de actividad de ', NEW.ID_UserActivity), NOW());
+    VALUES (USER(), `UserActivity`, CONCAT(`Se creó una rutina con ID propio de `, NEW.FKID_Routine_UserActivity, ` y de actividad de `, NEW.ID_UserActivity), NOW());
 END IF;
 IF NEW.FKID_Routine_UserActivity IS NULL THEN 
     INSERT INTO Changes (User_Changes, Table_Changes, Description_Changes, Time_Changes)
-    VALUES (USER(), 'UserActivity', CONCAT('Se creó una receta con ID propio de ', NEW.FKID_Recipe_UserActivity, ' y de actividad de ', NEW.ID_UserActivity), NOW());
+    VALUES (USER(), `UserActivity`, CONCAT(`Se creó una receta con ID propio de `, NEW.FKID_Recipe_UserActivity, ` y de actividad de `, NEW.ID_UserActivity), NOW());
 END IF;
 END $$
 DELIMITER;
@@ -247,27 +246,27 @@ DELIMITER;
 DELIMITER $$
 CREATE TRIGGER createVisual AFTER INSERT on Visuals FOR EACH row BEGIN
 INSERT INTO Changes (User_Changes, Table_Changes, Description_Changes, Time_Changes)
-    VALUES (USER(), 'Visuals', CONCAT('La actividad con ID ', NEW.FKID_UserActivity_Visuals, ' tiene un agregado visual con ID ', NEW.ID_Visuals), NOW());
+    VALUES (USER(), `Visuals`, CONCAT(`La actividad con ID `, NEW.FKID_UserActivity_Visuals, ` tiene un agregado visual con ID `, NEW.ID_Visuals), NOW());
 END $$
 DELIMITER;
 
 DELIMITER $$
 CREATE TRIGGER createIngredient AFTER INSERT on Ingredient FOR EACH row BEGIN
 INSERT INTO Changes (User_Changes, Table_Changes, Description_Changes, Time_Changes)
-    VALUES (USER(), 'Ingredient', CONCAT('Se creó un nuevo ingrediente con ID ', NEW.ID_Ingredient), NOW());
+    VALUES (USER(), `Ingredient`, CONCAT(`Se creó un nuevo ingrediente con ID `, NEW.ID_Ingredient), NOW());
 END $$
 DELIMITER;
 
 DELIMITER $$
 CREATE TRIGGER createRecipe AFTER INSERT on Recipe FOR EACH row BEGIN
 INSERT INTO Changes (User_Changes, Table_Changes, Description_Changes, Time_Changes)
-    VALUES (USER(), 'Recipe', CONCAT('El usuario con ID ', NEW.FKID_User_Recipe, ' creó una receta con ID ', NEW.ID_Recipe), NOW());
+    VALUES (USER(), `Recipe`, CONCAT(`El usuario con ID `, NEW.FKID_User_Recipe, ` creó una receta con ID `, NEW.ID_Recipe), NOW());
 END $$
 DELIMITER;
 
 DELIMITER $$
 CREATE TRIGGER linkRecipeIngredient AFTER INSERT on RecipeIngredient FOR EACH row BEGIN
 INSERT INTO Changes (User_Changes, Table_Changes, Description_Changes, Time_Changes)
-    VALUES (USER(), 'RecipeIngredient', CONCAT('El ingrediente con ID ', NEW.FKID_Ingredient_RecipeIngredient, ' está vinculado a la receta con ID ', NEW.FKID_Recipe_RecipeIngredient), NOW());
+    VALUES (USER(), `RecipeIngredient`, CONCAT(`El ingrediente con ID `, NEW.FKID_Ingredient_RecipeIngredient, ` está vinculado a la receta con ID `, NEW.FKID_Recipe_RecipeIngredient), NOW());
 END $$
 DELIMITER;
